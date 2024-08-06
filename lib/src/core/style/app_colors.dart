@@ -2,6 +2,7 @@ import 'dart:ui';
 
 final class AppColors {
   //dicoveriy page top colors
+  static const Color l111719 = Color(0xff111719);
   static const Color lF83B01 = Color(0xffF83B01); //eng kop ishlatilgan rang ekan
   static const Color lF96234 = Color(0xffF96234);
   static const Color lFED8CC = Color(0xffFED8CC);
