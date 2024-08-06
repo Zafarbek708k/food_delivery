@@ -1,38 +1,69 @@
 import 'package:flutter/material.dart';
+import 'package:food_delivery/src/feature/home/pages/discovery_page.dart';
+import '../widgets/bottom_nav_bar_widget.dart';
 
-class MyHomePage extends StatelessWidget {
-  MyHomePage({super.key});
+class MyHomePage extends StatefulWidget {
+  const MyHomePage({super.key});
+
+  @override
+  State<MyHomePage> createState() => _MyHomePageState();
+}
+
+class _MyHomePageState extends State<MyHomePage> {
   PageController controller = PageController();
-  int currentPage = 1;
-  List <Widget> list = [];
+  int currentPage = 0;
+  List<Widget> pages = const [
+    DiscoveryPage(),
+    Center(child: Text("Page 2", style: TextStyle(color: Colors.black))),
+    Center(child: Text("Page 3", style: TextStyle(color: Colors.black))),
+    Center(child: Text("Page 4", style: TextStyle(color: Colors.black)))
+  ];
 
+  @override
+  void initState() {
+    super.initState();
+  }
 
-
+  void onPageChanged(int index) {
+    setState(() {
+      currentPage = index;
+    });
+    controller.animateToPage(
+      index,
+      duration: const Duration(milliseconds: 300),
+      curve: Curves.easeInOut,
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
-    return  Scaffold(
+    return Scaffold(
       appBar: AppBar(),
-      body: Center(
-        child: PageView.builder(
+      body: Stack(
+        children: [
+          PageView(
             controller: controller,
-            itemCount: list.length,
-            onPageChanged: (value){
-              currentPage = value;
+            physics: const NeverScrollableScrollPhysics(),
+            onPageChanged: (value) {
+              setState(() {
+                currentPage = value;
+              });
             },
-            itemBuilder: (context, index){
-          return list.isEmpty ? Text("data") : list[currentPage-1];
-        }),
-      ),
-      bottomNavigationBar: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: BottomNavigationBar(items: [
-          BottomNavigationBarItem(icon: Icon(Icons.home), label: ""),
-          BottomNavigationBarItem(icon: Icon(Icons.home), label: ""),
-          BottomNavigationBarItem(icon: Icon(Icons.home), label: ""),
-          BottomNavigationBarItem(icon: Icon(Icons.home), label: ""),
-        ]),
+            children: pages,
+          ),
+          Positioned(
+            bottom: 0,
+            left: 0,
+            right: 0,
+            child: BottomNavBarWidget(
+              currentPage: currentPage,
+              onTap: onPageChanged,
+            ),
+          ),
+        ],
       ),
     );
   }
 }
+
+
