@@ -41,7 +41,7 @@ class ApiService {
       ],
     );
 
-    (_dio.httpClientAdapter as DefaultHttpClientAdapter).onHttpClientCreate = (HttpClient client) {
+    (_dio.httpClientAdapter as IOHttpClientAdapter).onHttpClientCreate = (HttpClient client) {
       client.badCertificateCallback = (X509Certificate cert, String host, int port) => true;
       return client;
     };
@@ -71,7 +71,7 @@ class ApiService {
     } on TimeoutException catch (_) {
       l.e('The connection has timed out, Please try again!');
       rethrow;
-    } on DioError catch (e) {
+    } on DioException catch (e) {
       l.e(e.response.toString());
       rethrow;
     } on Object catch (e) {
@@ -87,7 +87,7 @@ class ApiService {
     } on TimeoutException catch (_) {
       l.e('The connection has timed out, Please try again!');
       rethrow;
-    } on DioError catch (e) {
+    } on DioException catch (e) {
       l.e(e.response.toString());
       rethrow;
     } on Object catch (_) {
@@ -130,7 +130,7 @@ class ApiService {
       );
 
       return jsonEncode(response.data);
-    } on DioError catch (e) {
+    } on DioException catch (e) {
       l.e(e.response.toString());
       rethrow;
     } on Object catch (_) {
@@ -146,7 +146,7 @@ class ApiService {
     } on TimeoutException catch (_) {
       l.e('The connection has timed out, Please try again!');
       rethrow;
-    } on DioError catch (e) {
+    } on DioException catch (e) {
       l.e(e.response.toString());
       rethrow;
     } on Object catch (_) {
@@ -165,7 +165,7 @@ class ApiService {
     } on TimeoutException catch (_) {
       l.e('The connection has timed out, Please try again!');
       rethrow;
-    } on DioError catch (e) {
+    } on DioException catch (e) {
       l.e(e.response.toString());
       rethrow;
     } on Object catch (_) {
@@ -180,7 +180,7 @@ class ApiService {
     } on TimeoutException catch (_) {
       l.e('The connection has timed out, Please try again!');
       rethrow;
-    } on DioError catch (e) {
+    } on DioException catch (e) {
       l.e(e.response.toString());
       rethrow;
     } on Object catch (_) {
