@@ -16,7 +16,7 @@ class _LoginPageState extends State<LoginPage> {
        body: Column(
         children: [
           Padding(
-            padding: const EdgeInsets.all(8.0),
+            padding: const EdgeInsets.only(top: 100),
             child: Align(
               alignment: Alignment.centerLeft,
               child: Text("Login",style: const AppTextStyle().CategorysNameLarge,),
