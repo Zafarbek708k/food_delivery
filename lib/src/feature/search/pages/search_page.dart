@@ -1,6 +1,7 @@
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
+import 'package:food_delivery/src/feature/search/widgets/search_text_fild_custom.dart';
 
 class SearchPage extends StatelessWidget {
   final List<String> tags = [
@@ -49,9 +50,8 @@ class SearchPage extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               // Search bar
-              
+              const SearchTextfildCustom(),
               const SizedBox(height: 16.0),
-
               // Tags/Buttons
               Wrap(
                 spacing: 8.0,
