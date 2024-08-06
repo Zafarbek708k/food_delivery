@@ -1,4 +1,5 @@
 import "package:flutter/material.dart";
+import "package:food_delivery/src/core/style/app_colors.dart";
 
 @immutable
 class AppTextStyle extends TextTheme {

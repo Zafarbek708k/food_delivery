@@ -16,27 +16,27 @@ final class AppThemes {
       : darkTheme = ThemeData(
           brightness: Brightness.dark,
           colorScheme: darkColorScheme,
-          scaffoldBackgroundColor: AppColors.secondaryColor,
+          scaffoldBackgroundColor: Colors.white,
           textTheme: const AppTextStyle(),
         ),
 
         lightTheme = ThemeData(
           brightness: Brightness.light,
           colorScheme: lightColorScheme,
-          scaffoldBackgroundColor: AppColors.cFF5C00,
+          scaffoldBackgroundColor: Colors.white,
           textTheme: const AppTextStyle(),
         );
 
   static ThemeData light() => ThemeData(
         brightness: Brightness.light,
         colorScheme: lightColorScheme,
-        scaffoldBackgroundColor: AppColors.cFF5C00,
+        scaffoldBackgroundColor: Colors.white,
       );
 
   static ThemeData dark() => ThemeData(
         brightness: Brightness.dark,
         colorScheme: darkColorScheme,
-        scaffoldBackgroundColor: AppColors.secondaryColor,
+        scaffoldBackgroundColor: Colors.white,
       );
 
   ThemeData computeTheme() {

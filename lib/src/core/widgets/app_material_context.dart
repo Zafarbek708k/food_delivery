@@ -1,5 +1,6 @@
 
 import 'package:flutter/material.dart';
+import 'package:food_delivery/src/feature/auth/pages/login_page.dart';
 
 import '../../feature/settings/inherited_locale_notifier.dart';
 import '../../feature/settings/inherited_theme_notifier.dart';
@@ -21,6 +22,7 @@ class AppMaterialContext extends StatelessWidget {
         child: Builder(
             builder: (context) {
               return MaterialApp(
+                home: const LoginPage(),
                 debugShowCheckedModeBanner: false,
                 theme: InheritedThemeNotifier.maybeOf(context)?.theme,
                 locale: InheritedLocalNotifier.maybeOf(context)?.appLocal,
