@@ -1,4 +1,5 @@
 import "package:flutter/material.dart";
+import "package:food_delivery/src/core/style/app_colors.dart";
 
 @immutable
 class AppTextStyle extends TextTheme {
@@ -105,6 +106,7 @@ class AppTextStyle extends TextTheme {
         fontWeight: FontWeight.w500,
         fontSize: FontSize.size16,
         fontFamily: "Rubik",
+        color: AppColors.darkPrimaryColor
       );
 
   @override
