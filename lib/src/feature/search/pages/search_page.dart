@@ -21,17 +21,6 @@ class SearchPage extends StatelessWidget {
     'kebab',
     'breakfast',
     'wings',
-    'desserts',
-    'greek',
-    'italian',
-    'asian',
-    'japanese',
-    'vietnamese',
-    'chinese',
-    'french',
-    'african',
-    'indian',
-    'thai',
   ];
 
   SearchPage({super.key});
@@ -39,13 +28,10 @@ class SearchPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      resizeToAvoidBottomInset: false,
-      appBar: AppBar(
-        title: const Text('Tag UI Example'),
-      ),
-      body: Center(
-        child: Padding(
-          padding: const EdgeInsets.all(16.0),
+      resizeToAvoidBottomInset: true,
+      body: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 30),
+        child: Center(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [

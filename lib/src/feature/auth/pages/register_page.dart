@@ -32,7 +32,7 @@ class RegisterPage extends StatelessWidget {
             const RegisterTexfeildWidgets(),
             Column(
               children: [
-                const LoginButtonWidget(),
+                LoginButtonWidget(onPressed: () {  },),
                 const SizedBox(
                   height: 25,
                 ),

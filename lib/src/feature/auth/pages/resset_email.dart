@@ -3,14 +3,9 @@ import 'package:food_delivery/src/core/style/text_style.dart';
 import 'package:food_delivery/src/feature/auth/widgets/login_button_widget.dart';
 import 'package:food_delivery/src/feature/auth/widgets/resset_password_textfield_widgets.dart';
 
-class RessetPasswordPage extends StatefulWidget {
-  const RessetPasswordPage({super.key});
+class RessetEmail extends StatelessWidget {
+  const RessetEmail({super.key});
 
-  @override
-  State<RessetPasswordPage> createState() => _RessetPasswordPageState();
-}
-
-class _RessetPasswordPageState extends State<RessetPasswordPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -27,7 +22,7 @@ class _RessetPasswordPageState extends State<RessetPasswordPage> {
                 child: Align(
                   alignment: Alignment.topLeft,
                   child: Text(
-                    "Reset password",
+                    "Reset Email",
                     style: AppTextStyle().bodyLargeBold!.copyWith(fontSize: 32),
                   ),
                 ),
