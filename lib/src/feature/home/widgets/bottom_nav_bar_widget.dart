@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:food_delivery/src/core/widgets/blur_widget.dart';
+import 'bottom_nav_bar_item_widget.dart';
 
 class BottomNavBarWidget extends StatelessWidget {
   final int currentPage;
@@ -38,16 +38,41 @@ class BottomNavBarWidget extends StatelessWidget {
               backgroundColor: Colors.white.withOpacity(0.1),
               type: BottomNavigationBarType.fixed,
               items: [
-                BottomNavigationBarItem(icon: SvgPicture.asset("assets/icons/discover_compass_icon.svg"), label: "Discovery"),
-                BottomNavigationBarItem(icon: SvgPicture.asset("assets/icons/home_restaurant_icon.svg"), label: "Restaurant"),
-                BottomNavigationBarItem(icon: SvgPicture.asset("assets/icons/search_icon.svg"), label: "Search"),
-                BottomNavigationBarItem(icon: SvgPicture.asset("assets/icons/favorite_icon.svg"), label: "Favorite"),
-                BottomNavigationBarItem(icon: SvgPicture.asset("assets/icons/profile_icon.svg"), label: "Profile"),
-                // BottomNavigationBarItem(icon: Icon(Icons.compass_calibration_outlined), label: "Discovery"),
-                // const BottomNavigationBarItem(icon: Icon(Icons.home_filled), label: "Restaurants"),
-                // const BottomNavigationBarItem(icon: Icon(Icons.search), label: "Search"),
-                // const BottomNavigationBarItem(icon: Icon(Icons.favorite), label: "Favorite"),
-                // const BottomNavigationBarItem(icon: Icon(Icons.person), label: "Profile"),
+                BottomNavigationBarItem(
+                  icon: NavBarIcon(
+                    assetName: "assets/icons/discover_compass_icon.svg",
+                    isSelected: currentPage == 0,
+                  ),
+                  label: "Discovery",
+                ),
+                BottomNavigationBarItem(
+                  icon: NavBarIcon(
+                    assetName: "assets/icons/home_restaurant_icon.svg",
+                    isSelected: currentPage == 1,
+                  ),
+                  label: "Restaurants",
+                ),
+                BottomNavigationBarItem(
+                  icon: NavBarIcon(
+                    assetName: "assets/icons/search_icon.svg",
+                    isSelected: currentPage == 2,
+                  ),
+                  label: "Search",
+                ),
+                BottomNavigationBarItem(
+                  icon: NavBarIcon(
+                    assetName: "assets/icons/favorite_icon.svg",
+                    isSelected: currentPage == 3,
+                  ),
+                  label: "Favorite",
+                ),
+                BottomNavigationBarItem(
+                  icon: NavBarIcon(
+                    assetName: "assets/icons/profile_icon.svg",
+                    isSelected: currentPage == 4,
+                  ),
+                  label: "Profile",
+                ),
               ],
             ),
           ),
@@ -56,3 +81,4 @@ class BottomNavBarWidget extends StatelessWidget {
     );
   }
 }
+
