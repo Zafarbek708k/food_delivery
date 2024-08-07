@@ -1,22 +1,20 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-class AvatarProvider with ChangeNotifier {
-  String? _avatarPath;
-
-  String? get avatarPath => _avatarPath;
-
-  AvatarProvider() {
+// Define a Notifier for managing avatar state
+class AvatarNotifier extends Notifier<String?> {
+  @override
+  String? build() {
     _loadAvatarPath();
+    return null;
   }
 
   Future<void> _loadAvatarPath() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
-    _avatarPath = prefs.getString('avatarPath');
-    notifyListeners();
+    state = prefs.getString('avatarPath');
   }
 
   Future<void> pickAvatar() async {
@@ -24,9 +22,8 @@ class AvatarProvider with ChangeNotifier {
     final pickedFile = await picker.pickImage(source: ImageSource.gallery);
 
     if (pickedFile != null) {
-      _avatarPath = pickedFile.path;
-      notifyListeners();
-      _saveAvatarPath(_avatarPath!);
+      state = pickedFile.path;
+      _saveAvatarPath(state!);
     }
   }
 
@@ -35,8 +32,7 @@ class AvatarProvider with ChangeNotifier {
   }
 
   Future<void> deleteAvatar() async {
-    _avatarPath = null;
-    notifyListeners();
+    state = null;
     _removeAvatarPath();
   }
 
@@ -51,66 +47,65 @@ class AvatarProvider with ChangeNotifier {
   }
 }
 
-class AvatarWidget extends StatefulWidget {
+// Create a provider for the AvatarNotifier
+final avatarProvider = NotifierProvider<AvatarNotifier, String?>(() => AvatarNotifier());
+
+
+class AvatarWidget extends ConsumerWidget {
   const AvatarWidget({Key? key}) : super(key: key);
 
   @override
-  _AvatarWidgetState createState() => _AvatarWidgetState();
-}
+  Widget build(BuildContext context, WidgetRef ref) {
+    // Watch the avatarProvider for changes
+    final avatarPath = ref.watch(avatarProvider);
 
-class _AvatarWidgetState extends State<AvatarWidget> {
-  @override
-  Widget build(BuildContext context) {
-    return Consumer<AvatarProvider>(
-      builder: (context, avatarProvider, child) {
-        return Column(
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        GestureDetector(
+          onTap: () async {
+            await ref.read(avatarProvider.notifier).pickAvatar();
+            ScaffoldMessenger.of(context).showSnackBar(
+              const SnackBar(
+                backgroundColor: Colors.green,
+                content: Text('Avatar added'),
+              ),
+            );
+          },
+          child: CircleAvatar(
+            radius: 80,
+            backgroundImage:
+            avatarPath != null ? FileImage(File(avatarPath)) : null,
+            child:
+            avatarPath == null ? const Icon(Icons.person, size: 80) : null,
+          ),
+        ),
+        const SizedBox(height: 2),
+        Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            GestureDetector(
-              onTap: () async {
-                await avatarProvider.pickAvatar();
+            IconButton(
+              icon: const Icon(Icons.edit),
+              onPressed: () async {
+                await ref.read(avatarProvider.notifier).updateAvatar();
                 ScaffoldMessenger.of(context).showSnackBar(
-                  const    SnackBar(
-                      backgroundColor: Colors.green,  content: Text('Avatar added')),
+                  const SnackBar(content: Text('Avatar updated')),
                 );
               },
-              child: CircleAvatar(
-                radius: 80,
-                backgroundImage: avatarProvider.avatarPath != null
-                    ? FileImage(File(avatarProvider.avatarPath!))
-                    : null,
-                child: avatarProvider.avatarPath == null
-                    ? const Icon(Icons.person, size: 80)
-                    : null,
-              ),
             ),
-            const SizedBox(height: 2),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                IconButton(
-                  icon: const Icon(Icons.edit),
-                  onPressed: () async {
-                    await avatarProvider.updateAvatar();
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      SnackBar(content: Text('Avatar updated')),
-                    );
-                  },
-                ),
-                IconButton(
-                  icon: const Icon(Icons.delete),
-                  onPressed: () async {
-                    await avatarProvider.deleteAvatar();
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      SnackBar(content: Text('Avatar deleted')),
-                    );
-                  },
-                ),
-              ],
+            IconButton(
+              icon: const Icon(Icons.delete),
+              onPressed: () async {
+                await ref.read(avatarProvider.notifier).deleteAvatar();
+                ScaffoldMessenger.of(context).showSnackBar(
+                  const SnackBar(content: Text('Avatar deleted')),
+                );
+              },
             ),
           ],
-        );
-      },
+        ),
+      ],
     );
   }
 }
+

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import "package:food_delivery/src/feature/profile/pages/my_profile_edit_page.dart";
 
 class ProfilePage extends StatefulWidget {
   const ProfilePage({super.key});
@@ -10,11 +11,10 @@ class ProfilePage extends StatefulWidget {
 
 class _ProfilePageState extends State<ProfilePage> {
   @override
-  Widget build(BuildContext context) {
-    return Scaffold(
+  Widget build(BuildContext context) => Scaffold(
       resizeToAvoidBottomInset: false,
       body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 10),
+        padding:  EdgeInsets.symmetric(horizontal: 10),
         child: Column(
           children: [
             Column(
@@ -64,7 +64,7 @@ class _ProfilePageState extends State<ProfilePage> {
                         width: MediaQuery.of(context).size.width * 0.040,
                       ),
                       TextButton(
-                        onPressed: () {  },
+                        onPressed: () { Navigator.push(context, MaterialPageRoute(builder: (context)=>MyProfileEditPage())); },
                         child: const Text(
                           "My Profile",
                           style: TextStyle(
@@ -238,5 +238,4 @@ class _ProfilePageState extends State<ProfilePage> {
         ),
       ),
     );
-  }
 }
