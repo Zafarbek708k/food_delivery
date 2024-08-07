@@ -12,7 +12,7 @@ class LoginPage extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            SizedBox(height: 150,),
+            const SizedBox(height: 150,),
             const Padding(
               padding: EdgeInsets.only(right: 290),
               child: Text(
@@ -30,7 +30,7 @@ class LoginPage extends StatelessWidget {
               children: [
                 const LoginButtonWidget(),
              
-    SizedBox(height: 25,),
+    const SizedBox(height: 25,),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 80),
               child: Row(
@@ -49,7 +49,7 @@ class LoginPage extends StatelessWidget {
                 ],
               ),
             ),
-            SizedBox(height: 25,),
+            const SizedBox(height: 25,),
           const  Padding(
               padding:  EdgeInsets.symmetric(
                 horizontal: 60,
@@ -78,7 +78,7 @@ class LoginPage extends StatelessWidget {
                 ],
               ),
             ),
-            SizedBox(height: 20,),
+            const SizedBox(height: 20,),
             
             Column(
             
@@ -95,10 +95,10 @@ class LoginPage extends StatelessWidget {
                     onPressed: () {
                       
                     },
-                    child: Text("Facebook"),
+                    child: const Text("Facebook"),
                   ),
                 ),
-                SizedBox(height: 10,),
+                const SizedBox(height: 10,),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 30),
                   child: MaterialButton(
@@ -111,7 +111,7 @@ class LoginPage extends StatelessWidget {
                     onPressed: () {
                       
                     },
-                    child: Text("Facebook"),
+                    child: const Text("Facebook"),
                   ),
                 )
               ],

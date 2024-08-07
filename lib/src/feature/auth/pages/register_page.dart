@@ -13,7 +13,7 @@ class RegisterPage extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            SizedBox(height: 80,),
+            const SizedBox(height: 80,),
             const Padding(
               padding: EdgeInsets.only(right: 260),
               child: Text(
@@ -31,7 +31,7 @@ class RegisterPage extends StatelessWidget {
               children: [
                 const LoginButtonWidget(),
              
-    SizedBox(height: 25,),
+    const SizedBox(height: 25,),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 80),
               child: Row(
@@ -50,7 +50,7 @@ class RegisterPage extends StatelessWidget {
                 ],
               ),
             ),
-            SizedBox(height: 25,),
+            const SizedBox(height: 25,),
           const  Padding(
               padding:  EdgeInsets.symmetric(
                 horizontal: 60,
@@ -79,7 +79,7 @@ class RegisterPage extends StatelessWidget {
                 ],
               ),
             ),
-            SizedBox(height: 20,),
+            const SizedBox(height: 20,),
             
             Column(
             
@@ -96,10 +96,10 @@ class RegisterPage extends StatelessWidget {
                     onPressed: () {
                       
                     },
-                    child: Text("Facebook"),
+                    child: const Text("Facebook"),
                   ),
                 ),
-                SizedBox(height: 10,),
+                const SizedBox(height: 10,),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 30),
                   child: MaterialButton(
@@ -112,7 +112,7 @@ class RegisterPage extends StatelessWidget {
                     onPressed: () {
                       
                     },
-                    child: Text("Facebook"),
+                    child: const Text("Facebook"),
                   ),
                 )
               ],

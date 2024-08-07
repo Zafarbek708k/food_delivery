@@ -22,7 +22,7 @@ class LoginTexfeildWidget extends StatelessWidget {
             ),
           ),
         ),
-        SizedBox(height: 5,),
+        const SizedBox(height: 5,),
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 25),
           child: TextField(
@@ -48,7 +48,7 @@ class LoginTexfeildWidget extends StatelessWidget {
             ),
           ),
         ),
-        SizedBox(height: 15,),
+        const SizedBox(height: 15,),
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20),
           child: Align(
@@ -62,7 +62,7 @@ class LoginTexfeildWidget extends StatelessWidget {
             ),
           ),
         ),
-        SizedBox(height: 5,),
+        const SizedBox(height: 5,),
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 25),
           child: TextField(
