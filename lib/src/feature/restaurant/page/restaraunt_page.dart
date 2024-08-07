@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:food_delivery/src/feature/restaurant/widgets/category_card_widget.dart';
+import 'package:food_delivery/src/feature/restaurant/widgets/restaraunt_card_widget.dart';
 
 class RestaurantsPage extends StatefulWidget {
   const RestaurantsPage({super.key});
@@ -81,7 +83,7 @@ class RestaurantsPageState extends State<RestaurantsPage> {
           ),
           SliverList(
             delegate: SliverChildBuilderDelegate(
-              (context, index) => _buildRestaurantCard(),
+              (context, index) => const RestaurantCard(),
               childCount: 10, // Adjust the number of restaurants as needed
             ),
           ),
@@ -91,122 +93,120 @@ class RestaurantsPageState extends State<RestaurantsPage> {
   }
 
   Widget _buildHorizontalCategories() {
-    return SingleChildScrollView(
+    return const SingleChildScrollView(
       scrollDirection: Axis.horizontal,
       child: Row(
         children: [
-          _buildCategoryCard('Ovqat', 94, 'https://media.express24.uz/r/:w/:h/USkw4zygayqAjhGTgd5qZ.jpg'),
-          _buildCategoryCard('Sea food', 43, 'https://media.express24.uz/r/:w/:h/USkw4zygayqAjhGTgd5qZ.jpg'),
-          _buildCategoryCard('Dessert', 38, 'https://media.express24.uz/r/:w/:h/USkw4zygayqAjhGTgd5qZ.jpg'),
+          CategoryCard(
+              title: "title",
+              places: 15,
+              imageUrl: "https://media.express24.uz/r/:w/:h/USkw4zygayqAjhGTgd5qZ.jpg")
         ],
       ),
     );
   }
 
   Widget _buildAllCategories() {
-    return SingleChildScrollView(
+    return const SingleChildScrollView(
       scrollDirection: Axis.horizontal,
       child: Row(
         children: [
-          _buildCategoryCard('Brunch', 94, 'https://media.express24.uz/r/:w/:h/USkw4zygayqAjhGTgd5qZ.jpg'),
-          _buildCategoryCard('Sea food', 43, 'https://media.express24.uz/r/:w/:h/USkw4zygayqAjhGTgd5qZ.jpg'),
-          _buildCategoryCard('Dessert', 38, 'https://media.express24.uz/r/:w/:h/USkw4zygayqAjhGTgd5qZ.jpg'),
-          _buildCategoryCard('Fast food', 55, 'https://media.express24.uz/r/:w/:h/USkw4zygayqAjhGTgd5qZ.jpg'),
-          _buildCategoryCard('Sushi', 28, 'https://media.express24.uz/r/:w/:h/USkw4zygayqAjhGTgd5qZ.jpg'),
-          _buildCategoryCard(
-              'Steakhouse', 34, 'https://media.express24.uz/r/:w/:h/USkw4zygayqAjhGTgd5qZ.jpg'),
+          CategoryCard(
+              title: "Foot",
+              places: 25,
+              imageUrl: "https://media.express24.uz/r/:w/:h/USkw4zygayqAjhGTgd5qZ.jpg")
         ],
       ),
     );
   }
 
-  Widget _buildCategoryCard(String title, int places, String imageUrl) {
-    return Card(
-      margin: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
-      child: SizedBox(
-        width: 150,
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            ClipRRect(
-              borderRadius:
-                  const BorderRadius.only(topLeft: Radius.circular(14), topRight: Radius.circular(14)),
-              child: Image.network(
-                imageUrl,
-                height: 120,
-                width: double.infinity,
-                fit: BoxFit.cover,
-              ),
-            ),
-            const SizedBox(height: 10),
-            Padding(
-              padding: const EdgeInsets.all(10),
-              child: Column(
-                children: [
-                  Text(
-                    title,
-                    style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-                  ),
-                  const SizedBox(height: 5),
-                  Text('$places places'),
-                ],
-              ),
-            )
-          ],
-        ),
-      ),
-    );
-  }
+  // Widget _buildCategoryCard(String title, int places, String imageUrl) {
+  //   return Card(
+  //     margin: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+  //     child: SizedBox(
+  //       width: 150,
+  //       child: Column(
+  //         crossAxisAlignment: CrossAxisAlignment.start,
+  //         children: [
+  //           ClipRRect(
+  //             borderRadius:
+  //                 const BorderRadius.only(topLeft: Radius.circular(14), topRight: Radius.circular(14)),
+  //             child: Image.network(
+  //               imageUrl,
+  //               height: 120,
+  //               width: double.infinity,
+  //               fit: BoxFit.cover,
+  //             ),
+  //           ),
+  //           const SizedBox(height: 10),
+  //           Padding(
+  //             padding: const EdgeInsets.all(10),
+  //             child: Column(
+  //               children: [
+  //                 Text(
+  //                   title,
+  //                   style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+  //                 ),
+  //                 const SizedBox(height: 5),
+  //                 Text('$places places'),
+  //               ],
+  //             ),
+  //           )
+  //         ],
+  //       ),
+  //     ),
+  //   );
+  // }
 
-  Widget _buildRestaurantCard() {
-    return Card(
-      margin: const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          ClipRRect(
-            borderRadius: const BorderRadius.only(
-              topLeft: Radius.circular(14),
-              topRight: Radius.circular(14),
-            ),
-            child: Image.network(
-              'https://media.express24.uz/r/:w/:h/USkw4zygayqAjhGTgd5qZ.jpg',
-              height: 150,
-              width: double.infinity,
-              fit: BoxFit.cover,
-            ),
-          ),
-          const Padding(
-            padding: EdgeInsets.all(10),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  'Tasty bowl',
-                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-                ),
-                SizedBox(height: 5),
-                Text(
-                  'Choose from a variety of bowl options and tas...',
-                  overflow: TextOverflow.ellipsis,
-                ),
-                SizedBox(height: 5),
-                Row(
-                  children: [
-                    Text('€1.00', style: TextStyle(color: Colors.orange)),
-                    SizedBox(width: 10),
-                    Icon(Icons.access_time, size: 16),
-                    Text('40-50min'),
-                    SizedBox(width: 10),
-                    Icon(Icons.star, size: 16, color: Colors.orange),
-                    Text('9.2'),
-                  ],
-                ),
-              ],
-            ),
-          ),
-        ],
-      ),
-    );
-  }
+  // Widget _buildRestaurantCard() {
+  //   return Card(
+  //     margin: const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
+  //     child: Column(
+  //       crossAxisAlignment: CrossAxisAlignment.start,
+  //       children: [
+  //         ClipRRect(
+  //           borderRadius: const BorderRadius.only(
+  //             topLeft: Radius.circular(14),
+  //             topRight: Radius.circular(14),
+  //           ),
+  //           child: Image.network(
+  //             'https://media.express24.uz/r/:w/:h/USkw4zygayqAjhGTgd5qZ.jpg',
+  //             height: 150,
+  //             width: double.infinity,
+  //             fit: BoxFit.cover,
+  //           ),
+  //         ),
+  //         const Padding(
+  //           padding: EdgeInsets.all(10),
+  //           child: Column(
+  //             crossAxisAlignment: CrossAxisAlignment.start,
+  //             children: [
+  //               Text(
+  //                 'Tasty bowl',
+  //                 style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+  //               ),
+  //               SizedBox(height: 5),
+  //               Text(
+  //                 'Choose from a variety of bowl options and tas...',
+  //                 overflow: TextOverflow.ellipsis,
+  //               ),
+  //               SizedBox(height: 5),
+  //               Row(
+  //                 children: [
+  //                   Text('€1.00', style: TextStyle(color: Colors.orange)),
+  //                   SizedBox(width: 10),
+  //                   Icon(Icons.access_time, size: 16),
+  //                   Text('40-50min'),
+  //                   SizedBox(width: 10),
+  //                   Icon(Icons.star, size: 16, color: Colors.orange),
+  //                   Text('9.2'),
+  //                 ],
+  //               ),
+  //             ],
+  //           ),
+  //         ),
+  //       ],
+  //     ),
+  //   );
+  // }
 }
