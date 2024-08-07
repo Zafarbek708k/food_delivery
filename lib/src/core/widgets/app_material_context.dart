@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:food_delivery/src/feature/auth/pages/verificationcode_page.dart';
 import 'package:food_delivery/src/feature/restaurant/page/delivery_map_page.dart';
 import '../../feature/settings/inherited_locale_notifier.dart';
 import '../../feature/settings/inherited_theme_notifier.dart';
@@ -21,7 +22,7 @@ class AppMaterialContext extends StatelessWidget {
             builder: (context) {
               return MaterialApp(
                 // home: const LoginPage(),
-                home: const MapDeliveryPage(),
+                home: const VerificationcodePage(),
                 debugShowCheckedModeBanner: false,
                 theme: InheritedThemeNotifier.maybeOf(context)?.theme,
                 locale: InheritedLocalNotifier.maybeOf(context)?.appLocal,
