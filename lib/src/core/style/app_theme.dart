@@ -2,7 +2,6 @@ import "package:flutter/foundation.dart";
 import "package:flutter/material.dart";
 import "package:food_delivery/src/core/style/text_style.dart";
 
-import "app_colors.dart";
 import "color_schema.dart";
 
 @immutable
@@ -12,14 +11,12 @@ final class AppThemes {
   final ThemeData lightTheme;
 
   AppThemes({required this.mode})
-
       : darkTheme = ThemeData(
           brightness: Brightness.dark,
           colorScheme: darkColorScheme,
           scaffoldBackgroundColor: Colors.white,
           textTheme: const AppTextStyle(),
         ),
-
         lightTheme = ThemeData(
           brightness: Brightness.light,
           colorScheme: lightColorScheme,

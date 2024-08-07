@@ -1,4 +1,3 @@
-import 'dart:developer';
 import 'package:flutter/material.dart';
 import '../widgets/welcome_page_info_widget.dart';
 import 'home_page.dart';
@@ -39,6 +38,7 @@ class WelcomePage extends StatelessWidget {
                 ),
               ),
             ),
+
             /// this is all widgets (buttons, Text nad anything)
             InfoWelcomePageWidgets(
               googleButton: () {},
@@ -54,5 +54,3 @@ class WelcomePage extends StatelessWidget {
     );
   }
 }
-
-
