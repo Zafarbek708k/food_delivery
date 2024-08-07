@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:food_delivery/src/feature/restaurant/widgets/category_card_widget.dart';
 import 'package:food_delivery/src/feature/restaurant/widgets/restaraunt_card_widget.dart';
 
+import '../../feature_common_widgets/custom_appbar_widget.dart';
+
 class RestaurantsPage extends StatefulWidget {
   const RestaurantsPage({super.key});
 
@@ -15,30 +17,10 @@ class RestaurantsPageState extends State<RestaurantsPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        leading: const Icon(Icons.home),
-        centerTitle: true,
-        title: const Text(
-          "Xurshid Umarov",
-          overflow: TextOverflow.ellipsis,
-        ),
+      appBar: AppBarWidget(
+        appBarText: 'Xurshid Umarov',
         actions: [
-          Row(
-            children: [
-              IconButton(
-                icon: const Icon(Icons.sort),
-                onPressed: () {},
-              ),
-              IconButton(
-                icon: const Icon(Icons.search),
-                onPressed: () {},
-              ),
-              IconButton(
-                icon: const Icon(Icons.more_vert),
-                onPressed: () {},
-              ),
-            ],
-          )
+          IconButton(icon: const Icon(Icons.sort), onPressed: () {}),
         ],
       ),
       body: CustomScrollView(
@@ -71,7 +53,7 @@ class RestaurantsPageState extends State<RestaurantsPage> {
                     ],
                   ),
                   const SizedBox(height: 10),
-                  showAllCategories ? _buildAllCategories() : _buildHorizontalCategories(),
+                  _buildHorizontalCategories(),
                   const SizedBox(height: 20),
                   const Text(
                     'All restaurants',
@@ -98,27 +80,48 @@ class RestaurantsPageState extends State<RestaurantsPage> {
       child: Row(
         children: [
           CategoryCard(
-              title: "title",
-              places: 15,
-              imageUrl: "https://media.express24.uz/r/:w/:h/USkw4zygayqAjhGTgd5qZ.jpg")
+            title: "title",
+            places: 15,
+            imageUrl: "https://freshday.ru/image/cache/catalog/raznye-vidy-italyanskoy-pasty-1152x768.webp",
+          ),
+          CategoryCard(
+            title: "title",
+            places: 15,
+            imageUrl: "https://freshday.ru/image/cache/catalog/raznye-vidy-italyanskoy-pasty-1152x768.webp",
+          ),
+          CategoryCard(
+            title: "title",
+            places: 15,
+            imageUrl: "https://freshday.ru/image/cache/catalog/raznye-vidy-italyanskoy-pasty-1152x768.webp",
+          ),
+          CategoryCard(
+            title: "title",
+            places: 15,
+            imageUrl: "https://freshday.ru/image/cache/catalog/raznye-vidy-italyanskoy-pasty-1152x768.webp",
+          ),
+          CategoryCard(
+            title: "title",
+            places: 15,
+            imageUrl: "https://freshday.ru/image/cache/catalog/raznye-vidy-italyanskoy-pasty-1152x768.webp",
+          ),
         ],
       ),
     );
   }
 
-  Widget _buildAllCategories() {
-    return const SingleChildScrollView(
-      scrollDirection: Axis.horizontal,
-      child: Row(
-        children: [
-          CategoryCard(
-              title: "Foot",
-              places: 25,
-              imageUrl: "https://media.express24.uz/r/:w/:h/USkw4zygayqAjhGTgd5qZ.jpg")
-        ],
-      ),
-    );
-  }
+  // Widget _buildAllCategories() {
+  //   return const SingleChildScrollView(
+  //     scrollDirection: Axis.horizontal,
+  //     child: Row(
+  //       children: [
+  //         CategoryCard(
+  //             title: "Foot",
+  //             places: 25,
+  //             imageUrl: "https://freshday.ru/image/cache/catalog/raznye-vidy-italyanskoy-pasty-1152x768.webp")
+  //       ],
+  //     ),
+  //   );
+  // }
 
   // Widget _buildCategoryCard(String title, int places, String imageUrl) {
   //   return Card(
@@ -170,7 +173,7 @@ class RestaurantsPageState extends State<RestaurantsPage> {
   //             topRight: Radius.circular(14),
   //           ),
   //           child: Image.network(
-  //             'https://media.express24.uz/r/:w/:h/USkw4zygayqAjhGTgd5qZ.jpg',
+  //             'https://freshday.ru/image/cache/catalog/raznye-vidy-italyanskoy-pasty-1152x768.webp',
   //             height: 150,
   //             width: double.infinity,
   //             fit: BoxFit.cover,
