@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:food_delivery/src/feature/feature_common_widgets/custom_appbar_widget.dart';
+import 'package:food_delivery/src/feature/widgets/custom_appbar_widget.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 import '../widgets/discover_delivery_card_widget.dart';

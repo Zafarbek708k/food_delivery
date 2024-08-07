@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:food_delivery/src/feature/restaurant/widgets/category_card_widget.dart';
 import 'package:food_delivery/src/feature/restaurant/widgets/restaraunt_card_widget.dart';
 
-import '../../feature_common_widgets/custom_appbar_widget.dart';
+import '../../widgets/custom_appbar_widget.dart';
 
 class RestaurantsPage extends StatefulWidget {
   const RestaurantsPage({super.key});
