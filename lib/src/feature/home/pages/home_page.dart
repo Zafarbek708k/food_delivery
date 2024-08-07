@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:food_delivery/src/core/widgets/blur_widget.dart';
 import 'package:food_delivery/src/feature/home/pages/discovery_page.dart';
 import 'package:food_delivery/src/feature/profile/pages/profile_page.dart';
 import '../widgets/bottom_nav_bar_widget.dart';
@@ -16,7 +15,6 @@ class _MyHomePageState extends State<MyHomePage> {
   int currentPage = 0;
   List<Widget> pages = const [
     DiscoveryPage(),
-
     Center(child: Text("Page 2", style: TextStyle(color: Colors.black))),
     Center(child: Text("Page 3", style: TextStyle(color: Colors.black))),
     Center(child: Text("Page 4", style: TextStyle(color: Colors.black))),
@@ -68,5 +66,3 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 }
-
-
