@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:food_delivery/src/feature/home/pages/discovery_page.dart';
 import 'package:food_delivery/src/feature/profile/pages/profile_page.dart';
+import 'package:food_delivery/src/feature/restaurant/page/restaraunt_page.dart';
+import 'package:food_delivery/src/feature/search/pages/search_page.dart';
 import '../widgets/bottom_nav_bar_widget.dart';
 
 class MyHomePage extends StatefulWidget {
@@ -13,12 +15,12 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   PageController controller = PageController();
   int currentPage = 0;
-  List<Widget> pages = const [
-    DiscoveryPage(),
-    Center(child: Text("Page 2", style: TextStyle(color: Colors.black))),
-    Center(child: Text("Page 3", style: TextStyle(color: Colors.black))),
-    Center(child: Text("Page 4", style: TextStyle(color: Colors.black))),
-    ProfilePage()
+  List<Widget> pages =  [
+    const DiscoveryPage(),
+    const RestaurantsPage(),
+    SearchPage(),
+    const Center(child: Text("Oybek", style: TextStyle(color: Colors.black))),
+    const ProfilePage()
   ];
 
   @override

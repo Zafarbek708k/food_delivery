@@ -47,7 +47,7 @@ class _RessetPasswordPageState extends State<RessetPasswordPage> {
               const SizedBox(height: 50,),
                       const RessetPasswordTextfieldWidgets(),
                       const SizedBox(height: 80,),
-                     const LoginButtonWidget()
+            LoginButtonWidget(onPressed: () {  },),
           ],
         ),
       ),

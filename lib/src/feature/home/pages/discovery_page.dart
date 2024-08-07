@@ -23,130 +23,132 @@ class _DiscoveryPageState extends State<DiscoveryPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
       appBar: const AppBarWidget(appBarText: 'Home, Ji ',bcgColor: Colors.white,textColor: Colors.black,),
       body: SingleChildScrollView(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            // Banner section
-            SizedBox(
-              height: 250.0,
-              child: Stack(
-                children: [
-                  PageView.builder(
-                    controller: _bannerController,
-                    itemCount: _bannerImages.length,
-                    itemBuilder: (context, index) {
-                      return DiscoveryBannerItemWidget(imageUrl: _bannerImages[index], bannerText: "Get your 30% daily \n discount now!");
-                    },
-                  ),
-                  Positioned(
-                    bottom: 0.0,
-                    left: 0,
-                    right: 0,
-                    child: Center(
-                      child: SmoothPageIndicator(
-                        controller: _bannerController,
-                        count: _bannerImages.length,
-                        effect: const ExpandingDotsEffect(
-                          dotHeight: 8.0,
-                          dotWidth: 8.0,
-                          activeDotColor: Colors.black,
-                          dotColor: Colors.grey,
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 18.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              // Banner section
+              SizedBox(
+                height: 250.0,
+                child: Stack(
+                  children: [
+                    PageView.builder(
+                      controller: _bannerController,
+                      itemCount: _bannerImages.length,
+                      itemBuilder: (context, index) {
+                        return DiscoveryBannerItemWidget(imageUrl: _bannerImages[index], bannerText: "Get your 30% daily \n discount now!");
+                      },
+                    ),
+                    Positioned(
+                      bottom: 0.0,
+                      left: 0,
+                      right: 0,
+                      child: Center(
+                        child: SmoothPageIndicator(
+                          controller: _bannerController,
+                          count: _bannerImages.length,
+                          effect: const ExpandingDotsEffect(
+                            dotHeight: 8.0,
+                            dotWidth: 8.0,
+                            activeDotColor: Colors.black,
+                            dotColor: Colors.grey,
+                          ),
                         ),
                       ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
-            ),
 
-            // Fastest delivery section
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 16.0),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  const Text(
-                    "Fastest delivery 🔥",
-                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-                  ),
-                  TextButton(
-                    onPressed: () {},
-                    child: const Text("See all"),
-                  ),
-                ],
+              // Fastest delivery section
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    const Text(
+                      "Fastest delivery 🔥",
+                      style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                    ),
+                    TextButton(
+                      onPressed: () {},
+                      child: const Text("See all"),
+                    ),
+                  ],
+                ),
               ),
-            ),
-            SizedBox(
-              height: 250.0,
-              child: ListView(
-                scrollDirection: Axis.horizontal,
-                children: const [
-                  DeliveryCardWidget(
-                    imageUrl: "https://insights.workwave.com/wp-content/uploads/2021/08/WorkWave-The-Carbon-Footprint-of-Food-Delivery-Services.jpg",
-                    title: "Crazy taco",
-                    price: "€3.00",
-                    time: "40-50min",
-                    rating: "9.5",
-                  ),
-                  DeliveryCardWidget(
-                    imageUrl: "https://insights.workwave.com/wp-content/uploads/2021/08/WorkWave-The-Carbon-Footprint-of-Food-Delivery-Services.jpg",
-                    title: "La Salsa",
-                    price: "€2.00",
-                    time: "30-40min",
-                    rating: "8.5",
-                  ),
-                  // Add more cards as needed
-                ],
+              SizedBox(
+                height: 250.0,
+                child: ListView(
+                  scrollDirection: Axis.horizontal,
+                  children: const [
+                    DeliveryCardWidget(
+                      imageUrl: "https://insights.workwave.com/wp-content/uploads/2021/08/WorkWave-The-Carbon-Footprint-of-Food-Delivery-Services.jpg",
+                      title: "Crazy taco",
+                      price: "€3.00",
+                      time: "40-50min",
+                      rating: "9.5",
+                    ),
+                    DeliveryCardWidget(
+                      imageUrl: "https://insights.workwave.com/wp-content/uploads/2021/08/WorkWave-The-Carbon-Footprint-of-Food-Delivery-Services.jpg",
+                      title: "La Salsa",
+                      price: "€2.00",
+                      time: "30-40min",
+                      rating: "8.5",
+                    ),
+                    // Add more cards as needed
+                  ],
+                ),
               ),
-            ),
 
-            // Popular items section
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  const Text(
-                    "Popular items 👏",
-                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-                  ),
-                  TextButton(
-                    onPressed: () {},
-                    child: const Text("See all"),
-                  ),
-                ],
+              // Popular items section
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    const Text(
+                      "Popular items 👏",
+                      style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                    ),
+                    TextButton(
+                      onPressed: () {},
+                      child: const Text("See all"),
+                    ),
+                  ],
+                ),
               ),
-            ),
-            SizedBox(
-              height: 250.0,
-              child: ListView(
-                scrollDirection: Axis.horizontal,
-                children: const [
-                  DeliveryCardWidget(
-                    imageUrl: "https://insights.workwave.com/wp-content/uploads/2021/08/WorkWave-The-Carbon-Footprint-of-Food-Delivery-Services.jpg",
-                    title: "Spagetti",
-                    price: "€5.00",
-                    time: "20-30 min",
-                    rating: "8.5",
-                  ),
-                  DeliveryCardWidget(
-                    imageUrl: "https://insights.workwave.com/wp-content/uploads/2021/08/WorkWave-The-Carbon-Footprint-of-Food-Delivery-Services.jpg",
-                    title: "Burger",
-                    price: "€2.00",
-                    time: "25-35",
-                    rating: "8.8",
-                  ),
-                ],
+              SizedBox(
+                height: 250.0,
+                child: ListView(
+                  scrollDirection: Axis.horizontal,
+                  children: const [
+                    DeliveryCardWidget(
+                      imageUrl: "https://insights.workwave.com/wp-content/uploads/2021/08/WorkWave-The-Carbon-Footprint-of-Food-Delivery-Services.jpg",
+                      title: "Spagetti",
+                      price: "€5.00",
+                      time: "20-30 min",
+                      rating: "8.5",
+                    ),
+                    DeliveryCardWidget(
+                      imageUrl: "https://insights.workwave.com/wp-content/uploads/2021/08/WorkWave-The-Carbon-Footprint-of-Food-Delivery-Services.jpg",
+                      title: "Burger",
+                      price: "€2.00",
+                      time: "25-35",
+                      rating: "8.8",
+                    ),
+                  ],
+                ),
               ),
-            ),
 
-            const SizedBox(
-              height: 75,
-            )
-          ],
+              const SizedBox(
+                height: 75,
+              )
+            ],
+          ),
         ),
       )
     );

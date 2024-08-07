@@ -47,7 +47,7 @@ class WelcomePage extends StatelessWidget {
               googleButton: () {},
               facebookButton: () {},
               emailButton: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context) => const RessetPasswordPage()));
+                Navigator.push(context, MaterialPageRoute(builder: (context) => const LoginPage()));
               },
               signInButton: () {},
             ),
