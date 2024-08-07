@@ -16,6 +16,7 @@ dependencies:
   toastification: ^2.1.0
   l: ^4.0.2
   smooth_page_indicator: ^1.2.0+3
+  flutter_svg: ^2.0.10+1
 
   # State management
   flutter_riverpod: ^2.5.1
@@ -42,6 +43,7 @@ flutter:
 
   assets:
     - assets/icons/
+    - assets/images/
   #   - images/a_dot_ham.jpeg
 
   # fonts:

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class InfoWelcomePageWidgets extends StatelessWidget {
   const InfoWelcomePageWidgets(
@@ -82,20 +83,29 @@ class InfoWelcomePageWidgets extends StatelessWidget {
                     borderRadius: BorderRadius.circular(15),
                   ),
                   color: Colors.white,
-                  child: const Icon(Icons.g_mobiledata),
+                  child: SizedBox(
+                    height: 45,
+                    width: 50,
+                    child: SvgPicture.asset("assets/icons/google_icon.svg",
+                    ),
+                  ),
                 ),
               ),
-              const SizedBox(width: 10),
+              const SizedBox(width: 65),
               Expanded(
                 child: MaterialButton(
-                    onPressed: facebookButton,
-                    height: 50,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(15),
-                    ),
-                    color: Colors.blue[800],
-                    child: const Icon(Icons.facebook)),
-              ),
+                  onPressed: facebookButton,
+                  height: 50,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(15),
+                  ),
+                  color: Colors.white,
+                  child: SizedBox(
+                      height: 45,
+                      width: 50,
+                      child: SvgPicture.asset("assets/icons/facebook_icon.svg")),
+                ),
+              )
             ],
           ),
           Row(

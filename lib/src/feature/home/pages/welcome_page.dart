@@ -12,7 +12,7 @@ class WelcomePage extends StatelessWidget {
       body: Container(
         decoration: const BoxDecoration(
           image: DecorationImage(
-            image: AssetImage("assets/img_1.png"), // Replace with your image path
+            image: AssetImage("assets/images/welcome_bcg_image.png"), // Replace with your image path
             fit: BoxFit.cover,
           ),
         ),
@@ -39,6 +39,7 @@ class WelcomePage extends StatelessWidget {
                 ),
               ),
             ),
+            /// this is all widgets (buttons, Text nad anything)
             InfoWelcomePageWidgets(
               googleButton: () {},
               facebookButton: () {},
