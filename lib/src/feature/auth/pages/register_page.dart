@@ -15,7 +15,7 @@ class RegisterPage extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            SizedBox(
+            const SizedBox(
               height: 80,
             ),
             const Padding(
@@ -33,7 +33,7 @@ class RegisterPage extends StatelessWidget {
             Column(
               children: [
                 const LoginButtonWidget(),
-                SizedBox(
+                const SizedBox(
                   height: 25,
                 ),
                 Padding(
@@ -42,7 +42,7 @@ class RegisterPage extends StatelessWidget {
                     children: [
                       Text(
                         "Don't have an accaunt? ",
-                        style: AppTextStyle().bodyLarge,
+                        style: const AppTextStyle().bodyLarge,
                       ),
                       GestureDetector(
                         onTap: () {},
@@ -58,32 +58,32 @@ class RegisterPage extends StatelessWidget {
                     ],
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 25,
                 ),
                 Padding(
-                  padding: EdgeInsets.symmetric(
+                  padding: const EdgeInsets.symmetric(
                     horizontal: 60,
                   ),
                   child: Row(
                     children: [
-                      Expanded(
+                      const Expanded(
                         child: Divider(
                           thickness: 1.8,
                           color: Colors.black,
                         ),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         width: 10,
                       ),
                       Text(
                         "Sign in with",
-                        style: AppTextStyle().bodyMediumBold,
+                        style: const AppTextStyle().bodyMediumBold,
                       ),
-                      SizedBox(
+                      const SizedBox(
                         width: 10,
                       ),
-                      Expanded(
+                      const Expanded(
                         child: Divider(
                           thickness: 1.8,
                           color: Colors.black,
@@ -92,7 +92,7 @@ class RegisterPage extends StatelessWidget {
                     ],
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 20,
                 ),
                 Column(
@@ -111,18 +111,18 @@ class RegisterPage extends StatelessWidget {
                               "assets/icons/facebook_icon.svg",
                               width: 25,
                             ),
-                            SizedBox(
+                            const SizedBox(
                               width: 20,
                             ),
                             Text(
                               "Countine with Facebook",
-                              style: AppTextStyle().bodyLarge,
+                              style: const AppTextStyle().bodyLarge,
                             ),
                           ],
                         ),
                       ),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 10,
                     ),
                     Padding(
@@ -139,12 +139,12 @@ class RegisterPage extends StatelessWidget {
                               "assets/icons/google_icon.svg",
                               width: 25,
                             ),
-                            SizedBox(
+                            const SizedBox(
                               width: 20,
                             ),
                             Text(
                               "Countine with Google",
-                              style: AppTextStyle().bodyLarge,
+                              style: const AppTextStyle().bodyLarge,
                             ),
                           ],
                         ),

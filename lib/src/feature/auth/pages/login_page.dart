@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:food_delivery/src/core/style/text_style.dart';
 import 'package:food_delivery/src/feature/auth/widgets/login_button_widget.dart';
-import 'package:food_delivery/src/feature/auth/widgets/login_texFeild_widget.dart';
+import 'package:food_delivery/src/feature/auth/widgets/login_texfeild_widget.dart';
 
 class LoginPage extends StatelessWidget {
   const LoginPage({super.key});
@@ -14,14 +14,14 @@ class LoginPage extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            SizedBox(
+            const SizedBox(
               height: 150,
             ),
             Padding(
-              padding: EdgeInsets.only(right: 290),
+              padding: const EdgeInsets.only(right: 290),
               child: Text(
                 "Login",
-                style: AppTextStyle().bodyLargeBold!.copyWith(
+                style: const AppTextStyle().bodyLargeBold!.copyWith(
                       fontSize: 30,
                     ),
               ),
@@ -30,7 +30,7 @@ class LoginPage extends StatelessWidget {
             Column(
               children: [
                 const LoginButtonWidget(),
-                SizedBox(
+                const SizedBox(
                   height: 25,
                 ),
                 Padding(
@@ -39,7 +39,7 @@ class LoginPage extends StatelessWidget {
                     children: [
                       Text(
                         "Don't have an accaunt? ",
-                        style: AppTextStyle().bodyLarge,
+                        style: const AppTextStyle().bodyLarge,
                       ),
                       GestureDetector(
                         onTap: () {},
@@ -51,11 +51,11 @@ class LoginPage extends StatelessWidget {
                     ],
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 25,
                 ),
                 Padding(
-                  padding: EdgeInsets.symmetric(
+                  padding: const EdgeInsets.symmetric(
                     horizontal: 60,
                   ),
                   child: Row(
@@ -71,12 +71,12 @@ class LoginPage extends StatelessWidget {
                       ),
                       Text(
                         "Sign in with",
-                        style: AppTextStyle().bodyMediumBold,
+                        style: const AppTextStyle().bodyMediumBold,
                       ),
-                      SizedBox(
+                      const SizedBox(
                         width: 10,
                       ),
-                      Expanded(
+                      const Expanded(
                         child: Divider(
                           thickness: 1.8,
                           color: Colors.black,
@@ -85,7 +85,7 @@ class LoginPage extends StatelessWidget {
                     ],
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 20,
                 ),
                 Column(
@@ -104,18 +104,18 @@ class LoginPage extends StatelessWidget {
                               "assets/icons/facebook_icon.svg",
                               width: 25,
                             ),
-                            SizedBox(
+                            const SizedBox(
                               width: 20,
                             ),
                             Text(
                               "Countine with Facebook",
-                              style: AppTextStyle().bodyLarge,
+                              style: const AppTextStyle().bodyLarge,
                             ),
                           ],
                         ),
                       ),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 10,
                     ),
                     Padding(
@@ -132,12 +132,12 @@ class LoginPage extends StatelessWidget {
                               "assets/icons/google_icon.svg",
                               width: 25,
                             ),
-                            SizedBox(
+                            const SizedBox(
                               width: 20,
                             ),
                             Text(
                               "Countine with Google",
-                              style: AppTextStyle().bodyLarge,
+                              style: const AppTextStyle().bodyLarge,
                             ),
                           ],
                         ),
