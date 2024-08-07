@@ -1,13 +1,8 @@
 import 'package:flutter/material.dart';
 
-class RestaurantCard extends StatefulWidget {
+class RestaurantCard extends StatelessWidget {
   const RestaurantCard({super.key});
 
-  @override
-  RestaurantCardState createState() => RestaurantCardState();
-}
-
-class RestaurantCardState extends State<RestaurantCard> {
   @override
   Widget build(BuildContext context) {
     return Card(
