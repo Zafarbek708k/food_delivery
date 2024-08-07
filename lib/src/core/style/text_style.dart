@@ -37,7 +37,7 @@ class AppTextStyle extends TextTheme {
         fontWeight: FontWeight.w500,
         fontSize: FontSize.size14,
         fontFamily: "Rubik",
-        color: AppColors.l0B0C17
+        color: AppColors.l111719
       );
   @override
   TextStyle? get bodyMedium => const TextStyle(
