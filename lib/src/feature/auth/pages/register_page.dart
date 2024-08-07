@@ -1,22 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:food_delivery/src/feature/auth/widgets/login_button_widget.dart';
-import 'package:food_delivery/src/feature/auth/widgets/login_texFeild_widget.dart';
+import 'package:food_delivery/src/feature/auth/widgets/register_texfeild_widgets.dart';
 
-class LoginPage extends StatelessWidget {
-  const LoginPage({super.key});
+class RegisterPage extends StatelessWidget {
+  const RegisterPage({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       body: SafeArea(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            SizedBox(height: 150,),
+            SizedBox(height: 80,),
             const Padding(
-              padding: EdgeInsets.only(right: 290),
+              padding: EdgeInsets.only(right: 260),
               child: Text(
-                "Login",
+                "Sing Up",
                 style: TextStyle(
                   color: Colors.black,
                   fontWeight: FontWeight.w500,
@@ -24,7 +25,7 @@ class LoginPage extends StatelessWidget {
                 ),
               ),
             ),
-            const LoginTexfeildWidget(),
+            const RegisterTexfeildWidgets(),
            
             Column(
               children: [
