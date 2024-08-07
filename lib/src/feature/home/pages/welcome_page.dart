@@ -39,6 +39,7 @@ class WelcomePage extends StatelessWidget {
                 ),
               ),
             ),
+            /// this is all widgets (buttons, Text nad anything)
             InfoWelcomePageWidgets(
               googleButton: () {},
               facebookButton: () {},
