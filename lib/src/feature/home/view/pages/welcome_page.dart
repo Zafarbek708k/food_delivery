@@ -1,12 +1,9 @@
 import "package:flutter/material.dart";
 import "package:flutter_screenutil/flutter_screenutil.dart";
-import "package:food_delivery/src/feature/auth/pages/login_page.dart";
 import "package:go_router/go_router.dart";
 import "../../../../core/routes/app_route_name.dart";
 import "../widgets/welcome_page_info_widget.dart";
-import 'package:flutter/material.dart';
-import 'package:food_delivery/src/feature/auth/pages/login_page.dart';
-import '../widgets/welcome_page_info_widget.dart';
+
 
 class WelcomePage extends StatelessWidget {
   const WelcomePage({super.key});
