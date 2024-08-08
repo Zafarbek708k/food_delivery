@@ -1,4 +1,4 @@
-import 'dart:ui';
+import "dart:ui";
 
 final class AppColors {
   //dicoveriy page top colors

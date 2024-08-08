@@ -1,10 +1,10 @@
-import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:food_delivery/src/core/constants/context_extension.dart';
-import 'package:food_delivery/src/core/style/text_style.dart';
+import "package:flutter/material.dart";
+import "package:flutter/services.dart";
+import "package:food_delivery/src/core/style/text_style.dart";
+import "package:pin_code_fields/pin_code_fields.dart";
 
-class VerificationcodePage extends StatelessWidget {
-  const VerificationcodePage({super.key});
+class RessetVerficationCodePage extends StatelessWidget {
+  const RessetVerficationCodePage({super.key});
 
   @override
   Widget build(BuildContext context) => Scaffold(
@@ -21,7 +21,7 @@ class VerificationcodePage extends StatelessWidget {
                   alignment: Alignment.centerLeft,
                   child: Text(
                     "Verification Code",
-                    style: context.theme.textTheme.bodyLarge!.copyWith(fontSize: 32),
+                    style: AppTextStyle().bodyLarge!.copyWith(fontSize: 32),
                   ),
                 ),
               ),

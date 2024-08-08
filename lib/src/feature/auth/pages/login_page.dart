@@ -1,16 +1,18 @@
 import "package:flutter/material.dart";
 import "package:flutter_svg/flutter_svg.dart";
 import "package:food_delivery/src/core/constants/context_extension.dart";
+import "package:food_delivery/src/core/style/app_colors.dart";
 import "package:food_delivery/src/core/style/text_style.dart";
 import "package:food_delivery/src/feature/auth/widgets/login_button_widget.dart";
 import "package:food_delivery/src/feature/auth/widgets/login_texfeild_widget.dart";
-import "package:food_delivery/src/feature/home/pages/home_page.dart";
+import "package:food_delivery/src/feature/home/view/pages/home_page.dart";
 
 class LoginPage extends StatelessWidget {
   const LoginPage({super.key});
 
   @override
   Widget build(BuildContext context) => Scaffold(
+        resizeToAvoidBottomInset: false,
         body: SafeArea(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -22,7 +24,7 @@ class LoginPage extends StatelessWidget {
                 padding: const EdgeInsets.only(right: 290),
                 child: Text(
                   "Login",
-                  style: const AppTextStyle().bodyLargeBold!.copyWith(
+                  style: const AppTextStyle().bodyLarge!.copyWith(
                         fontSize: 30,
                       ),
                 ),
@@ -32,7 +34,7 @@ class LoginPage extends StatelessWidget {
                 children: [
                   LoginButtonWidget(
                     onPressed: () {
-                      Navigator.push(context, MaterialPageRoute(builder: (context) => const MyHomePage()));
+                      // Navigator.push(context, MaterialPageRoute(builder: (context) => const MyHomePage()));
                     },
                   ),
                   const SizedBox(
@@ -52,7 +54,7 @@ class LoginPage extends StatelessWidget {
                             "Sing Up",
                             style: TextStyle(fontSize: 16, color: Colors.orange),
                           ),
-                        )
+                        ),
                       ],
                     ),
                   ),
@@ -76,7 +78,7 @@ class LoginPage extends StatelessWidget {
                         ),
                         Text(
                           "Sign in with",
-                          style: const AppTextStyle().bodyMediumBold,
+                          style: const AppTextStyle().bodyMedium!.copyWith(fontWeight: FontWeight.w600,),
                         ),
                         const SizedBox(
                           width: 10,
@@ -133,13 +135,20 @@ class LoginPage extends StatelessWidget {
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-
+                              SvgPicture.asset(
+                                "assets/icons/google_icon.svg",
+                                width: 25,
+                              ),
                               const SizedBox(
                                 width: 20,
                               ),
                               Text(
                                 "Continue with Google",
-                                style: context.theme.textTheme.bodyLarge,
+                                style: context.theme.textTheme.bodyLarge!.copyWith(
+                                  fontWeight: FontWeight.w600,
+                                  color: AppColors.l111719,
+                                  fontSize: 18,
+                                ),
                               ),
                             ],
                           ),

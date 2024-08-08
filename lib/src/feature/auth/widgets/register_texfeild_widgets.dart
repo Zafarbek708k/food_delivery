@@ -1,11 +1,18 @@
 import 'package:flutter/material.dart';
 
-class RegisterTexfeildWidgets extends StatelessWidget {
+class RegisterTexfeildWidgets extends StatefulWidget {
   const RegisterTexfeildWidgets({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    return Column(
+  State<RegisterTexfeildWidgets> createState() => _RegisterTexfeildWidgetsState();
+}
+
+class _RegisterTexfeildWidgetsState extends State<RegisterTexfeildWidgets> {
+
+    bool isEye = false;
+
+  @override
+  Widget build(BuildContext context) => Column(
       children: [
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20),
@@ -13,7 +20,7 @@ class RegisterTexfeildWidgets extends StatelessWidget {
             
             alignment: Alignment.bottomLeft,
             child: Text(
-              "Email",
+              "Name",
               style: TextStyle(
                 color: Colors.black.withOpacity(0.6),
                 fontWeight: FontWeight.w500,
@@ -25,6 +32,8 @@ class RegisterTexfeildWidgets extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 25),
           child: TextField(
+            style: TextStyle(color: Colors.black),
+            keyboardType: TextInputType.name,
             decoration: InputDecoration(
               focusedBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(10),
@@ -39,7 +48,7 @@ class RegisterTexfeildWidgets extends StatelessWidget {
                   color: Colors.black.withOpacity(0.1),
                 ),
               ),
-              hintText: "Your email",
+              hintText: "Your name",
               hintStyle: TextStyle(
                 color: Colors.black.withOpacity(0.3),
                 fontSize: 16,
@@ -65,6 +74,8 @@ class RegisterTexfeildWidgets extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 25),
           child: TextField(
+            style: TextStyle(color: Colors.black),
+            keyboardType: TextInputType.emailAddress,
             decoration: InputDecoration(
               focusedBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(10),
@@ -105,6 +116,8 @@ class RegisterTexfeildWidgets extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 25),
           child: TextField(
+            style: TextStyle(color: Colors.black),
+            keyboardType: TextInputType.visiblePassword,
             decoration: InputDecoration(
               focusedBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(10),
@@ -119,10 +132,18 @@ class RegisterTexfeildWidgets extends StatelessWidget {
                   color: Colors.black.withOpacity(0.1),
                 ),
               ),
-              suffixIcon: Icon(
-                Icons.remove_red_eye,
-                color: Colors.black.withOpacity(0.4),
-              ),
+              suffixIcon: IconButton(
+                  onPressed: () {
+                    isEye = !isEye;
+                    setState(() {
+                      
+                    });
+                  },
+                  icon: isEye? Icon(
+                    Icons.visibility_rounded,
+                    color: Colors.black.withOpacity(0.4),
+                  ):Icon(Icons.visibility_off_rounded),
+                ),
               hintText: "Password",
               hintStyle: TextStyle(
                 color: Colors.black.withOpacity(0.3),
@@ -148,5 +169,4 @@ class RegisterTexfeildWidgets extends StatelessWidget {
          ),
       ],
     );
-  }
 }
