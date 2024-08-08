@@ -1,15 +1,16 @@
-import 'package:flutter/material.dart';
+import "package:flutter/material.dart";
 import 'package:flutter_svg/svg.dart';
 import 'package:food_delivery/src/core/constants/context_extension.dart';
+import "package:food_delivery/src/core/style/text_style.dart";
 import 'package:food_delivery/src/feature/auth/widgets/login_button_widget.dart';
+import "package:food_delivery/src/feature/auth/widgets/regester_button_widget.dart";
 import 'package:food_delivery/src/feature/auth/widgets/register_texfeild_widgets.dart';
 
 class RegisterPage extends StatelessWidget {
   const RegisterPage({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    return Scaffold(
+  Widget build(BuildContext context) => Scaffold(
       resizeToAvoidBottomInset: false,
       body: SafeArea(
         child: Column(
@@ -32,7 +33,7 @@ class RegisterPage extends StatelessWidget {
             const RegisterTexfeildWidgets(),
             Column(
               children: [
-                LoginButtonWidget(onPressed: () {  },),
+                RegesterButtonWidget(onPressed: () {  },),
                  SizedBox(
                   height: 25,
                 ),
@@ -42,7 +43,7 @@ class RegisterPage extends StatelessWidget {
                     children: [
                       Text(
                         "Don't have an accaunt? ",
-                        style: context.theme.textTheme.bodyLarge,
+                        style: AppTextStyle().bodyLarge,
                       ),
                       GestureDetector(
                         onTap: () {},
@@ -54,7 +55,7 @@ class RegisterPage extends StatelessWidget {
                             fontWeight: FontWeight.w600,
                           ),
                         ),
-                      )
+                      ),
                     ],
                   ),
                 ),
@@ -78,7 +79,7 @@ class RegisterPage extends StatelessWidget {
                       ),
                       Text(
                         "Sign in with",
-                        style: context.theme.textTheme.bodyLarge,
+                        style: AppTextStyle().bodyLarge,
                       ),
                        SizedBox(
                         width: 10,
@@ -116,7 +117,7 @@ class RegisterPage extends StatelessWidget {
                             ),
                             Text(
                               "Countine with Facebook",
-                              style: context.theme.textTheme.bodyLarge,
+                              style: AppTextStyle().bodyLarge,
                             ),
                           ],
                         ),
@@ -144,19 +145,18 @@ class RegisterPage extends StatelessWidget {
                             ),
                             Text(
                               "Countine with Google",
-                              style: context.theme.textTheme.bodyLarge,
+                              style: AppTextStyle().bodyLarge,
                             ),
                           ],
                         ),
                       ),
-                    )
+                    ),
                   ],
-                )
+                ),
               ],
             ),
           ],
         ),
       ),
     );
-  }
 }
