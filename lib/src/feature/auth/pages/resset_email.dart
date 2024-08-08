@@ -1,14 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:food_delivery/src/core/constants/context_extension.dart';
+import "package:food_delivery/src/core/style/text_style.dart";
 import 'package:food_delivery/src/feature/auth/widgets/login_button_widget.dart';
+import "package:food_delivery/src/feature/auth/widgets/nextButton_widgets.dart";
+import "package:food_delivery/src/feature/auth/widgets/resset_email_widgets.dart";
 import 'package:food_delivery/src/feature/auth/widgets/resset_password_textfield_widgets.dart';
 
 class RessetEmail extends StatelessWidget {
   const RessetEmail({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    return Scaffold(
+  Widget build(BuildContext context) => Scaffold(
       resizeToAvoidBottomInset: false,
       body: SafeArea(
         child: Column(
@@ -23,7 +25,7 @@ class RessetEmail extends StatelessWidget {
                   alignment: Alignment.topLeft,
                   child: Text(
                     "Reset Email",
-                    style: context.theme.textTheme.bodyLarge!.copyWith(fontSize: 32),
+                    style: AppTextStyle().bodyLarge!.copyWith(fontSize: 32),
                   ),
                 ),
               ),
@@ -40,12 +42,11 @@ class RessetEmail extends StatelessWidget {
                 ),
               ),
                SizedBox(height: 50,),
-                      const RessetPasswordTextfieldWidgets(),
+                      const RessetEmailWidgets(),
                        SizedBox(height: 80,),
-            LoginButtonWidget(onPressed: () {  },),
+            NextbuttonWidgets(onPressed: () {  },),
           ],
         ),
       ),
     );
-  }
 }

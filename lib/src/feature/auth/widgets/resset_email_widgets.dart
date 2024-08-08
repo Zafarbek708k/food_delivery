@@ -1,17 +1,17 @@
-import 'package:flutter/material.dart';
+import "package:flutter/material.dart";
 
-class RessetPasswordTextfieldWidgets extends StatelessWidget {
-  const RessetPasswordTextfieldWidgets({super.key});
+class RessetEmailWidgets extends StatelessWidget {
+  const RessetEmailWidgets({super.key});
 
   @override
-  Widget build(BuildContext context) => Column(
+   Widget build(BuildContext context) => Column(
       children: [
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20),
           child: Align(
             alignment: Alignment.bottomLeft,
             child: Text(
-              "Password",
+              "Email",
               style: TextStyle(
                 color: Colors.black.withOpacity(0.6),
                 fontWeight: FontWeight.w500,
@@ -25,6 +25,8 @@ class RessetPasswordTextfieldWidgets extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 25),
           child: TextField(
+            keyboardType: TextInputType.emailAddress,
+            style: TextStyle(color: Colors.black),
             decoration: InputDecoration(
               focusedBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(10),
@@ -39,11 +41,8 @@ class RessetPasswordTextfieldWidgets extends StatelessWidget {
                   color: Colors.black.withOpacity(0.1),
                 ),
               ),
-              suffixIcon: Icon(
-                Icons.remove_red_eye,
-                color: Colors.black.withOpacity(0.4),
-              ),
-              hintText: "Password",
+
+              hintText: "Email",
               hintStyle: TextStyle(
                 color: Colors.black.withOpacity(0.3),
                 fontSize: 16,
