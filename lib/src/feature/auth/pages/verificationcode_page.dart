@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:food_delivery/src/core/constants/context_extension.dart';
 import 'package:food_delivery/src/core/style/text_style.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
 
@@ -13,20 +14,20 @@ class VerificationcodePage extends StatelessWidget {
         child: SafeArea(
           child: Column(
             children: [
-              const SizedBox(
+               SizedBox(
                 height: 80,
               ),
               Padding(
-                padding: const EdgeInsets.only(left: 25),
+                padding:  EdgeInsets.only(left: 25),
                 child: Align(
                   alignment: Alignment.centerLeft,
                   child: Text(
                     "Verification Code",
-                    style: const AppTextStyle().bodyLargeBold!.copyWith(fontSize: 32),
+                    style: context.theme.textTheme.bodyLarge!.copyWith(fontSize: 32),
                   ),
                 ),
               ),
-              const SizedBox(
+               SizedBox(
                 height: 50,
               ),
               Center(
@@ -41,7 +42,7 @@ class VerificationcodePage extends StatelessWidget {
                 height: 50,
               ),
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 50),
+                padding:  EdgeInsets.symmetric(horizontal: 50),
                 child: PinCodeTextField(
                   // controller: otp,
                   obscureText: false,
@@ -49,7 +50,11 @@ class VerificationcodePage extends StatelessWidget {
                   appContext: context,
                   length: 4,
                   cursorHeight: 30,
-                  textStyle: const TextStyle(fontSize: 20, fontWeight: FontWeight.normal, color: Colors.black),
+                  textStyle: TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.normal,
+                    color: Colors.black,
+                  ),
                   inputFormatters: [FilteringTextInputFormatter.digitsOnly],
                   pinTheme: PinTheme(
                     activeColor: Colors.grey.withOpacity(0.3),
