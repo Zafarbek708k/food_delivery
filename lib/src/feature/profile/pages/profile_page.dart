@@ -14,7 +14,7 @@ class _ProfilePageState extends State<ProfilePage> {
   Widget build(BuildContext context) => Scaffold(
       resizeToAvoidBottomInset: false,
       body: Padding(
-        padding:  EdgeInsets.symmetric(horizontal: 10),
+        padding:  const EdgeInsets.symmetric(horizontal: 10),
         child: Column(
           children: [
             Column(
@@ -53,7 +53,7 @@ class _ProfilePageState extends State<ProfilePage> {
               height: MediaQuery.of(context).size.height * 0.035,
             ),
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 18.0),
+              padding: const EdgeInsets.symmetric(horizontal: 18),
               child: Column(
                 children: [
                   Row(
@@ -64,7 +64,7 @@ class _ProfilePageState extends State<ProfilePage> {
                         width: MediaQuery.of(context).size.width * 0.040,
                       ),
                       TextButton(
-                        onPressed: () { Navigator.push(context, MaterialPageRoute(builder: (context)=>MyProfileEditPage())); },
+                        onPressed: () { Navigator.push(context, MaterialPageRoute(builder: (context)=> const MyProfileEditPage())); },
                         child: const Text(
                           "My Profile",
                           style: TextStyle(
@@ -221,13 +221,13 @@ class _ProfilePageState extends State<ProfilePage> {
                               const Text(
                                 "Log Out",
                                 style: TextStyle(color: Colors.deepOrange),
-                              )
+                              ),
                             ],
                           ),
                           onPressed: () {
                             //Log out yozish kerak
 
-                          }),
+                          },),
                     ],
                   ),
 
