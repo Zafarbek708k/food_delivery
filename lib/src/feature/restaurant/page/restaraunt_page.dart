@@ -1,6 +1,8 @@
+import "dart:developer";
+
 import "package:flutter/material.dart";
 import "package:flutter_screenutil/flutter_screenutil.dart";
-import "package:flutter_svg/flutter_svg.dart";
+import "package:food_delivery/src/core/constants/context_extension.dart";
 import "package:food_delivery/src/feature/restaurant/widgets/restaraunt_card_widget.dart";
 import "package:food_delivery/src/feature/restaurant/widgets/restaraunt_category_horizontal_widget.dart";
 
@@ -19,9 +21,15 @@ class RestaurantsPageState extends State<RestaurantsPage> {
         appBar: AppBarWidget(
           bcgColor: Colors.white,
           appBarText: "Xurshid Umarov",
+          fontWeight: FontWeight.w600,
           textColor: Colors.black,
           actions: [
-            IconButton(icon: Image.asset("assets/images/restaurant_map_icon.png"), onPressed: () {}),
+            IconButton(
+              icon: Image.asset("assets/images/restaurant_map_icon1.png"),
+              onPressed: () {
+                log("message");
+              },
+            ),
           ],
         ),
         body: CustomScrollView(
@@ -34,18 +42,30 @@ class RestaurantsPageState extends State<RestaurantsPage> {
                   children: [
                     Text(
                       "Restaurants",
-                      style: TextStyle(fontSize: 24.sp, fontWeight: FontWeight.bold, color: Colors.black),
+                      style: context.theme.textTheme.bodyLarge?.copyWith(
+                        fontSize: 24.sp,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.black,
+                      ),
                     ),
                     Text(
                       "Categories",
-                      style: TextStyle(fontSize: 20.sp, fontWeight: FontWeight.bold, color: Colors.black),
+                      style: context.theme.textTheme.bodyLarge?.copyWith(
+                        fontSize: 20.sp,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.black,
+                      ),
                     ),
                     20.horizontalSpace,
                     const HorizontalCategories(),
                     20.horizontalSpace,
                     Text(
                       "All restaurants",
-                      style: TextStyle(fontSize: 20.sp, fontWeight: FontWeight.bold, color: Colors.black),
+                      style: context.theme.textTheme.bodyLarge?.copyWith(
+                        fontSize: 24.sp,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.black,
+                      ),
                     ),
                   ],
                 ),
@@ -53,8 +73,12 @@ class RestaurantsPageState extends State<RestaurantsPage> {
             ),
             SliverList(
               delegate: SliverChildBuilderDelegate(
-                (context, index) => const RestaurantCard(),
-                childCount: 10, // Adjust the number of restaurants as needed
+                (context, index) => RestaurantCard(
+                  onTap: () {
+                    log("message : $index");
+                  },
+                ),
+                childCount: 10,
               ),
             ),
           ],
