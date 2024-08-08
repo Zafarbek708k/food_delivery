@@ -21,12 +21,11 @@ class _DiscoveryPageState extends State<DiscoveryPage> {
   ];
 
   @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: const AppBarWidget(appBarText: 'Home, Ji ',bcgColor: Colors.white,textColor: Colors.black,),
+  Widget build(BuildContext context) => Scaffold(
+      appBar: const AppBarWidget(appBarText: "Home, Ji ",bcgColor: Colors.white,textColor: Colors.black,),
       body: SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 18.0),
+          padding: const EdgeInsets.symmetric(horizontal: 18),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -38,12 +37,10 @@ class _DiscoveryPageState extends State<DiscoveryPage> {
                     PageView.builder(
                       controller: _bannerController,
                       itemCount: _bannerImages.length,
-                      itemBuilder: (context, index) {
-                        return DiscoveryBannerItemWidget(imageUrl: _bannerImages[index], bannerText: "Get your 30% daily \n discount now!");
-                      },
+                      itemBuilder: (context, index) => DiscoveryBannerItemWidget(imageUrl: _bannerImages[index], bannerText: "Get your 30% daily \n discount now!"),
                     ),
                     Positioned(
-                      bottom: 0.0,
+                      bottom: 0,
                       left: 0,
                       right: 0,
                       child: Center(
@@ -51,8 +48,8 @@ class _DiscoveryPageState extends State<DiscoveryPage> {
                           controller: _bannerController,
                           count: _bannerImages.length,
                           effect: const ExpandingDotsEffect(
-                            dotHeight: 8.0,
-                            dotWidth: 8.0,
+                            dotHeight: 8,
+                            dotWidth: 8,
                             activeDotColor: Colors.black,
                             dotColor: Colors.grey,
                           ),
@@ -81,7 +78,7 @@ class _DiscoveryPageState extends State<DiscoveryPage> {
                 ),
               ),
               SizedBox(
-                height: 250.0,
+                height: 250,
                 child: ListView(
                   scrollDirection: Axis.horizontal,
                   children: const [
@@ -152,7 +149,6 @@ class _DiscoveryPageState extends State<DiscoveryPage> {
         ),
       )
     );
-  }
 }
 
 

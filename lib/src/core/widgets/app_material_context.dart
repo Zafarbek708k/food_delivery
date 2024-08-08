@@ -1,4 +1,5 @@
 import "package:flutter/material.dart";
+import "package:food_delivery/src/feature/favourite/pages/favourite_page.dart";
 import "package:food_delivery/src/feature/home/pages/splash_page.dart";
 import "../../feature/restaurant/page/delivery_map_page.dart";
 import "../../feature/settings/inherited_locale_notifier.dart";
