@@ -75,7 +75,7 @@ class RestaurantsPageState extends State<RestaurantsPage> {
               delegate: SliverChildBuilderDelegate(
                 (context, index) => RestaurantCard(
                   onTap: () {
-                    log("message : $index");
+                    log("RestaurantCard : $index");
                   },
                 ),
                 childCount: 10,

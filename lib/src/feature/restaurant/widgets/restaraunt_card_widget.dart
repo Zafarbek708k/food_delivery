@@ -8,8 +8,9 @@ class RestaurantCard extends StatelessWidget {
   final VoidCallback onTap;
 
   @override
-  Widget build(BuildContext context) => GestureDetector(
+  Widget build(BuildContext context) => InkWell(
         onTap: onTap,
+        borderRadius: BorderRadius.circular(14.r), // Bosish effekti uchun radius qo'shildi
         child: Card(
           margin: REdgeInsets.symmetric(vertical: 8, horizontal: 16),
           child: Column(
@@ -33,7 +34,7 @@ class RestaurantCard extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      "Tasty bowl",
+                      "TasAAAsty bowl",
                       style: context.theme.textTheme.bodyMedium?.copyWith(
                         color: Colors.black,
                         fontWeight: FontWeight.bold,
@@ -73,22 +74,3 @@ class RestaurantCard extends StatelessWidget {
       );
 }
 
-class RestaurantList extends StatelessWidget {
-  const RestaurantList({super.key});
-
-  @override
-  Widget build(BuildContext context) => Scaffold(
-        appBar: AppBar(
-          title: const Text("Restaurants"),
-        ),
-        body: ListView.builder(
-          itemCount: 10, // Bu yerda cardlar sonini belgilashingiz mumkin
-          itemBuilder: (context, index) => RestaurantCard(
-            onTap: () {
-              // Bu yerda card bosilganda bajariladigan ishni yozing
-              debugPrint("Card $index bosildi");
-            },
-          ),
-        ),
-      );
-}
