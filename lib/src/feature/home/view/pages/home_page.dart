@@ -1,129 +1,75 @@
-import "package:flutter/material.dart";
-import "package:flutter_screenutil/flutter_screenutil.dart";
-import "package:food_delivery/src/feature/favourite/pages/favourite_page.dart";
-import "package:food_delivery/src/feature/profile/pages/profile_page.dart";
-import "package:food_delivery/src/feature/restaurant/page/restaraunt_page.dart";
-import "package:food_delivery/src/feature/search/pages/search_page.dart";
-import "../widgets/bottom_nav_bar_widget.dart";
-import "discovery_page.dart";
+import "dart:developer";
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.child});
+import "package:flutter/material.dart";
+import "package:flutter_riverpod/flutter_riverpod.dart";
+import "package:food_delivery/src/core/routes/app_route_name.dart";
+import "package:go_router/go_router.dart";
+import "../../view_model/my_home_page_vm.dart";
+import "../widgets/bottom_nav_bar_widget.dart";
+
+class MyHomePage extends ConsumerStatefulWidget {
+  const MyHomePage({required this.child, super.key});
   final Widget child;
 
   @override
-  State<MyHomePage> createState() => _MyHomePageState();
+  ConsumerState<MyHomePage> createState() => _MyHomePageState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
-  PageController controller = PageController();
-  int currentPage = 0;
-  List<Widget> pages = [
-    const DiscoveryPage(),
-    const RestaurantsPage(),
-    SearchPage(),
-    FavouritePage(),
-    const ProfilePage()
-  ];
+class _MyHomePageState extends ConsumerState<MyHomePage> {
 
   @override
   void initState() {
     super.initState();
   }
 
-  void onPageChanged(int index) {
-    setState(() {
-      currentPage = index;
-    });
-    controller.animateToPage(
-      index,
-      duration: const Duration(milliseconds: 300),
-      curve: Curves.easeInOut,
-    );
+  void onPageChanged({required int index, required BuildContext context}) {
+    log(index.toString());
+    switch (index) {
+      case 0:
+        context.go(AppRouteName.discoveryPage);
+        break;
+      case 1:
+        context.go(AppRouteName.restaurantPage);
+        break;
+      case 2:
+        context.go(AppRouteName.searchPage);
+        break;
+        case 3:
+        context.go(AppRouteName.favoritePage);
+        break;
+        case 4:
+        context.go(AppRouteName.profilePage);
+        break;
+      default:
+        context.go(AppRouteName.discoveryPage);
+        break;
+    }
+
+    ref.read(myHomePageVm).changeNavigation(index);
   }
 
   @override
-  Widget build(BuildContext context) => Scaffold(
-        body: Stack(
-          children: [
-            // PageView(
-            //   controller: controller,
-            //   physics: const NeverScrollableScrollPhysics(),
-            //   onPageChanged: (value) {
-            //     setState(() {
-            //       currentPage = value;
-            //     });
-            //   },
-            //   children: pages,
-            // ),
-
-            widget.child,
-
-            Positioned(
-              bottom: 16.h, // Set bottom to 0 to remove extra space
-              left: 0,
-              right: 0,
-              child: BottomNavBarWidget(
-                currentPage: currentPage,
-                onTap: onPageChanged,
-              ),
+  Widget build(BuildContext context) {
+    final currentPage = ref.watch(myHomePageVm).currentIndex;
+    return Scaffold(
+      body: Stack(
+        children: [
+          widget.child,
+          Positioned(
+            bottom: 16,
+            left: 0,
+            right: 0,
+            child: BottomNavBarWidget(
+              currentPage: currentPage,
+              onTap: (index) {
+                onPageChanged(index: index, context: context);
+              },
             ),
-          ],
-        ),
-      );
+          ),
+        ],
+      ),
+    );
+  }
 }
 
-/// child: Padding(
-//             padding: const EdgeInsets.symmetric(horizontal: 8.0),
-//             child: SizedBox(
-//               height: 60.h, // Ensure the height is not too large
-//               child: ClipRRect(
-//                 borderRadius: BorderRadius.circular(18),
-//                 child: BottomNavigationBar(
-//                   currentIndex: currentPage,
-//                   onTap: onPageChanged,
-//                   showSelectedLabels: true,
-//                   showUnselectedLabels: false,
-//                   selectedItemColor: Colors.orange,
-//                   unselectedItemColor: Colors.black,
-//                   items: [
-//                     BottomNavigationBarItem(
-//                       icon: NavBarIcon(
-//                         assetName: "assets/icons/discover_compass_icon.svg",
-//                         isSelected: currentPage == 0,
-//                       ),
-//                       label: "Discovery",
-//                     ),
-//                     BottomNavigationBarItem(
-//                       icon: NavBarIcon(
-//                         assetName: "assets/icons/home_restaurant_icon.svg",
-//                         isSelected: currentPage == 1,
-//                       ),
-//                       label: "Restaurants",
-//                     ),
-//                     BottomNavigationBarItem(
-//                       icon: NavBarIcon(
-//                         assetName: "assets/icons/search_icon.svg",
-//                         isSelected: currentPage == 2,
-//                       ),
-//                       label: "Search",
-//                     ),
-//                     BottomNavigationBarItem(
-//                       icon: NavBarIcon(
-//                         assetName: "assets/icons/favorite_icon.svg",
-//                         isSelected: currentPage == 3,
-//                       ),
-//                       label: "Favorite",
-//                     ),
-//                     BottomNavigationBarItem(
-//                       icon: NavBarIcon(
-//                         assetName: "assets/icons/profile_icon.svg",
-//                         isSelected: currentPage == 4,
-//                       ),
-//                       label: "Profile",
-//                     ),
-//                   ],
-//                 ),
-//               ),
-//             ),
-//           ),
+
