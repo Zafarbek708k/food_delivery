@@ -1,5 +1,6 @@
 import "package:flutter/material.dart";
 import "package:flutter_screenutil/flutter_screenutil.dart";
+import "package:food_delivery/src/feature/favourite/pages/favourite_page.dart";
 import "package:food_delivery/src/feature/profile/pages/profile_page.dart";
 import "package:food_delivery/src/feature/restaurant/page/restaraunt_page.dart";
 import "package:food_delivery/src/feature/search/pages/search_page.dart";
@@ -20,7 +21,7 @@ class _MyHomePageState extends State<MyHomePage> {
     const DiscoveryPage(),
     const RestaurantsPage(),
     SearchPage(),
-    const Center(child: Text("Oybek", style: TextStyle(color: Colors.black))),
+    FavouritePage(),
     const ProfilePage()
   ];
 
