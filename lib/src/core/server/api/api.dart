@@ -1,18 +1,18 @@
-import 'dart:async';
-import 'dart:convert';
-import 'dart:io';
+import "dart:async";
+import "dart:convert";
+import "dart:io";
 
-import 'package:connectivity_plus/connectivity_plus.dart';
-import 'package:dio/dio.dart';
-import 'package:dio/io.dart';
-import 'package:flutter/foundation.dart';
-import 'package:flutter/services.dart';
-import 'package:l/l.dart';
+import "package:connectivity_plus/connectivity_plus.dart";
+import "package:dio/dio.dart";
+import "package:dio/io.dart";
+import "package:flutter/foundation.dart";
+import "package:flutter/services.dart";
+import "package:l/l.dart";
 
-import '../../storage/app_storage.dart';
-import '../interceptors/connectivity_interceptor.dart';
-import 'api_connection.dart';
-import 'api_constants.dart';
+import "../../storage/app_storage.dart";
+import "../interceptors/connectivity_interceptor.dart";
+import "api_connection.dart";
+import "api_constants.dart";
 
 @immutable
 class ApiService {
@@ -51,14 +51,14 @@ class ApiService {
 
   static Future<Map<String, String>> getHeaders({bool isUpload = false}) async {
     final headers = <String, String>{
-      'Content-type': isUpload ? 'multipart/form-data' : 'application/json; charset=UTF-8',
-      'Accept': isUpload ? 'multipart/form-data' : 'application/json; charset=UTF-8',
+      "Content-type": isUpload ? "multipart/form-data" : "application/json; charset=UTF-8",
+      "Accept": isUpload ? "multipart/form-data" : "application/json; charset=UTF-8",
     };
 
     final token = await AppStorage.$read(key: StorageKey.accessToken) ?? "";
 
     if (token.isNotEmpty) {
-      headers.putIfAbsent('Authorization', () => 'Bearer $token');
+      headers.putIfAbsent("Authorization", () => "Bearer $token");
     }
 
     return headers;
@@ -69,7 +69,7 @@ class ApiService {
       final response = await (await initDio()).get<dynamic>(api, queryParameters: params);
       return jsonEncode(response.data);
     } on TimeoutException catch (_) {
-      l.e('The connection has timed out, Please try again!');
+      l.e("The connection has timed out, Please try again!");
       rethrow;
     } on DioException catch (e) {
       l.e(e.response.toString());
@@ -80,12 +80,16 @@ class ApiService {
     }
   }
 
-  static Future<String?> post(String api, Map<String, dynamic> data, [Map<String, dynamic> params = const <String, dynamic>{}]) async {
+  static Future<String?> post(
+    String api,
+    Map<String, dynamic> data, [
+    Map<String, dynamic> params = const <String, dynamic>{},
+  ]) async {
     try {
       final response = await (await initDio()).post<dynamic>(api, data: data, queryParameters: params);
       return jsonEncode(response.data);
     } on TimeoutException catch (_) {
-      l.e('The connection has timed out, Please try again!');
+      l.e("The connection has timed out, Please try again!");
       rethrow;
     } on DioException catch (e) {
       l.e(e.response.toString());
@@ -96,10 +100,10 @@ class ApiService {
   }
 
   static Future<String?> multipart(
-      String api,
-      List<File> paths, {
-        bool picked = false,
-      }) async {
+    String api,
+    List<File> paths, {
+    bool picked = false,
+  }) async {
     final formData = paths.mappedFormData(isPickedFile: picked);
 
     try {
@@ -114,17 +118,17 @@ class ApiService {
         data: formData,
         onSendProgress: (int sentBytes, int totalBytes) {
           final progressPercent = sentBytes / totalBytes * 100;
-          l.i('Progress: $progressPercent %');
+          l.i("Progress: $progressPercent %");
         },
         onReceiveProgress: (int sentBytes, int totalBytes) {
           final progressPercent = sentBytes / totalBytes * 100;
-          l.i('Progress: $progressPercent %');
+          l.i("Progress: $progressPercent %");
         },
       ).timeout(
         const Duration(minutes: 10),
         onTimeout: () {
           throw TimeoutException(
-            'The connection has timed out, Please try again!',
+            "The connection has timed out, Please try again!",
           );
         },
       );
@@ -144,7 +148,7 @@ class ApiService {
 
       return jsonEncode(response.data);
     } on TimeoutException catch (_) {
-      l.e('The connection has timed out, Please try again!');
+      l.e("The connection has timed out, Please try again!");
       rethrow;
     } on DioException catch (e) {
       l.e(e.response.toString());
@@ -155,15 +159,15 @@ class ApiService {
   }
 
   static Future<String?> putAccount(
-      String api,
-      Map<String, dynamic> params,
-      ) async {
+    String api,
+    Map<String, dynamic> params,
+  ) async {
     try {
       final response = await (await initDio()).put<dynamic>(api, queryParameters: params);
 
       return jsonEncode(response.data);
     } on TimeoutException catch (_) {
-      l.e('The connection has timed out, Please try again!');
+      l.e("The connection has timed out, Please try again!");
       rethrow;
     } on DioException catch (e) {
       l.e(e.response.toString());
@@ -176,9 +180,9 @@ class ApiService {
   static Future<String?> delete(String api, Map<String, dynamic> params) async {
     try {
       final _ = await (await initDio()).delete<dynamic>(api, queryParameters: params);
-      return 'success';
+      return "success";
     } on TimeoutException catch (_) {
-      l.e('The connection has timed out, Please try again!');
+      l.e("The connection has timed out, Please try again!");
       rethrow;
     } on DioException catch (e) {
       l.e(e.response.toString());
@@ -191,13 +195,13 @@ class ApiService {
 
 extension ListFileToFormData on List<File> {
   Future<FormData> mappedFormData({required bool isPickedFile}) async => FormData.fromMap(
-    <String, MultipartFile>{
-      for (var v in this) ...{
-        DateTime.now().toString(): MultipartFile.fromBytes(
-          isPickedFile ? v.readAsBytesSync() : (await rootBundle.load(v.path)).buffer.asUint8List(),
-          filename: v.path.substring(v.path.lastIndexOf('/')),
-        ),
-      },
-    },
-  );
+        <String, MultipartFile>{
+          for (final v in this) ...{
+            DateTime.now().toString(): MultipartFile.fromBytes(
+              isPickedFile ? v.readAsBytesSync() : (await rootBundle.load(v.path)).buffer.asUint8List(),
+              filename: v.path.substring(v.path.lastIndexOf("/")),
+            ),
+          },
+        },
+      );
 }
