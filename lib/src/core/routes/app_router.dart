@@ -50,7 +50,7 @@ final class AppRouter{
                 path: AppRouteName.verification,
                 builder: (BuildContext context, GoRouterState state)=> const VerificationcodePage(),
               ),
-            ]
+            ],
           ),
           GoRoute(
             name: "Reset Email",
