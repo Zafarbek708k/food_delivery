@@ -1,6 +1,7 @@
 import "package:flutter/material.dart";
 import "package:flutter_svg/flutter_svg.dart";
 import "package:flutter_svg/svg.dart";
+import "package:food_delivery/src/feature/profile/pages/empty_page.dart";
 
 class ProfilePage extends StatefulWidget {
   const ProfilePage({super.key});
@@ -68,22 +69,33 @@ class _ProfilePageState extends State<ProfilePage> {
                   itemCount: items.length,
                   itemBuilder: (context, index) {
                     final Items item = items[index];
-                    return Container(
-                      height: 50,
-                      decoration: BoxDecoration(borderRadius: BorderRadius.circular(15)),
-                      child: ListTile(
-                        leading: SvgPicture.asset(
-                          item.icon,
-                          height: MediaQuery.of(context).size.height * 0.024,
-                          width: MediaQuery.of(context).size.width * 0.024,
-                        ),
-                        title: Text(
-                          item.text,
-                          style: const TextStyle(
-                            color: Colors.black,
-                            fontWeight: FontWeight.w400,
-                            fontSize: 16,
-                            fontFamily: "Rubik",
+                    return GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (_) => EmptyProfilePage(),
+                          ),
+                        );
+                      },
+                      child: Container(
+                        height: 50,
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(15)),
+                        child: ListTile(
+                          leading: SvgPicture.asset(
+                            item.icon,
+                            height: MediaQuery.of(context).size.height * 0.024,
+                            width: MediaQuery.of(context).size.width * 0.024,
+                          ),
+                          title: Text(
+                            item.text,
+                            style: const TextStyle(
+                              color: Colors.black,
+                              fontWeight: FontWeight.w400,
+                              fontSize: 16,
+                              fontFamily: "Rubik",
+                            ),
                           ),
                         ),
                       ),
@@ -95,7 +107,8 @@ class _ProfilePageState extends State<ProfilePage> {
               MaterialButton(
                 height: 50,
                 minWidth: 120,
-                shape: const StadiumBorder(side: BorderSide(color: Colors.deepOrange)),
+                shape: const StadiumBorder(
+                    side: BorderSide(color: Colors.deepOrange)),
                 child: Row(
                   mainAxisSize: MainAxisSize.min,
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -123,5 +136,6 @@ class _ProfilePageState extends State<ProfilePage> {
 class Items {
   String text;
   String icon;
+
   Items({required this.text, required this.icon});
 }
