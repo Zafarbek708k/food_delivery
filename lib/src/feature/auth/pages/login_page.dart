@@ -1,11 +1,13 @@
 import "package:flutter/material.dart";
 import "package:flutter_svg/flutter_svg.dart";
 import "package:food_delivery/src/core/constants/context_extension.dart";
+import "package:food_delivery/src/core/routes/app_route_name.dart";
 import "package:food_delivery/src/core/style/app_colors.dart";
 import "package:food_delivery/src/core/style/text_style.dart";
 import "package:food_delivery/src/feature/auth/widgets/login_button_widget.dart";
 import "package:food_delivery/src/feature/auth/widgets/login_texfeild_widget.dart";
 import "package:food_delivery/src/feature/home/view/pages/home_page.dart";
+import "package:go_router/go_router.dart";
 
 class LoginPage extends StatelessWidget {
   const LoginPage({super.key});
@@ -34,7 +36,7 @@ class LoginPage extends StatelessWidget {
                 children: [
                   LoginButtonWidget(
                     onPressed: () {
-                      // Navigator.push(context, MaterialPageRoute(builder: (context) => const MyHomePage()));
+                      context.go(AppRouteName.discoveryPage);
                     },
                   ),
                   const SizedBox(
@@ -49,7 +51,9 @@ class LoginPage extends StatelessWidget {
                           style: const AppTextStyle().bodyLarge,
                         ),
                         GestureDetector(
-                          onTap: () {},
+                          onTap: () {
+                            context.go("${AppRouteName.signIn}/${AppRouteName.signUp}");
+                          },
                           child: const Text(
                             "Sing Up",
                             style: TextStyle(fontSize: 16, color: Colors.orange),
@@ -78,7 +82,9 @@ class LoginPage extends StatelessWidget {
                         ),
                         Text(
                           "Sign in with",
-                          style: const AppTextStyle().bodyMedium!.copyWith(fontWeight: FontWeight.w600,),
+                          style: const AppTextStyle().bodyMedium!.copyWith(
+                                fontWeight: FontWeight.w600,
+                              ),
                         ),
                         const SizedBox(
                           width: 10,

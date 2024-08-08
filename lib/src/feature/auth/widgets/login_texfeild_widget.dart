@@ -1,5 +1,7 @@
 // ignore: file_names
 import "package:flutter/material.dart";
+import "package:food_delivery/src/core/routes/app_route_name.dart";
+import "package:go_router/go_router.dart";
 
 class LoginTexfeildWidget extends StatefulWidget {
   const LoginTexfeildWidget({super.key});
@@ -122,7 +124,9 @@ class _LoginTexfeildWidgetState extends State<LoginTexfeildWidget> {
             child: Align(
               alignment: Alignment.centerRight,
               child: MaterialButton(
-                onPressed: () {},
+                onPressed: () {
+                  context.go("${AppRouteName.signIn}/${AppRouteName.reSetEmail}");
+                },
                 child: const Text(
                   "Forgot password?",
                   style: TextStyle(
