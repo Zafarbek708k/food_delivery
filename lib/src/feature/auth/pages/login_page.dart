@@ -4,7 +4,8 @@ import "package:food_delivery/src/core/constants/context_extension.dart";
 import "package:food_delivery/src/core/style/text_style.dart";
 import "package:food_delivery/src/feature/auth/widgets/login_button_widget.dart";
 import "package:food_delivery/src/feature/auth/widgets/login_texfeild_widget.dart";
-import "package:food_delivery/src/feature/home/pages/home_page.dart";
+import "package:food_delivery/src/feature/home/view/pages/home_page.dart";
+
 
 class LoginPage extends StatelessWidget {
   const LoginPage({super.key});

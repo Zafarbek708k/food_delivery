@@ -20,6 +20,7 @@ dependencies:
   flutter_screenutil: ^5.9.3
   percent_indicator: ^4.2.3
   pin_code_fields: ^8.0.1
+  persistent_bottom_nav_bar: ^6.2.1
 
   # State management
   flutter_riverpod: ^2.5.1

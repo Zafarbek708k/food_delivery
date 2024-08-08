@@ -1,8 +1,7 @@
-import 'dart:async';
-
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
-import 'package:food_delivery/src/feature/home/pages/welcome_page.dart';
+import "dart:async";
+import "package:flutter/cupertino.dart";
+import "package:flutter/material.dart";
+import "package:food_delivery/src/feature/home/view/pages/welcome_page.dart";
 
 class SplashPage extends StatefulWidget {
   const SplashPage({super.key});
@@ -21,8 +20,8 @@ class _SplashPageState extends State<SplashPage> {
   }
 
   @override
-  Widget build(BuildContext context) {
-    return Scaffold(
+  Widget build(BuildContext context) =>
+     Scaffold(
       body: Center(
         child: Container(
           width: double.infinity,
@@ -55,5 +54,4 @@ class _SplashPageState extends State<SplashPage> {
         ),
       ),
     );
-  }
 }
