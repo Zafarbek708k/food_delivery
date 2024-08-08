@@ -26,19 +26,20 @@ class _FavouritePageState extends State<FavouritePage> with SingleTickerProvider
 
   @override
   Widget build(BuildContext context) => Scaffold(
+    backgroundColor: Colors.white,
       body: Padding(
-        padding: const EdgeInsets.all(20),
+        padding:  REdgeInsets.all(20),
         child: Column(
           children: [
             Padding(
               padding: const EdgeInsets.only(top: 20, bottom: 20),
               child: SizedBox(
-                height: 45,
+                height: 45.h,
                 width: double.maxFinite,
                 child: TextField(
                   decoration: InputDecoration(
                     border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(15),
+                      borderRadius: BorderRadius.circular(15.r),
                     ),
                     hintText: "Search",
                     hintStyle: const TextStyle(
@@ -53,6 +54,7 @@ class _FavouritePageState extends State<FavouritePage> with SingleTickerProvider
                 ),
               ),
             ),
+
             SizedBox(
               height: 55,
               width: double.maxFinite,
@@ -78,6 +80,7 @@ class _FavouritePageState extends State<FavouritePage> with SingleTickerProvider
                   indicatorSize: TabBarIndicatorSize.tab,  // Keeps the indicator size equal to the tab size
                   labelColor: Colors.white,
                   unselectedLabelColor: Colors.black,
+
                   tabs: const [
                     Tab(text: "  Food Items  ",
                     height: 20,),
@@ -87,9 +90,11 @@ class _FavouritePageState extends State<FavouritePage> with SingleTickerProvider
                 ),
               ),
             ),
-            SizedBox(
-              height: 10.h,
-            ),
+
+
+
+
+            SizedBox(height: 10.h),
             Expanded(
               child: TabBarView(
                 controller: _tabController,

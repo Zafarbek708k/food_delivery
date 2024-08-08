@@ -8,7 +8,8 @@ import "../widgets/bottom_nav_bar_widget.dart";
 import "discovery_page.dart";
 
 class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key});
+  const MyHomePage({super.key, required this.child});
+  final Widget child;
 
   @override
   State<MyHomePage> createState() => _MyHomePageState();
@@ -45,16 +46,19 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) => Scaffold(
         body: Stack(
           children: [
-            PageView(
-              controller: controller,
-              physics: const NeverScrollableScrollPhysics(),
-              onPageChanged: (value) {
-                setState(() {
-                  currentPage = value;
-                });
-              },
-              children: pages,
-            ),
+            // PageView(
+            //   controller: controller,
+            //   physics: const NeverScrollableScrollPhysics(),
+            //   onPageChanged: (value) {
+            //     setState(() {
+            //       currentPage = value;
+            //     });
+            //   },
+            //   children: pages,
+            // ),
+
+            widget.child,
+
             Positioned(
               bottom: 16.h, // Set bottom to 0 to remove extra space
               left: 0,

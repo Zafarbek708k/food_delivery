@@ -1,7 +1,8 @@
 import "dart:async";
 import "package:flutter/cupertino.dart";
 import "package:flutter/material.dart";
-import "package:food_delivery/src/feature/home/view/pages/welcome_page.dart";
+import "package:food_delivery/src/core/routes/app_route_name.dart";
+import "package:go_router/go_router.dart";
 
 class SplashPage extends StatefulWidget {
   const SplashPage({super.key});
@@ -14,7 +15,7 @@ class _SplashPageState extends State<SplashPage> {
   @override
   void initState() {
     Timer(const Duration(seconds: 3), () {
-      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const WelcomePage()));
+      context.go(AppRouteName.welcomePage);
     });
     super.initState();
   }

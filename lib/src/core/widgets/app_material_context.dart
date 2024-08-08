@@ -1,4 +1,5 @@
 import "package:flutter/material.dart";
+import "package:food_delivery/src/core/routes/app_router.dart";
 import "../../feature/home/view/pages/splash_page.dart";
 import "../../feature/restaurant/page/delivery_map_page.dart";
 import "../../feature/settings/inherited_locale_notifier.dart";
@@ -18,15 +19,11 @@ class AppMaterialContext extends StatelessWidget {
         child: InheritedLocalNotifier(
           localController: localController,
           child: Builder(
-            builder: (context) => MaterialApp(
-              // home: const LoginPage(),
-              // home: const MapDeliveryPage(),
-              home: const SplashPage(),
+            builder: (context) => MaterialApp.router(
               debugShowCheckedModeBanner: false,
               theme: InheritedThemeNotifier.maybeOf(context)?.theme,
               locale: InheritedLocalNotifier.maybeOf(context)?.appLocal,
-              // home: HomePage(),
-              // home:
+              routerConfig: AppRouter.routes,
             ),
           ),
         ),

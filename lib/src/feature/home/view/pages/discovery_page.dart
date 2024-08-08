@@ -147,9 +147,7 @@ class _DiscoveryPageState extends State<DiscoveryPage> {
                 ),
               ),
 
-              const SizedBox(
-                height: 75,
-              )
+               SizedBox(height: 100.h),
             ],
           ),
         ),
