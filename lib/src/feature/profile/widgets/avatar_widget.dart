@@ -1,10 +1,10 @@
-import 'dart:io';
-import 'package:flutter/material.dart';
-import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:image_picker/image_picker.dart';
-import 'package:shared_preferences/shared_preferences.dart';
+import "dart:io";
+import "package:flutter/material.dart";
+import "package:flutter_riverpod/flutter_riverpod.dart";
+import "package:image_picker/image_picker.dart";
+import "package:shared_preferences/shared_preferences.dart";
 
-// Define a Notifier for managing avatar state
+
 class AvatarNotifier extends Notifier<String?> {
   @override
   String? build() {
@@ -47,7 +47,7 @@ class AvatarNotifier extends Notifier<String?> {
   }
 }
 
-// Create a provider for the AvatarNotifier
+
 final avatarProvider = NotifierProvider<AvatarNotifier, String?>(() => AvatarNotifier());
 
 
@@ -56,7 +56,7 @@ class AvatarWidget extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    // Watch the avatarProvider for changes
+
     final avatarPath = ref.watch(avatarProvider);
 
     return Column(

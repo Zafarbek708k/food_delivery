@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import "package:food_delivery/src/feature/profile/pages/empty_page.dart";
 import "package:food_delivery/src/feature/profile/pages/my_profile_edit_page.dart";
 
 class ProfilePage extends StatefulWidget {
@@ -105,7 +106,10 @@ class _ProfilePageState extends State<ProfilePage> {
                         width: MediaQuery.of(context).size.width * 0.042,
                       ),
                       TextButton(
-                        onPressed: (){},
+                        onPressed: (){
+                          Navigator.push(context, MaterialPageRoute(builder: (context)=>EmptyProfilePage()));
+                        },
+
                         child: const Text(
                           "Delivery Adress",
                           style: TextStyle(
@@ -125,7 +129,9 @@ class _ProfilePageState extends State<ProfilePage> {
                         width: MediaQuery.of(context).size.width * 0.038,
                       ),
                       TextButton(
-                        onPressed: () {  },
+                        onPressed: () {
+                          Navigator.push(context, MaterialPageRoute(builder: (context)=>EmptyProfilePage()));
+                        },
                         child: const Text(
                           "Payment Methods",
                           style: TextStyle(
@@ -145,7 +151,9 @@ class _ProfilePageState extends State<ProfilePage> {
                         width: MediaQuery.of(context).size.width * 0.040,
                       ),
                       TextButton(
-                        onPressed: () {  },
+                        onPressed: () {
+                          Navigator.push(context, MaterialPageRoute(builder: (context)=>EmptyProfilePage()));
+                        },
                         child: const Text(
                           "Contact Us",
                           style: TextStyle(
@@ -165,7 +173,9 @@ class _ProfilePageState extends State<ProfilePage> {
                         width: MediaQuery.of(context).size.width * 0.040,
                       ),
                       TextButton(
-                        onPressed: () {  },
+                        onPressed: () {
+                          Navigator.push(context, MaterialPageRoute(builder: (context)=>EmptyProfilePage()));
+                        },
                         child: const Text(
                           "Settings",
                           style: TextStyle(
@@ -185,7 +195,7 @@ class _ProfilePageState extends State<ProfilePage> {
                         width: MediaQuery.of(context).size.width * 0.040,
                       ),
                       TextButton(
-                        onPressed: () {  },
+                        onPressed: () { Navigator.push(context, MaterialPageRoute(builder: (context)=>EmptyProfilePage())); },
                         child: const Text(
                           "Help & FAQ",
                           style: TextStyle(

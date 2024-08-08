@@ -5,7 +5,7 @@ description: "A new Flutter project for G10"
 version: 1.0.0+1
 
 environment:
-  sdk: '>=3.4.1 <4.0.0'
+  sdk: '>=3.4.0 <4.0.0'
 
 dependencies:
   flutter:
@@ -20,6 +20,7 @@ dependencies:
   flutter_screenutil: ^5.9.3
   pin_code_fields: ^8.0.1
   persistent_bottom_nav_bar: ^6.2.1
+  image_picker: ^0.8.4+1
 
   # State management
   flutter_riverpod: ^2.5.1
