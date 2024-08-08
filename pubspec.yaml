@@ -17,6 +17,8 @@ dependencies:
   l: ^4.0.2
   smooth_page_indicator: ^1.2.0+3
   flutter_svg: ^2.0.10+1
+  flutter_screenutil: ^5.9.3
+  pin_code_fields: ^8.0.1
 
   # State management
   flutter_riverpod: ^2.5.1
@@ -26,13 +28,17 @@ dependencies:
 
   # Storage
   flutter_secure_storage: ^9.2.2
-  connectivity_plus: ^6.0.4
   shared_preferences: ^2.3.1
+
+  # Navigation
   go_router: ^14.2.3
-  percent_indicator: ^4.2.3
+
+  # Map
   yandex_mapkit: ^3.4.0
   latlong2: ^0.9.0
   geolocator: ^11.1.0
+  device_preview: ^1.2.0
+
 
 
 dev_dependencies:
@@ -41,14 +47,15 @@ dev_dependencies:
 
   flutter_lints: ^3.0.0
 
-flutter:
+  dart_code_metrics: ^4.19.0
 
+flutter:
+  generate: true
   uses-material-design: true
 
   assets:
     - assets/icons/
     - assets/images/
-  #   - images/a_dot_ham.jpeg
 
   # fonts:
   #   - family: Schyler

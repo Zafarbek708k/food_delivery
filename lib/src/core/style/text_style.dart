@@ -10,12 +10,16 @@ class AppTextStyle extends TextTheme {
         fontWeight: FontWeight.w500,
         fontSize: FontSize.size18,
         fontFamily: "Rubik",
+                color: AppColors.l111719
+
       );
   @override
   TextStyle? get bodyLargeBannerButton => const TextStyle(
         fontWeight: FontWeight.w400,
         fontSize: FontSize.size18,
         fontFamily: "Rubik",
+                color: AppColors.l111719
+
       );
 
   @override
@@ -23,6 +27,8 @@ class AppTextStyle extends TextTheme {
         fontWeight: FontWeight.w500,
         fontSize: FontSize.size10,
         fontFamily: "Rubik",
+                color: AppColors.l111719
+
       );
 
   @override
@@ -30,6 +36,8 @@ class AppTextStyle extends TextTheme {
         fontWeight: FontWeight.w600,
         fontSize: FontSize.size20,
         fontFamily: "Rubik",
+                color: AppColors.l111719
+
       );
 
   @override
@@ -44,6 +52,8 @@ class AppTextStyle extends TextTheme {
         fontWeight: FontWeight.w300,
         fontSize: FontSize.size14,
         fontFamily: "Rubik",
+                color: AppColors.l111719
+
       );
 
   @override
@@ -51,6 +61,8 @@ class AppTextStyle extends TextTheme {
         fontWeight: FontWeight.w400,
         fontSize: FontSize.size14,
         fontFamily: "Rubik",
+                color: AppColors.l111719
+
       );
 
   @override
@@ -58,6 +70,7 @@ class AppTextStyle extends TextTheme {
         fontWeight: FontWeight.w400,
         fontSize: FontSize.size6_4,
         fontFamily: "Rubik",
+        color: AppColors.l111719
       );
 
   @override

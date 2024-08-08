@@ -1,5 +1,7 @@
-import 'dart:developer';
 import 'package:flutter/material.dart';
+import 'package:food_delivery/src/feature/auth/pages/login_page.dart';
+import 'package:food_delivery/src/feature/auth/pages/register_page.dart';
+import 'package:food_delivery/src/feature/auth/pages/resset_password_page.dart';
 import '../widgets/welcome_page_info_widget.dart';
 import 'home_page.dart';
 
@@ -39,13 +41,13 @@ class WelcomePage extends StatelessWidget {
                 ),
               ),
             ),
+
             /// this is all widgets (buttons, Text nad anything)
             InfoWelcomePageWidgets(
               googleButton: () {},
               facebookButton: () {},
               emailButton: () {
-                log("MyHomePagega otishi kere");
-                Navigator.push(context, MaterialPageRoute(builder: (context) => const MyHomePage()));
+                Navigator.push(context, MaterialPageRoute(builder: (context) => const LoginPage()));
               },
               signInButton: () {},
             ),
@@ -55,5 +57,3 @@ class WelcomePage extends StatelessWidget {
     );
   }
 }
-
-
