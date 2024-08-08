@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:food_delivery/src/core/style/text_style.dart';
+import 'package:food_delivery/src/core/constants/context_extension.dart';
 import 'package:food_delivery/src/feature/auth/widgets/login_button_widget.dart';
 import 'package:food_delivery/src/feature/auth/widgets/register_texfeild_widgets.dart';
 
@@ -15,12 +15,12 @@ class RegisterPage extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            const SizedBox(
+             SizedBox(
               height: 80,
             ),
-            const Padding(
+             Padding(
               padding: EdgeInsets.only(right: 260),
-              child: Text(
+              child: const Text(
                 "Sing Up",
                 style: TextStyle(
                   color: Colors.black,
@@ -33,16 +33,16 @@ class RegisterPage extends StatelessWidget {
             Column(
               children: [
                 LoginButtonWidget(onPressed: () {  },),
-                const SizedBox(
+                 SizedBox(
                   height: 25,
                 ),
                 Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 80),
+                  padding:  EdgeInsets.symmetric(horizontal: 80),
                   child: Row(
                     children: [
                       Text(
                         "Don't have an accaunt? ",
-                        style: const AppTextStyle().bodyLarge,
+                        style: context.theme.textTheme.bodyLarge,
                       ),
                       GestureDetector(
                         onTap: () {},
@@ -58,11 +58,11 @@ class RegisterPage extends StatelessWidget {
                     ],
                   ),
                 ),
-                const SizedBox(
+                 SizedBox(
                   height: 25,
                 ),
                 Padding(
-                  padding: const EdgeInsets.symmetric(
+                  padding:  EdgeInsets.symmetric(
                     horizontal: 60,
                   ),
                   child: Row(
@@ -78,9 +78,9 @@ class RegisterPage extends StatelessWidget {
                       ),
                       Text(
                         "Sign in with",
-                        style: const AppTextStyle().bodyMediumBold,
+                        style: context.theme.textTheme.bodyLarge,
                       ),
-                      const SizedBox(
+                       SizedBox(
                         width: 10,
                       ),
                       const Expanded(
@@ -92,13 +92,13 @@ class RegisterPage extends StatelessWidget {
                     ],
                   ),
                 ),
-                const SizedBox(
+                 SizedBox(
                   height: 20,
                 ),
                 Column(
                   children: [
                     Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 30),
+                      padding:  EdgeInsets.symmetric(horizontal: 30),
                       child: MaterialButton(
                         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30), side: const BorderSide()),
                         height: 40,
@@ -111,12 +111,12 @@ class RegisterPage extends StatelessWidget {
                               "assets/icons/facebook_icon.svg",
                               width: 25,
                             ),
-                            const SizedBox(
+                             SizedBox(
                               width: 20,
                             ),
                             Text(
                               "Countine with Facebook",
-                              style: const AppTextStyle().bodyLarge,
+                              style: context.theme.textTheme.bodyLarge,
                             ),
                           ],
                         ),
@@ -126,7 +126,7 @@ class RegisterPage extends StatelessWidget {
                       height: 10,
                     ),
                     Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 30),
+                      padding:  EdgeInsets.symmetric(horizontal: 30),
                       child: MaterialButton(
                         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30), side: const BorderSide()),
                         height: 40,
@@ -139,12 +139,12 @@ class RegisterPage extends StatelessWidget {
                               "assets/icons/google_icon.svg",
                               width: 25,
                             ),
-                            const SizedBox(
+                             SizedBox(
                               width: 20,
                             ),
                             Text(
                               "Countine with Google",
-                              style: const AppTextStyle().bodyLarge,
+                              style: context.theme.textTheme.bodyLarge,
                             ),
                           ],
                         ),

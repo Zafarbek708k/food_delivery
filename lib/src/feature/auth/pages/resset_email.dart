@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:food_delivery/src/core/style/text_style.dart';
+import 'package:food_delivery/src/core/constants/context_extension.dart';
 import 'package:food_delivery/src/feature/auth/widgets/login_button_widget.dart';
 import 'package:food_delivery/src/feature/auth/widgets/resset_password_textfield_widgets.dart';
 
@@ -23,25 +23,25 @@ class RessetEmail extends StatelessWidget {
                   alignment: Alignment.topLeft,
                   child: Text(
                     "Reset Email",
-                    style: AppTextStyle().bodyLargeBold!.copyWith(fontSize: 32),
+                    style: context.theme.textTheme.bodyLarge!.copyWith(fontSize: 32),
                   ),
                 ),
               ),
             ),
-            const SizedBox(
+             SizedBox(
                 height: 50,
               ),
               Center(
                 child: Text(
                   "Please enter the verification code that has \nbeen sent to email@gmail.com ",
-                  style: const AppTextStyle().bodyLarge!.copyWith(
+                  style: context.theme.textTheme.bodyLarge!.copyWith(
                         color: Colors.black.withOpacity(0.6),
                       ),
                 ),
               ),
-              const SizedBox(height: 50,),
+               SizedBox(height: 50,),
                       const RessetPasswordTextfieldWidgets(),
-                      const SizedBox(height: 80,),
+                       SizedBox(height: 80,),
             LoginButtonWidget(onPressed: () {  },),
           ],
         ),

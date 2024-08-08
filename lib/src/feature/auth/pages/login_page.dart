@@ -23,7 +23,7 @@ class LoginPage extends StatelessWidget {
                 padding: const EdgeInsets.only(right: 290),
                 child: Text(
                   "Login",
-                  style: const AppTextStyle().bodyLargeBold!.copyWith(
+                  style: const AppTextStyle().bodyLarge!.copyWith(
                         fontSize: 30,
                       ),
                 ),
@@ -77,7 +77,7 @@ class LoginPage extends StatelessWidget {
                         ),
                         Text(
                           "Sign in with",
-                          style: const AppTextStyle().bodyMediumBold,
+                          style: const AppTextStyle().bodyMedium,
                         ),
                         const SizedBox(
                           width: 10,
@@ -134,7 +134,10 @@ class LoginPage extends StatelessWidget {
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-
+SvgPicture.asset(
+                                "assets/icons/google_icon.svg",
+                                width: 25,
+                              ),
                               const SizedBox(
                                 width: 20,
                               ),
