@@ -134,7 +134,10 @@ class LoginPage extends StatelessWidget {
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-
+SvgPicture.asset(
+                                "assets/icons/google_icon.svg",
+                                width: 25,
+                              ),
                               const SizedBox(
                                 width: 20,
                               ),
