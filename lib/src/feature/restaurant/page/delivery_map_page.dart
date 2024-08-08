@@ -1,102 +1,66 @@
-import 'package:flutter/material.dart';
-import 'package:percent_indicator/circular_percent_indicator.dart';
-import 'package:yandex_mapkit/yandex_mapkit.dart';
+import "package:flutter/material.dart";
+import "package:flutter_riverpod/flutter_riverpod.dart";
+import "package:flutter_screenutil/flutter_screenutil.dart";
+import "package:food_delivery/riverpod.dart";
+import "package:food_delivery/src/core/style/app_colors.dart";
+import "package:food_delivery/src/feature/restaurant/widgets/delivery_bottom_widget.dart";
+import "package:yandex_mapkit/yandex_mapkit.dart";
 
-class MapDeliveryPage extends StatelessWidget {
+class MapDeliveryPage extends ConsumerStatefulWidget {
   const MapDeliveryPage({super.key});
 
   @override
+  _MapDeliveryPageState createState() => _MapDeliveryPageState();
+}
+
+class _MapDeliveryPageState extends ConsumerState<MapDeliveryPage> {
+  @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      ref.read(restaurantVm.notifier).determinePosition();
+    });
+  }
+
+  @override
   Widget build(BuildContext context) {
+    final restaurantVmState = ref.watch(restaurantVm);
+
     return Scaffold(
-      body: Stack(
+      body: restaurantVmState.isLoading
+          ? Stack(
         children: [
-          const YandexMap(),
+          YandexMap(
+            nightModeEnabled: true,
+            mode2DEnabled: false,
+            onMapCreated: (controller) {
+              ref.read(restaurantVm.notifier).onMapCreated(controller);
+            },
+            mapObjects: restaurantVmState.mapObjectList,
+          ),
+
+          DeliveryBottomWidget(),
 
           Positioned(
-            bottom: 0,
-            left: 0,
-            right: 0,
-            child: SizedBox(
-              height: 400,
-              width: double.infinity,
-              child: DecoratedBox(
-                decoration: const BoxDecoration(color: Colors.white),
-                child: Column(
-                  children: [
-                    const SizedBox(
-                      height: 20,
-                    ),
-
-                    CircularPercentIndicator(
-                      radius: 100.0,
-                      lineWidth: 10.0,
-                      percent: 0.5,
-                      center: const Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: <Widget>[
-                          Text(
-                            "17",
-                            style: TextStyle(fontSize: 40.0, fontWeight: FontWeight.bold),
-                          ),
-                          Text(
-                            "min",
-                            style: TextStyle(fontSize: 20.0),
-                          ),
-                          Text(
-                            "delivery time",
-                            style: TextStyle(fontSize: 20.0),
-                          ),
-                        ],
-                      ),
-                      progressColor: Colors.orange.shade900,
-                      backgroundColor: Colors.orange[200]!,
-                    ),
-
-                    const SizedBox(height: 10,),
-
-                    const Text(
-                      "La Pasta House",
-                      style: TextStyle(
-                        color: Colors.grey,
-                        fontSize: 14,
-                      ),
-                    ),
-
-                    const SizedBox(height: 10,),
-
-                    const Text(
-                      "Your order is being processed",
-                      style: TextStyle(
-                        color: Colors.black,
-                        fontWeight: FontWeight.w800,
-                        fontSize: 18,
-                      ),
-                    ),
-
-                    const SizedBox(height: 30,),
-
-                    MaterialButton(
-                      onPressed: (){},
-                      height: 45,
-                      minWidth: 350,
-                      padding: const EdgeInsets.symmetric(horizontal: 20),
-                      color: Colors.orange.shade900,
-                      shape: const StadiumBorder(),
-                      child: const Text(
-                        "Hide Delivery Status",
-                        style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 18
-                        ),
-                      ),
-                    )
-                  ],
-                ),
+            top: 50.h,
+            left: 135.w,
+            child: MaterialButton(
+              onPressed: () {
+                ref.read(restaurantVm.notifier).goLive();
+              },
+              minWidth: 100.w,
+              height: 40.h,
+              shape: const StadiumBorder(),
+              color: AppColors.lF83B01,
+              child: const Text(
+                "Go Live",
+                style: TextStyle(color: Colors.white),
               ),
             ),
-          )
+          ),
         ],
-      ),
+      )
+          : const Center(child: CircularProgressIndicator()),
     );
   }
 }

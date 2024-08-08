@@ -1,8 +1,9 @@
-import 'package:flutter/material.dart';
-import 'package:food_delivery/src/feature/restaurant/widgets/category_card_widget.dart';
-import 'package:food_delivery/src/feature/restaurant/widgets/restaraunt_card_widget.dart';
+import "package:flutter/material.dart";
+import "package:flutter_screenutil/flutter_screenutil.dart";
+import "package:food_delivery/src/feature/restaurant/widgets/restaraunt_card_widget.dart";
+import "package:food_delivery/src/feature/restaurant/widgets/restaraunt_category_horizontal_widget.dart";
 
-import '../../widgets/custom_appbar_widget.dart';
+import "../../widgets/custom_appbar_widget.dart";
 
 class RestaurantsPage extends StatefulWidget {
   const RestaurantsPage({super.key});
@@ -15,99 +16,98 @@ class RestaurantsPageState extends State<RestaurantsPage> {
   bool showAllCategories = false;
 
   @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBarWidget(
-        appBarText: 'Xurshid Umarov',
-        actions: [
-          IconButton(icon: const Icon(Icons.sort), onPressed: () {}),
-        ],
-      ),
-      body: CustomScrollView(
-        slivers: [
-          SliverToBoxAdapter(
-            child: Padding(
-              padding: const EdgeInsets.all(16.0),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  const Text(
-                    'Restaurants',
-                    style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      const Text(
-                        'Categories',
-                        style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-                      ),
-                      TextButton(
-                        onPressed: () {
-                          setState(() {
-                            showAllCategories = !showAllCategories;
-                          });
-                        },
-                        child: Text(showAllCategories ? 'Show less' : 'See all'),
-                      ),
-                    ],
-                  ),
-                  const SizedBox(height: 10),
-                  _buildHorizontalCategories(),
-                  const SizedBox(height: 20),
-                  const Text(
-                    'All restaurants',
-                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-                  ),
-                ],
+  Widget build(BuildContext context) => Scaffold(
+        appBar: AppBarWidget(
+          appBarText: "Xurshid Umarov",
+          actions: [
+            IconButton(icon: const Icon(Icons.sort), onPressed: () {}),
+          ],
+        ),
+        body: CustomScrollView(
+          slivers: [
+            SliverToBoxAdapter(
+              child: Padding(
+                padding: REdgeInsets.all(16),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      "Restaurants",
+                      style: TextStyle(fontSize: 24.sp, fontWeight: FontWeight.bold),
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          "Categories",
+                          style: TextStyle(fontSize: 20.sp, fontWeight: FontWeight.bold),
+                        ),
+                        TextButton(
+                          onPressed: () {
+                            setState(() {
+                              showAllCategories = !showAllCategories;
+                            });
+                          },
+                          child: Text(showAllCategories ? "Show less" : "See all"),
+                        ),
+                      ],
+                    ),
+                    // const SizedBox(height: 10),
+                    20.horizontalSpace,
+                    const HorizontalCategories(),
+                    // _buildHorizontalCategories(),
+                    // const SizedBox(height: 20),
+                    20.horizontalSpace,
+                    Text(
+                      "All restaurants",
+                      style: TextStyle(fontSize: 20.sp, fontWeight: FontWeight.bold),
+                    ),
+                  ],
+                ),
               ),
             ),
-          ),
-          SliverList(
-            delegate: SliverChildBuilderDelegate(
-              (context, index) => const RestaurantCard(),
-              childCount: 10, // Adjust the number of restaurants as needed
+            SliverList(
+              delegate: SliverChildBuilderDelegate(
+                (context, index) => const RestaurantCard(),
+                childCount: 10, // Adjust the number of restaurants as needed
+              ),
             ),
-          ),
-        ],
-      ),
-    );
-  }
+          ],
+        ),
+      );
 
-  Widget _buildHorizontalCategories() {
-    return const SingleChildScrollView(
-      scrollDirection: Axis.horizontal,
-      child: Row(
-        children: [
-          CategoryCard(
-            title: "title",
-            places: 15,
-            imageUrl: "https://freshday.ru/image/cache/catalog/raznye-vidy-italyanskoy-pasty-1152x768.webp",
-          ),
-          CategoryCard(
-            title: "title",
-            places: 15,
-            imageUrl: "https://freshday.ru/image/cache/catalog/raznye-vidy-italyanskoy-pasty-1152x768.webp",
-          ),
-          CategoryCard(
-            title: "title",
-            places: 15,
-            imageUrl: "https://freshday.ru/image/cache/catalog/raznye-vidy-italyanskoy-pasty-1152x768.webp",
-          ),
-          CategoryCard(
-            title: "title",
-            places: 15,
-            imageUrl: "https://freshday.ru/image/cache/catalog/raznye-vidy-italyanskoy-pasty-1152x768.webp",
-          ),
-          CategoryCard(
-            title: "title",
-            places: 15,
-            imageUrl: "https://freshday.ru/image/cache/catalog/raznye-vidy-italyanskoy-pasty-1152x768.webp",
-          ),
-        ],
-      ),
-    );
-  }
+  // Widget buildHorizontalCategories() => const SingleChildScrollView(
+  //       scrollDirection: Axis.horizontal,
+  //       child: Row(
+  //         children: [
+  //           CategoryCard(
+  //             title: "title",
+  //             places: 15,
+  //             imageUrl: "https://freshday.ru/image/cache/catalog/raznye-vidy-italyanskoy-pasty-1152x768.webp",
+  //           ),
+  //           CategoryCard(
+  //             title: "title",
+  //             places: 15,
+  //             imageUrl: "https://freshday.ru/image/cache/catalog/raznye-vidy-italyanskoy-pasty-1152x768.webp",
+  //           ),
+  //           CategoryCard(
+  //             title: "title",
+  //             places: 15,
+  //             imageUrl: "https://freshday.ru/image/cache/catalog/raznye-vidy-italyanskoy-pasty-1152x768.webp",
+  //           ),
+  //           CategoryCard(
+  //             title: "title",
+  //             places: 15,
+  //             imageUrl: "https://freshday.ru/image/cache/catalog/raznye-vidy-italyanskoy-pasty-1152x768.webp",
+  //           ),
+  //           CategoryCard(
+  //             title: "title",
+  //             places: 15,
+  //             imageUrl: "https://freshday.ru/image/cache/catalog/raznye-vidy-italyanskoy-pasty-1152x768.webp",
+  //           ),
+  //         ],
+  //       ),
+  //     );
 
   // Widget _buildAllCategories() {
   //   return const SingleChildScrollView(
