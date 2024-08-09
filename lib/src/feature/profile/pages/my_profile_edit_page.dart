@@ -16,6 +16,7 @@ class _MyProfileEditPageState extends ConsumerState<MyProfileEditPage> {
   @override
   Widget build(BuildContext context) => Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.white,
         actions: [
           PopupMenuButton<String>(
             icon: const Icon(Icons.more_vert),
