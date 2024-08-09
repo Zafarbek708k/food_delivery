@@ -1,32 +1,35 @@
-import 'package:flutter/material.dart';
+
+import "package:flutter/material.dart";
 
 class CustomTextField extends StatelessWidget {
-  final String labelText;
+  final String hintText;
 
    TextEditingController? controller;
 
    CustomTextField({
-    super.key,
-    required this.labelText,
+    required this.hintText, super.key,
      this.controller,
   });
 
   @override
-  Widget build(BuildContext context) {
-    return Material(
-      elevation: 4.0, // Add shadow
-      shadowColor: Colors.black.withOpacity(0.25), // Shadow color
-      borderRadius: BorderRadius.circular(10), // Border radius for shadow
+  Widget build(BuildContext context) => Material(
+      elevation: 4,
+      shadowColor: Colors.black.withOpacity(0.25),
+      borderRadius: BorderRadius.circular(10),
       child:  SizedBox(
         width: MediaQuery.of(context).size.width*0.9,
         height: 60,
         child: TextField(
           controller: controller,
           decoration: InputDecoration(
-            labelText: labelText,
+            hintText: hintText,
+            hintStyle: const TextStyle(
+              color: Colors.white60,
+            ),
+
 
             filled: true,
-            fillColor: Colors.white,
+            fillColor: Colors.orangeAccent,
             border: const OutlineInputBorder(
               borderRadius: BorderRadius.all(
                 Radius.circular(10),
@@ -37,5 +40,4 @@ class CustomTextField extends StatelessWidget {
         ),
       ),
     );
-  }
 }

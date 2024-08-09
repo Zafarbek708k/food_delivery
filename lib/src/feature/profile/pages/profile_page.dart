@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import "package:food_delivery/src/feature/profile/pages/empty_page.dart";
 import "package:food_delivery/src/feature/profile/pages/my_profile_edit_page.dart";
+import "package:food_delivery/src/feature/profile/widgets/avatar_widget.dart";
 
 class ProfilePage extends StatefulWidget {
   const ProfilePage({super.key});
@@ -23,15 +24,20 @@ class _ProfilePageState extends State<ProfilePage> {
                 SizedBox(
                   height: MediaQuery.of(context).size.height * 0.05,
                 ),
-                Container(
-                  height: 120,
-                  decoration: const BoxDecoration(
-                    shape: BoxShape.circle,
-                    image: DecorationImage(
-                      image: AssetImage("assets/images/woman.png"),
-                    ),
-                  ),
+                SizedBox(
+
+                  child: AvatarWidget(),
                 ),
+
+                // Container(
+                //   height: 120,
+                //   decoration: const BoxDecoration(
+                //     shape: BoxShape.circle,
+                //     image: DecorationImage(
+                //       image: AssetImage("assets/images/woman.png"),
+                //     ),
+                //   ),
+                // ),
               const  Text(
                   'Katty Berry',
                   style: TextStyle(
