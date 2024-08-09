@@ -1,6 +1,7 @@
 import "package:flutter/material.dart";
 import 'package:flutter_svg/svg.dart';
 import 'package:food_delivery/src/core/constants/context_extension.dart';
+import "package:food_delivery/src/core/routes/app_route_name.dart";
 import "package:food_delivery/src/core/style/text_style.dart";
 import 'package:food_delivery/src/feature/auth/widgets/login_button_widget.dart';
 import "package:food_delivery/src/feature/auth/widgets/regester_button_widget.dart";
@@ -35,7 +36,9 @@ class RegisterPage extends StatelessWidget {
               Column(
                 children: [
                   RegesterButtonWidget(
-                    onPressed: () {},
+                    onPressed: () {
+                      context.go("${AppRouteName.signIn}/${AppRouteName.signUp}/${AppRouteName.verification}");
+                    },
                   ),
                   SizedBox(
                     height: 25,

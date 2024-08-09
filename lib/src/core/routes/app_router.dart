@@ -3,6 +3,8 @@ import "package:food_delivery/src/core/routes/app_route_name.dart";
 import "package:food_delivery/src/feature/auth/pages/login_page.dart";
 import "package:food_delivery/src/feature/auth/pages/register_page.dart";
 import "package:food_delivery/src/feature/auth/pages/resset_email.dart";
+import "package:food_delivery/src/feature/auth/pages/resset_password_page.dart";
+import "package:food_delivery/src/feature/auth/pages/resset_verfication_code_page.dart";
 import "package:food_delivery/src/feature/auth/pages/verificationcode_page.dart";
 import "package:food_delivery/src/feature/favourite/pages/favourite_page.dart";
 import "package:food_delivery/src/feature/home/view/pages/discovery_page.dart";
@@ -56,6 +58,20 @@ final class AppRouter{
             name: "Reset Email",
             path: AppRouteName.reSetEmail,
             builder: (BuildContext context, GoRouterState state)=> const RessetEmail(),
+            routes: [
+              GoRoute(
+                name: "RessetVerification",
+                path: AppRouteName.reSetVerification,
+                builder: (BuildContext context, GoRouterState state)=> const RessetVerficationCodePage(),
+                routes: [
+                   GoRoute(
+                name: "RessetPassword",
+                path: AppRouteName.reSetPassword,
+                builder: (BuildContext context, GoRouterState state)=> const RessetPasswordPage(),
+              ),
+                ],
+              ),
+            ],
           ),
         ],
       ),
