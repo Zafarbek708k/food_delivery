@@ -7,7 +7,7 @@ class EmptyProfilePage extends StatelessWidget {
   Widget build(BuildContext context) => Scaffold(
         appBar: AppBar(),
         body: Center(
-          child: Text("Keyingi versiyadan qo'shamiz"),
+          child: Text("Keyingi versiyada "),
         ),
       );
 }
