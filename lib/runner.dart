@@ -1,8 +1,8 @@
-import 'dart:async';
-import 'package:flutter/services.dart';
-import 'package:food_delivery/setup.dart';
-import 'package:food_delivery/src/app.dart';
-import 'package:l/l.dart';
+import "dart:async";
+import "package:flutter/services.dart";
+import "package:food_delivery/setup.dart";
+import "package:food_delivery/src/app.dart";
+import "package:l/l.dart";
 
 void run() => l.capture<void>(
       () => runZonedGuarded<void>(
@@ -16,7 +16,7 @@ void run() => l.capture<void>(
         },
         (final error, final stackTrace) {
           l.e(
-            'io_top_level_error: $error\n $stackTrace',
+            "io_top_level_error: $error\n $stackTrace",
             stackTrace,
           );
         },

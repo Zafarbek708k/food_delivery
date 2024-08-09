@@ -48,6 +48,7 @@ class CategoryCard extends StatelessWidget {
   Widget build(BuildContext context) => InkWell(
         onTap: onTap, // Bu yerda bosilganda nima sodir bo'lishini belgilaymiz
         child: Card(
+          color: Colors.white,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(12.r),
           ),

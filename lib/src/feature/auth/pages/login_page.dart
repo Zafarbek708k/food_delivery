@@ -26,9 +26,11 @@ class LoginPage extends StatelessWidget {
                 padding: const EdgeInsets.only(right: 290),
                 child: Text(
                   "Login",
-                  style: const AppTextStyle().bodyLarge!.copyWith(
-                        fontSize: 30,
-                      ),
+                  style: context.theme.textTheme.bodyLarge!.copyWith(
+                    fontSize: 30,
+                    fontWeight: FontWeight.w600,
+                    color: AppColors.l111719,
+                  ),
                 ),
               ),
               const LoginTexfeildWidget(),
@@ -42,25 +44,26 @@ class LoginPage extends StatelessWidget {
                   const SizedBox(
                     height: 25,
                   ),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 80),
-                    child: Row(
-                      children: [
-                        Text(
-                          "Don't have an accaunt? ",
-                          style: const AppTextStyle().bodyLarge,
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        "Don't have an accaunt? ",
+                        style: context.theme.textTheme.bodyLarge!.copyWith(
+                          color: AppColors.l111719,
+                          fontWeight: FontWeight.w500,
                         ),
-                        GestureDetector(
-                          onTap: () {
-                            context.go("${AppRouteName.signIn}/${AppRouteName.signUp}");
-                          },
-                          child: const Text(
-                            "Sing Up",
-                            style: TextStyle(fontSize: 16, color: Colors.orange),
-                          ),
+                      ),
+                      GestureDetector(
+                        onTap: () {
+                          context.go("${AppRouteName.signIn}/${AppRouteName.signUp}");
+                        },
+                        child: const Text(
+                          "Sing Up",
+                          style: TextStyle(fontSize: 16, color: Colors.orange),
                         ),
-                      ],
-                    ),
+                      ),
+                    ],
                   ),
                   const SizedBox(
                     height: 25,
@@ -82,9 +85,10 @@ class LoginPage extends StatelessWidget {
                         ),
                         Text(
                           "Sign in with",
-                          style: const AppTextStyle().bodyMedium!.copyWith(
-                                fontWeight: FontWeight.w600,
-                              ),
+                          style: context.theme.textTheme.bodyMedium!.copyWith(
+                            fontWeight: FontWeight.w600,
+                            color: AppColors.l111719,
+                          ),
                         ),
                         const SizedBox(
                           width: 10,
@@ -122,7 +126,11 @@ class LoginPage extends StatelessWidget {
                               ),
                               Text(
                                 "Countine with Facebook",
-                                style: const AppTextStyle().bodyLarge,
+                                style: context.theme.textTheme.bodyLarge!.copyWith(
+                                  color: AppColors.l111719,
+                                  fontWeight: FontWeight.w600,
+                                  fontSize: 18,
+                                ),
                               ),
                             ],
                           ),
