@@ -13,62 +13,62 @@ import "package:food_delivery/src/feature/home/view/pages/splash_page.dart";
 import "package:food_delivery/src/feature/home/view/pages/welcome_page.dart";
 import "package:food_delivery/src/feature/profile/pages/profile_page.dart";
 import "package:food_delivery/src/feature/restaurant/page/restaraunt_page.dart";
+import "package:food_delivery/src/feature/restaurant/page/restaurant_detail_page.dart";
 import "package:food_delivery/src/feature/search/pages/search_page.dart";
 import "package:go_router/go_router.dart";
 
 @immutable
-final class AppRouter{
+final class AppRouter {
   const AppRouter._();
-  static GoRouter routes =GoRouter(
+  static GoRouter routes = GoRouter(
     initialLocation: AppRouteName.splash,
     debugLogDiagnostics: true,
     routes: <RouteBase>[
-
       GoRoute(
-          name: "SplashPage",
-          path: AppRouteName.splash,
-        builder: (BuildContext context, GoRouterState state)=> const SplashPage(),
+        name: "SplashPage",
+        path: AppRouteName.splash,
+        builder: (BuildContext context, GoRouterState state) => const SplashPage(),
       ),
 
       GoRoute(
-          name: "Welcome",
-          path: AppRouteName.welcomePage,
-        builder: (BuildContext context, GoRouterState state)=> const WelcomePage(),
+        name: "Welcome",
+        path: AppRouteName.welcomePage,
+        builder: (BuildContext context, GoRouterState state) => const WelcomePage(),
       ),
 
       /// Auth
       GoRoute(
         name: "SignIn",
         path: AppRouteName.signIn,
-        builder: (BuildContext context, GoRouterState state)=> const LoginPage(),
+        builder: (BuildContext context, GoRouterState state) => const LoginPage(),
         routes: [
           GoRoute(
             name: "SignUp",
             path: AppRouteName.signUp,
-            builder: (BuildContext context, GoRouterState state)=> const RegisterPage(),
+            builder: (BuildContext context, GoRouterState state) => const RegisterPage(),
             routes: [
               GoRoute(
                 name: "Verification",
                 path: AppRouteName.verification,
-                builder: (BuildContext context, GoRouterState state)=> const VerificationcodePage(),
+                builder: (BuildContext context, GoRouterState state) => const VerificationcodePage(),
               ),
             ],
           ),
           GoRoute(
             name: "Reset Email",
             path: AppRouteName.reSetEmail,
-            builder: (BuildContext context, GoRouterState state)=> const RessetEmail(),
+            builder: (BuildContext context, GoRouterState state) => const RessetEmail(),
             routes: [
               GoRoute(
                 name: "RessetVerification",
                 path: AppRouteName.reSetVerification,
-                builder: (BuildContext context, GoRouterState state)=> const RessetVerficationCodePage(),
+                builder: (BuildContext context, GoRouterState state) => const RessetVerficationCodePage(),
                 routes: [
-                   GoRoute(
-                name: "RessetPassword",
-                path: AppRouteName.reSetPassword,
-                builder: (BuildContext context, GoRouterState state)=> const RessetPasswordPage(),
-              ),
+                  GoRoute(
+                    name: "RessetPassword",
+                    path: AppRouteName.reSetPassword,
+                    builder: (BuildContext context, GoRouterState state) => const RessetPasswordPage(),
+                  ),
                 ],
               ),
             ],
@@ -89,32 +89,31 @@ final class AppRouter{
             name: "Restaurant",
             path: AppRouteName.restaurantPage,
             builder: (BuildContext context, GoRouterState state) => const RestaurantsPage(),
+            routes: [
+              GoRoute(
+                name: "RestaurantDetail",
+                path: AppRouteName.restaurantDetailPage,
+                builder: (BuildContext context, GoRouterState state) => const RestaurantDetail(),
+              ),
+            ],
           ),
           GoRoute(
             name: "Search",
             path: AppRouteName.searchPage,
-            builder: (BuildContext context, GoRouterState state) =>  SearchPage(),
+            builder: (BuildContext context, GoRouterState state) => SearchPage(),
           ),
           GoRoute(
             name: "Favorite",
             path: AppRouteName.favoritePage,
-            builder: (BuildContext context, GoRouterState state) =>  FavouritePage(),
+            builder: (BuildContext context, GoRouterState state) => FavouritePage(),
           ),
           GoRoute(
             name: "Profile",
             path: AppRouteName.profilePage,
             builder: (BuildContext context, GoRouterState state) => const ProfilePage(),
           ),
-
-
-
         ],
       ),
-
-
-
-
-
     ],
   );
 }

@@ -3,8 +3,10 @@ import "dart:developer";
 import "package:flutter/material.dart";
 import "package:flutter_screenutil/flutter_screenutil.dart";
 import "package:food_delivery/src/core/constants/context_extension.dart";
+import "package:food_delivery/src/core/routes/app_route_name.dart";
 import "package:food_delivery/src/feature/restaurant/widgets/restaraunt_card_widget.dart";
 import "package:food_delivery/src/feature/restaurant/widgets/restaraunt_category_horizontal_widget.dart";
+import "package:go_router/go_router.dart";
 
 import "../../widgets/custom_appbar_widget.dart";
 
@@ -57,7 +59,9 @@ class RestaurantsPageState extends State<RestaurantsPage> {
                       ),
                     ),
                     20.horizontalSpace,
-                    const HorizontalCategories(),///horizontal categories
+                    const HorizontalCategories(),
+
+                    ///horizontal categories
                     20.horizontalSpace,
                     Text(
                       "All restaurants",
@@ -75,6 +79,7 @@ class RestaurantsPageState extends State<RestaurantsPage> {
               delegate: SliverChildBuilderDelegate(
                 (context, index) => RestaurantCard(
                   onTap: () {
+                    context.goNamed(AppRouteName.restaurantDetailPage);
                     log("RestaurantCard : $index");
                   },
                 ),
