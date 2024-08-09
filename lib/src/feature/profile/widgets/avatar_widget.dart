@@ -3,6 +3,7 @@ import "dart:io";
 
 import "package:flutter/material.dart";
 import "package:flutter_riverpod/flutter_riverpod.dart";
+import "package:food_delivery/generated/assets.dart";
 import "package:image_picker/image_picker.dart";
 import "package:shared_preferences/shared_preferences.dart";
 
@@ -75,7 +76,7 @@ class AvatarWidget extends ConsumerWidget {
             radius: 65,
             backgroundImage: avatarPath != null
                 ? FileImage(File(avatarPath))
-                : const AssetImage("assets/images/woman.png")
+                : const AssetImage(Assets.imagesWoman,)
             as ImageProvider,
             child: avatarPath == null ? null : null,
           ),
