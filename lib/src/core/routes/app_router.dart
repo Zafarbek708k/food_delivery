@@ -17,6 +17,8 @@ import "package:food_delivery/src/feature/restaurant/page/restaurant_detail_page
 import "package:food_delivery/src/feature/search/pages/search_page.dart";
 import "package:go_router/go_router.dart";
 
+GlobalKey<NavigatorState> parentNavigatorkey = GlobalKey<NavigatorState>();
+
 @immutable
 final class AppRouter {
   const AppRouter._();
@@ -91,7 +93,7 @@ final class AppRouter {
             builder: (BuildContext context, GoRouterState state) => const RestaurantsPage(),
             routes: [
               GoRoute(
-                name: "RestaurantDetail",
+                name: AppRouteName.restaurantDetailPage,
                 path: AppRouteName.restaurantDetailPage,
                 builder: (BuildContext context, GoRouterState state) => const RestaurantDetail(),
               ),
