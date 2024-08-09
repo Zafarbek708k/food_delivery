@@ -20,6 +20,7 @@ class CustomTextField extends StatelessWidget {
         width: MediaQuery.of(context).size.width*0.9,
         height: 60,
         child: TextField(
+          cursorColor: Colors.white60,
           controller: controller,
           decoration: InputDecoration(
             hintText: hintText,

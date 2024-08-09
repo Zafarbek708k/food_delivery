@@ -18,4 +18,8 @@ final class AppRouteName {
   static const String searchPage = "/searchPage";
   static const String favoritePage = "/favoritePage";
   static const String profilePage = "/profilePage";
+  static const String restaurantDetailPage = "restaurantDetailPage";
+  static const String orderPage = "orderPage";
+  static const String foodDetailPage = "foodDetailPage";
+
 }
