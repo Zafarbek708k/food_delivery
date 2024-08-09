@@ -1,3 +1,4 @@
+import "package:flutter/cupertino.dart";
 import 'package:flutter/material.dart';
 import "package:flutter_screenutil/flutter_screenutil.dart";
 
@@ -5,28 +6,35 @@ class FavoriteRestaurantsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) => Scaffold(
     body: Padding(
-      padding: const EdgeInsets.all(16),
+      padding: const EdgeInsets.only(top: 16, bottom: 16),
       child: ListView(
-        children: const [
-          FoodItemCard(
-            imageUrl: "https://ecommercephotographyindia.com/assets/img/gallery/burger-photography.jpg",
-            title: "Shrimp pizza",
-            description: "A seafood lover's dream",
-            restaurant: "Crazy Pizza spot",
-            price: "€€€",
-            time: "20-50min",
-            rating: "8.7",
+        children: [
+          CupertinoButton(
+            onPressed: (){},
+            child: const FoodItemCard(
+              imageUrl: "https://ecommercephotographyindia.com/assets/img/gallery/burger-photography.jpg",
+              title: "Shrimp pizza",
+              description: "A seafood lover's dream",
+              restaurant: "Crazy Pizza spot",
+              price: "€€€",
+              time: "20-50min",
+              rating: "8.7",
+            ),
           ),
-          SizedBox(height: 16),
-          FoodItemCard(
-            imageUrl: "https://ecommercephotographyindia.com/assets/img/gallery/burger-photography.jpg",
-            title: "Creme brulee",
-            description: "Velvety caramelized delight",
-            restaurant: "La Pasta House",
-            price: "€€€",
-            time: "40-50min",
-            rating: "9.5",
-          ),
+          const SizedBox(height: 16),
+           CupertinoButton(
+             padding: REdgeInsets.all(0),
+             onPressed: (){},
+             child: const FoodItemCard(
+              imageUrl: "https://ecommercephotographyindia.com/assets/img/gallery/burger-photography.jpg",
+              title: "Creme brulee",
+              description: "Velvety caramelized delight",
+              restaurant: "La Pasta House",
+              price: "€€€",
+              time: "40-50min",
+              rating: "9.5",
+                       ),
+           ),
         ],
       ),
     ),
