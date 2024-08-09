@@ -1,16 +1,20 @@
 import "package:flutter/material.dart";
 import "package:flutter_svg/flutter_svg.dart";
 import "package:food_delivery/src/core/constants/context_extension.dart";
+import "package:food_delivery/src/core/routes/app_route_name.dart";
+import "package:food_delivery/src/core/style/app_colors.dart";
 import "package:food_delivery/src/core/style/text_style.dart";
 import "package:food_delivery/src/feature/auth/widgets/login_button_widget.dart";
 import "package:food_delivery/src/feature/auth/widgets/login_texfeild_widget.dart";
-import "package:food_delivery/src/feature/home/pages/home_page.dart";
+import "package:food_delivery/src/feature/home/view/pages/home_page.dart";
+import "package:go_router/go_router.dart";
 
 class LoginPage extends StatelessWidget {
   const LoginPage({super.key});
 
   @override
   Widget build(BuildContext context) => Scaffold(
+        resizeToAvoidBottomInset: false,
         body: SafeArea(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -22,9 +26,11 @@ class LoginPage extends StatelessWidget {
                 padding: const EdgeInsets.only(right: 290),
                 child: Text(
                   "Login",
-                  style: const AppTextStyle().bodyLargeBold!.copyWith(
-                        fontSize: 30,
-                      ),
+                  style: context.theme.textTheme.bodyLarge!.copyWith(
+                    fontSize: 30,
+                    fontWeight: FontWeight.w600,
+                    color: AppColors.l111719,
+                  ),
                 ),
               ),
               const LoginTexfeildWidget(),
@@ -32,29 +38,32 @@ class LoginPage extends StatelessWidget {
                 children: [
                   LoginButtonWidget(
                     onPressed: () {
-                      Navigator.push(context, MaterialPageRoute(builder: (context) => const MyHomePage()));
+                      context.go(AppRouteName.discoveryPage);
                     },
                   ),
                   const SizedBox(
                     height: 25,
                   ),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 80),
-                    child: Row(
-                      children: [
-                        Text(
-                          "Don't have an accaunt? ",
-                          style: const AppTextStyle().bodyLarge,
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        "Don't have an accaunt? ",
+                        style: context.theme.textTheme.bodyLarge!.copyWith(
+                          color: AppColors.l111719,
+                          fontWeight: FontWeight.w500,
                         ),
-                        GestureDetector(
-                          onTap: () {},
-                          child: const Text(
-                            "Sing Up",
-                            style: TextStyle(fontSize: 16, color: Colors.orange),
-                          ),
-                        )
-                      ],
-                    ),
+                      ),
+                      GestureDetector(
+                        onTap: () {
+                          context.go("${AppRouteName.signIn}/${AppRouteName.signUp}");
+                        },
+                        child: const Text(
+                          "Sing Up",
+                          style: TextStyle(fontSize: 16, color: Colors.orange),
+                        ),
+                      ),
+                    ],
                   ),
                   const SizedBox(
                     height: 25,
@@ -76,7 +85,10 @@ class LoginPage extends StatelessWidget {
                         ),
                         Text(
                           "Sign in with",
-                          style: const AppTextStyle().bodyMediumBold,
+                          style: context.theme.textTheme.bodyMedium!.copyWith(
+                            fontWeight: FontWeight.w600,
+                            color: AppColors.l111719,
+                          ),
                         ),
                         const SizedBox(
                           width: 10,
@@ -114,7 +126,11 @@ class LoginPage extends StatelessWidget {
                               ),
                               Text(
                                 "Countine with Facebook",
-                                style: const AppTextStyle().bodyLarge,
+                                style: context.theme.textTheme.bodyLarge!.copyWith(
+                                  color: AppColors.l111719,
+                                  fontWeight: FontWeight.w600,
+                                  fontSize: 18,
+                                ),
                               ),
                             ],
                           ),
@@ -133,13 +149,20 @@ class LoginPage extends StatelessWidget {
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-
+                              SvgPicture.asset(
+                                "assets/icons/google_icon.svg",
+                                width: 25,
+                              ),
                               const SizedBox(
                                 width: 20,
                               ),
                               Text(
                                 "Continue with Google",
-                                style: context.theme.textTheme.bodyLarge,
+                                style: context.theme.textTheme.bodyLarge!.copyWith(
+                                  fontWeight: FontWeight.w600,
+                                  color: AppColors.l111719,
+                                  fontSize: 18,
+                                ),
                               ),
                             ],
                           ),
