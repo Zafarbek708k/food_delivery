@@ -1,7 +1,7 @@
 import "package:flutter/material.dart";
 import "package:flutter_riverpod/flutter_riverpod.dart";
 
-import "../riverpod/food_model.dart";
+import "../model/food_model.dart";
 
 class RestaurantVm extends ChangeNotifier {
   List<CartItem> _cartItems = [];

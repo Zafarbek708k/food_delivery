@@ -1,13 +1,13 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
+import "package:flutter/material.dart";
+import "package:flutter_riverpod/flutter_riverpod.dart";
 
-import '../riverpod/food_model.dart';
-import '../view_model/restaurant_detail_vm.dart';
+import "../model/food_model.dart";
+import "../view_model/restaurant_detail_vm.dart";
 
 class FoodDetailsPage extends ConsumerStatefulWidget {
   final FoodItem foodItem;
 
-  const FoodDetailsPage({super.key, required this.foodItem});
+  const FoodDetailsPage({required this.foodItem, super.key});
 
   @override
   FoodDetailsPageState createState() => FoodDetailsPageState();
@@ -31,7 +31,7 @@ class FoodDetailsPageState extends ConsumerState<FoodDetailsPage> {
         title: Text(widget.foodItem.name),
       ),
       body: Padding(
-        padding: const EdgeInsets.all(16.0),
+        padding: const EdgeInsets.all(16),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -56,14 +56,14 @@ class FoodDetailsPageState extends ConsumerState<FoodDetailsPage> {
             ),
             const SizedBox(height: 16),
             const Text(
-              'Select Add-Ons',
+              "Select Add-Ons",
               style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
             ),
             const SizedBox(height: 8),
-            ...widget.foodItem.addOns.map((addOn) {
-              return CheckboxListTile(
+            ...widget.foodItem.addOns.map(
+              (addOn) => CheckboxListTile(
                 title:
-                    Text('${addOn.name} (+€${addOn.price.toStringAsFixed(2)})'),
+                    Text("${addOn.name} (+€${addOn.price.toStringAsFixed(2)})"),
                 value: selectedAddOns.contains(addOn),
                 onChanged: (isChecked) {
                   setState(() {
@@ -74,8 +74,8 @@ class FoodDetailsPageState extends ConsumerState<FoodDetailsPage> {
                     }
                   });
                 },
-              );
-            }),
+              ),
+            ),
             const Spacer(),
             ElevatedButton(
               onPressed: () {
@@ -83,7 +83,7 @@ class FoodDetailsPageState extends ConsumerState<FoodDetailsPage> {
                     .addItem(widget.foodItem.copyWith(addOns: selectedAddOns));
                 Navigator.pop(context);
               },
-              child: const Text('Add to Cart'),
+              child: const Text("Add to Cart"),
             ),
           ],
         ),
