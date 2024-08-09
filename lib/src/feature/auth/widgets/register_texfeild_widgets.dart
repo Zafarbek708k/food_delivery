@@ -159,23 +159,6 @@ class _RegisterTexfeildWidgetsState extends State<RegisterTexfeildWidgets> {
               ),
             ),
           ),
-          Padding(
-            padding: const EdgeInsets.only(right: 10),
-            child: Align(
-              alignment: Alignment.centerRight,
-              child: MaterialButton(
-                onPressed: () {
-                  context.go(AppRouteName.reSetEmail);
-                },
-                child: const Text(
-                  "Forgot password?",
-                  style: TextStyle(
-                    color: Colors.orange,
-                  ),
-                ),
-              ),
-            ),
-          ),
         ],
       );
 }

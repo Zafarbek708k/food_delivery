@@ -108,8 +108,8 @@ class _ProfilePageState extends State<ProfilePage> {
                     children: [
                       SvgPicture.asset(
                         "assets/icons/location_icon.svg",
-                        height: MediaQuery.of(context).size.height * 0.042,
-                        width: MediaQuery.of(context).size.width * 0.042,
+                        height: MediaQuery.of(context).size.height * 0.040,
+                        width: MediaQuery.of(context).size.width * 0.040,
                       ),
                       TextButton(
                         onPressed: (){

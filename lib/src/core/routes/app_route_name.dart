@@ -8,6 +8,8 @@ final class AppRouteName {
   static const String signIn = "/signIn";
   static const String signUp = "signUp";
   static const String reSetEmail = "ressetEmail";
+  static const String reSetPassword = "ressetPassword";
+  static const String reSetVerification = "resseterification";
   static const String verification = "verification";
 
   static const String homePage = "/homePage";
