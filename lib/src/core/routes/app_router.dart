@@ -110,11 +110,6 @@ final class AppRouter{
 
         ],
       ),
-
-
-
-
-
     ],
   );
 }
