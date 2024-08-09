@@ -71,7 +71,7 @@ class LoginPage extends StatelessWidget {
                     height: 25,
                   ),
                   Padding(
-                    padding:  REdgeInsets.symmetric(
+                    padding: REdgeInsets.symmetric(
                       horizontal: 60,
                     ),
                     child: Row(
@@ -82,7 +82,7 @@ class LoginPage extends StatelessWidget {
                             color: Colors.black,
                           ),
                         ),
-                         SizedBox(
+                        SizedBox(
                           width: 10.w,
                         ),
                         Text(
@@ -92,7 +92,7 @@ class LoginPage extends StatelessWidget {
                             color: AppColors.l111719,
                           ),
                         ),
-                         SizedBox(
+                        SizedBox(
                           width: 10.w,
                         ),
                         const Expanded(
@@ -104,13 +104,13 @@ class LoginPage extends StatelessWidget {
                       ],
                     ),
                   ),
-                   SizedBox(
+                  SizedBox(
                     height: 20.h,
                   ),
                   Column(
                     children: [
                       Padding(
-                        padding:  REdgeInsets.symmetric(horizontal: 30),
+                        padding: REdgeInsets.symmetric(horizontal: 30),
                         child: MaterialButton(
                           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30.r), side: const BorderSide()),
                           height: 40.h,
@@ -123,7 +123,7 @@ class LoginPage extends StatelessWidget {
                                 "assets/icons/facebook_icon.svg",
                                 width: 25.w,
                               ),
-                               SizedBox(
+                              SizedBox(
                                 width: 20.w,
                               ),
                               Text(
@@ -138,7 +138,7 @@ class LoginPage extends StatelessWidget {
                           ),
                         ),
                       ),
-                       SizedBox(
+                      SizedBox(
                         height: 10.h,
                       ),
                       Padding(
