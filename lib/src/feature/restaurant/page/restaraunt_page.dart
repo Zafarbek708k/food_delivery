@@ -57,7 +57,7 @@ class RestaurantsPageState extends State<RestaurantsPage> {
                       ),
                     ),
                     20.horizontalSpace,
-                    const HorizontalCategories(),
+                    const HorizontalCategories(),///horizontal categories
                     20.horizontalSpace,
                     Text(
                       "All restaurants",

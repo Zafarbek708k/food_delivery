@@ -4,7 +4,6 @@ import "package:connectivity_plus/connectivity_plus.dart";
 import "package:dio/dio.dart";
 
 class Connection {
-
   const Connection({
     required this.dio,
     required this.connectivity,
@@ -14,7 +13,7 @@ class Connection {
 
   Future<Response<dynamic>> scheduleRequestRetry(RequestOptions requestOptions) async {
     StreamSubscription<dynamic>? streamSubscription;
-    final Completer<Response<dynamic>> responseCompleter = Completer<Response<dynamic>>();
+    final responseCompleter = Completer<Response<dynamic>>();
 
     streamSubscription = connectivity.onConnectivityChanged.listen(
       (List<ConnectivityResult> connectivityResult) {

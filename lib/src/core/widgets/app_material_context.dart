@@ -1,8 +1,5 @@
 import "package:flutter/material.dart";
 import "package:food_delivery/src/core/routes/app_router.dart";
-import "package:food_delivery/src/feature/auth/pages/register_page.dart";
-import "package:food_delivery/src/feature/auth/pages/resset_email.dart";
-import "../../feature/home/view/pages/splash_page.dart";
 import "../../feature/settings/inherited_locale_notifier.dart";
 import "../../feature/settings/inherited_theme_notifier.dart";
 import "../../feature/settings/locale_controller.dart";
