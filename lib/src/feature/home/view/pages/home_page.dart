@@ -55,18 +55,22 @@ class _MyHomePageState extends ConsumerState<MyHomePage> {
       body: Stack(
         children: [
           widget.child,
-          Positioned(
-            bottom: 16,
-            left: 0,
-            right: 0,
-            child: BottomNavBarWidget(
-              currentPage: currentPage,
-              onTap: (index) {
-                onPageChanged(index: index, context: context);
-              },
-            ),
-          ),
+          // Positioned(
+          //   bottom: 16,
+          //   left: 0,
+          //   right: 0,
+          //   child: ,
+          // ),
         ],
+      ),
+      bottomNavigationBar: Padding(
+        padding: const EdgeInsets.only(bottom: 20),
+        child: BottomNavBarWidget(
+          currentPage: currentPage,
+          onTap: (index) {
+            onPageChanged(index: index, context: context);
+          },
+        ),
       ),
     );
   }

@@ -1,3 +1,4 @@
+import "package:flutter/cupertino.dart";
 import "package:flutter/material.dart";
 import "package:flutter_screenutil/flutter_screenutil.dart";
 import "package:food_delivery/src/core/constants/context_extension.dart";
@@ -77,8 +78,16 @@ class _DiscoveryPageState extends State<DiscoveryPage> {
                       style: context.theme.textTheme.bodyLarge?.copyWith(color: Colors.black, fontSize: 18, fontWeight: FontWeight.bold),
                     ),
                     TextButton(
-                      onPressed: () {},
-                      child: const Text("See all"),
+                      style: TextButton.styleFrom(
+                        backgroundColor: Colors.deepOrange,
+                      ),
+                      onPressed: () {
+                        // Navigator.push(context, MaterialPageRoute(builder: (BuildContext context)=> const RestaurantPageIn()));
+                      },
+                      child: const Text("See all",
+                      style: TextStyle(
+                        color: Colors.orange
+                      ),),
                     ),
                   ],
                 ),
@@ -87,20 +96,32 @@ class _DiscoveryPageState extends State<DiscoveryPage> {
                 height: 250.h,
                 child: ListView(
                   scrollDirection: Axis.horizontal,
-                  children: const [
-                    DeliveryCardWidget(
-                      imageUrl: "https://insights.workwave.com/wp-content/uploads/2021/08/WorkWave-The-Carbon-Footprint-of-Food-Delivery-Services.jpg",
-                      title: "Crazy taco",
-                      price: "€3.00",
-                      time: "40-50min",
-                      rating: "9.5",
+                  children: [
+                    CupertinoButton(
+                      onPressed: (){
+                        // Navigator.push(context, MaterialPageRoute(builder: (BuildContext context)=> const RestaurantPageIn()));
+                      },
+                      padding: REdgeInsets.all(5),
+                      child: const DeliveryCardWidget(
+                        imageUrl: "https://insights.workwave.com/wp-content/uploads/2021/08/WorkWave-The-Carbon-Footprint-of-Food-Delivery-Services.jpg",
+                        title: "Crazy taco",
+                        price: "€3.00",
+                        time: "40-50min",
+                        rating: "9.5",
+                      ),
                     ),
-                    DeliveryCardWidget(
-                      imageUrl: "https://insights.workwave.com/wp-content/uploads/2021/08/WorkWave-The-Carbon-Footprint-of-Food-Delivery-Services.jpg",
-                      title: "La Salsa",
-                      price: "€2.00",
-                      time: "30-40min",
-                      rating: "8.5",
+                    CupertinoButton(
+                      onPressed: (){
+                        // Navigator.push(context, MaterialPageRoute(builder: (BuildContext context)=> const RestaurantPageIn()));
+                      },
+                      padding: REdgeInsets.all(5),
+                      child: const DeliveryCardWidget(
+                        imageUrl: "https://insights.workwave.com/wp-content/uploads/2021/08/WorkWave-The-Carbon-Footprint-of-Food-Delivery-Services.jpg",
+                        title: "La Salsa",
+                        price: "€2.00",
+                        time: "30-40min",
+                        rating: "8.5",
+                      ),
                     ),
                     // Add more cards as needed
                   ],
@@ -118,8 +139,16 @@ class _DiscoveryPageState extends State<DiscoveryPage> {
                       style: context.theme.textTheme.bodyLarge?.copyWith(color: Colors.black, fontWeight: FontWeight.bold),
                     ),
                     TextButton(
-                      onPressed: () {},
-                      child: const Text("See all"),
+                      style: TextButton.styleFrom(
+                        backgroundColor: Colors.deepOrange,
+                      ),
+                      onPressed: () {
+                        // Navigator.push(context, MaterialPageRoute(builder: (BuildContext context)=> const RestaurantPageIn()));
+                      },
+                      child: const Text("See all",
+                        style: TextStyle(
+                            color: Colors.orange
+                        ),),
                     ),
                   ],
                 ),
@@ -128,15 +157,21 @@ class _DiscoveryPageState extends State<DiscoveryPage> {
                 height: 250.h,
                 child: ListView(
                   scrollDirection: Axis.horizontal,
-                  children: const [
-                    DeliveryCardWidget(
-                      imageUrl: "https://insights.workwave.com/wp-content/uploads/2021/08/WorkWave-The-Carbon-Footprint-of-Food-Delivery-Services.jpg",
-                      title: "Spagetti",
-                      price: "€5.00",
-                      time: "20-30 min",
-                      rating: "8.5",
+                  children: [
+                    CupertinoButton(
+                      onPressed: (){
+                        // Navigator.push(context, MaterialPageRoute(builder: (BuildContext context)=> const RestaurantPageIn()));
+                      },
+                      padding: REdgeInsets.all(5),
+                      child: const DeliveryCardWidget(
+                        imageUrl: "https://insights.workwave.com/wp-content/uploads/2021/08/WorkWave-The-Carbon-Footprint-of-Food-Delivery-Services.jpg",
+                        title: "La Salsa",
+                        price: "€2.00",
+                        time: "30-40min",
+                        rating: "8.5",
+                      ),
                     ),
-                    DeliveryCardWidget(
+                    const DeliveryCardWidget(
                       imageUrl: "https://insights.workwave.com/wp-content/uploads/2021/08/WorkWave-The-Carbon-Footprint-of-Food-Delivery-Services.jpg",
                       title: "Burger",
                       price: "€2.00",
@@ -147,7 +182,9 @@ class _DiscoveryPageState extends State<DiscoveryPage> {
                 ),
               ),
 
-               SizedBox(height: 100.h),
+              const SizedBox(
+                height: 75,
+              )
             ],
           ),
         ),

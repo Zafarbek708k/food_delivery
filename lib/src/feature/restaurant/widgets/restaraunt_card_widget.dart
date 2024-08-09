@@ -12,6 +12,7 @@ class RestaurantCard extends StatelessWidget {
         onTap: onTap,
         borderRadius: BorderRadius.circular(14.r), // Bosish effekti uchun radius qo'shildi
         child: Card(
+
           color: Colors.white,
           margin: REdgeInsets.symmetric(vertical: 8, horizontal: 16),
           child: Column(
