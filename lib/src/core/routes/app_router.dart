@@ -1,11 +1,11 @@
 import "package:flutter/cupertino.dart";
 import "package:food_delivery/src/core/routes/app_route_name.dart";
-import "package:food_delivery/src/feature/auth/pages/login_page.dart";
-import "package:food_delivery/src/feature/auth/pages/register_page.dart";
-import "package:food_delivery/src/feature/auth/pages/resset_email.dart";
-import "package:food_delivery/src/feature/auth/pages/resset_password_page.dart";
-import "package:food_delivery/src/feature/auth/pages/resset_verfication_code_page.dart";
-import "package:food_delivery/src/feature/auth/pages/verificationcode_page.dart";
+import "package:food_delivery/src/feature/auth/view/pages/login_page.dart";
+import "package:food_delivery/src/feature/auth/view/pages/register_page.dart";
+import "package:food_delivery/src/feature/auth/view/pages/resset_email.dart";
+import "package:food_delivery/src/feature/auth/view/pages/resset_password_page.dart";
+import "package:food_delivery/src/feature/auth/view/pages/resset_verfication_code_page.dart";
+import "package:food_delivery/src/feature/auth/view/pages/verificationcode_page.dart";
 import "package:food_delivery/src/feature/favourite/pages/favourite_page.dart";
 import "package:food_delivery/src/feature/home/view/pages/discovery_page.dart";
 import "package:food_delivery/src/feature/home/view/pages/home_page.dart";

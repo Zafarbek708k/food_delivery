@@ -3,7 +3,7 @@ import "package:flutter/services.dart";
 import "package:flutter_screenutil/flutter_screenutil.dart";
 import "package:food_delivery/src/core/routes/app_route_name.dart";
 import "package:food_delivery/src/core/style/text_style.dart";
-import "package:food_delivery/src/feature/auth/widgets/nextButton_widgets.dart";
+import "package:food_delivery/src/feature/auth/view/widgets/nextButton_widgets.dart";
 import "package:go_router/go_router.dart";
 import "package:pin_code_fields/pin_code_fields.dart";
 
