@@ -1,12 +1,11 @@
-import 'package:flutter/material.dart';
+import "package:flutter/material.dart";
 
-class LoginButtonWidget extends StatelessWidget {
-  const LoginButtonWidget({super.key, required this.onPressed});
+class NextbuttonWidgets extends StatelessWidget {
+  const NextbuttonWidgets({super.key, required this.onPressed});
   final VoidCallback onPressed;
 
   @override
-  Widget build(BuildContext context) {
-    return Padding(
+  Widget build(BuildContext context) => Padding(
       padding: const EdgeInsets.symmetric(horizontal: 25),
       child: MaterialButton(
         onPressed: onPressed,
@@ -17,7 +16,7 @@ class LoginButtonWidget extends StatelessWidget {
         minWidth: double.infinity,
         height: 60,
         child: const Text(
-          "Login",
+          "Next",
           style: TextStyle(
             color: Colors.white,
             fontSize: 18,
@@ -25,5 +24,4 @@ class LoginButtonWidget extends StatelessWidget {
         ),
       ),
     );
-  }
 }

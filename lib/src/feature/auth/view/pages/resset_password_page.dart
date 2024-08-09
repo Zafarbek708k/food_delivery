@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:food_delivery/src/core/constants/context_extension.dart';
 import "package:food_delivery/src/core/routes/app_route_name.dart";
 import "package:food_delivery/src/core/style/app_colors.dart";
-import 'package:food_delivery/src/feature/auth/widgets/login_button_widget.dart';
-import 'package:food_delivery/src/feature/auth/widgets/resset_password_textfield_widgets.dart';
+import 'package:food_delivery/src/feature/auth/view/widgets/login_button_widget.dart';
+import 'package:food_delivery/src/feature/auth/view/widgets/resset_password_textfield_widgets.dart';
 import "package:go_router/go_router.dart";
 
 class RessetPasswordPage extends StatefulWidget {
@@ -58,6 +58,7 @@ class _RessetPasswordPageState extends State<RessetPasswordPage> {
                 height: 80,
               ),
               LoginButtonWidget(
+                NameText: "Login",
                 onPressed: () {
                   context.go(AppRouteName.signIn);
                 },

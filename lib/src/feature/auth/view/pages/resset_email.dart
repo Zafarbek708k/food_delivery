@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:food_delivery/src/core/constants/context_extension.dart';
 import "package:food_delivery/src/core/routes/app_route_name.dart";
 import "package:food_delivery/src/core/style/text_style.dart";
-import 'package:food_delivery/src/feature/auth/widgets/login_button_widget.dart';
-import "package:food_delivery/src/feature/auth/widgets/nextButton_widgets.dart";
-import "package:food_delivery/src/feature/auth/widgets/resset_email_widgets.dart";
-import 'package:food_delivery/src/feature/auth/widgets/resset_password_textfield_widgets.dart';
+import 'package:food_delivery/src/feature/auth/view/widgets/login_button_widget.dart';
+import "package:food_delivery/src/feature/auth/view/widgets/nextButton_widgets.dart";
+import "package:food_delivery/src/feature/auth/view/widgets/resset_email_widgets.dart";
+import 'package:food_delivery/src/feature/auth/view/widgets/resset_password_textfield_widgets.dart';
 import "package:go_router/go_router.dart";
 
 class RessetEmail extends StatelessWidget {

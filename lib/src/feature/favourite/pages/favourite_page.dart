@@ -28,33 +28,9 @@ class _FavouritePageState extends State<FavouritePage> with SingleTickerProvider
   Widget build(BuildContext context) => Scaffold(
     backgroundColor: Colors.white,
       body: Padding(
-        padding:  REdgeInsets.all(20),
+        padding:  REdgeInsets.only(top: 30, left: 10, right: 10),
         child: Column(
           children: [
-            Padding(
-              padding: const EdgeInsets.only(top: 20, bottom: 20),
-              child: SizedBox(
-                height: 45.h,
-                width: double.maxFinite,
-                child: TextField(
-                  decoration: InputDecoration(
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(15.r),
-                    ),
-                    hintText: "Search",
-                    hintStyle: const TextStyle(
-                      color: Colors.grey,
-                      backgroundColor: Colors.white10,
-                    ),
-                    prefixIcon: const Icon(
-                      Icons.search,
-                      color: Colors.grey,
-                    ),
-                  ),
-                ),
-              ),
-            ),
-
             SizedBox(
               height: 55,
               width: double.maxFinite,
@@ -76,7 +52,7 @@ class _FavouritePageState extends State<FavouritePage> with SingleTickerProvider
                     color: Colors.orange,
                     borderRadius: BorderRadius.circular(50),
                   ),
-                  indicatorPadding: EdgeInsets.symmetric(horizontal: 5.w),  // Adjust the padding to increase width
+                  dividerHeight: 0,
                   indicatorSize: TabBarIndicatorSize.tab,  // Keeps the indicator size equal to the tab size
                   labelColor: Colors.white,
                   unselectedLabelColor: Colors.black,
@@ -90,10 +66,6 @@ class _FavouritePageState extends State<FavouritePage> with SingleTickerProvider
                 ),
               ),
             ),
-
-
-
-
             SizedBox(height: 10.h),
             Expanded(
               child: TabBarView(
