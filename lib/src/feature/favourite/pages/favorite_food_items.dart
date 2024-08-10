@@ -1,79 +1,86 @@
-import "package:flutter/cupertino.dart";
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import "package:flutter_screenutil/flutter_screenutil.dart";
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class FoodItemsPage extends StatelessWidget {
+class FoodItemsPage extends StatefulWidget {
+  @override
+  _FoodItemsPageState createState() => _FoodItemsPageState();
+}
+
+class _FoodItemsPageState extends State<FoodItemsPage> {
+  List<CardItem> items = [
+    CardItem(
+      isFavorited: true,
+      imageUrl: "https://ecommercephotographyindia.com/assets/img/gallery/burger-photography.jpg",
+      title: "Cheeseburger",
+      description: "Classic cheeseburger",
+      restaurant: "Burger King",
+      price: "180",
+      time: "20-50min",
+      rating: "9.7",
+    ),
+    CardItem(
+      isFavorited: true,
+      imageUrl: "https://res.cloudinary.com/hksqkdlah/image/upload/SFS_south_carolina_shrimp_burger_016_wqvsr6.jpg",
+      title: "Shrimp burger",
+      description: "Something special from sea",
+      restaurant: "Ocean Lovers",
+      price: "56",
+      time: "20-50min",
+      rating: "8.7",
+    ),
+  ];
+
+  void _updateFavoriteStatus(int index, bool isFavorited) {
+    setState(() {
+      items[index].isFavorited = isFavorited;
+      if (!isFavorited) {
+        items.removeAt(index);
+      }
+    });
+  }
+
   @override
   Widget build(BuildContext context) => Scaffold(
-      body: Padding(
-        padding: const EdgeInsets.only(top: 16, bottom: 16),
-        child: ListView(
-          children: [
-            CupertinoButton(
-              padding: REdgeInsets.all(0),
-              onPressed: (){},
-              child: const FoodItemCard(
-                imageUrl: "https://ecommercephotographyindia.com/assets/img/gallery/burger-photography.jpg",
-                title: "Cheeseburger",
-                description: "Classic cheeseburger",
-                restaurant: "Burger King",
-                price: "180",
-                time: "20-50min",
-                rating: "9.7",
-              ),
+    body: Padding(
+      padding: const EdgeInsets.symmetric(vertical: 16),
+      child: ListView.builder(
+        itemCount: items.length,
+        itemBuilder: (context, index) => Padding(
+          padding: const EdgeInsets.only(bottom: 16),
+          child: CupertinoButton(
+            onPressed: (){},
+            padding: EdgeInsets.all(0),
+            child: FoodItemCard(
+              cardItem: items[index],
+              onFavoriteToggle: (isFavorited) => _updateFavoriteStatus(index, isFavorited),
             ),
-            const SizedBox(height: 16),
-            CupertinoButton(
-              padding: REdgeInsets.all(0),
-              onPressed: (){},
-              child: const FoodItemCard(
-                imageUrl: "https://ecommercephotographyindia.com/assets/img/gallery/burger-photography.jpg",
-                title: "Shrimp burger",
-                description: "Something special from sea",
-                restaurant: "Ocean Lovers",
-                price: "56",
-                time: "20-50min",
-                rating: "6.7",
-              ),
-            ),
-          ],
+          ),
         ),
       ),
-    );
+    ),
+  );
 }
 
-class FoodItemCard extends StatefulWidget {
-  final String imageUrl;
-  final String title;
-  final String description;
-  final String restaurant;
-  final String price;
-  final String time;
-  final String rating;
+class FoodItemCard extends StatelessWidget {
+  final CardItem cardItem;
+  final ValueChanged<bool> onFavoriteToggle;
 
   const FoodItemCard({
-    required this.imageUrl,
-    required this.title,
-    required this.description,
-    required this.restaurant,
-    required this.price,
-    required this.time,
-    required this.rating,
+    required this.cardItem,
+    required this.onFavoriteToggle,
   });
 
-  @override
-  _FoodItemCardState createState() => _FoodItemCardState();
-}
-
-class _FoodItemCardState extends State<FoodItemCard> {
-  bool _isFavorited = false;
+  void _toggleFavorite() {
+    onFavoriteToggle(!cardItem.isFavorited);
+  }
 
   @override
   Widget build(BuildContext context) => Card(
     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
     elevation: 5,
     child: Padding(
-      padding: const EdgeInsets.all(8),
+      padding: const EdgeInsets.symmetric(horizontal: 8),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -82,7 +89,7 @@ class _FoodItemCardState extends State<FoodItemCard> {
               ClipRRect(
                 borderRadius: BorderRadius.circular(15),
                 child: Image.network(
-                  widget.imageUrl,
+                  cardItem.imageUrl,
                   height: 180,
                   width: double.infinity,
                   fit: BoxFit.cover,
@@ -92,16 +99,12 @@ class _FoodItemCardState extends State<FoodItemCard> {
                 top: 10,
                 right: 10,
                 child: InkWell(
-                  onTap: () {
-                    setState(() {
-                      _isFavorited = !_isFavorited;
-                    });
-                  },
+                  onTap: _toggleFavorite,
                   child: CircleAvatar(
                     backgroundColor: Colors.white,
                     child: Icon(
                       Icons.favorite,
-                      color: _isFavorited ? Colors.red : Colors.grey,
+                      color: cardItem.isFavorited ? Colors.red : Colors.grey,
                     ),
                   ),
                 ),
@@ -111,12 +114,12 @@ class _FoodItemCardState extends State<FoodItemCard> {
           Padding(
             padding: const EdgeInsets.symmetric(vertical: 10),
             child: Text(
-              widget.title,
+              cardItem.title,
               style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
             ),
           ),
           Text(
-            widget.description,
+            cardItem.description,
             style: const TextStyle(fontSize: 14, color: Colors.grey),
           ),
           Padding(
@@ -125,27 +128,49 @@ class _FoodItemCardState extends State<FoodItemCard> {
               children: [
                 const Icon(Icons.restaurant, size: 16, color: Colors.orange),
                 const SizedBox(width: 5),
-                Text(widget.restaurant, style: const TextStyle(fontSize: 14)),
+                Text(cardItem.restaurant, style: const TextStyle(fontSize: 14)),
                 const Spacer(),
                 const Icon(Icons.euro, size: 16, color: Colors.orange),
-                SizedBox(width: 5.w),
-                Text(widget.price, style: const TextStyle(fontSize: 14)),
+                const SizedBox(width: 5),
+                Text(cardItem.price, style: const TextStyle(fontSize: 14)),
               ],
             ),
           ),
           Row(
             children: [
               const Icon(Icons.timer, size: 16, color: Colors.orange),
-              SizedBox(width: 5.w),
-              Text(widget.time, style: const TextStyle(fontSize: 14)),
+              const SizedBox(width: 5),
+              Text(cardItem.time, style: const TextStyle(fontSize: 14)),
               const Spacer(),
               const Icon(Icons.star, size: 16, color: Colors.orange),
               const SizedBox(width: 5),
-              Text(widget.rating, style: const TextStyle(fontSize: 14)),
+              Text(cardItem.rating, style: const TextStyle(fontSize: 14)),
             ],
           ),
         ],
       ),
     ),
   );
+}
+
+class CardItem {
+  bool isFavorited;
+  final String imageUrl;
+  final String title;
+  final String description;
+  final String restaurant;
+  final String price;
+  final String time;
+  final String rating;
+
+  CardItem({
+    required this.isFavorited,
+    required this.imageUrl,
+    required this.title,
+    required this.description,
+    required this.restaurant,
+    required this.price,
+    required this.time,
+    required this.rating,
+  });
 }
