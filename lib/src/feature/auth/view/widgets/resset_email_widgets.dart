@@ -26,7 +26,7 @@ class RessetEmailWidgets extends StatelessWidget {
           padding: const EdgeInsets.symmetric(horizontal: 25),
           child: TextField(
             keyboardType: TextInputType.emailAddress,
-            style: TextStyle(color: Colors.black),
+            style: const TextStyle(color: Colors.black),
             decoration: InputDecoration(
               focusedBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(10),

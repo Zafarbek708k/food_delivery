@@ -37,7 +37,7 @@ class _LoginTexfeildWidgetState extends State<LoginTexfeildWidget> {
             child: TextField(
               keyboardType: TextInputType.emailAddress,
               keyboardAppearance: Brightness.dark,
-              style: TextStyle(color: Colors.black),
+              style: const TextStyle(color: Colors.black),
               decoration: InputDecoration(
                 focusedBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(10),
@@ -84,7 +84,7 @@ class _LoginTexfeildWidgetState extends State<LoginTexfeildWidget> {
             child: TextField(
               obscureText: isEye,
               keyboardType: TextInputType.visiblePassword,
-              style: TextStyle(color: Colors.black),
+              style: const TextStyle(color: Colors.black),
               decoration: InputDecoration(
                 focusedBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(10),
@@ -109,7 +109,7 @@ class _LoginTexfeildWidgetState extends State<LoginTexfeildWidget> {
                   icon: isEye? Icon(
                     Icons.visibility_rounded,
                     color: Colors.black.withOpacity(0.4),
-                  ):Icon(Icons.visibility_off_rounded),
+                  ): const Icon(Icons.visibility_off_rounded),
                 ),
                 hintText: "Password",
                 hintStyle: TextStyle(
