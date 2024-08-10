@@ -1,5 +1,7 @@
 import "package:flutter/material.dart";
+import "package:flutter_screenutil/flutter_screenutil.dart";
 import "package:flutter_svg/svg.dart";
+import "package:food_delivery/src/core/constants/context_extension.dart";
 import "package:food_delivery/src/core/routes/app_route_name.dart";
 import "package:food_delivery/src/core/style/text_style.dart";
 import "package:food_delivery/src/feature/auth/view/widgets/regester_button_widget.dart";
@@ -16,17 +18,17 @@ class RegisterPage extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              const SizedBox(
-                height: 80,
+              SizedBox(
+                height: 80.h,
               ),
-              const Padding(
-                padding: EdgeInsets.only(right: 260),
+              Padding(
+                padding: REdgeInsets.only(right: 260),
                 child: Text(
                   "Sing Up",
                   style: TextStyle(
                     color: Colors.black,
                     fontWeight: FontWeight.w500,
-                    fontSize: 30,
+                    fontSize: 30.sp,
                   ),
                 ),
               ),
@@ -38,38 +40,39 @@ class RegisterPage extends StatelessWidget {
                       context.go("${AppRouteName.signIn}/${AppRouteName.signUp}/${AppRouteName.verification}");
                     },
                   ),
-                  const SizedBox(
-                    height: 25,
+                  SizedBox(
+                    height: 25.h,
                   ),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 80),
-                    child: Row(
-                      children: [
-                        Text(
-                          "Don't have an accaunt? ",
-                          style: const AppTextStyle().bodyLarge,
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        "Already have an accaunt? ",
+                        style: context.theme.textTheme.bodyLarge!.copyWith(
+                          fontSize: 18.sp,
+                          fontWeight: FontWeight.w600,
                         ),
-                        GestureDetector(
-                          onTap: () {
-                            context.pop();
-                          },
-                          child: const Text(
-                            "Login",
-                            style: TextStyle(
-                              fontSize: 16,
-                              color: Colors.orange,
-                              fontWeight: FontWeight.w600,
-                            ),
+                      ),
+                      GestureDetector(
+                        onTap: () {
+                          context.pop();
+                        },
+                        child: Text(
+                          "Login",
+                          style: TextStyle(
+                            fontSize: 16.sp,
+                            color: Colors.orange,
+                            fontWeight: FontWeight.w600,
                           ),
                         ),
-                      ],
-                    ),
+                      ),
+                    ],
                   ),
-                  const SizedBox(
-                    height: 25,
+                  SizedBox(
+                    height: 25.h,
                   ),
                   Padding(
-                    padding: const EdgeInsets.symmetric(
+                    padding: REdgeInsets.symmetric(
                       horizontal: 60,
                     ),
                     child: Row(
@@ -80,15 +83,18 @@ class RegisterPage extends StatelessWidget {
                             color: Colors.black,
                           ),
                         ),
-                        const SizedBox(
-                          width: 10,
+                        SizedBox(
+                          width: 10.w,
                         ),
                         Text(
                           "Sign in with",
-                          style: const AppTextStyle().bodyLarge,
+                          style: context.theme.textTheme.bodyLarge!.copyWith(
+                            fontSize: 16.sp,
+                            fontWeight: FontWeight.w600,
+                          ),
                         ),
-                        const SizedBox(
-                          width: 10,
+                        SizedBox(
+                          width: 10.w,
                         ),
                         const Expanded(
                           child: Divider(
@@ -99,16 +105,16 @@ class RegisterPage extends StatelessWidget {
                       ],
                     ),
                   ),
-                  const SizedBox(
-                    height: 20,
+                  SizedBox(
+                    height: 20.h,
                   ),
                   Column(
                     children: [
                       Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 30),
+                        padding: REdgeInsets.symmetric(horizontal: 30),
                         child: MaterialButton(
-                          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30), side: const BorderSide()),
-                          height: 40,
+                          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30.r), side: const BorderSide()),
+                          height: 40.h,
                           minWidth: double.infinity,
                           onPressed: () {},
                           child: Row(
@@ -116,27 +122,30 @@ class RegisterPage extends StatelessWidget {
                             children: [
                               SvgPicture.asset(
                                 "assets/icons/facebook_icon.svg",
-                                width: 25,
+                                width: 25.w,
                               ),
-                              const SizedBox(
-                                width: 20,
+                              SizedBox(
+                                width: 20.w,
                               ),
                               Text(
                                 "Countine with Facebook",
-                                style: const AppTextStyle().bodyLarge,
+                                style: context.theme.textTheme.bodyLarge!.copyWith(
+                                  fontSize: 18.sp,
+                                  fontWeight: FontWeight.w600,
+                                ),
                               ),
                             ],
                           ),
                         ),
                       ),
-                      const SizedBox(
-                        height: 10,
+                       SizedBox(
+                        height: 10.h,
                       ),
                       Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 30),
+                        padding:  REdgeInsets.symmetric(horizontal: 30),
                         child: MaterialButton(
-                          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30), side: const BorderSide()),
-                          height: 40,
+                          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30.r), side: const BorderSide()),
+                          height: 40.h,
                           minWidth: double.infinity,
                           onPressed: () {},
                           child: Row(
@@ -144,14 +153,17 @@ class RegisterPage extends StatelessWidget {
                             children: [
                               SvgPicture.asset(
                                 "assets/icons/google_icon.svg",
-                                width: 25,
+                                width: 25.w,
                               ),
-                              const SizedBox(
-                                width: 20,
+                               SizedBox(
+                                width: 20.w,
                               ),
                               Text(
                                 "Countine with Google",
-                                style: const AppTextStyle().bodyLarge,
+                                style: context.theme.textTheme.bodyLarge!.copyWith(
+                                  fontSize: 18.sp,
+                                  fontWeight: FontWeight.w600,
+                                ),
                               ),
                             ],
                           ),

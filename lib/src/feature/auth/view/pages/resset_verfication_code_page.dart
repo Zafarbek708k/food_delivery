@@ -1,6 +1,7 @@
 import "package:flutter/material.dart";
 import "package:flutter/services.dart";
 import "package:flutter_screenutil/flutter_screenutil.dart";
+import "package:food_delivery/src/core/constants/context_extension.dart";
 import "package:food_delivery/src/core/routes/app_route_name.dart";
 import "package:food_delivery/src/core/style/text_style.dart";
 import "package:food_delivery/src/feature/auth/view/widgets/nextbutton_widgets.dart";
@@ -12,75 +13,99 @@ class RessetVerficationCodePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => Scaffold(
-      body: Center(
-        child: SafeArea(
-          child: Column(
-            children: [
-              const SizedBox(
-                height: 80,
-              ),
-              Padding(
-                padding: const EdgeInsets.only(left: 25),
-                child: Align(
-                  alignment: Alignment.centerLeft,
-                  child: Text(
-                    "Verification Code",
-                    style: const AppTextStyle().bodyLarge!.copyWith(fontSize: 32),
-                  ),
+        body: Center(
+          child: SafeArea(
+            child: Column(
+              children: [
+                SizedBox(
+                  height: 80.h,
                 ),
-              ),
-             const  SizedBox(
-                height: 50,
-              ),
-              Center(
-                child: Text(
-                  "Please enter the verification code that has \nbeen sent to email@gmail.com ",
-                  style: const AppTextStyle().bodyLarge!.copyWith(
-                        color: Colors.black.withOpacity(0.6),
+                Padding(
+                  padding: REdgeInsets.only(left: 25),
+                  child: Align(
+                    alignment: Alignment.centerLeft,
+                    child: Text(
+                      "Verification Code",
+                      style: context.theme.textTheme.bodyLarge!.copyWith(
+                        fontSize: 32.sp,
+                        fontWeight: FontWeight.w600,
                       ),
-                ),
-              ),
-             const SizedBox(
-                height: 50,
-              ),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 50),
-                child: PinCodeTextField(
-                  // controller: otp,
-                  obscureText: false,
-                  keyboardType: TextInputType.number,
-                  appContext: context,
-                  length: 4,
-                  cursorHeight: 30,
-                  textStyle: const TextStyle(
-                    fontSize: 20,
-                    fontWeight: FontWeight.normal,
-                    color: Colors.black,
-                  ),
-                  inputFormatters: [FilteringTextInputFormatter.digitsOnly],
-                  pinTheme: PinTheme(
-                    activeColor: Colors.grey.withOpacity(0.3),
-                    selectedColor: Colors.amber,
-                    shape: PinCodeFieldShape.box,
-                    borderWidth: 1,
-                    fieldWidth: 55,
-                    fieldHeight: 70,
-                    inactiveColor: Colors.grey.withOpacity(0.3),
-                    borderRadius: BorderRadius.circular(10),
+                    ),
                   ),
                 ),
-              ),
-
-              SizedBox(height: 50.h,),
-              NextbuttonWidgets(
-                onPressed: (){
+                 SizedBox(
+                  height: 50.h,
+                ),
+                Center(
+                  child: Text(
+                    "Please enter the verification code that has \nbeen sent to email@gmail.com ",
+                    style: context.theme.textTheme.bodyLarge!.copyWith(
+                          color: Colors.black.withOpacity(0.6),
+                          fontSize: 16.sp,
+                          fontWeight: FontWeight.w500,
+                        ),
+                  ),
+                ),
+                 SizedBox(
+                  height: 50.h,
+                ),
+                Padding(
+                  padding:  REdgeInsets.symmetric(horizontal: 50),
+                  child: PinCodeTextField(
+                    // controller: otp,
+                    obscureText: false,
+                    keyboardType: TextInputType.number,
+                    appContext: context,
+                    length: 4,
+                    cursorHeight: 30.h,
+                    textStyle:  TextStyle(
+                      fontSize: 20.h,
+                      fontWeight: FontWeight.normal,
+                      color: Colors.black,
+                    ),
+                    inputFormatters: [FilteringTextInputFormatter.digitsOnly],
+                    pinTheme: PinTheme(
+                      activeColor: Colors.grey.withOpacity(0.3),
+                      selectedColor: Colors.amber,
+                      shape: PinCodeFieldShape.box,
+                      borderWidth: 1.w,
+                      fieldWidth: 55.w,
+                      fieldHeight: 70.h,
+                      inactiveColor: Colors.grey.withOpacity(0.3),
+                      borderRadius: BorderRadius.circular(10.r),
+                    ),
+                  ),
+                ),
+                SizedBox(
+                  height: 20.h,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      "Haven't received a code? ",
+                      style: TextStyle(fontWeight: FontWeight.w500, fontSize: 16.sp),
+                    ),
+                    GestureDetector(
+                      onTap: () {},
+                      child:  Text(
+                        "Reset",
+                        style: TextStyle(color: Colors.orange, fontWeight: FontWeight.w500, fontSize: 16.sp),
+                      ),
+                    ),
+                  ],
+                ),
+                SizedBox(
+                  height: 30.h,
+                ),
+                NextbuttonWidgets(
+                  onPressed: () {
                     context.go("${AppRouteName.signIn}/${AppRouteName.reSetEmail}/${AppRouteName.reSetVerification}/${AppRouteName.reSetPassword}");
-
-                },
-              ),
-            ],
+                  },
+                ),
+              ],
+            ),
           ),
         ),
-      ),
-    );
+      );
 }

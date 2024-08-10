@@ -1,4 +1,5 @@
 import "package:flutter/material.dart";
+import "package:flutter_screenutil/flutter_screenutil.dart";
 
 class RessetPasswordTextfieldWidgets extends StatefulWidget {
   const RessetPasswordTextfieldWidgets({super.key});
@@ -14,7 +15,7 @@ class _RessetPasswordTextfieldWidgetsState extends State<RessetPasswordTextfield
   Widget build(BuildContext context) => Column(
         children: [
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20),
+            padding:  REdgeInsets.symmetric(horizontal: 20),
             child: Align(
               alignment: Alignment.bottomLeft,
               child: Text(
@@ -26,25 +27,25 @@ class _RessetPasswordTextfieldWidgetsState extends State<RessetPasswordTextfield
               ),
             ),
           ),
-          const SizedBox(
-            height: 5,
+           SizedBox(
+            height: 5.h,
           ),
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 25),
+            padding:  REdgeInsets.symmetric(horizontal: 25),
             child: TextField(
               obscureText: isEye,
               keyboardType: TextInputType.visiblePassword,
               style: const TextStyle(color: Colors.black),
               decoration: InputDecoration(
                 focusedBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(10),
+                  borderRadius: BorderRadius.circular(10.r),
                   borderSide: const BorderSide(
                     color: Colors.orange,
                     width: 2,
                   ),
                 ),
                 enabledBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(10),
+                  borderRadius: BorderRadius.circular(10.r),
                   borderSide: BorderSide(
                     color: Colors.black.withOpacity(0.1),
                   ),
@@ -64,7 +65,7 @@ class _RessetPasswordTextfieldWidgetsState extends State<RessetPasswordTextfield
                 hintText: "Password",
                 hintStyle: TextStyle(
                   color: Colors.black.withOpacity(0.3),
-                  fontSize: 16,
+                  fontSize: 16.sp,
                 ),
               ),
             ),

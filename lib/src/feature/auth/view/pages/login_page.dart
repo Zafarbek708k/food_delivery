@@ -42,8 +42,8 @@ class LoginPage extends StatelessWidget {
                       context.go(AppRouteName.discoveryPage);
                     },
                   ),
-                  const SizedBox(
-                    height: 25,
+                   SizedBox(
+                    height: 25.h,
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -61,13 +61,13 @@ class LoginPage extends StatelessWidget {
                         },
                         child: Text(
                           "Sing Up",
-                          style: TextStyle(fontSize: 16.sp, color: Colors.orange),
+                          style: TextStyle(fontSize: 16.sp, color: Colors.orange,),
                         ),
                       ),
                     ],
                   ),
-                  const SizedBox(
-                    height: 25,
+                   SizedBox(
+                    height: 25.h,
                   ),
                   Padding(
                     padding: REdgeInsets.symmetric(
