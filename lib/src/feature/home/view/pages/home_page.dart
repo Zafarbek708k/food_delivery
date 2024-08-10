@@ -16,7 +16,6 @@ class MyHomePage extends ConsumerStatefulWidget {
 }
 
 class _MyHomePageState extends ConsumerState<MyHomePage> {
-
   @override
   void initState() {
     super.initState();
@@ -34,10 +33,10 @@ class _MyHomePageState extends ConsumerState<MyHomePage> {
       case 2:
         context.go(AppRouteName.searchPage);
         break;
-        case 3:
+      case 3:
         context.go(AppRouteName.favoritePage);
         break;
-        case 4:
+      case 4:
         context.go(AppRouteName.profilePage);
         break;
       default:
@@ -75,5 +74,3 @@ class _MyHomePageState extends ConsumerState<MyHomePage> {
     );
   }
 }
-
-
