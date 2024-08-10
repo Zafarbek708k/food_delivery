@@ -35,13 +35,13 @@ final class AppRouter {
         _customEachTransitionAnimation(context, state, const RestaurantDetail()),
   );
 
-  // static final GoRoute searchPage = GoRoute(
-  //   name: "searchPage",
-  //   parentNavigatorKey: parentNavigatorkey,
-  //   path: AppRouteName.searchPage,
-  //   pageBuilder: (BuildContext context, GoRouterState state) =>
-  //       _customEachTransitionAnimation(context, state, SearchPage()),
-  // );
+  static final GoRoute searchPage = GoRoute(
+    name: "searchPage",
+    parentNavigatorKey: parentNavigatorkey,
+    path: AppRouteName.searchPage,
+    pageBuilder: (BuildContext context, GoRouterState state) =>
+        _customEachTransitionAnimation(context, state, SearchPage()),
+  );
 
   ///
 ////Routing System
@@ -83,7 +83,7 @@ final class AppRouter {
             ],
           ),
           GoRoute(
-            name: "Reset Email",
+            name: "ResetEmail",
             path: AppRouteName.reSetEmail,
             builder: (BuildContext context, GoRouterState state) => const RessetEmail(),
             routes: [
@@ -192,7 +192,7 @@ final class AppRouter {
           //   child: child,
           // );
 
-          final tween = Tween<double>(begin: 0.5, end: 1);
+          final tween = Tween<double>(begin: 0, end: 1);
           final scaleAnimation = animation.drive(tween);
 
           return ScaleTransition(
