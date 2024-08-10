@@ -12,18 +12,20 @@ class HorizontalCategories extends StatelessWidget {
         child: Row(
           children: List.generate(
             5,
-            (index) => Padding(
-              padding: EdgeInsets.symmetric(horizontal: 8.w),
-              child: CategoryCard(
-                title: "Brunch",
-                places: 94,
-                imageUrl:
-                    "https://freshday.ru/image/cache/catalog/raznye-vidy-italyanskoy-pasty-1152x768.webp",
-                onTap: () {
-                  // Bu yerda kerakli funksiya yoki navigatsiya qiling
-                  log("HorizontalCategories $index bosildi");
-                },
-              ),
+            (index) => Row(
+              children: [
+                CategoryCard(
+                  title: "Brunch",
+                  places: 94,
+                  imageUrl:
+                      "https://freshday.ru/image/cache/catalog/raznye-vidy-italyanskoy-pasty-1152x768.webp",
+                  onTap: () {
+                    // Bu yerda kerakli funksiya yoki navigatsiya qiling
+                    log("HorizontalCategories $index bosildi");
+                  },
+                ),
+                if (index < 4) SizedBox(width: 8.w), // Faqat oxirgi karta uchun masofa qo'shilmaydi
+              ],
             ),
           ),
         ),
@@ -45,14 +47,23 @@ class CategoryCard extends StatelessWidget {
   });
 
   @override
-  Widget build(BuildContext context) => InkWell(
-        onTap: onTap, // Bu yerda bosilganda nima sodir bo'lishini belgilaymiz
+  Widget build(BuildContext context) => ElevatedButton(
+        onPressed: onTap, // Bu yerda bosilganda nima sodir bo'lishini belgilaymiz
+        style: ElevatedButton.styleFrom(
+          padding: EdgeInsets.zero, 
+          backgroundColor: Colors.white, // Tushirilgan o'lchamni olib tashlaymiz
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(12.r),
+          ), // Card rangini belgilaymiz
+          elevation: 1, // Card soya darajasini belgilaymiz
+          shadowColor: Colors.black.withOpacity(0.1), // Soya rangini sozlash
+        ),
         child: Card(
-          color: Colors.white,
+          color: Colors.white, // Cardning rangini shaffof qilamiz
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(12.r),
           ),
-          elevation: 4,
+          elevation: 1, // Cardning o'zida soya bo'lmasligi
           clipBehavior: Clip.antiAlias,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,

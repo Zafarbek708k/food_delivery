@@ -38,7 +38,7 @@ class RestaurantsPageState extends State<RestaurantsPage> {
           slivers: [
             SliverToBoxAdapter(
               child: Padding(
-                padding: REdgeInsets.all(16),
+                padding: REdgeInsets.all(12),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -62,7 +62,7 @@ class RestaurantsPageState extends State<RestaurantsPage> {
                     const HorizontalCategories(),
 
                     ///horizontal categories
-                    20.horizontalSpace,
+                    30.horizontalSpace,
                     Text(
                       "All restaurants",
                       style: context.theme.textTheme.bodyLarge?.copyWith(
