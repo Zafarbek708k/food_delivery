@@ -75,7 +75,7 @@ class RestaurantsPageState extends State<RestaurantsPage> {
               delegate: SliverChildBuilderDelegate(
                 (context, index) => RestaurantCard(
                   onTap: () {
-                    context.goNamed(AppRouteName.restaurantDetailPage);
+                    context.go("${AppRouteName.restaurantPage}/${AppRouteName.restaurantDetailPage}");
                     log("RestaurantCard : $index");
                   },
                 ),

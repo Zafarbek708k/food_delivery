@@ -7,12 +7,11 @@ final class AppRouteName {
 
   static const String signIn = "/signIn";
   static const String signUp = "signUp";
-  static const String reSetEmail = "ressetEmail";
-  static const String reSetPassword = "ressetPassword";
-  static const String reSetVerification = "resseterification";
+  static const String reSetEmail = "resetEmail";
+  static const String reSetPassword = "resetPassword";
+  static const String reSetVerification = "resetVerification";
   static const String verification = "verification";
 
-  static const String homePage = "/homePage";
   static const String discoveryPage = "/discoveryPage";
   static const String restaurantPage = "/restaurantPage";
   static const String mapDeliveryPage = "mapDeliveryPage";
