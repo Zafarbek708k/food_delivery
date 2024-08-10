@@ -22,8 +22,34 @@ GlobalKey<NavigatorState> parentNavigatorkey = GlobalKey<NavigatorState>();
 @immutable
 final class AppRouter {
   const AppRouter._();
+
+  ///
+  ///bottom navigation bar siz chiqadigan pagelar
+  ///
+
+  static final GoRoute restarauntDetailPage = GoRoute(
+    parentNavigatorKey: parentNavigatorkey,
+    // name: "restarauntDetailPage",
+    path: AppRouteName.restaurantDetailPage,
+    pageBuilder: (BuildContext context, GoRouterState state) =>
+        _customEachTransitionAnimation(context, state, const RestaurantDetail()),
+  );
+
+  // static final GoRoute searchPage = GoRoute(
+  //   name: "searchPage",
+  //   parentNavigatorKey: parentNavigatorkey,
+  //   path: AppRouteName.searchPage,
+  //   pageBuilder: (BuildContext context, GoRouterState state) =>
+  //       _customEachTransitionAnimation(context, state, SearchPage()),
+  // );
+
+  ///
+////Routing System
+  ///
+
   static GoRouter routes = GoRouter(
     initialLocation: AppRouteName.splash,
+    navigatorKey: parentNavigatorkey,
     debugLogDiagnostics: true,
     routes: <RouteBase>[
       GoRoute(
@@ -85,12 +111,20 @@ final class AppRouter {
           GoRoute(
             name: "Discovery",
             path: AppRouteName.discoveryPage,
-            builder: (BuildContext context, GoRouterState state) => const DiscoveryPage(),
+            pageBuilder: (BuildContext context, GoRouterState state) => _customNavigatorTransitionAnimation(
+              context,
+              state,
+              const DiscoveryPage(),
+            ), //const DiscoveryPage(),
           ),
           GoRoute(
             name: "Restaurant",
             path: AppRouteName.restaurantPage,
-            builder: (BuildContext context, GoRouterState state) => const RestaurantsPage(),
+            pageBuilder: (BuildContext context, GoRouterState state) => _customNavigatorTransitionAnimation(
+              context,
+              state,
+              const RestaurantsPage(),
+            ),
             routes: [
               GoRoute(
                 name: AppRouteName.restaurantDetailPage,
@@ -102,20 +136,145 @@ final class AppRouter {
           GoRoute(
             name: "Search",
             path: AppRouteName.searchPage,
-            builder: (BuildContext context, GoRouterState state) => SearchPage(),
+            pageBuilder: (BuildContext context, GoRouterState state) => _customNavigatorTransitionAnimation(
+              context,
+              state,
+              SearchPage(),
+            ),
+            // builder: (BuildContext context, GoRouterState state) => SearchPage(),
           ),
           GoRoute(
             name: "Favorite",
             path: AppRouteName.favoritePage,
-            builder: (BuildContext context, GoRouterState state) => FavouritePage(),
+            pageBuilder: (BuildContext context, GoRouterState state) => _customNavigatorTransitionAnimation(
+              context,
+              state,
+              FavouritePage(),
+            ),
+            // builder: (BuildContext context, GoRouterState state) => FavouritePage(),
           ),
           GoRoute(
             name: "Profile",
             path: AppRouteName.profilePage,
-            builder: (BuildContext context, GoRouterState state) => const ProfilePage(),
+            pageBuilder: (BuildContext context, GoRouterState state) => _customNavigatorTransitionAnimation(
+              context,
+              state,
+              const ProfilePage(),
+            ),
+            // builder: (BuildContext context, GoRouterState state) => const ProfilePage(),
           ),
         ],
       ),
     ],
   );
+
+////TransitionAnimation
+
+  static Page<dynamic> _customEachTransitionAnimation(
+    BuildContext context,
+    GoRouterState state,
+    Widget child,
+  ) =>
+      CustomTransitionPage<Object>(
+        transitionsBuilder: (
+          BuildContext context,
+          Animation<double> animation,
+          Animation<double> secondaryAnimation,
+          Widget child,
+        ) {
+          // var begin = Offset(1.0, 0.0); // From right
+          // var end = Offset.zero;
+          // var tween = Tween(begin: begin, end: end);
+          // var offsetAnimation = animation.drive(tween);
+          //
+          // return SlideTransition(
+          //   position: offsetAnimation,
+          //   child: child,
+          // );
+
+          final tween = Tween<double>(begin: 0.5, end: 1);
+          final scaleAnimation = animation.drive(tween);
+
+          return ScaleTransition(
+            scale: scaleAnimation,
+            child: child,
+          );
+
+          // var tween = Tween<double>(begin: 0.6, end: 1.0);
+          // var sizeAnimation = animation.drive(tween);
+          //
+          // return SizeTransition(
+          //   sizeFactor: sizeAnimation,
+          //   child: child,
+          // );
+
+          // var tween = Tween<double>(begin: 0.5, end: 1); // Full rotation
+          // var rotationAnimation = animation.drive(tween);
+          //
+          // return RotationTransition(
+          //   turns: rotationAnimation,
+          //   child: child,
+          // );
+
+          // return FadeTransition(
+          //   opacity: animation,
+          //   child: child,
+          // );
+        },
+        child: child,
+      );
+
+  static Page<dynamic> _customNavigatorTransitionAnimation(
+    BuildContext context,
+    GoRouterState state,
+    Widget child,
+  ) =>
+      CustomTransitionPage<Object>(
+        transitionsBuilder: (
+          BuildContext context,
+          Animation<double> animation,
+          Animation<double> secondaryAnimation,
+          Widget child,
+        ) {
+          // var begin = Offset(1.0, 0.0); // From right
+          // var end = Offset.zero;
+          // var tween = Tween(begin: begin, end: end);
+          // var offsetAnimation = animation.drive(tween);
+          //
+          // return SlideTransition(
+          //   position: offsetAnimation,
+          //   child: child,
+          // );
+
+          // var tween = Tween<double>(begin: 0, end: 1);
+          // var scaleAnimation = animation.drive(tween);
+          //
+          // return ScaleTransition(
+          //   scale: scaleAnimation,
+          //   child: child,
+          // );
+
+          final tween = Tween<double>(begin: 0.6, end: 1);
+          final sizeAnimation = animation.drive(tween);
+
+          return SizeTransition(
+            sizeFactor: sizeAnimation,
+            child: child,
+          );
+
+          // var tween = Tween<double>(begin: 0.5, end: 1); // Full rotation
+          // var rotationAnimation = animation.drive(tween);
+          //
+          // return RotationTransition(
+          //   turns: rotationAnimation,
+          //   child: child,
+          // );
+
+          // return FadeTransition(
+          //   opacity: animation,
+          //   child: child,
+          // );
+        },
+        child: child,
+      );
 }
