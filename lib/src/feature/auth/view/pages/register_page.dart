@@ -88,7 +88,6 @@ class RegisterPage extends StatelessWidget {
                         Text(
                           "Sign in with",
                           style: context.theme.textTheme.bodyLarge!.copyWith(
-                            fontSize: 16.sp,
                             fontWeight: FontWeight.w600,
                           ),
                         ),
