@@ -5,9 +5,6 @@ import 'package:food_delivery/src/feature/profile/pages/empty_page.dart';
 import 'package:food_delivery/src/feature/profile/pages/my_profile_edit_page.dart';
 import 'package:food_delivery/src/feature/profile/widgets/avatar_widget.dart';
 
-final nameProvider = Provider<String>((ref) {
-  return 'Ismingiz';
-});
 
 class ProfilePage extends ConsumerStatefulWidget {
   const ProfilePage({Key? key}) : super(key: key);
@@ -19,6 +16,7 @@ class ProfilePage extends ConsumerStatefulWidget {
 class _ProfilePageState extends ConsumerState<ProfilePage> {
   @override
   Widget build(BuildContext context) {
+
     final name = ref.watch(nameProvider);
     return Scaffold(
       resizeToAvoidBottomInset: false,
@@ -36,7 +34,7 @@ class _ProfilePageState extends ConsumerState<ProfilePage> {
                 ),
                 Text(
                   name,
-                  style: TextStyle(
+                  style: const TextStyle(
                     fontWeight: FontWeight.w600,
                     fontSize: 20,
                     fontFamily: 'Rubik',
