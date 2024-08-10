@@ -1,5 +1,6 @@
 // ignore: file_names
 import "package:flutter/material.dart";
+import "package:flutter_screenutil/flutter_screenutil.dart";
 import "package:food_delivery/src/core/routes/app_route_name.dart";
 import "package:go_router/go_router.dart";
 
@@ -17,7 +18,7 @@ class _LoginTexfeildWidgetState extends State<LoginTexfeildWidget> {
   Widget build(BuildContext context) => Column(
         children: [
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20),
+            padding:  REdgeInsets.symmetric(horizontal: 20),
             child: Align(
               alignment: Alignment.bottomLeft,
               child: Text(
@@ -29,25 +30,25 @@ class _LoginTexfeildWidgetState extends State<LoginTexfeildWidget> {
               ),
             ),
           ),
-          const SizedBox(
-            height: 5,
+           SizedBox(
+            height: 5.h,
           ),
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 25),
+            padding:  REdgeInsets.symmetric(horizontal: 25),
             child: TextField(
               keyboardType: TextInputType.emailAddress,
               keyboardAppearance: Brightness.dark,
-              style: TextStyle(color: Colors.black),
+              style: const TextStyle(color: Colors.black),
               decoration: InputDecoration(
                 focusedBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(10),
+                  borderRadius: BorderRadius.circular(10.r),
                   borderSide: const BorderSide(
                     color: Colors.orange,
                     width: 2,
                   ),
                 ),
                 enabledBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(10),
+                  borderRadius: BorderRadius.circular(10.r),
                   borderSide: BorderSide(
                     color: Colors.black.withOpacity(0.1),
                   ),
@@ -55,16 +56,16 @@ class _LoginTexfeildWidgetState extends State<LoginTexfeildWidget> {
                 hintText: "Your email",
                 hintStyle: TextStyle(
                   color: Colors.black.withOpacity(0.3),
-                  fontSize: 16,
+                  fontSize: 16.sp,
                 ),
               ),
             ),
           ),
-          const SizedBox(
-            height: 15,
+           SizedBox(
+            height: 15.h,
           ),
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20),
+            padding:  REdgeInsets.symmetric(horizontal: 20),
             child: Align(
               alignment: Alignment.bottomLeft,
               child: Text(
@@ -76,25 +77,25 @@ class _LoginTexfeildWidgetState extends State<LoginTexfeildWidget> {
               ),
             ),
           ),
-          const SizedBox(
-            height: 5,
+           SizedBox(
+            height: 5.h,
           ),
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 25),
+            padding:  REdgeInsets.symmetric(horizontal: 25),
             child: TextField(
               obscureText: isEye,
               keyboardType: TextInputType.visiblePassword,
-              style: TextStyle(color: Colors.black),
+              style: const TextStyle(color: Colors.black),
               decoration: InputDecoration(
                 focusedBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(10),
+                  borderRadius: BorderRadius.circular(10.r),
                   borderSide: const BorderSide(
                     color: Colors.orange,
                     width: 2,
                   ),
                 ),
                 enabledBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(10),
+                  borderRadius: BorderRadius.circular(10.r),
                   borderSide: BorderSide(
                     color: Colors.black.withOpacity(0.1),
                   ),
@@ -109,27 +110,29 @@ class _LoginTexfeildWidgetState extends State<LoginTexfeildWidget> {
                   icon: isEye? Icon(
                     Icons.visibility_rounded,
                     color: Colors.black.withOpacity(0.4),
-                  ):Icon(Icons.visibility_off_rounded),
+                  ): const Icon(Icons.visibility_off_rounded),
                 ),
                 hintText: "Password",
                 hintStyle: TextStyle(
                   color: Colors.black.withOpacity(0.3),
-                  fontSize: 16,
+                  fontSize: 16.sp,
                 ),
               ),
             ),
           ),
           Padding(
-            padding: const EdgeInsets.only(right: 10),
+            padding:  EdgeInsets.only(right: 10),
             child: Align(
               alignment: Alignment.centerRight,
               child: MaterialButton(
                 onPressed: () {
                   context.go("${AppRouteName.signIn}/${AppRouteName.reSetEmail}");
                 },
-                child: const Text(
+                child: const  Text(
                   "Forgot password?",
                   style: TextStyle(
+                    decoration: TextDecoration.underline,
+                    decorationColor: Colors.orange,
                     color: Colors.orange,
                   ),
                 ),

@@ -3,8 +3,10 @@ import "dart:developer";
 import "package:flutter/material.dart";
 import "package:flutter_screenutil/flutter_screenutil.dart";
 import "package:food_delivery/src/core/constants/context_extension.dart";
+import "package:food_delivery/src/core/routes/app_route_name.dart";
 import "package:food_delivery/src/feature/restaurant/widgets/restaraunt_card_widget.dart";
 import "package:food_delivery/src/feature/restaurant/widgets/restaraunt_category_horizontal_widget.dart";
+import "package:go_router/go_router.dart";
 
 import "../../widgets/custom_appbar_widget.dart";
 
@@ -36,7 +38,7 @@ class RestaurantsPageState extends State<RestaurantsPage> {
           slivers: [
             SliverToBoxAdapter(
               child: Padding(
-                padding: REdgeInsets.all(16),
+                padding: REdgeInsets.all(12),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -56,9 +58,7 @@ class RestaurantsPageState extends State<RestaurantsPage> {
                         color: Colors.black,
                       ),
                     ),
-                    20.horizontalSpace,
-                    const HorizontalCategories(),///horizontal categories
-                    20.horizontalSpace,
+                    const HorizontalCategories(),
                     Text(
                       "All restaurants",
                       style: context.theme.textTheme.bodyLarge?.copyWith(
@@ -75,6 +75,7 @@ class RestaurantsPageState extends State<RestaurantsPage> {
               delegate: SliverChildBuilderDelegate(
                 (context, index) => RestaurantCard(
                   onTap: () {
+                    context.go("${AppRouteName.restaurantPage}/${AppRouteName.restaurantDetailPage}");
                     log("RestaurantCard : $index");
                   },
                 ),

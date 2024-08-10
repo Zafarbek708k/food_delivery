@@ -1,29 +1,28 @@
 import "package:flutter/material.dart";
+import "package:flutter_screenutil/flutter_screenutil.dart";
 
 class NextbuttonWidgets extends StatelessWidget {
-  const NextbuttonWidgets({super.key, required this.onPressed});
+  const NextbuttonWidgets({required this.onPressed, super.key});
   final VoidCallback onPressed;
 
   @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 25),
+  Widget build(BuildContext context) => Padding(
+      padding:  REdgeInsets.symmetric(horizontal: 25),
       child: MaterialButton(
         onPressed: onPressed,
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(300),
+          borderRadius: BorderRadius.circular(300.r),
         ),
         color: Colors.red,
         minWidth: double.infinity,
-        height: 60,
-        child: const Text(
+        height: 60.h,
+        child:  Text(
           "Next",
           style: TextStyle(
             color: Colors.white,
-            fontSize: 18,
+            fontSize: 18.sp,
           ),
         ),
       ),
     );
-  }
 }

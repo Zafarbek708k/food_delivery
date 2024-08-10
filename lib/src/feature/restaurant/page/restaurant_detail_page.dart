@@ -1,10 +1,10 @@
 import "package:flutter/material.dart";
 import "package:flutter_riverpod/flutter_riverpod.dart";
 
-import "../page/food_details_page.dart";
+import "food_details_page.dart";
 import "../view_model/restaurant_detail_vm.dart";
 import "../widgets/restaraunt_food_widget.dart";
-import "food_model.dart";
+import "../model/food_model.dart";
 import "order_page.dart";
 
 class RestaurantDetail extends ConsumerWidget {
@@ -21,7 +21,7 @@ class RestaurantDetail extends ConsumerWidget {
     List<String> getCategories() =>
         foods.map((item) => item.category).toSet().toList();
 
-    List<String> categories = getCategories();
+    final categories = getCategories();
 
     return Scaffold(
       appBar: AppBar(
@@ -38,7 +38,14 @@ class RestaurantDetail extends ConsumerWidget {
           SingleChildScrollView(
             child: Column(
               children: [
-                Image.asset("assets/food.jpg"),
+                SizedBox(
+                  height: MediaQuery.of(context).size.height * 0.3,
+                  width: MediaQuery.of(context).size.width,
+                  child: Image.asset(
+                    "assets/images/discovery_fast_delivery.png",
+                    fit: BoxFit.cover, // Yoki BoxFit.contain
+                  ),
+                ),
                 Padding(
                   padding: const EdgeInsets.all(16),
                   child: Column(

@@ -1,6 +1,5 @@
-import 'package:flutter/material.dart';
-import "package:food_delivery/src/core/routes/app_route_name.dart";
-import "package:go_router/go_router.dart";
+import "package:flutter/material.dart";
+import "package:flutter_screenutil/flutter_screenutil.dart";
 
 class RegisterTexfeildWidgets extends StatefulWidget {
   const RegisterTexfeildWidgets({super.key});
@@ -16,7 +15,7 @@ class _RegisterTexfeildWidgetsState extends State<RegisterTexfeildWidgets> {
   Widget build(BuildContext context) => Column(
         children: [
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20),
+            padding:  REdgeInsets.symmetric(horizontal: 20),
             child: Align(
               alignment: Alignment.bottomLeft,
               child: Text(
@@ -28,24 +27,24 @@ class _RegisterTexfeildWidgetsState extends State<RegisterTexfeildWidgets> {
               ),
             ),
           ),
-          const SizedBox(
-            height: 5,
+           SizedBox(
+            height: 5.h,
           ),
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 25),
+            padding:  REdgeInsets.symmetric(horizontal: 25),
             child: TextField(
-              style: TextStyle(color: Colors.black),
+              style: const TextStyle(color: Colors.black),
               keyboardType: TextInputType.name,
               decoration: InputDecoration(
                 focusedBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(10),
+                  borderRadius: BorderRadius.circular(10.r),
                   borderSide: const BorderSide(
                     color: Colors.orange,
                     width: 2,
                   ),
                 ),
                 enabledBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(10),
+                  borderRadius: BorderRadius.circular(10.r),
                   borderSide: BorderSide(
                     color: Colors.black.withOpacity(0.1),
                   ),
@@ -53,13 +52,13 @@ class _RegisterTexfeildWidgetsState extends State<RegisterTexfeildWidgets> {
                 hintText: "Your name",
                 hintStyle: TextStyle(
                   color: Colors.black.withOpacity(0.3),
-                  fontSize: 16,
+                  fontSize: 16.sp,
                 ),
               ),
             ),
           ),
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20),
+            padding:  REdgeInsets.symmetric(horizontal: 20),
             child: Align(
               alignment: Alignment.bottomLeft,
               child: Text(
@@ -71,24 +70,24 @@ class _RegisterTexfeildWidgetsState extends State<RegisterTexfeildWidgets> {
               ),
             ),
           ),
-          const SizedBox(
-            height: 5,
+           SizedBox(
+            height: 5.h,
           ),
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 25),
+            padding:  REdgeInsets.symmetric(horizontal: 25),
             child: TextField(
-              style: TextStyle(color: Colors.black),
+              style: const TextStyle(color: Colors.black),
               keyboardType: TextInputType.emailAddress,
               decoration: InputDecoration(
                 focusedBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(10),
+                  borderRadius: BorderRadius.circular(10.r),
                   borderSide: const BorderSide(
                     color: Colors.orange,
                     width: 2,
                   ),
                 ),
                 enabledBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(10),
+                  borderRadius: BorderRadius.circular(10.r),
                   borderSide: BorderSide(
                     color: Colors.black.withOpacity(0.1),
                   ),
@@ -96,16 +95,16 @@ class _RegisterTexfeildWidgetsState extends State<RegisterTexfeildWidgets> {
                 hintText: "Your email",
                 hintStyle: TextStyle(
                   color: Colors.black.withOpacity(0.3),
-                  fontSize: 16,
+                  fontSize: 16.sp,
                 ),
               ),
             ),
           ),
-          const SizedBox(
-            height: 15,
+           SizedBox(
+            height: 15.sp,
           ),
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20),
+            padding:  REdgeInsets.symmetric(horizontal: 20),
             child: Align(
               alignment: Alignment.bottomLeft,
               child: Text(
@@ -117,24 +116,24 @@ class _RegisterTexfeildWidgetsState extends State<RegisterTexfeildWidgets> {
               ),
             ),
           ),
-          const SizedBox(
-            height: 5,
+           SizedBox(
+            height: 5.r,
           ),
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 25),
+            padding:  REdgeInsets.symmetric(horizontal: 25),
             child: TextField(
-              style: TextStyle(color: Colors.black),
+              style: const TextStyle(color: Colors.black),
               keyboardType: TextInputType.visiblePassword,
               decoration: InputDecoration(
                 focusedBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(10),
+                  borderRadius: BorderRadius.circular(10.r),
                   borderSide: const BorderSide(
                     color: Colors.orange,
                     width: 2,
                   ),
                 ),
                 enabledBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(10),
+                  borderRadius: BorderRadius.circular(10.r),
                   borderSide: BorderSide(
                     color: Colors.black.withOpacity(0.1),
                   ),
@@ -149,12 +148,12 @@ class _RegisterTexfeildWidgetsState extends State<RegisterTexfeildWidgets> {
                           Icons.visibility_rounded,
                           color: Colors.black.withOpacity(0.4),
                         )
-                      : Icon(Icons.visibility_off_rounded),
+                      : const Icon(Icons.visibility_off_rounded),
                 ),
                 hintText: "Password",
                 hintStyle: TextStyle(
                   color: Colors.black.withOpacity(0.3),
-                  fontSize: 16,
+                  fontSize: 16.sp,
                 ),
               ),
             ),

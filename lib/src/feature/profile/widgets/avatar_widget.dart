@@ -1,6 +1,4 @@
-
 import "dart:io";
-
 import "package:flutter/material.dart";
 import "package:flutter_riverpod/flutter_riverpod.dart";
 import "package:food_delivery/generated/assets.dart";
@@ -82,7 +80,6 @@ class AvatarWidget extends ConsumerWidget {
           ),
         ),
         const SizedBox(height: 2),
-
       ],
     );
   }

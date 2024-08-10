@@ -28,83 +28,57 @@ class _FavouritePageState extends State<FavouritePage> with SingleTickerProvider
   Widget build(BuildContext context) => Scaffold(
     backgroundColor: Colors.white,
       body: Padding(
-        padding:  REdgeInsets.all(20),
-        child: Column(
-          children: [
-            Padding(
-              padding: const EdgeInsets.only(top: 20, bottom: 20),
-              child: SizedBox(
-                height: 45.h,
+        padding:  REdgeInsets.only(top: 30, left: 10, right: 10),
+        child: SafeArea(
+          child: Column(
+            children: [
+              SizedBox(
+                height: 55,
                 width: double.maxFinite,
-                child: TextField(
-                  decoration: InputDecoration(
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(15.r),
-                    ),
-                    hintText: "Search",
-                    hintStyle: const TextStyle(
-                      color: Colors.grey,
-                      backgroundColor: Colors.white10,
-                    ),
-                    prefixIcon: const Icon(
-                      Icons.search,
-                      color: Colors.grey,
-                    ),
-                  ),
-                ),
-              ),
-            ),
-
-            SizedBox(
-              height: 55,
-              width: double.maxFinite,
-              child: DecoratedBox(
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(50),
-                  boxShadow: const [
-                    BoxShadow(
-                      color: Colors.black,
-                      blurRadius: 0.5,
-                      spreadRadius: 1,
-                    ),
-                  ],
-                ),
-                child: TabBar(
-                  controller: _tabController,
-                  indicator: BoxDecoration(
-                    color: Colors.orange,
+                child: DecoratedBox(
+                  decoration: BoxDecoration(
+                    color: Colors.white,
                     borderRadius: BorderRadius.circular(50),
+                    boxShadow: const [
+                      BoxShadow(
+                        color: Colors.black,
+                        blurRadius: 0.5,
+                        spreadRadius: 1,
+                      ),
+                    ],
                   ),
-                  indicatorPadding: EdgeInsets.symmetric(horizontal: 5.w),  // Adjust the padding to increase width
-                  indicatorSize: TabBarIndicatorSize.tab,  // Keeps the indicator size equal to the tab size
-                  labelColor: Colors.white,
-                  unselectedLabelColor: Colors.black,
+                  child: TabBar(
+                    controller: _tabController,
+                    indicator: BoxDecoration(
+                      color: Colors.orange,
+                      borderRadius: BorderRadius.circular(50),
+                    ),
+                    dividerHeight: 0,
+                    indicatorSize: TabBarIndicatorSize.tab,  // Keeps the indicator size equal to the tab size
+                    labelColor: Colors.white,
+                    unselectedLabelColor: Colors.black,
 
-                  tabs: const [
-                    Tab(text: "  Food Items  ",
-                    height: 20,),
-                    Tab(text: "  Restaurants  ",
-                    height: 20,),
+                    tabs: const [
+                      Tab(text: "  Food Items  ",
+                      height: 20,),
+                      Tab(text: "  Restaurants  ",
+                      height: 20,),
+                    ],
+                  ),
+                ),
+              ),
+              SizedBox(height: 10.h),
+              Expanded(
+                child: TabBarView(
+                  controller: _tabController,
+                  children: [
+                    FoodItemsPage(),
+                    FavoriteRestaurantsPage(),
                   ],
                 ),
               ),
-            ),
-
-
-
-
-            SizedBox(height: 10.h),
-            Expanded(
-              child: TabBarView(
-                controller: _tabController,
-                children: [
-                  FoodItemsPage(),
-                  FavoriteRestaurantsPage(),
-                ],
-              ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
