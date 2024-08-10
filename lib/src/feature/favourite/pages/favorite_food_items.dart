@@ -1,6 +1,5 @@
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
+import "package:flutter/cupertino.dart";
+import "package:flutter/material.dart";
 
 class FoodItemsPage extends StatefulWidget {
   @override
@@ -21,7 +20,8 @@ class _FoodItemsPageState extends State<FoodItemsPage> {
     ),
     CardItem(
       isFavorited: true,
-      imageUrl: "https://res.cloudinary.com/hksqkdlah/image/upload/SFS_south_carolina_shrimp_burger_016_wqvsr6.jpg",
+      imageUrl:
+          "https://res.cloudinary.com/hksqkdlah/image/upload/SFS_south_carolina_shrimp_burger_016_wqvsr6.jpg",
       title: "Shrimp burger",
       description: "Something special from sea",
       restaurant: "Ocean Lovers",
@@ -42,24 +42,24 @@ class _FoodItemsPageState extends State<FoodItemsPage> {
 
   @override
   Widget build(BuildContext context) => Scaffold(
-    body: Padding(
-      padding: const EdgeInsets.symmetric(vertical: 16),
-      child: ListView.builder(
-        itemCount: items.length,
-        itemBuilder: (context, index) => Padding(
-          padding: const EdgeInsets.only(bottom: 16),
-          child: CupertinoButton(
-            onPressed: (){},
-            padding: EdgeInsets.all(0),
-            child: FoodItemCard(
-              cardItem: items[index],
-              onFavoriteToggle: (isFavorited) => _updateFavoriteStatus(index, isFavorited),
+        body: Padding(
+          padding: const EdgeInsets.symmetric(vertical: 16),
+          child: ListView.builder(
+            itemCount: items.length,
+            itemBuilder: (context, index) => Padding(
+              padding: const EdgeInsets.only(bottom: 16),
+              child: CupertinoButton(
+                onPressed: () {},
+                padding: EdgeInsets.zero,
+                child: FoodItemCard(
+                  cardItem: items[index],
+                  onFavoriteToggle: (isFavorited) => _updateFavoriteStatus(index, isFavorited),
+                ),
+              ),
             ),
           ),
         ),
-      ),
-    ),
-  );
+      );
 }
 
 class FoodItemCard extends StatelessWidget {
@@ -77,80 +77,80 @@ class FoodItemCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => Card(
-    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
-    elevation: 5,
-    child: Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 8),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Stack(
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
+        elevation: 5,
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 8),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              ClipRRect(
-                borderRadius: BorderRadius.circular(15),
-                child: Image.network(
-                  cardItem.imageUrl,
-                  height: 180,
-                  width: double.infinity,
-                  fit: BoxFit.cover,
-                ),
-              ),
-              Positioned(
-                top: 10,
-                right: 10,
-                child: InkWell(
-                  onTap: _toggleFavorite,
-                  child: CircleAvatar(
-                    backgroundColor: Colors.white,
-                    child: Icon(
-                      Icons.favorite,
-                      color: cardItem.isFavorited ? Colors.red : Colors.grey,
+              Stack(
+                children: [
+                  ClipRRect(
+                    borderRadius: BorderRadius.circular(15),
+                    child: Image.network(
+                      cardItem.imageUrl,
+                      height: 180,
+                      width: double.infinity,
+                      fit: BoxFit.cover,
                     ),
                   ),
+                  Positioned(
+                    top: 10,
+                    right: 10,
+                    child: InkWell(
+                      onTap: _toggleFavorite,
+                      child: CircleAvatar(
+                        backgroundColor: Colors.white,
+                        child: Icon(
+                          Icons.favorite,
+                          color: cardItem.isFavorited ? Colors.red : Colors.grey,
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(vertical: 10),
+                child: Text(
+                  cardItem.title,
+                  style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                 ),
+              ),
+              Text(
+                cardItem.description,
+                style: const TextStyle(fontSize: 14, color: Colors.grey),
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(vertical: 8),
+                child: Row(
+                  children: [
+                    const Icon(Icons.restaurant, size: 16, color: Colors.orange),
+                    const SizedBox(width: 5),
+                    Text(cardItem.restaurant, style: const TextStyle(fontSize: 14)),
+                    const Spacer(),
+                    const Icon(Icons.euro, size: 16, color: Colors.orange),
+                    const SizedBox(width: 5),
+                    Text(cardItem.price, style: const TextStyle(fontSize: 14)),
+                  ],
+                ),
+              ),
+              Row(
+                children: [
+                  const Icon(Icons.timer, size: 16, color: Colors.orange),
+                  const SizedBox(width: 5),
+                  Text(cardItem.time, style: const TextStyle(fontSize: 14)),
+                  const Spacer(),
+                  const Icon(Icons.star, size: 16, color: Colors.orange),
+                  const SizedBox(width: 5),
+                  Text(cardItem.rating, style: const TextStyle(fontSize: 14)),
+                ],
               ),
             ],
           ),
-          Padding(
-            padding: const EdgeInsets.symmetric(vertical: 10),
-            child: Text(
-              cardItem.title,
-              style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-            ),
-          ),
-          Text(
-            cardItem.description,
-            style: const TextStyle(fontSize: 14, color: Colors.grey),
-          ),
-          Padding(
-            padding: const EdgeInsets.symmetric(vertical: 8),
-            child: Row(
-              children: [
-                const Icon(Icons.restaurant, size: 16, color: Colors.orange),
-                const SizedBox(width: 5),
-                Text(cardItem.restaurant, style: const TextStyle(fontSize: 14)),
-                const Spacer(),
-                const Icon(Icons.euro, size: 16, color: Colors.orange),
-                const SizedBox(width: 5),
-                Text(cardItem.price, style: const TextStyle(fontSize: 14)),
-              ],
-            ),
-          ),
-          Row(
-            children: [
-              const Icon(Icons.timer, size: 16, color: Colors.orange),
-              const SizedBox(width: 5),
-              Text(cardItem.time, style: const TextStyle(fontSize: 14)),
-              const Spacer(),
-              const Icon(Icons.star, size: 16, color: Colors.orange),
-              const SizedBox(width: 5),
-              Text(cardItem.rating, style: const TextStyle(fontSize: 14)),
-            ],
-          ),
-        ],
-      ),
-    ),
-  );
+        ),
+      );
 }
 
 class CardItem {

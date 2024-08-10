@@ -5,7 +5,7 @@ import "package:food_delivery/src/core/style/app_images.dart";
 
 class InfoWelcomePageWidgets extends StatelessWidget {
   const InfoWelcomePageWidgets(
-      {required this.googleButton, required this.facebookButton, required this.emailButton, required this.signInButton, super.key});
+      {required this.googleButton, required this.facebookButton, required this.emailButton, required this.signInButton, super.key,});
 
   final VoidCallback googleButton;
   final VoidCallback facebookButton;
