@@ -53,7 +53,7 @@ final class AppRouter {
   ///
 
   static GoRouter routes = GoRouter(
-    initialLocation: AppRouteName.discoveryPage,
+    initialLocation: AppRouteName.splash,
     navigatorKey: parentNavigatorKey,
     debugLogDiagnostics: true,
     routes: <RouteBase>[
