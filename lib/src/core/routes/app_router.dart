@@ -12,11 +12,12 @@ import "package:food_delivery/src/feature/home/view/pages/home_page.dart";
 import "package:food_delivery/src/feature/home/view/pages/splash_page.dart";
 import "package:food_delivery/src/feature/home/view/pages/welcome_page.dart";
 import "package:food_delivery/src/feature/profile/pages/profile_page.dart";
-import "package:food_delivery/src/feature/restaurant/page/delivery_map_page.dart";
-import "package:food_delivery/src/feature/restaurant/page/restaraunt_page.dart";
-import "package:food_delivery/src/feature/restaurant/page/restaurant_detail_page.dart";
 import "package:food_delivery/src/feature/search/pages/search_page.dart";
 import "package:go_router/go_router.dart";
+
+import "../../feature/restaurant/view/page/delivery_map_page.dart";
+import "../../feature/restaurant/view/page/restaraunt_page.dart";
+import "../../feature/restaurant/view/page/restaurant_detail_page.dart";
 
 GlobalKey<NavigatorState> parentNavigatorKey = GlobalKey<NavigatorState>();
 
@@ -31,21 +32,24 @@ final class AppRouter {
     parentNavigatorKey: parentNavigatorKey,
     path: AppRouteName.restaurantDetailPage,
     name: "RestaurantDetailPage",
-    pageBuilder: (BuildContext context, GoRouterState state) => _customEachTransitionAnimation(context, state, const RestaurantDetail()),
+    pageBuilder: (BuildContext context, GoRouterState state) =>
+        _customEachTransitionAnimation(context, state, const RestaurantDetail()),
   );
 
   static final GoRoute searchPage = GoRoute(
     name: "SearchPage",
     parentNavigatorKey: parentNavigatorKey,
     path: AppRouteName.searchPage,
-    pageBuilder: (BuildContext context, GoRouterState state) => _customEachTransitionAnimation(context, state, SearchPage()),
+    pageBuilder: (BuildContext context, GoRouterState state) =>
+        _customEachTransitionAnimation(context, state, SearchPage()),
   );
 
   static final GoRoute mapDeliveryPage = GoRoute(
     name: "MapDeliveryPage",
     parentNavigatorKey: parentNavigatorKey,
     path: AppRouteName.mapDeliveryPage,
-    pageBuilder: (BuildContext context, GoRouterState state) => _customEachTransitionAnimation(context, state, const MapDeliveryPage()),
+    pageBuilder: (BuildContext context, GoRouterState state) =>
+        _customEachTransitionAnimation(context, state, const MapDeliveryPage()),
   );
 
   ///
@@ -137,7 +141,8 @@ final class AppRouter {
           GoRoute(
             name: "Search",
             path: AppRouteName.searchPage,
-            pageBuilder: (BuildContext context, GoRouterState state) => _customNavigatorTransitionAnimation(context, state, SearchPage()),
+            pageBuilder: (BuildContext context, GoRouterState state) =>
+                _customNavigatorTransitionAnimation(context, state, SearchPage()),
             // builder: (BuildContext context, GoRouterState state) => SearchPage(),
           ),
           GoRoute(
