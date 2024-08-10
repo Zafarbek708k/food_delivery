@@ -1,8 +1,8 @@
 
 import "package:flutter/material.dart";
 import "package:flutter_riverpod/flutter_riverpod.dart";
-import "package:food_delivery/src/feature/profile/widgets/avatar_widget.dart";
 import "package:shared_preferences/shared_preferences.dart";
+import "../widgets/avatar_widget.dart";
 
 
 class MyProfileEditPage extends ConsumerWidget {
@@ -44,20 +44,23 @@ class MyProfileEditPage extends ConsumerWidget {
             onSelected: (String value) async {
               if (value == "edit") {
                 await ref.read(avatarProvider.notifier).updateAvatar();
+              if(context.mounted){
                 ScaffoldMessenger.of(context).showSnackBar(
                   const SnackBar(
                       backgroundColor: Colors.green,
-                      content: Text("Avatar updated")),
+                      content: Text("Avatar updated"),),
 
                 );
+              }
               } else if (value == "delete") {
                 await ref.read(avatarProvider.notifier).deleteAvatar();
-                ScaffoldMessenger.of(context).showSnackBar(
+                if(context.mounted){ScaffoldMessenger.of(context).showSnackBar(
                   const SnackBar(
                       backgroundColor: Colors.red,
-                      content: Text("Avatar deleted")),
+                      content: Text("Avatar deleted"),),
 
-                );
+                );}
+
               }
             },
             itemBuilder: (BuildContext context) => [
