@@ -4,7 +4,7 @@ import "package:flutter_screenutil/flutter_screenutil.dart";
 import "package:food_delivery/src/core/style/text_style.dart";
 import "package:percent_indicator/circular_percent_indicator.dart";
 
-import "../../../core/style/app_colors.dart";
+import "../../../../core/style/app_colors.dart";
 
 class DeliveryBottomWidget extends ConsumerWidget {
   DeliveryBottomWidget({super.key});

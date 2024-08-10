@@ -1,8 +1,8 @@
 import "package:flutter/material.dart";
 import "package:flutter_riverpod/flutter_riverpod.dart";
 
-import "../model/food_model.dart";
-import "../view_model/restaurant_detail_vm.dart";
+import "../../model/food_model.dart";
+import "../../view_model/restaurant_detail_vm.dart";
 
 class FoodDetailsPage extends ConsumerStatefulWidget {
   final FoodItem foodItem;

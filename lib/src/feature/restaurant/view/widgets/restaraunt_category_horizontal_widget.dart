@@ -20,11 +20,10 @@ class HorizontalCategories extends StatelessWidget {
                   imageUrl:
                       "https://freshday.ru/image/cache/catalog/raznye-vidy-italyanskoy-pasty-1152x768.webp",
                   onTap: () {
-                    // Bu yerda kerakli funksiya yoki navigatsiya qiling
                     log("HorizontalCategories $index bosildi");
                   },
                 ),
-                if (index < 4) SizedBox(width: 8.w), // Faqat oxirgi karta uchun masofa qo'shilmaydi
+                if (index < 4) SizedBox(width: 8.w),
               ],
             ),
           ),
@@ -36,7 +35,7 @@ class CategoryCard extends StatelessWidget {
   final String title;
   final int places;
   final String imageUrl;
-  final VoidCallback onTap; // OnTap funksiyasini qo'shish
+  final VoidCallback onTap;
 
   const CategoryCard({
     required this.title,
@@ -47,37 +46,46 @@ class CategoryCard extends StatelessWidget {
   });
 
   @override
-  Widget build(BuildContext context) => ElevatedButton(
-        onPressed: onTap, // Bu yerda bosilganda nima sodir bo'lishini belgilaymiz
-        style: ElevatedButton.styleFrom(
-          padding: EdgeInsets.zero,
-          backgroundColor: Colors.transparent, // Tushirilgan o'lchamni olib tashlaymiz
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(12.r),
-          ), // Card rangini belgilaymiz
-          elevation: 1, // Card soya darajasini belgilaymiz
-          shadowColor: Colors.transparent, // Soya rangini sozlash
+  Widget build(BuildContext context) => DecoratedBox(
+        
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(12.r),
+          color: Colors.white,
+          
+          boxShadow: [
+            BoxShadow(
+              
+              color: Colors.black.withOpacity(0.1),
+              blurRadius: 4,
+              offset: const Offset(0, 4),
+            ),
+          ],
         ),
-        child: Card(
-          color: Colors.white, // Cardning rangini shaffof qilamiz
+        child: MaterialButton(
+          onPressed: onTap,
+          padding: EdgeInsets.zero,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(12.r),
           ),
-          elevation: 1, // Cardning o'zida soya bo'lmasligi
-          clipBehavior: Clip.antiAlias,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Image.network(
-                imageUrl,
-                width: 135.6.w,
-                height: 182.h,
-                fit: BoxFit.cover,
+              ClipRRect(
+                borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(12.r),
+                  topRight: Radius.circular(12.r),
+                ),
+                child: Image.network(
+                  imageUrl,
+                  width: 135.6.w,
+                  height: 182.h,
+                  fit: BoxFit.cover,
+                ),
               ),
               SizedBox(
                 width: 135.6.w,
                 child: Padding(
-                  padding: const EdgeInsets.all(8),
+                  padding: const EdgeInsets.all(12),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [

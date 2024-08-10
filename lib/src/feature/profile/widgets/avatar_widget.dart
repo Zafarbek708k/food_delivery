@@ -63,20 +63,20 @@ class AvatarWidget extends ConsumerWidget {
         GestureDetector(
           onTap: () async {
             await ref.read(avatarProvider.notifier).pickAvatar();
-            ScaffoldMessenger.of(context).showSnackBar(
-              const SnackBar(
-                backgroundColor: Colors.green,
-                content: Text("Avatar added"),
-              ),
-            );
+            // ScaffoldMessenger.of(context).showSnackBar(
+            //   const SnackBar(
+            //     backgroundColor: Colors.green,
+            //     content: Text("Avatar added"),
+            //   ),
+            // );
           },
           child: CircleAvatar(
-            radius: 65,
+            radius: 60,
             backgroundImage: avatarPath != null
                 ? FileImage(File(avatarPath))
                 : const AssetImage(Assets.imagesWoman,)
             as ImageProvider,
-            child: avatarPath == null ? null : null,
+            // child: avatarPath == null ? null : null,
           ),
         ),
         const SizedBox(height: 2),
