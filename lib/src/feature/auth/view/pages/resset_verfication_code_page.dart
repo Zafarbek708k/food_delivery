@@ -3,7 +3,6 @@ import "package:flutter/services.dart";
 import "package:flutter_screenutil/flutter_screenutil.dart";
 import "package:food_delivery/src/core/constants/context_extension.dart";
 import "package:food_delivery/src/core/routes/app_route_name.dart";
-import "package:food_delivery/src/core/style/text_style.dart";
 import "package:food_delivery/src/feature/auth/view/widgets/nextbutton_widgets.dart";
 import "package:go_router/go_router.dart";
 import "package:pin_code_fields/pin_code_fields.dart";
@@ -90,7 +89,8 @@ class RessetVerficationCodePage extends StatelessWidget {
                       onTap: () {},
                       child:  Text(
                         "Reset",
-                        style: TextStyle(color: Colors.orange, fontWeight: FontWeight.w500, fontSize: 16.sp),
+                        style: TextStyle(color: Colors.orange, fontWeight: FontWeight.w500, fontSize: 16.sp,decoration: TextDecoration.underline,
+                    decorationColor: Colors.orange,),
                       ),
                     ),
                   ],

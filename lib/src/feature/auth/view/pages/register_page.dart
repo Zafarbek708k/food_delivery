@@ -3,7 +3,6 @@ import "package:flutter_screenutil/flutter_screenutil.dart";
 import "package:flutter_svg/svg.dart";
 import "package:food_delivery/src/core/constants/context_extension.dart";
 import "package:food_delivery/src/core/routes/app_route_name.dart";
-import "package:food_delivery/src/core/style/text_style.dart";
 import "package:food_delivery/src/feature/auth/view/widgets/regester_button_widget.dart";
 import "package:food_delivery/src/feature/auth/view/widgets/register_texfeild_widgets.dart";
 import "package:go_router/go_router.dart";
@@ -89,6 +88,7 @@ class RegisterPage extends StatelessWidget {
                           "Sign in with",
                           style: context.theme.textTheme.bodyLarge!.copyWith(
                             fontWeight: FontWeight.w600,
+                            
                           ),
                         ),
                         SizedBox(

@@ -128,9 +128,11 @@ class _LoginTexfeildWidgetState extends State<LoginTexfeildWidget> {
                 onPressed: () {
                   context.go("${AppRouteName.signIn}/${AppRouteName.reSetEmail}");
                 },
-                child: const Text(
+                child: const  Text(
                   "Forgot password?",
                   style: TextStyle(
+                    decoration: TextDecoration.underline,
+                    decorationColor: Colors.orange,
                     color: Colors.orange,
                   ),
                 ),

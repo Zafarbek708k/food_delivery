@@ -2,7 +2,6 @@ import "package:flutter/material.dart";
 import "package:flutter_screenutil/flutter_screenutil.dart";
 import "package:food_delivery/src/core/constants/context_extension.dart";
 import "package:food_delivery/src/core/routes/app_route_name.dart";
-import "package:food_delivery/src/core/style/text_style.dart";
 import "package:food_delivery/src/feature/auth/view/widgets/nextbutton_widgets.dart";
 import "package:food_delivery/src/feature/auth/view/widgets/resset_email_widgets.dart";
 import "package:go_router/go_router.dart";
