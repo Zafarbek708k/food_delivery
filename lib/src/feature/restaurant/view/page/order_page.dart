@@ -1,7 +1,7 @@
 import "package:flutter/material.dart";
 import "package:flutter_riverpod/flutter_riverpod.dart";
 
-import "../view_model/restaurant_detail_vm.dart";
+import "../../view_model/restaurant_detail_vm.dart";
 
 class OrderPage extends ConsumerWidget {
   const OrderPage({super.key});
