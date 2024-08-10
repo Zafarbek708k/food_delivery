@@ -1,8 +1,10 @@
-import 'package:flutter/material.dart';
+import "package:flutter/material.dart";
 
 class LoginButtonWidget extends StatelessWidget {
-  const LoginButtonWidget({super.key, required this.onPressed, required this.NameText});
+  // ignore: non_constant_identifier_names
+  const LoginButtonWidget({required this.onPressed, required this.NameText, super.key});
   final VoidCallback onPressed;
+  // ignore: non_constant_identifier_names
   final String NameText;
 
   @override
@@ -18,7 +20,7 @@ class LoginButtonWidget extends StatelessWidget {
           height: 60,
           child:  Text(
             NameText,
-            style: TextStyle(
+            style: const TextStyle(
               color: Colors.white,
               fontSize: 18,
             ),

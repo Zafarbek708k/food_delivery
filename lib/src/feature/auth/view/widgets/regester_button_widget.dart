@@ -1,7 +1,7 @@
 import "package:flutter/material.dart";
 
 class RegesterButtonWidget extends StatelessWidget {
-  const RegesterButtonWidget({super.key, required this.onPressed});
+  const RegesterButtonWidget({required this.onPressed, super.key});
     final VoidCallback onPressed;
 
 

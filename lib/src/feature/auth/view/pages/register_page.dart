@@ -1,11 +1,9 @@
 import "package:flutter/material.dart";
-import 'package:flutter_svg/svg.dart';
-import 'package:food_delivery/src/core/constants/context_extension.dart';
+import "package:flutter_svg/svg.dart";
 import "package:food_delivery/src/core/routes/app_route_name.dart";
 import "package:food_delivery/src/core/style/text_style.dart";
-import 'package:food_delivery/src/feature/auth/view/widgets/login_button_widget.dart';
 import "package:food_delivery/src/feature/auth/view/widgets/regester_button_widget.dart";
-import 'package:food_delivery/src/feature/auth/view/widgets/register_texfeild_widgets.dart';
+import "package:food_delivery/src/feature/auth/view/widgets/register_texfeild_widgets.dart";
 import "package:go_router/go_router.dart";
 
 class RegisterPage extends StatelessWidget {
@@ -18,12 +16,12 @@ class RegisterPage extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              SizedBox(
+              const SizedBox(
                 height: 80,
               ),
-              Padding(
+              const Padding(
                 padding: EdgeInsets.only(right: 260),
-                child: const Text(
+                child: Text(
                   "Sing Up",
                   style: TextStyle(
                     color: Colors.black,
@@ -40,16 +38,16 @@ class RegisterPage extends StatelessWidget {
                       context.go("${AppRouteName.signIn}/${AppRouteName.signUp}/${AppRouteName.verification}");
                     },
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 25,
                   ),
                   Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 80),
+                    padding: const EdgeInsets.symmetric(horizontal: 80),
                     child: Row(
                       children: [
                         Text(
                           "Don't have an accaunt? ",
-                          style: AppTextStyle().bodyLarge,
+                          style: const AppTextStyle().bodyLarge,
                         ),
                         GestureDetector(
                           onTap: () {
@@ -67,11 +65,11 @@ class RegisterPage extends StatelessWidget {
                       ],
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 25,
                   ),
                   Padding(
-                    padding: EdgeInsets.symmetric(
+                    padding: const EdgeInsets.symmetric(
                       horizontal: 60,
                     ),
                     child: Row(
@@ -87,9 +85,9 @@ class RegisterPage extends StatelessWidget {
                         ),
                         Text(
                           "Sign in with",
-                          style: AppTextStyle().bodyLarge,
+                          style: const AppTextStyle().bodyLarge,
                         ),
-                        SizedBox(
+                        const SizedBox(
                           width: 10,
                         ),
                         const Expanded(
@@ -101,13 +99,13 @@ class RegisterPage extends StatelessWidget {
                       ],
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 20,
                   ),
                   Column(
                     children: [
                       Padding(
-                        padding: EdgeInsets.symmetric(horizontal: 30),
+                        padding: const EdgeInsets.symmetric(horizontal: 30),
                         child: MaterialButton(
                           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30), side: const BorderSide()),
                           height: 40,
@@ -120,12 +118,12 @@ class RegisterPage extends StatelessWidget {
                                 "assets/icons/facebook_icon.svg",
                                 width: 25,
                               ),
-                              SizedBox(
+                              const SizedBox(
                                 width: 20,
                               ),
                               Text(
                                 "Countine with Facebook",
-                                style: AppTextStyle().bodyLarge,
+                                style: const AppTextStyle().bodyLarge,
                               ),
                             ],
                           ),
@@ -135,7 +133,7 @@ class RegisterPage extends StatelessWidget {
                         height: 10,
                       ),
                       Padding(
-                        padding: EdgeInsets.symmetric(horizontal: 30),
+                        padding: const EdgeInsets.symmetric(horizontal: 30),
                         child: MaterialButton(
                           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30), side: const BorderSide()),
                           height: 40,
@@ -148,12 +146,12 @@ class RegisterPage extends StatelessWidget {
                                 "assets/icons/google_icon.svg",
                                 width: 25,
                               ),
-                              SizedBox(
+                              const SizedBox(
                                 width: 20,
                               ),
                               Text(
                                 "Countine with Google",
-                                style: AppTextStyle().bodyLarge,
+                                style: const AppTextStyle().bodyLarge,
                               ),
                             ],
                           ),

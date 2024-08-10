@@ -1,9 +1,9 @@
-import 'package:flutter/material.dart';
-import 'package:food_delivery/src/core/constants/context_extension.dart';
+import "package:flutter/material.dart";
+import "package:food_delivery/src/core/constants/context_extension.dart";
 import "package:food_delivery/src/core/routes/app_route_name.dart";
 import "package:food_delivery/src/core/style/app_colors.dart";
-import 'package:food_delivery/src/feature/auth/view/widgets/login_button_widget.dart';
-import 'package:food_delivery/src/feature/auth/view/widgets/resset_password_textfield_widgets.dart';
+import "package:food_delivery/src/feature/auth/view/widgets/login_button_widget.dart";
+import "package:food_delivery/src/feature/auth/view/widgets/resset_password_textfield_widgets.dart";
 import "package:go_router/go_router.dart";
 
 class RessetPasswordPage extends StatefulWidget {
@@ -20,12 +20,12 @@ class _RessetPasswordPageState extends State<RessetPasswordPage> {
         body: SafeArea(
           child: Column(
             children: [
-              SizedBox(
+             const SizedBox(
                 height: 80,
               ),
               Center(
                 child: Padding(
-                  padding: EdgeInsets.only(left: 25),
+                  padding: const EdgeInsets.only(left: 25),
                   child: Align(
                     alignment: Alignment.topLeft,
                     child: Text(
@@ -39,7 +39,7 @@ class _RessetPasswordPageState extends State<RessetPasswordPage> {
                   ),
                 ),
               ),
-              SizedBox(
+            const  SizedBox(
                 height: 50,
               ),
               Center(
@@ -50,11 +50,11 @@ class _RessetPasswordPageState extends State<RessetPasswordPage> {
                   ),
                 ),
               ),
-              SizedBox(
+             const SizedBox(
                 height: 50,
               ),
               const RessetPasswordTextfieldWidgets(),
-              SizedBox(
+             const SizedBox(
                 height: 80,
               ),
               LoginButtonWidget(

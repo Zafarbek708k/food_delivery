@@ -1,11 +1,11 @@
-import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
+import "package:flutter/material.dart";
+import "package:flutter/services.dart";
 import "package:flutter_screenutil/flutter_screenutil.dart";
-import 'package:food_delivery/src/core/constants/context_extension.dart';
+import "package:food_delivery/src/core/constants/context_extension.dart";
 import "package:food_delivery/src/core/routes/app_route_name.dart";
 import "package:food_delivery/src/core/style/app_colors.dart";
-import 'package:food_delivery/src/core/style/text_style.dart';
-import "package:food_delivery/src/feature/auth/view/widgets/nextButton_widgets.dart";
+import "package:food_delivery/src/core/style/text_style.dart";
+import "package:food_delivery/src/feature/auth/view/widgets/nextbutton_widgets.dart";
 import "package:go_router/go_router.dart";
 import "package:pin_code_fields/pin_code_fields.dart";
 
@@ -18,20 +18,20 @@ class VerificationcodePage extends StatelessWidget {
           child: SafeArea(
             child: Column(
               children: [
-                SizedBox(
+                const SizedBox(
                   height: 80,
                 ),
                 Padding(
-                  padding: EdgeInsets.only(left: 25),
+                  padding: const EdgeInsets.only(left: 25),
                   child: Align(
                     alignment: Alignment.centerLeft,
                     child: Text(
                       "Verification Code",
-                      style: context.theme.textTheme.bodyLarge!.copyWith(fontSize: 32,fontWeight: FontWeight.w600,color: AppColors.l111719),
+                      style: context.theme.textTheme.bodyLarge!.copyWith(fontSize: 32, fontWeight: FontWeight.w600, color: AppColors.l111719),
                     ),
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 50,
                 ),
                 Center(
@@ -42,11 +42,11 @@ class VerificationcodePage extends StatelessWidget {
                         ),
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 50,
                 ),
                 Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 50),
+                  padding: const EdgeInsets.symmetric(horizontal: 50),
                   child: PinCodeTextField(
                     // controller: otp,
                     obscureText: false,
@@ -54,7 +54,7 @@ class VerificationcodePage extends StatelessWidget {
                     appContext: context,
                     length: 4,
                     cursorHeight: 30,
-                    textStyle: TextStyle(
+                    textStyle: const TextStyle(
                       fontSize: 20,
                       fontWeight: FontWeight.normal,
                       color: Colors.black,
@@ -75,9 +75,11 @@ class VerificationcodePage extends StatelessWidget {
                 SizedBox(
                   height: 50.h,
                 ),
-                NextbuttonWidgets(onPressed: () {
-                  context.go(AppRouteName.discoveryPage);
-                }),
+                NextbuttonWidgets(
+                  onPressed: () {
+                    context.go(AppRouteName.discoveryPage);
+                  },
+                ),
               ],
             ),
           ),
