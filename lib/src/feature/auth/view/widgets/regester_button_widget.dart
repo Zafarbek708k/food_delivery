@@ -1,4 +1,5 @@
 import "package:flutter/material.dart";
+import "package:flutter_screenutil/flutter_screenutil.dart";
 
 class RegesterButtonWidget extends StatelessWidget {
   const RegesterButtonWidget({required this.onPressed, super.key});
@@ -7,20 +8,20 @@ class RegesterButtonWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 25),
+      padding:  REdgeInsets.symmetric(horizontal: 25),
       child: MaterialButton(
         onPressed: onPressed,
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(300),
+          borderRadius: BorderRadius.circular(300.r),
         ),
         color: Colors.red,
         minWidth: double.infinity,
-        height: 60,
-        child: const Text(
+        height: 60.h,
+        child:  Text(
           "Sing Up",
           style: TextStyle(
             color: Colors.white,
-            fontSize: 18,
+            fontSize: 18.sp,
           ),
         ),
       ),

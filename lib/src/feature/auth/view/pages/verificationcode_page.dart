@@ -18,44 +18,46 @@ class VerificationcodePage extends StatelessWidget {
           child: SafeArea(
             child: Column(
               children: [
-                const SizedBox(
-                  height: 80,
+                 SizedBox(
+                  height: 80.h,
                 ),
                 Padding(
-                  padding: const EdgeInsets.only(left: 25),
+                  padding:  REdgeInsets.only(left: 25),
                   child: Align(
                     alignment: Alignment.centerLeft,
                     child: Text(
                       "Verification Code",
-                      style: context.theme.textTheme.bodyLarge!.copyWith(fontSize: 32, fontWeight: FontWeight.w600, color: AppColors.l111719),
+                      style: context.theme.textTheme.bodyLarge!.copyWith(fontSize: 32.sp, fontWeight: FontWeight.w600, color: AppColors.l111719),
                     ),
                   ),
                 ),
-                const SizedBox(
-                  height: 50,
+                 SizedBox(
+                  height: 50.h,
                 ),
                 Center(
                   child: Text(
                     "Please enter the verification code that has \nbeen sent to email@gmail.com ",
-                    style: const AppTextStyle().bodyLarge!.copyWith(
+                    style: context.theme.textTheme.bodyLarge!.copyWith(
                           color: Colors.black.withOpacity(0.6),
+                          fontSize: 16.sp,
+                          fontWeight: FontWeight.w500,
                         ),
                   ),
                 ),
-                const SizedBox(
-                  height: 50,
+                 SizedBox(
+                  height: 50.h,
                 ),
                 Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 50),
+                  padding:  REdgeInsets.symmetric(horizontal: 50),
                   child: PinCodeTextField(
                     // controller: otp,
                     obscureText: false,
                     keyboardType: TextInputType.number,
                     appContext: context,
                     length: 4,
-                    cursorHeight: 30,
-                    textStyle: const TextStyle(
-                      fontSize: 20,
+                    cursorHeight: 30.h,
+                    textStyle:  TextStyle(
+                      fontSize: 20.sp,
                       fontWeight: FontWeight.normal,
                       color: Colors.black,
                     ),
@@ -64,16 +66,35 @@ class VerificationcodePage extends StatelessWidget {
                       activeColor: Colors.grey.withOpacity(0.3),
                       selectedColor: Colors.amber,
                       shape: PinCodeFieldShape.box,
-                      borderWidth: 1,
-                      fieldWidth: 55,
-                      fieldHeight: 70,
+                      borderWidth: 1.w,
+                      fieldWidth: 55.w,
+                      fieldHeight: 70.h,
                       inactiveColor: Colors.grey.withOpacity(0.3),
-                      borderRadius: BorderRadius.circular(10),
+                      borderRadius: BorderRadius.circular(10.r),
                     ),
                   ),
                 ),
                 SizedBox(
-                  height: 50.h,
+                  height: 20.h,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      "Haven't received a code? ",
+                      style: TextStyle(fontWeight: FontWeight.w500, fontSize: 16.sp),
+                    ),
+                    GestureDetector(
+                      onTap: () {},
+                      child:  Text(
+                        "Reset",
+                        style: TextStyle(color: Colors.orange, fontWeight: FontWeight.w500, fontSize: 16.sp),
+                      ),
+                    ),
+                  ],
+                ),
+                SizedBox(
+                  height: 30.h,
                 ),
                 NextbuttonWidgets(
                   onPressed: () {
