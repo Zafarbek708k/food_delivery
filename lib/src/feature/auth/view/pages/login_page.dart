@@ -23,7 +23,7 @@ class LoginPage extends StatelessWidget {
                 height: 150,
               ),
               Padding(
-                padding: const EdgeInsets.only(right: 290),
+                padding:  EdgeInsets.only(right: 290.w),
                 child: Text(
                   "Login",
                   style: context.theme.textTheme.bodyLarge!.copyWith(
@@ -109,7 +109,7 @@ class LoginPage extends StatelessWidget {
                   Column(
                     children: [
                       Padding(
-                        padding: REdgeInsets.symmetric(horizontal: 30),
+                        padding: REdgeInsets.symmetric(horizontal: 30.w),
                         child: MaterialButton(
                           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30.r), side: const BorderSide()),
                           height: 40.h,
@@ -141,7 +141,7 @@ class LoginPage extends StatelessWidget {
                         height: 10.h,
                       ),
                       Padding(
-                        padding: REdgeInsets.symmetric(horizontal: 30),
+                        padding: REdgeInsets.symmetric(horizontal: 30.w),
                         child: MaterialButton(
                           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30.r), side: const BorderSide()),
                           height: 40.h,
