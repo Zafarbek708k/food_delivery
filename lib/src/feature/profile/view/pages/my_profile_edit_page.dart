@@ -1,8 +1,8 @@
 
 import "package:flutter/material.dart";
 import "package:flutter_riverpod/flutter_riverpod.dart";
-import "package:food_delivery/src/feature/profile/widgets/avatar_widget.dart";
 import "package:shared_preferences/shared_preferences.dart";
+import "../widgets/avatar_widget.dart";
 
 
 class MyProfileEditPage extends ConsumerWidget {
