@@ -14,11 +14,11 @@ class RestaurantCard extends StatelessWidget {
           onPressed: onTap,
           style: ElevatedButton.styleFrom(
             padding: EdgeInsets.zero,
-            backgroundColor: Colors.white,
+            backgroundColor: Colors.transparent,
             shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(12.r),
+              borderRadius: BorderRadius.circular(14.r),
             ),
-            elevation: 1,
+            elevation: 4,
             shadowColor: Colors.black.withOpacity(0.1), // Soya rangini shaffof qilish
           ),
           child: Card(
@@ -27,7 +27,7 @@ class RestaurantCard extends StatelessWidget {
               borderRadius: BorderRadius.circular(14.r),
             ),
             elevation: 1,
-            shadowColor: Colors.black.withOpacity(0.1),
+            // shadowColor: Colors.black.withOpacity(0.1),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [

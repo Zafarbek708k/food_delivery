@@ -50,13 +50,13 @@ class CategoryCard extends StatelessWidget {
   Widget build(BuildContext context) => ElevatedButton(
         onPressed: onTap, // Bu yerda bosilganda nima sodir bo'lishini belgilaymiz
         style: ElevatedButton.styleFrom(
-          padding: EdgeInsets.zero, 
-          backgroundColor: Colors.white, // Tushirilgan o'lchamni olib tashlaymiz
+          padding: EdgeInsets.zero,
+          backgroundColor: Colors.transparent, // Tushirilgan o'lchamni olib tashlaymiz
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(12.r),
           ), // Card rangini belgilaymiz
           elevation: 1, // Card soya darajasini belgilaymiz
-          shadowColor: Colors.black.withOpacity(0.1), // Soya rangini sozlash
+          shadowColor: Colors.transparent, // Soya rangini sozlash
         ),
         child: Card(
           color: Colors.white, // Cardning rangini shaffof qilamiz
