@@ -1,7 +1,7 @@
-import "package:flutter/material.dart";
+import 'package:flutter/material.dart';
 
 class DiscoveryBannerItemWidget extends StatelessWidget {
-  const DiscoveryBannerItemWidget({required this.imageUrl, required this.bannerText, super.key});
+  const DiscoveryBannerItemWidget({super.key, required this.imageUrl, required this.bannerText});
 
   final String imageUrl;
   final String bannerText;

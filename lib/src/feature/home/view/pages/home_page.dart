@@ -1,10 +1,6 @@
-import "dart:developer";
-
 import "package:flutter/material.dart";
 import "package:flutter_riverpod/flutter_riverpod.dart";
 import "package:flutter_screenutil/flutter_screenutil.dart";
-import "package:food_delivery/src/core/routes/app_route_name.dart";
-import "package:go_router/go_router.dart";
 import "../../view_model/my_home_page_vm.dart";
 import "../widgets/bottom_nav_bar_widget.dart";
 
@@ -19,7 +15,7 @@ class MyHomePage extends ConsumerWidget {
       body: child,
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: Padding(
-        padding: EdgeInsets.only(bottom: 5.h),
+        padding: EdgeInsets.only(bottom: 5.h, left: 4.w, right: 4.w),
         child: BottomNavBarWidget(
           currentPage: currentPage,
           onTap: (index) {
