@@ -37,7 +37,7 @@ class RestaurantCard extends StatelessWidget {
                     topRight: Radius.circular(14.r),
                   ),
                   child: Image.network(
-                    "https://media.express24.uz/r/:w/:h/USkw4zygayqAjhGTgd5qZ.jpg",
+                    "https://t3.ftcdn.net/jpg/02/52/38/80/360_F_252388016_KjPnB9vglSCuUJAumCDNbmMzGdzPAucK.jpg",
                     height: 150.h,
                     width: double.infinity,
                     fit: BoxFit.cover,

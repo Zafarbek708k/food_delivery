@@ -12,6 +12,7 @@ import "package:food_delivery/src/feature/home/view/pages/home_page.dart";
 import "package:food_delivery/src/feature/home/view/pages/splash_page.dart";
 import "package:food_delivery/src/feature/home/view/pages/welcome_page.dart";
 import "package:food_delivery/src/feature/profile/pages/profile_page.dart";
+import "package:food_delivery/src/feature/restaurant/page/delivery_map_page.dart";
 import "package:food_delivery/src/feature/restaurant/page/restaraunt_page.dart";
 import "package:food_delivery/src/feature/restaurant/page/restaurant_detail_page.dart";
 import "package:food_delivery/src/feature/search/pages/search_page.dart";
@@ -23,7 +24,6 @@ GlobalKey<NavigatorState> parentNavigatorkey = GlobalKey<NavigatorState>();
 final class AppRouter {
   const AppRouter._();
 
-  ///
   ///bottom navigation bar siz chiqadigan pagelar
   ///
 
@@ -41,6 +41,14 @@ final class AppRouter {
     path: AppRouteName.searchPage,
     pageBuilder: (BuildContext context, GoRouterState state) =>
         _customEachTransitionAnimation(context, state, SearchPage()),
+  );
+
+  static final GoRoute homePage = GoRoute(
+    name: "mapDeliveryPage",
+    parentNavigatorKey: parentNavigatorkey,
+    path: AppRouteName.homePage,
+    pageBuilder: (BuildContext context, GoRouterState state) =>
+        _customEachTransitionAnimation(context, state, const MapDeliveryPage()),
   );
 
   ///
@@ -131,36 +139,32 @@ final class AppRouter {
                 path: AppRouteName.restaurantDetailPage,
                 builder: (BuildContext context, GoRouterState state) => const RestaurantDetail(),
               ),
+              GoRoute(
+                name: AppRouteName.mapDeliveryPage,
+                path: AppRouteName.mapDeliveryPage,
+                builder: (BuildContext context, GoRouterState state) => const MapDeliveryPage(),
+              ),
             ],
           ),
           GoRoute(
             name: "Search",
             path: AppRouteName.searchPage,
-            pageBuilder: (BuildContext context, GoRouterState state) => _customNavigatorTransitionAnimation(
-              context,
-              state,
-              SearchPage(),
-            ),
+            pageBuilder: (BuildContext context, GoRouterState state) =>
+                _customNavigatorTransitionAnimation(context, state, SearchPage()),
             // builder: (BuildContext context, GoRouterState state) => SearchPage(),
           ),
           GoRoute(
             name: "Favorite",
             path: AppRouteName.favoritePage,
-            pageBuilder: (BuildContext context, GoRouterState state) => _customNavigatorTransitionAnimation(
-              context,
-              state,
-              FavouritePage(),
-            ),
+            pageBuilder: (BuildContext context, GoRouterState state) =>
+                _customNavigatorTransitionAnimation(context, state, FavouritePage()),
             // builder: (BuildContext context, GoRouterState state) => FavouritePage(),
           ),
           GoRoute(
             name: "Profile",
             path: AppRouteName.profilePage,
-            pageBuilder: (BuildContext context, GoRouterState state) => _customNavigatorTransitionAnimation(
-              context,
-              state,
-              const ProfilePage(),
-            ),
+            pageBuilder: (BuildContext context, GoRouterState state) =>
+                _customNavigatorTransitionAnimation(context, state, const ProfilePage()),
             // builder: (BuildContext context, GoRouterState state) => const ProfilePage(),
           ),
         ],
@@ -262,9 +266,9 @@ final class AppRouter {
             child: child,
           );
 
-          // var tween = Tween<double>(begin: 0.5, end: 1); // Full rotation
-          // var rotationAnimation = animation.drive(tween);
-          //
+          // final tween = Tween<double>(begin: 0.5, end: 1); // Full rotation
+          // final rotationAnimation = animation.drive(tween);
+
           // return RotationTransition(
           //   turns: rotationAnimation,
           //   child: child,

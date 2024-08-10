@@ -15,6 +15,7 @@ final class AppRouteName {
   static const String homePage = "/homePage";
   static const String discoveryPage = "/discoveryPage";
   static const String restaurantPage = "/restaurantPage";
+  static const String mapDeliveryPage = "mapDeliveryPage";
   static const String searchPage = "/searchPage";
   static const String favoritePage = "/favoritePage";
   static const String profilePage = "/profilePage";

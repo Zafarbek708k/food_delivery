@@ -58,11 +58,7 @@ class RestaurantsPageState extends State<RestaurantsPage> {
                         color: Colors.black,
                       ),
                     ),
-                    20.horizontalSpace,
                     const HorizontalCategories(),
-
-                    ///horizontal categories
-                    30.horizontalSpace,
                     Text(
                       "All restaurants",
                       style: context.theme.textTheme.bodyLarge?.copyWith(
