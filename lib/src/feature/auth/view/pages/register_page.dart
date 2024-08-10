@@ -22,7 +22,7 @@ class RegisterPage extends StatelessWidget {
                 height: 80.h,
               ),
               Padding(
-                padding: REdgeInsets.only(right: 260),
+                padding: REdgeInsets.only(right: 250),
                 child: Text(
                   "Sing Up",
                   style: TextStyle(
@@ -49,8 +49,7 @@ class RegisterPage extends StatelessWidget {
                       Text(
                         "Already have an accaunt? ",
                         style: context.theme.textTheme.bodyLarge!.copyWith(
-                          fontSize: 18.sp,
-                          fontWeight: FontWeight.w600,
+                          fontWeight: FontWeight.w500,
                         ),
                       ),
                       GestureDetector(
@@ -62,7 +61,7 @@ class RegisterPage extends StatelessWidget {
                           style: TextStyle(
                             fontSize: 16.sp,
                             color: Colors.orange,
-                            fontWeight: FontWeight.w600,
+                            fontWeight: FontWeight.w500,
                           ),
                         ),
                       ),
@@ -89,7 +88,6 @@ class RegisterPage extends StatelessWidget {
                         Text(
                           "Sign in with",
                           style: context.theme.textTheme.bodyLarge!.copyWith(
-                            fontSize: 16.sp,
                             fontWeight: FontWeight.w600,
                           ),
                         ),
@@ -138,11 +136,11 @@ class RegisterPage extends StatelessWidget {
                           ),
                         ),
                       ),
-                       SizedBox(
+                      SizedBox(
                         height: 10.h,
                       ),
                       Padding(
-                        padding:  REdgeInsets.symmetric(horizontal: 30),
+                        padding: REdgeInsets.symmetric(horizontal: 30),
                         child: MaterialButton(
                           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30.r), side: const BorderSide()),
                           height: 40.h,
@@ -155,7 +153,7 @@ class RegisterPage extends StatelessWidget {
                                 "assets/icons/google_icon.svg",
                                 width: 25.w,
                               ),
-                               SizedBox(
+                              SizedBox(
                                 width: 20.w,
                               ),
                               Text(
