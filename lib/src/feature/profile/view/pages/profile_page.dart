@@ -1,6 +1,9 @@
 import "package:flutter/material.dart";
 import "package:flutter_riverpod/flutter_riverpod.dart";
+import "package:flutter_screenutil/flutter_screenutil.dart";
 import "package:flutter_svg/svg.dart";
+import "package:food_delivery/src/core/style/app_colors.dart";
+import "../../../../core/style/text_style.dart";
 import "../widgets/avatar_widget.dart";
 import "empty_page.dart";
 import "my_profile_edit_page.dart";
@@ -75,14 +78,9 @@ class _ProfilePageState extends ConsumerState<ProfilePage> {
                             height: MediaQuery.of(context).size.height * 0.040,
                             width: MediaQuery.of(context).size.width * 0.040,
                           ),
-                          const Text(
+                           Text(
                             "    My Profile",
-                            style: TextStyle(
-                              fontWeight: FontWeight.w400,
-                              fontSize: 16,
-                              fontFamily: "Rubik",
-                              color: Colors.black,
-                            ),
+                            style: const AppTextStyle().forProfile,
                           ),
                         ],
                       ),
@@ -96,17 +94,12 @@ class _ProfilePageState extends ConsumerState<ProfilePage> {
                         children: [
                           SvgPicture.asset(
                             "assets/icons/order_list_icon.svg",
-                            height: MediaQuery.of(context).size.height * 0.037,
-                            width: MediaQuery.of(context).size.width * 0.037,
+                            height: MediaQuery.of(context).size.height * 0.038,
+                            width: MediaQuery.of(context).size.width * 0.038,
                           ),
-                          const Text(
+                           Text(
                             "    My Orders",
-                            style: TextStyle(
-                              fontWeight: FontWeight.w400,
-                              fontSize: 16,
-                              fontFamily: "Rubik",
-                              color: Colors.black,
-                            ),
+                             style: const AppTextStyle().forProfile,
                           ),
                         ],
                       ),
@@ -130,14 +123,9 @@ class _ProfilePageState extends ConsumerState<ProfilePage> {
                             height: MediaQuery.of(context).size.height * 0.040,
                             width: MediaQuery.of(context).size.width * 0.040,
                           ),
-                          const Text(
+                           Text(
                             "    Delivery Adress",
-                            style: TextStyle(
-                              fontWeight: FontWeight.w400,
-                              fontSize: 16,
-                              fontFamily: "Rubik",
-                              color: Colors.black,
-                            ),
+                            style: AppTextStyle().forProfile,
                           ),
                         ],
                       ),
@@ -156,17 +144,12 @@ class _ProfilePageState extends ConsumerState<ProfilePage> {
                         children: [
                           SvgPicture.asset(
                             "assets/icons/wallet_icon.svg",
-                            height: MediaQuery.of(context).size.height * 0.038,
-                            width: MediaQuery.of(context).size.width * 0.038,
+                            height: MediaQuery.of(context).size.height * 0.040,
+                            width: MediaQuery.of(context).size.width * 0.040,
                           ),
-                          const Text(
+                           Text(
                             "    Payment Methods",
-                            style: TextStyle(
-                              fontWeight: FontWeight.w400,
-                              fontSize: 16,
-                              fontFamily: "Rubik",
-                              color: Colors.black,
-                            ),
+                            style: AppTextStyle().forProfile,
                           ),
                         ],
                       ),
@@ -188,14 +171,9 @@ class _ProfilePageState extends ConsumerState<ProfilePage> {
                             height: MediaQuery.of(context).size.height * 0.040,
                             width: MediaQuery.of(context).size.width * 0.040,
                           ),
-                          const Text(
+                           Text(
                             "    Contact Us",
-                            style: TextStyle(
-                              fontWeight: FontWeight.w400,
-                              fontSize: 16,
-                              fontFamily: "Rubik",
-                              color: Colors.black,
-                            ),
+                            style: AppTextStyle().forProfile,
                           ),
                         ],
                       ),
@@ -206,7 +184,7 @@ class _ProfilePageState extends ConsumerState<ProfilePage> {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => EmptyProfilePage()));
+                              builder: (context) =>  EmptyProfilePage()));
                     },
                     child: SizedBox(
                       height: MediaQuery.of(context).size.height * 0.056,
@@ -217,14 +195,9 @@ class _ProfilePageState extends ConsumerState<ProfilePage> {
                             height: MediaQuery.of(context).size.height * 0.040,
                             width: MediaQuery.of(context).size.width * 0.040,
                           ),
-                          const Text(
+                           Text(
                             "    Settings",
-                            style: TextStyle(
-                              fontWeight: FontWeight.w400,
-                              fontSize: 16,
-                              fontFamily: "Rubik",
-                              color: Colors.black,
-                            ),
+                             style: const AppTextStyle().forProfile,
                           ),
                         ],
                       ),
@@ -246,14 +219,9 @@ class _ProfilePageState extends ConsumerState<ProfilePage> {
                             height: MediaQuery.of(context).size.height * 0.040,
                             width: MediaQuery.of(context).size.width * 0.040,
                           ),
-                          const Text(
+                           Text(
                             "    Help & FAQ",
-                            style: TextStyle(
-                              fontWeight: FontWeight.w400,
-                              fontSize: 16,
-                              fontFamily: "Rubik",
-                              color: Colors.black,
-                            ),
+                             style: const AppTextStyle().forProfile,
                           ),
                         ],
                       ),
@@ -269,7 +237,7 @@ class _ProfilePageState extends ConsumerState<ProfilePage> {
                         height: 50,
                         minWidth: 120,
                         shape: const StadiumBorder(
-                            side: BorderSide(color: Colors.deepOrange)),
+                            side: BorderSide(color: AppColors.lF96234,)),
                         child: Row(
                           mainAxisSize: MainAxisSize.min,
                           mainAxisAlignment: MainAxisAlignment.start,
