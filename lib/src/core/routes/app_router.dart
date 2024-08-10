@@ -136,6 +136,7 @@ final class AppRouter {
             ),
             routes: [
               restaurantDetailPage,
+              mapDeliveryPage,
             ],
           ),
           GoRoute(
@@ -188,7 +189,7 @@ final class AppRouter {
           //   child: child,
           // );
 
-          final tween = Tween<double>(begin: 0, end: 1);
+          final tween = Tween<double>(begin: 0.1, end: 1);
           final scaleAnimation = animation.drive(tween);
 
           return ScaleTransition(
@@ -198,7 +199,7 @@ final class AppRouter {
 
           // var tween = Tween<double>(begin: 0.6, end: 1.0);
           // var sizeAnimation = animation.drive(tween);
-          //
+
           // return SizeTransition(
           //   sizeFactor: sizeAnimation,
           //   child: child,
@@ -206,7 +207,7 @@ final class AppRouter {
 
           // var tween = Tween<double>(begin: 0.5, end: 1); // Full rotation
           // var rotationAnimation = animation.drive(tween);
-          //
+
           // return RotationTransition(
           //   turns: rotationAnimation,
           //   child: child,

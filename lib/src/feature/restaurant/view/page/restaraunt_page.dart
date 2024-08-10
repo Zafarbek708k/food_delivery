@@ -29,6 +29,7 @@ class RestaurantsPageState extends State<RestaurantsPage> {
             IconButton(
               icon: Image.asset("assets/images/restaurant_map_icon1.png"),
               onPressed: () {
+                context.go("${AppRouteName.restaurantPage}/${AppRouteName.mapDeliveryPage}");
                 log("message");
               },
             ),
@@ -38,26 +39,27 @@ class RestaurantsPageState extends State<RestaurantsPage> {
           slivers: [
             SliverToBoxAdapter(
               child: Padding(
-                padding: REdgeInsets.all(12),
+                padding: REdgeInsets.symmetric(horizontal: 10),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
+                    // Text(
+                    //   "Restaurants",
+                    //   style: context.theme.textTheme.bodyLarge?.copyWith(
+                    //     fontSize: 24.sp,
+                    //     fontWeight: FontWeight.bold,
+                    //     color: Colors.black,
+                    //   ),
+                    // ),
                     Text(
-                      "Restaurants",
+                      "Categories",
                       style: context.theme.textTheme.bodyLarge?.copyWith(
                         fontSize: 24.sp,
                         fontWeight: FontWeight.bold,
                         color: Colors.black,
                       ),
                     ),
-                    Text(
-                      "Categories",
-                      style: context.theme.textTheme.bodyLarge?.copyWith(
-                        fontSize: 20.sp,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.black,
-                      ),
-                    ),
+                    10.verticalSpace,
                     const HorizontalCategories(),
                     Text(
                       "All restaurants",
