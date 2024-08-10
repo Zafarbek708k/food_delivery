@@ -47,8 +47,7 @@ class SearchPage extends ConsumerWidget {
                           (tag) => GestureDetector(
                             onTap: () {
                               log("Tapped: $tag");
-                              ref.read(searchVM).searchController.text =
-                                  tag; // Chip matnini controllerga berish
+                              ref.read(searchVM).searchController.text = tag;
                             },
                             child: Chip(
                               label: Text(tag),

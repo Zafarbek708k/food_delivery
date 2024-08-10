@@ -2,9 +2,9 @@ import "package:flutter/material.dart";
 import "package:flutter_riverpod/flutter_riverpod.dart";
 
 import "food_details_page.dart";
-import "../view_model/restaurant_detail_vm.dart";
+import "../../view_model/restaurant_detail_vm.dart";
 import "../widgets/restaraunt_food_widget.dart";
-import "../model/food_model.dart";
+import "../../model/food_model.dart";
 import "order_page.dart";
 
 class RestaurantDetail extends ConsumerWidget {

@@ -31,179 +31,169 @@ class _DiscoveryPageState extends State<DiscoveryPage> {
           textColor: Colors.black,
         ),
         body: SingleChildScrollView(
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 18),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                // Banner section
-                SizedBox(
-                  height: 250.h,
-                  child: Stack(
-                    children: [
-                      PageView.builder(
-                        controller: _bannerController,
-                        itemCount: _bannerImages.length,
-                        itemBuilder: (context, index) => Padding(
-                          padding: REdgeInsets.all(8),
-                          child: DiscoveryBannerItemWidget(
-                            imageUrl: _bannerImages[index],
-                            bannerText: "Get your 30% daily \n discount now!",
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              // Banner section
+              SizedBox(
+                height: 250.h,
+                child: Stack(
+                  children: [
+                    PageView.builder(
+                      controller: _bannerController,
+                      itemCount: _bannerImages.length,
+                      itemBuilder: (context, index) => Padding(
+                        padding: REdgeInsets.all(8),
+                        child: DiscoveryBannerItemWidget(
+                          imageUrl: _bannerImages[index],
+                          bannerText: "Get your 30% daily \n discount now!",
+                        ),
+                      ),
+                    ),
+                    Positioned(
+                      bottom: 0,
+                      left: 0,
+                      right: 0,
+                      child: Center(
+                        child: SmoothPageIndicator(
+                          controller: _bannerController,
+                          count: _bannerImages.length,
+                          effect: const ExpandingDotsEffect(
+                            dotHeight: 8,
+                            dotWidth: 8,
+                            activeDotColor: Colors.black,
+                            dotColor: Colors.grey,
                           ),
                         ),
                       ),
-                      Positioned(
-                        bottom: 0,
-                        left: 0,
-                        right: 0,
-                        child: Center(
-                          child: SmoothPageIndicator(
-                            controller: _bannerController,
-                            count: _bannerImages.length,
-                            effect: const ExpandingDotsEffect(
-                              dotHeight: 8,
-                              dotWidth: 8,
-                              activeDotColor: Colors.black,
-                              dotColor: Colors.grey,
-                            ),
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
+                    ),
+                  ],
                 ),
+              ),
 
-                // Fastest delivery section
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 16),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        "Fastest delivery 🔥",
-                        style: context.theme.textTheme.bodyLarge
-                            ?.copyWith(color: Colors.black, fontSize: 18, fontWeight: FontWeight.bold),
+              // Fastest delivery section
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 16),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      "Fastest delivery 🔥",
+                      style: context.theme.textTheme.bodyLarge
+                          ?.copyWith(color: Colors.black, fontSize: 18, fontWeight: FontWeight.bold),
+                    ),
+                    TextButton(
+                      style: TextButton.styleFrom(
+                        backgroundColor: Colors.orange.withOpacity(0.7),
                       ),
-                      TextButton(
-                        style: TextButton.styleFrom(
-                          backgroundColor: Colors.deepOrange,
-                        ),
-                        onPressed: () {
-                          // Navigator.push(context, MaterialPageRoute(builder: (BuildContext context)=> const RestaurantPageIn()));
-                        },
-                        child: const Text(
-                          "See all",
-                          style: TextStyle(
-                            color: Colors.orange,
-                          ),
+                      onPressed: () {
+                        // Navigator.push(context, MaterialPageRoute(builder: (BuildContext context)=> const RestaurantPageIn()));
+                      },
+                      child: const Text(
+                        "See all",
+                        style: TextStyle(
+                          color: Colors.deepOrange,
                         ),
                       ),
-                    ],
-                  ),
+                    ),
+                  ],
                 ),
-                SizedBox(
-                  height: 250.h,
-                  child: ListView(
-                    scrollDirection: Axis.horizontal,
-                    children: [
-                      CupertinoButton(
-                        onPressed: () {
-                          // Navigator.push(context, MaterialPageRoute(builder: (BuildContext context)=> const RestaurantPageIn()));
-                        },
-                        padding: REdgeInsets.all(5),
-                        child: const DeliveryCardWidget(
-                          imageUrl:
-                              "https://insights.workwave.com/wp-content/uploads/2021/08/WorkWave-The-Carbon-Footprint-of-Food-Delivery-Services.jpg",
-                          title: "Crazy taco",
-                          price: "€3.00",
-                          time: "40-50min",
-                          rating: "9.5",
-                        ),
-                      ),
-                      CupertinoButton(
-                        onPressed: () {
-                          // Navigator.push(context, MaterialPageRoute(builder: (BuildContext context)=> const RestaurantPageIn()));
-                        },
-                        padding: REdgeInsets.all(5),
-                        child: const DeliveryCardWidget(
-                          imageUrl:
-                              "https://insights.workwave.com/wp-content/uploads/2021/08/WorkWave-The-Carbon-Footprint-of-Food-Delivery-Services.jpg",
-                          title: "La Salsa",
-                          price: "€2.00",
-                          time: "30-40min",
-                          rating: "8.5",
-                        ),
-                      ),
-                      // Add more cards as needed
-                    ],
-                  ),
+              ),
+              SizedBox(
+                height: 250.h,
+                child: ListView(
+                  scrollDirection: Axis.horizontal,
+                  children: [
+                    DeliveryCardWidget(
+                      imageUrl:
+                          "https://insights.workwave.com/wp-content/uploads/2021/08/WorkWave-The-Carbon-Footprint-of-Food-Delivery-Services.jpg",
+                      title: "Crazy taco",
+                      price: "€3.00",
+                      time: "40-50min",
+                      rating: "9.5",
+                      onPressed: () {  },
+                      description: "description",
+                    ),
+                    DeliveryCardWidget(
+                      imageUrl:
+                          "https://insights.workwave.com/wp-content/uploads/2021/08/WorkWave-The-Carbon-Footprint-of-Food-Delivery-Services.jpg",
+                      title: "La Salsa",
+                      price: "€2.00",
+                      time: "30-40min",
+                      rating: "8.5",
+                      onPressed: () {  },
+                      description: "description",
+                    ),
+                    // Add more cards as needed
+                  ],
                 ),
+              ),
 
-                // Popular items section
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        "Popular items 👏",
-                        style: context.theme.textTheme.bodyLarge
-                            ?.copyWith(color: Colors.black, fontWeight: FontWeight.bold),
+              // Popular items section
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      "Popular items 👏",
+                      style: context.theme.textTheme.bodyLarge
+                          ?.copyWith(color: Colors.black, fontWeight: FontWeight.bold),
+                    ),
+                    TextButton(
+                      style: TextButton.styleFrom(
+                        backgroundColor: Colors.orange.withOpacity(0.7),
                       ),
-                      TextButton(
-                        style: TextButton.styleFrom(
-                          backgroundColor: Colors.deepOrange,
-                        ),
-                        onPressed: () {
-                          // Navigator.push(context, MaterialPageRoute(builder: (BuildContext context)=> const RestaurantPageIn()));
-                        },
-                        child: const Text(
-                          "See all",
-                          style: TextStyle(
-                            color: Colors.orange,
-                          ),
+                      onPressed: () {
+                        // Navigator.push(context, MaterialPageRoute(builder: (BuildContext context)=> const RestaurantPageIn()));
+                      },
+                      child: const Text(
+                        "See all",
+                        style: TextStyle(
+                          color: Colors.deepOrange,
                         ),
                       ),
-                    ],
-                  ),
+                    ),
+                  ],
                 ),
-                SizedBox(
-                  height: 250.h,
-                  child: ListView(
-                    scrollDirection: Axis.horizontal,
-                    children: [
-                      CupertinoButton(
-                        onPressed: () {
-                          // Navigator.push(context, MaterialPageRoute(builder: (BuildContext context)=> const RestaurantPageIn()));
-                        },
-                        padding: REdgeInsets.all(5),
-                        child: const DeliveryCardWidget(
-                          imageUrl:
-                              "https://insights.workwave.com/wp-content/uploads/2021/08/WorkWave-The-Carbon-Footprint-of-Food-Delivery-Services.jpg",
-                          title: "La Salsa",
-                          price: "€2.00",
-                          time: "30-40min",
-                          rating: "8.5",
-                        ),
-                      ),
-                      const DeliveryCardWidget(
-                        imageUrl:
-                            "https://insights.workwave.com/wp-content/uploads/2021/08/WorkWave-The-Carbon-Footprint-of-Food-Delivery-Services.jpg",
-                        title: "Burger",
-                        price: "€2.00",
-                        time: "25-35",
-                        rating: "8.8",
-                      ),
-                    ],
-                  ),
+              ),
+              SizedBox(
+                height: 250.h,
+                child: ListView(
+                  scrollDirection: Axis.horizontal,
+                  children: [
+                    DeliveryCardWidget(
+                      imageUrl:
+                          "https://insights.workwave.com/wp-content/uploads/2021/08/WorkWave-The-Carbon-Footprint-of-Food-Delivery-Services.jpg",
+                      title: "La Salsa",
+                      price: "€2.00",
+                      time: "30-40min",
+                      rating: "8.5",
+                      onPressed: () {  },
+                      description: "description",
+                    ),
+                     DeliveryCardWidget(
+                      imageUrl:
+                          "https://insights.workwave.com/wp-content/uploads/2021/08/WorkWave-The-Carbon-Footprint-of-Food-Delivery-Services.jpg",
+                      title: "Burger",
+                      price: "€2.00",
+                      time: "25-35",
+                      rating: "8.8",
+                      onPressed: () {  },
+                      description: "description",                      ),
+                  ],
                 ),
+              ),
 
-                const SizedBox(
-                  height: 75,
-                ),
-              ],
-            ),
+              const SizedBox(
+                height: 75,
+              ),
+            ],
           ),
         ),
       );
 }
+
+
+
+

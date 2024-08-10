@@ -4,11 +4,11 @@ import "package:flutter/material.dart";
 import "package:flutter_screenutil/flutter_screenutil.dart";
 import "package:food_delivery/src/core/constants/context_extension.dart";
 import "package:food_delivery/src/core/routes/app_route_name.dart";
-import "package:food_delivery/src/feature/restaurant/widgets/restaraunt_card_widget.dart";
-import "package:food_delivery/src/feature/restaurant/widgets/restaraunt_category_horizontal_widget.dart";
+import "package:food_delivery/src/feature/restaurant/view/widgets/restaraunt_card_widget.dart";
+import "package:food_delivery/src/feature/restaurant/view/widgets/restaraunt_category_horizontal_widget.dart";
 import "package:go_router/go_router.dart";
 
-import "../../widgets/custom_appbar_widget.dart";
+import "../../../widgets/custom_appbar_widget.dart";
 
 class RestaurantsPage extends StatefulWidget {
   const RestaurantsPage({super.key});
@@ -29,6 +29,7 @@ class RestaurantsPageState extends State<RestaurantsPage> {
             IconButton(
               icon: Image.asset("assets/images/restaurant_map_icon1.png"),
               onPressed: () {
+                context.go("${AppRouteName.restaurantPage}/${AppRouteName.mapDeliveryPage}");
                 log("message");
               },
             ),
@@ -38,26 +39,27 @@ class RestaurantsPageState extends State<RestaurantsPage> {
           slivers: [
             SliverToBoxAdapter(
               child: Padding(
-                padding: REdgeInsets.all(12),
+                padding: REdgeInsets.symmetric(horizontal: 10),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
+                    // Text(
+                    //   "Restaurants",
+                    //   style: context.theme.textTheme.bodyLarge?.copyWith(
+                    //     fontSize: 24.sp,
+                    //     fontWeight: FontWeight.bold,
+                    //     color: Colors.black,
+                    //   ),
+                    // ),
                     Text(
-                      "Restaurants",
+                      "Categories",
                       style: context.theme.textTheme.bodyLarge?.copyWith(
                         fontSize: 24.sp,
                         fontWeight: FontWeight.bold,
                         color: Colors.black,
                       ),
                     ),
-                    Text(
-                      "Categories",
-                      style: context.theme.textTheme.bodyLarge?.copyWith(
-                        fontSize: 20.sp,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.black,
-                      ),
-                    ),
+                    10.verticalSpace,
                     const HorizontalCategories(),
                     Text(
                       "All restaurants",

@@ -19,8 +19,8 @@ class InfoWelcomePageWidgets extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             SizedBox(height: 16.h),
-            Text("Welcome to", style: context.theme.textTheme.bodyLarge),
-            Text("Fast Food", style: context.theme.textTheme.bodyLarge),
+            Text("Welcome to", style: context.theme.textTheme.bodyLarge?.copyWith(fontWeight: FontWeight.bold, fontSize: 24)),
+            Text("Fast Food", style: context.theme.textTheme.bodyLarge?.copyWith(fontWeight: FontWeight.w600, color: Colors.deepOrange)),
             SizedBox(height: 16.h),
             Text(
               "Get your favourite meals delivered quickly right to your doorstep",
@@ -44,7 +44,7 @@ class InfoWelcomePageWidgets extends StatelessWidget {
                 const Expanded(child: Divider(color: Colors.white)),
                 Padding(
                   padding: REdgeInsets.symmetric(horizontal: 18),
-                  child: Text("Sign In With", style: context.theme.textTheme.bodyLarge),
+                  child: Text("Sign In With", style: context.theme.textTheme.bodyLarge?.copyWith(color: Colors.white)),
                 ),
                 const Expanded(child: Divider(color: Colors.white)),
               ],
@@ -56,11 +56,11 @@ class InfoWelcomePageWidgets extends StatelessWidget {
                 Expanded(
                   child: MaterialButton(
                     onPressed: googleButton,
-                    height: 50,
+                    height: 55,
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(15),
                     ),
-                    color: Colors.white,
+                    color: context.theme.primaryColor,
                     child: SizedBox(height: 45.h, width: 50.w, child: AppImages.iconGoogle),
                   ),
                 ),
@@ -68,11 +68,11 @@ class InfoWelcomePageWidgets extends StatelessWidget {
                 Expanded(
                   child: MaterialButton(
                     onPressed: facebookButton,
-                    height: 50,
+                    height: 55,
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(15),
                     ),
-                    color: Colors.white,
+                    color: context.theme.primaryColor,
                     child: SizedBox(height: 45, width: 50, child: AppImages.iconFacebook),
                   ),
                 ),
@@ -81,10 +81,10 @@ class InfoWelcomePageWidgets extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text("Already have an account?", style: context.theme.textTheme.bodyLarge),
+                Text("Already have an account?", style: context.theme.textTheme.bodyLarge?.copyWith(color: Colors.black, fontWeight: FontWeight.w600)),
                 TextButton(
                   onPressed: signInButton,
-                  child: Text("Sign In", style: context.theme.textTheme.bodyLarge?.copyWith(color: Colors.deepOrange)),
+                  child: Text("Sign In", style: context.theme.textTheme.bodyLarge?.copyWith(color: Colors.white)),
                 ),
               ],
             ),

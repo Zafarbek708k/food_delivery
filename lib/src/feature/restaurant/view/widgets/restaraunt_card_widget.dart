@@ -9,25 +9,25 @@ class RestaurantCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 2),
-        child: ElevatedButton(
-          onPressed: onTap,
-          style: ElevatedButton.styleFrom(
-            padding: EdgeInsets.zero,
-            backgroundColor: Colors.transparent,
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(14.r),
-            ),
-            elevation: 4,
-            shadowColor: Colors.black.withOpacity(0.1), // Soya rangini shaffof qilish
-          ),
-          child: Card(
+        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 8),
+        child: DecoratedBox(
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(14.r),
             color: Colors.white,
+            boxShadow: [
+              BoxShadow(
+                color: Colors.black.withOpacity(0.1),
+                blurRadius: 4,
+                offset: const Offset(0, 4),
+              ),
+            ],
+          ),
+          child: MaterialButton(
+            onPressed: onTap,
+            padding: EdgeInsets.zero,
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(14.r),
             ),
-            elevation: 1,
-            // shadowColor: Colors.black.withOpacity(0.1),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
