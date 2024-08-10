@@ -1,9 +1,9 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
+
+import "package:flutter/material.dart";
+import "package:flutter_riverpod/flutter_riverpod.dart";
 import "package:food_delivery/src/feature/profile/widgets/avatar_widget.dart";
 import "package:shared_preferences/shared_preferences.dart";
 
-import "../widgets/edit_name_widget.dart";
 
 class MyProfileEditPage extends ConsumerWidget {
   const MyProfileEditPage({Key? key}) : super(key: key);
@@ -42,42 +42,42 @@ class MyProfileEditPage extends ConsumerWidget {
           PopupMenuButton<String>(
             icon: const Icon(Icons.more_vert),
             onSelected: (String value) async {
-              if (value == 'edit') {
+              if (value == "edit") {
                 await ref.read(avatarProvider.notifier).updateAvatar();
                 ScaffoldMessenger.of(context).showSnackBar(
                   const SnackBar(
                       backgroundColor: Colors.green,
-                      content: Text('Avatar updated')),
+                      content: Text("Avatar updated")),
 
                 );
-              } else if (value == 'delete') {
+              } else if (value == "delete") {
                 await ref.read(avatarProvider.notifier).deleteAvatar();
                 ScaffoldMessenger.of(context).showSnackBar(
                   const SnackBar(
                       backgroundColor: Colors.red,
-                      content: Text('Avatar deleted')),
+                      content: Text("Avatar deleted")),
 
                 );
               }
             },
             itemBuilder: (BuildContext context) => [
-              PopupMenuItem<String>(
-                value: 'edit',
+            const  PopupMenuItem<String>(
+                value:  "edit",
                 child: Row(
-                  children: const [
+                  children:  [
                     Icon(Icons.edit, color: Colors.orange),
                     SizedBox(width: 8),
-                    Text('Edit Avatar'),
+                    Text("Edit Avatar"),
                   ],
                 ),
               ),
-              PopupMenuItem<String>(
-                value: 'delete',
+            const  PopupMenuItem<String>(
+                value: "delete",
                 child: Row(
-                  children: const [
+                  children:  [
                     Icon(Icons.delete, color: Colors.red),
                     SizedBox(width: 8),
-                    Text('Delete Avatar'),
+                    Text("Delete Avatar"),
                   ],
                 ),
               ),
@@ -91,7 +91,7 @@ class MyProfileEditPage extends ConsumerWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            AvatarWidget(),
+            const AvatarWidget(),
             SizedBox(
               height: MediaQuery.of(context).size.height * 0.04,
             ),
@@ -100,7 +100,7 @@ class MyProfileEditPage extends ConsumerWidget {
               style: const TextStyle(
                 fontWeight: FontWeight.w600,
                 fontSize: 20,
-                fontFamily: 'Rubik',
+                fontFamily: "Rubik",
               ),
             ),
             SizedBox(
@@ -109,14 +109,14 @@ class MyProfileEditPage extends ConsumerWidget {
             TextField(
               cursorColor: Colors.white60,
               controller: _namecontroller,
-              decoration: InputDecoration(
+              decoration: const InputDecoration(
                 hintText: "Your name",
-                hintStyle: const TextStyle(
+                hintStyle:  TextStyle(
                   color: Colors.white60,
                 ),
                 filled: true,
                 fillColor: Colors.greenAccent,
-                border: const OutlineInputBorder(
+                border:  OutlineInputBorder(
                   borderRadius: BorderRadius.all(
                     Radius.circular(10),
                   ),
@@ -124,7 +124,7 @@ class MyProfileEditPage extends ConsumerWidget {
                 ),
               ),
             ),
-            Spacer(),
+           const Spacer(),
           ],
         ),
       ),
@@ -137,11 +137,11 @@ final nameProvider = StateNotifierProvider<NameNotifier, String>((ref) {
 });
 
 class NameStorage {
-  static const String _keyName = 'userName';
+  static const String _keyName = "userName";
 
   Future<String> loadName() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
-    return prefs.getString(_keyName) ?? 'Katty Berry';
+    return prefs.getString(_keyName) ?? "Katty Berry";
   }
 
   Future<void> saveName(String name) async {

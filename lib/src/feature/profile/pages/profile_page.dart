@@ -1,9 +1,10 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:flutter_svg/svg.dart';
-import 'package:food_delivery/src/feature/profile/pages/empty_page.dart';
-import 'package:food_delivery/src/feature/profile/pages/my_profile_edit_page.dart';
-import 'package:food_delivery/src/feature/profile/widgets/avatar_widget.dart';
+import "package:flutter/material.dart";
+import "package:flutter_riverpod/flutter_riverpod.dart";
+import "package:flutter_svg/svg.dart";
+import "../widgets/avatar_widget.dart";
+import "empty_page.dart";
+import "my_profile_edit_page.dart";
+
 
 
 class ProfilePage extends ConsumerStatefulWidget {
@@ -37,16 +38,16 @@ class _ProfilePageState extends ConsumerState<ProfilePage> {
                   style: const TextStyle(
                     fontWeight: FontWeight.w600,
                     fontSize: 20,
-                    fontFamily: 'Rubik',
+                    fontFamily: "Rubik",
                     color: Colors.black,
                   ),
                 ),
                 const Text(
-                  'yourEmail@.gmail.com',
+                  "yourEmail@.gmail.com",
                   style: TextStyle(
                     fontWeight: FontWeight.w400,
                     fontSize: 14,
-                    fontFamily: 'Rubik',
+                    fontFamily: "Rubik",
                   ),
                 ),
               ],
@@ -79,7 +80,7 @@ class _ProfilePageState extends ConsumerState<ProfilePage> {
                             style: TextStyle(
                               fontWeight: FontWeight.w400,
                               fontSize: 16,
-                              fontFamily: 'Rubik',
+                              fontFamily: "Rubik",
                               color: Colors.black,
                             ),
                           ),
@@ -103,7 +104,7 @@ class _ProfilePageState extends ConsumerState<ProfilePage> {
                             style: TextStyle(
                               fontWeight: FontWeight.w400,
                               fontSize: 16,
-                              fontFamily: 'Rubik',
+                              fontFamily: "Rubik",
                               color: Colors.black,
                             ),
                           ),
@@ -134,7 +135,7 @@ class _ProfilePageState extends ConsumerState<ProfilePage> {
                             style: TextStyle(
                               fontWeight: FontWeight.w400,
                               fontSize: 16,
-                              fontFamily: 'Rubik',
+                              fontFamily: "Rubik",
                               color: Colors.black,
                             ),
                           ),
@@ -163,7 +164,7 @@ class _ProfilePageState extends ConsumerState<ProfilePage> {
                             style: TextStyle(
                               fontWeight: FontWeight.w400,
                               fontSize: 16,
-                              fontFamily: 'Rubik',
+                              fontFamily: "Rubik",
                               color: Colors.black,
                             ),
                           ),
@@ -192,7 +193,7 @@ class _ProfilePageState extends ConsumerState<ProfilePage> {
                             style: TextStyle(
                               fontWeight: FontWeight.w400,
                               fontSize: 16,
-                              fontFamily: 'Rubik',
+                              fontFamily: "Rubik",
                               color: Colors.black,
                             ),
                           ),
@@ -221,7 +222,7 @@ class _ProfilePageState extends ConsumerState<ProfilePage> {
                             style: TextStyle(
                               fontWeight: FontWeight.w400,
                               fontSize: 16,
-                              fontFamily: 'Rubik',
+                              fontFamily: "Rubik",
                               color: Colors.black,
                             ),
                           ),
@@ -250,7 +251,7 @@ class _ProfilePageState extends ConsumerState<ProfilePage> {
                             style: TextStyle(
                               fontWeight: FontWeight.w400,
                               fontSize: 16,
-                              fontFamily: 'Rubik',
+                              fontFamily: "Rubik",
                               color: Colors.black,
                             ),
                           ),
