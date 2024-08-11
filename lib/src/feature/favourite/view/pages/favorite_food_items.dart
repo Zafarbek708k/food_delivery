@@ -1,5 +1,6 @@
 import "package:flutter/cupertino.dart";
 import "package:flutter/material.dart";
+import "package:flutter_screenutil/flutter_screenutil.dart";
 
 class FoodItemsPage extends StatefulWidget {
   @override
@@ -79,76 +80,78 @@ class FoodItemCard extends StatelessWidget {
   Widget build(BuildContext context) => Card(
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
         elevation: 5,
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 8),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Stack(
-                children: [
-                  ClipRRect(
-                    borderRadius: BorderRadius.circular(15),
-                    child: Image.network(
-                      cardItem.imageUrl,
-                      height: 180,
-                      width: double.infinity,
-                      fit: BoxFit.cover,
-                    ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Stack(
+              children: [
+                ClipRRect(
+                  borderRadius: BorderRadius.circular(15),
+                  child: Image.network(
+                    cardItem.imageUrl,
+                    height: 180,
+                    width: double.infinity,
+                    fit: BoxFit.cover,
                   ),
-                  Positioned(
-                    top: 10,
-                    right: 10,
-                    child: InkWell(
-                      onTap: _toggleFavorite,
-                      child: CircleAvatar(
-                        backgroundColor: Colors.white,
-                        child: Icon(
-                          Icons.favorite,
-                          color: cardItem.isFavorited ? Colors.red : Colors.grey,
-                        ),
+                ),
+                Positioned(
+                  top: 10,
+                  right: 10,
+                  child: InkWell(
+                    onTap: _toggleFavorite,
+                    child: CircleAvatar(
+                      backgroundColor: Colors.white,
+                      child: Icon(
+                        Icons.favorite,
+                        color: cardItem.isFavorited ? Colors.red : Colors.grey,
                       ),
                     ),
                   ),
-                ],
-              ),
-              Padding(
-                padding: const EdgeInsets.symmetric(vertical: 10),
-                child: Text(
-                  cardItem.title,
-                  style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                 ),
-              ),
-              Text(
-                cardItem.description,
-                style: const TextStyle(fontSize: 14, color: Colors.grey),
-              ),
-              Padding(
-                padding: const EdgeInsets.symmetric(vertical: 8),
-                child: Row(
-                  children: [
-                    const Icon(Icons.restaurant, size: 16, color: Colors.orange),
-                    const SizedBox(width: 5),
-                    Text(cardItem.restaurant, style: const TextStyle(fontSize: 14)),
-                    const Spacer(),
-                    const Icon(Icons.euro, size: 16, color: Colors.orange),
-                    const SizedBox(width: 5),
-                    Text(cardItem.price, style: const TextStyle(fontSize: 14)),
-                  ],
-                ),
-              ),
-              Row(
+              ],
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 5),
+              child: Column(
                 children: [
-                  const Icon(Icons.timer, size: 16, color: Colors.orange),
-                  const SizedBox(width: 5),
-                  Text(cardItem.time, style: const TextStyle(fontSize: 14)),
-                  const Spacer(),
-                  const Icon(Icons.star, size: 16, color: Colors.orange),
-                  const SizedBox(width: 5),
-                  Text(cardItem.rating, style: const TextStyle(fontSize: 14)),
+                  SizedBox(height: 10.h,),
+                  Text(
+                    cardItem.title,
+                    style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                  ),
+                  SizedBox(height: 5.h,),
+                  Text(
+                    cardItem.description,
+                    style: const TextStyle(fontSize: 14, color: Colors.grey),
+                  ),
+                  SizedBox(height: 10.h,),
+                  Row(
+                    children: [
+                      const Icon(Icons.restaurant, size: 16, color: Colors.orange),
+                      const SizedBox(width: 5),
+                      Text(cardItem.restaurant, style: const TextStyle(fontSize: 14)),
+                      const Spacer(),
+                      const Icon(Icons.euro, size: 16, color: Colors.orange),
+                      const SizedBox(width: 5),
+                      Text(cardItem.price, style: const TextStyle(fontSize: 14)),
+                    ],
+                  ),
+                  SizedBox(height: 10.h,),
+                  Row(
+                    children: [
+                      const Icon(Icons.timer, size: 16, color: Colors.orange),
+                      const SizedBox(width: 5),
+                      Text(cardItem.time, style: const TextStyle(fontSize: 14)),
+                      const Spacer(),
+                      const Icon(Icons.star, size: 16, color: Colors.orange),
+                      const SizedBox(width: 5),
+                      Text(cardItem.rating, style: const TextStyle(fontSize: 14)),
+                    ],
+                  ),
                 ],
               ),
-            ],
-          ),
+            ),
+          ],
         ),
       );
 }

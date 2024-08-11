@@ -6,34 +6,34 @@ import "package:food_delivery/src/feature/auth/view/pages/resset_email.dart";
 import "package:food_delivery/src/feature/auth/view/pages/resset_password_page.dart";
 import "package:food_delivery/src/feature/auth/view/pages/resset_verfication_code_page.dart";
 import "package:food_delivery/src/feature/auth/view/pages/verificationcode_page.dart";
-import "package:food_delivery/src/feature/favourite/pages/favourite_page.dart";
 import "package:food_delivery/src/feature/home/view/pages/discovery_page.dart";
 import "package:food_delivery/src/feature/home/view/pages/home_page.dart";
 import "package:food_delivery/src/feature/home/view/pages/splash_page.dart";
 import "package:food_delivery/src/feature/home/view/pages/welcome_page.dart";
-import "package:food_delivery/src/feature/profile/view/pages/empty_page.dart";
-import "package:food_delivery/src/feature/profile/view/pages/my_profile_edit_page.dart";
-import "package:food_delivery/src/feature/search/view/pages/search_page.dart";
 import "package:go_router/go_router.dart";
 
+import "../../feature/favourite/view/pages/favourite_page.dart";
+import "../../feature/profile/view/pages/empty_page.dart";
+import "../../feature/profile/view/pages/my_profile_edit_page.dart";
 import "../../feature/profile/view/pages/profile_page.dart";
-
 import "../../feature/restaurant/view/page/delivery_map_page.dart";
 import "../../feature/restaurant/view/page/restaraunt_page.dart";
 import "../../feature/restaurant/view/page/restaurant_detail_page.dart";
+import "../../feature/search/view/pages/search_page.dart";
 
-GlobalKey<NavigatorState> parentNavigatorKey = GlobalKey<NavigatorState>();
+GlobalKey<NavigatorState> parentNavigatorkey = GlobalKey<NavigatorState>();
 
 @immutable
 final class AppRouter {
   const AppRouter._();
 
+  ///
   ///bottom navigation bar siz chiqadigan pagelar
   ///
 
   static final GoRoute restaurantDetailPage = GoRoute(
     name: "RestaurantDetailPage",
-    parentNavigatorKey: parentNavigatorKey,
+    parentNavigatorKey: parentNavigatorkey,
     path: AppRouteName.restaurantDetailPage,
     pageBuilder: (BuildContext context, GoRouterState state) =>
         _customEachTransitionAnimation(context, state, const RestaurantDetail()),
@@ -41,7 +41,7 @@ final class AppRouter {
 
   static final GoRoute mapDeliveryPage = GoRoute(
     name: "MapDeliveryPage",
-    parentNavigatorKey: parentNavigatorKey,
+    parentNavigatorKey: parentNavigatorkey,
     path: AppRouteName.mapDeliveryPage,
     pageBuilder: (BuildContext context, GoRouterState state) =>
         _customEachTransitionAnimation(context, state, const MapDeliveryPage()),
@@ -49,7 +49,7 @@ final class AppRouter {
 
   static final GoRoute profileEditPage = GoRoute(
     name: "ProfileEditPage",
-    parentNavigatorKey: parentNavigatorKey,
+    parentNavigatorKey: parentNavigatorkey,
     path: AppRouteName.profileEditPage,
     pageBuilder: (BuildContext context, GoRouterState state) =>
         _customEachTransitionAnimation(context, state, const MyProfileEditPage()),
@@ -57,7 +57,7 @@ final class AppRouter {
 
   static final GoRoute profileEmptyPage = GoRoute(
     name: "ProfileEmptyPage",
-    parentNavigatorKey: parentNavigatorKey,
+    parentNavigatorKey: parentNavigatorkey,
     path: AppRouteName.profileEditPage,
     pageBuilder: (BuildContext context, GoRouterState state) =>
         _customEachTransitionAnimation(context, state, const EmptyProfilePage()),
@@ -69,7 +69,7 @@ final class AppRouter {
 
   static GoRouter routes = GoRouter(
     initialLocation: AppRouteName.splash,
-    navigatorKey: parentNavigatorKey,
+    navigatorKey: parentNavigatorkey,
     debugLogDiagnostics: true,
     routes: <RouteBase>[
       GoRoute(

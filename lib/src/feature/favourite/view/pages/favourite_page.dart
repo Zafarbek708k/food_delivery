@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import "package:food_delivery/src/feature/favourite/pages/favorite_food_items.dart";
-import "package:food_delivery/src/feature/favourite/pages/favorite_restaurants.dart";
 
+import "favorite_food_items.dart";
+import "favorite_restaurants.dart";
 
 class FavouritePage extends StatefulWidget {
   @override
