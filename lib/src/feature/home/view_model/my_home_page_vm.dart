@@ -1,4 +1,5 @@
 
+import "package:flutter/cupertino.dart";
 import "package:flutter/material.dart";
 import "package:flutter_riverpod/flutter_riverpod.dart";
 import "package:go_router/go_router.dart";
@@ -8,6 +9,7 @@ import "../../../core/routes/app_route_name.dart";
 final myHomePageVm = ChangeNotifierProvider((ref) => PrimaryVM());
 
 class PrimaryVM with ChangeNotifier {
+  /// home page
   int currentIndex = 0;
 
   void changeNavigation(int index) {
@@ -38,6 +40,23 @@ class PrimaryVM with ChangeNotifier {
     }
     changeNavigation(index);
   }
+
+
+  /// discovery Page
+
+  void seeAll({required BuildContext context}){
+    currentIndex++;
+    context.go(AppRouteName.restaurantPage);
+    notifyListeners();
+  }
+  final PageController bannerController = PageController();
+  final List<String> bannerImages = [
+    "https://insights.workwave.com/wp-content/uploads/2021/08/WorkWave-The-Carbon-Footprint-of-Food-Delivery-Services.jpg",
+    "https://insights.workwave.com/wp-content/uploads/2021/08/WorkWave-The-Carbon-Footprint-of-Food-Delivery-Services.jpg",
+    "https://insights.workwave.com/wp-content/uploads/2021/08/WorkWave-The-Carbon-Footprint-of-Food-Delivery-Services.jpg",
+    "https://insights.workwave.com/wp-content/uploads/2021/08/WorkWave-The-Carbon-Footprint-of-Food-Delivery-Services.jpg",
+  ];
+
 
 
 }

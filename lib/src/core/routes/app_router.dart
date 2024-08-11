@@ -147,7 +147,6 @@ final class AppRouter {
             ),
             routes: [
               restaurantDetailPage,
-              mapDeliveryPage,
             ],
           ),
           GoRoute(

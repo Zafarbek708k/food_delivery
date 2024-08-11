@@ -23,12 +23,12 @@ class DeliveryCardWidget extends StatelessWidget {
         width: 290.w,
         decoration: BoxDecoration(
           color: Colors.white,
-          borderRadius: BorderRadius.circular(15),
+          borderRadius: BorderRadius.circular(15.r),
           boxShadow: [
             BoxShadow(
               color: Colors.grey.withOpacity(0.5),
               spreadRadius: 2,
-              blurRadius: 7,
+              blurRadius: 7.r,
               offset: const Offset(0, 2), // changes position of shadow
             ),
           ],
@@ -59,9 +59,9 @@ class DeliveryCardWidget extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(title, style: context.theme.textTheme.bodyLarge?.copyWith(color: Colors.black, fontWeight: FontWeight.bold)),
-                    Text("$price  •  $time", style: context.theme.textTheme.bodyLarge?.copyWith(color: Colors.black)),
-                    Text("⭐ $rating", style: context.theme.textTheme.bodyLarge?.copyWith(color: Colors.black)),
-                  ],
+                    Text(description, style: context.theme.textTheme.bodyLarge?.copyWith(color: Colors.black)),
+                    Text("$price  •  $time  • ⭐ $rating", style: context.theme.textTheme.bodyLarge?.copyWith(color: Colors.black)),
+                    ],
                 ),
               ),
             ),
