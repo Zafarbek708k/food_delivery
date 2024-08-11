@@ -2,7 +2,7 @@ import "package:flutter/cupertino.dart";
 import "package:flutter/material.dart";
 import "package:flutter_screenutil/flutter_screenutil.dart";
 import "package:food_delivery/src/core/constants/context_extension.dart";
-// import 'package:cached_network_image/cached_network_image.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 
 class DeliveryCardWidget extends StatelessWidget {
   const DeliveryCardWidget({required this.imageUrl, required this.title, required this.price, required this.time, required this.rating, required this.description, required this.onPressed, super.key});
@@ -43,11 +43,20 @@ class DeliveryCardWidget extends StatelessWidget {
                   topLeft: Radius.circular(15),
                   topRight: Radius.circular(15),
                 ),
-                child: Image.network(
-                  imageUrl,
-                  height: 150.h,
-                  width: double.infinity,
-                  fit: BoxFit.cover,
+                child: CachedNetworkImage(
+                  imageUrl: imageUrl,
+                  imageBuilder: (context, imageProvider) => Container(
+                    decoration: BoxDecoration(
+                      image: DecorationImage(
+                        image: imageProvider,
+                        fit: BoxFit.cover,
+                      ),
+                    ),
+                  ),
+                  placeholder: (context, url) =>
+                  const Center(child: CircularProgressIndicator()),
+                  errorWidget: (context, url, error) =>
+                  const Center(child: Icon(Icons.error)),
                 ),
               ),
             ),
