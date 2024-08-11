@@ -1,13 +1,14 @@
-import "package:flutter/material.dart";
-import "package:flutter_riverpod/flutter_riverpod.dart";
-import "package:flutter_svg/svg.dart";
-import "package:food_delivery/src/core/style/app_colors.dart";
-import "../../../../core/style/text_style.dart";
-import "../widgets/avatar_widget.dart";
-import "empty_page.dart";
-import "my_profile_edit_page.dart";
-
-
+import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_svg/svg.dart';
+import "package:go_router/go_router.dart";
+import "../../../../core/routes/app_route_name.dart";
+import '../../../../core/style/app_colors.dart';
+import '../../../../core/style/text_style.dart';
+import '../../view_model/profile_vm.dart';
+import '../widgets/avatar_widget.dart';
+import 'empty_page.dart';
+import 'my_profile_edit_page.dart';
 
 class ProfilePage extends ConsumerStatefulWidget {
   const ProfilePage({Key? key}) : super(key: key);
@@ -19,8 +20,8 @@ class ProfilePage extends ConsumerStatefulWidget {
 class _ProfilePageState extends ConsumerState<ProfilePage> {
   @override
   Widget build(BuildContext context) {
-
     final name = ref.watch(nameProvider);
+
     return Scaffold(
       resizeToAvoidBottomInset: false,
       body: Padding(
@@ -63,10 +64,7 @@ class _ProfilePageState extends ConsumerState<ProfilePage> {
                 children: [
                   InkWell(
                     onTap: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => const MyProfileEditPage()));
+                      context.go(AppRouteName.profileEditPage);
                     },
                     child: SizedBox(
                       height: MediaQuery.of(context).size.height * 0.056,
@@ -77,7 +75,7 @@ class _ProfilePageState extends ConsumerState<ProfilePage> {
                             height: MediaQuery.of(context).size.height * 0.040,
                             width: MediaQuery.of(context).size.width * 0.040,
                           ),
-                           Text(
+                          Text(
                             "    My Profile",
                             style: const AppTextStyle().forProfile,
                           ),
@@ -96,22 +94,16 @@ class _ProfilePageState extends ConsumerState<ProfilePage> {
                             height: MediaQuery.of(context).size.height * 0.038,
                             width: MediaQuery.of(context).size.width * 0.038,
                           ),
-                           Text(
+                          Text(
                             "    My Orders",
-                             style: const AppTextStyle().forProfile,
+                            style: const AppTextStyle().forProfile,
                           ),
                         ],
                       ),
                     ),
                   ),
                   InkWell(
-                    onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => EmptyProfilePage(),
-                        ),
-                      );
+                    onTap: () {  context.go(AppRouteName.profileEmptyPage);
                     },
                     child: SizedBox(
                       height: MediaQuery.of(context).size.height * 0.056,
@@ -122,21 +114,16 @@ class _ProfilePageState extends ConsumerState<ProfilePage> {
                             height: MediaQuery.of(context).size.height * 0.040,
                             width: MediaQuery.of(context).size.width * 0.040,
                           ),
-                           Text(
-                            "    Delivery Adress",
-                            style: AppTextStyle().forProfile,
+                          Text(
+                            "    Delivery Address",
+                            style: const AppTextStyle().forProfile,
                           ),
                         ],
                       ),
                     ),
                   ),
                   InkWell(
-                    onTap: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => EmptyProfilePage()));
-                    },
+                    onTap: () {  context.go(AppRouteName.profileEmptyPage);  },
                     child: SizedBox(
                       height: MediaQuery.of(context).size.height * 0.056,
                       child: Row(
@@ -146,9 +133,9 @@ class _ProfilePageState extends ConsumerState<ProfilePage> {
                             height: MediaQuery.of(context).size.height * 0.040,
                             width: MediaQuery.of(context).size.width * 0.040,
                           ),
-                           Text(
+                          Text(
                             "    Payment Methods",
-                            style: AppTextStyle().forProfile,
+                            style: const AppTextStyle().forProfile,
                           ),
                         ],
                       ),
@@ -156,10 +143,7 @@ class _ProfilePageState extends ConsumerState<ProfilePage> {
                   ),
                   InkWell(
                     onTap: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => EmptyProfilePage()));
+                      context.go(AppRouteName.profileEmptyPage);
                     },
                     child: SizedBox(
                       height: MediaQuery.of(context).size.height * 0.056,
@@ -170,9 +154,9 @@ class _ProfilePageState extends ConsumerState<ProfilePage> {
                             height: MediaQuery.of(context).size.height * 0.040,
                             width: MediaQuery.of(context).size.width * 0.040,
                           ),
-                           Text(
+                          Text(
                             "    Contact Us",
-                            style: AppTextStyle().forProfile,
+                            style: const AppTextStyle().forProfile,
                           ),
                         ],
                       ),
@@ -181,87 +165,49 @@ class _ProfilePageState extends ConsumerState<ProfilePage> {
                   InkWell(
                     onTap: () {
                       Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) =>  EmptyProfilePage()));
-                    },
-                    child: SizedBox(
-                      height: MediaQuery.of(context).size.height * 0.056,
-                      child: Row(
-                        children: [
-                          SvgPicture.asset(
-                            "assets/icons/setting_icon.svg",
-                            height: MediaQuery.of(context).size.height * 0.040,
-                            width: MediaQuery.of(context).size.width * 0.040,
-                          ),
-                           Text(
-                            "    Settings",
-                             style: const AppTextStyle().forProfile,
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                  InkWell(
-                    onTap: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => EmptyProfilePage()));
-                    },
-                    child: SizedBox(
-                      height: MediaQuery.of(context).size.height * 0.056,
-                      child: Row(
-                        children: [
-                          SvgPicture.asset(
-                            "assets/icons/help_icon.svg",
-                            height: MediaQuery.of(context).size.height * 0.040,
-                            width: MediaQuery.of(context).size.width * 0.040,
-                          ),
-                           Text(
-                            "    Help & FAQ",
-                             style: const AppTextStyle().forProfile,
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                  SizedBox(
-                    height: MediaQuery.of(context).size.height * 0.03,
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      MaterialButton(
-                        height: 50,
-                        minWidth: 120,
-                        shape: const StadiumBorder(
-                            side: BorderSide(color: AppColors.lF96234,)),
-                        child: Row(
-                          mainAxisSize: MainAxisSize.min,
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          children: [
-                            SvgPicture.asset(
-                              "assets/icons/log_out_icon.svg",
-                              height: 30,
-                              width: 60,
-                            ),
-                            SizedBox(
-                                width:
-                                MediaQuery.of(context).size.width * 0.02),
-                            const Text(
-                              "Log Out",
-                              style: TextStyle(color: Colors.deepOrange),
-                            ),
-                          ],
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const EmptyProfilePage(),
                         ),
-                        onPressed: () {
-                                                // Log out yozish kerak
-                        },
+                      );
+                    },
+                    child: SizedBox(
+                      height: MediaQuery.of(context).size.height * 0.056,
+                      child: Row(
+                        children: [
+                          SvgPicture.asset(
+                            "assets/icons/bag_icon.svg",
+                            height: MediaQuery.of(context).size.height * 0.040,
+                            width: MediaQuery.of(context).size.width * 0.040,
+                          ),
+                          Text(
+                            "    About Us",
+                            style: const AppTextStyle().forProfile,
+                          ),
+                        ],
                       ),
-                    ],
+                    ),
                   ),
                 ],
+              ),
+            ),
+            SizedBox(
+              height: MediaQuery.of(context).size.height * 0.100,
+            ),
+            MaterialButton(
+              onPressed: () {},
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(300),
+              ),
+              color: AppColors.lFED8CC,
+              minWidth: MediaQuery.of(context).size.width * 0.9,
+              height: 60,
+              child: const Text(
+                "Logout",
+                style: TextStyle(
+                  color: Colors.redAccent,
+                  fontSize: 18,
+                ),
               ),
             ),
           ],

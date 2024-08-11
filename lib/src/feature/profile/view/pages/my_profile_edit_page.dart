@@ -1,24 +1,23 @@
-
-import "package:flutter/material.dart";
-import "package:flutter_riverpod/flutter_riverpod.dart";
-import "package:shared_preferences/shared_preferences.dart";
-import "../widgets/avatar_widget.dart";
-
+import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import '../../view_model/profile_vm.dart';
+import '../widgets/avatar_widget.dart';
 
 class MyProfileEditPage extends ConsumerWidget {
   const MyProfileEditPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final TextEditingController _namecontroller = TextEditingController();
-    final name = ref.watch(nameProvider);
+    final TextEditingController nameController = TextEditingController();
+    final String name = ref.watch(nameProvider);
 
     return Scaffold(
       floatingActionButton: MaterialButton(
         onPressed: () {
-          final newName = _namecontroller.text.trim();
+          final newName = nameController.text.trim();
           if (newName.isNotEmpty) {
             ref.read(nameProvider.notifier).updateName(newName);
+            nameController.clear();
           }
         },
         shape: RoundedRectangleBorder(
@@ -44,40 +43,41 @@ class MyProfileEditPage extends ConsumerWidget {
             onSelected: (String value) async {
               if (value == "edit") {
                 await ref.read(avatarProvider.notifier).updateAvatar();
-              if(context.mounted){
-                ScaffoldMessenger.of(context).showSnackBar(
-                  const SnackBar(
+                if (context.mounted) {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    const SnackBar(
                       backgroundColor: Colors.green,
-                      content: Text("Avatar updated"),),
-
-                );
-              }
+                      content: Text("Avatar updated"),
+                    ),
+                  );
+                }
               } else if (value == "delete") {
                 await ref.read(avatarProvider.notifier).deleteAvatar();
-                if(context.mounted){ScaffoldMessenger.of(context).showSnackBar(
-                  const SnackBar(
+                if (context.mounted) {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    const SnackBar(
                       backgroundColor: Colors.red,
-                      content: Text("Avatar deleted"),),
-
-                );}
-
+                      content: Text("Avatar deleted"),
+                    ),
+                  );
+                }
               }
             },
             itemBuilder: (BuildContext context) => [
-            const  PopupMenuItem<String>(
-                value:  "edit",
+              const PopupMenuItem<String>(
+                value: "edit",
                 child: Row(
-                  children:  [
+                  children: [
                     Icon(Icons.edit, color: Colors.orange),
                     SizedBox(width: 8),
                     Text("Edit Avatar"),
                   ],
                 ),
               ),
-            const  PopupMenuItem<String>(
+              const PopupMenuItem<String>(
                 value: "delete",
                 child: Row(
-                  children:  [
+                  children: [
                     Icon(Icons.delete, color: Colors.red),
                     SizedBox(width: 8),
                     Text("Delete Avatar"),
@@ -88,7 +88,6 @@ class MyProfileEditPage extends ConsumerWidget {
           ),
         ],
       ),
-
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 18.0),
         child: Column(
@@ -111,15 +110,15 @@ class MyProfileEditPage extends ConsumerWidget {
             ),
             TextField(
               cursorColor: Colors.white60,
-              controller: _namecontroller,
+              controller: nameController,
               decoration: const InputDecoration(
                 hintText: "Your name",
-                hintStyle:  TextStyle(
+                hintStyle: TextStyle(
                   color: Colors.white60,
                 ),
                 filled: true,
                 fillColor: Colors.greenAccent,
-                border:  OutlineInputBorder(
+                border: OutlineInputBorder(
                   borderRadius: BorderRadius.all(
                     Radius.circular(10),
                   ),
@@ -127,45 +126,10 @@ class MyProfileEditPage extends ConsumerWidget {
                 ),
               ),
             ),
-           const Spacer(),
+            const Spacer(),
           ],
         ),
       ),
     );
-  }
-}
-
-final nameProvider = StateNotifierProvider<NameNotifier, String>((ref) {
-  return NameNotifier(NameStorage());
-});
-
-class NameStorage {
-  static const String _keyName = "userName";
-
-  Future<String> loadName() async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    return prefs.getString(_keyName) ?? "Katty Berry";
-  }
-
-  Future<void> saveName(String name) async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    await prefs.setString(_keyName, name);
-  }
-}
-
-class NameNotifier extends StateNotifier<String> {
-  final NameStorage _nameStorage;
-
-  NameNotifier(this._nameStorage) : super("Katty Berry") {
-    _loadName();
-  }
-
-  Future<void> _loadName() async {
-    state = await _nameStorage.loadName();
-  }
-
-  Future<void> updateName(String newName) async {
-    state = newName;
-    await _nameStorage.saveName(newName);
   }
 }
