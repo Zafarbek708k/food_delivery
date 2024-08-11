@@ -1,6 +1,7 @@
 import "dart:developer";
 
 import "package:flutter/material.dart";
+import "package:flutter_riverpod/flutter_riverpod.dart";
 import "package:flutter_screenutil/flutter_screenutil.dart";
 import "package:food_delivery/src/core/constants/context_extension.dart";
 import "package:food_delivery/src/core/routes/app_route_name.dart";
@@ -10,15 +11,11 @@ import "../../../widgets/custom_appbar_widget.dart";
 import "../widgets/restaraunt_card_widget.dart";
 import "../widgets/restaraunt_category_horizontal_widget.dart";
 
-class RestaurantsPage extends StatefulWidget {
+class RestaurantsPage extends ConsumerWidget {
   const RestaurantsPage({super.key});
-  @override
-  RestaurantsPageState createState() => RestaurantsPageState();
-}
 
-class RestaurantsPageState extends State<RestaurantsPage> {
   @override
-  Widget build(BuildContext context) => Scaffold(
+  Widget build(BuildContext context, WidgetRef ref) => Scaffold(
         appBar: AppBarWidget(
           bcgColor: Colors.white,
           appBarText: "Xurshid Umarov",

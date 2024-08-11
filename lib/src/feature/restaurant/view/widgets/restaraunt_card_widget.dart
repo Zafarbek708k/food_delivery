@@ -1,16 +1,18 @@
+import "package:cached_network_image/cached_network_image.dart";
 import "package:flutter/cupertino.dart";
 import "package:flutter/material.dart";
+import "package:flutter_riverpod/flutter_riverpod.dart";
 import "package:flutter_screenutil/flutter_screenutil.dart";
 import "package:food_delivery/src/core/constants/context_extension.dart";
 
-class RestaurantCard extends StatelessWidget {
+class RestaurantCard extends ConsumerWidget {
   const RestaurantCard({required this.onTap, super.key});
 
   final VoidCallback onTap;
 
   @override
-  Widget build(BuildContext context) => Padding(
-        padding:  REdgeInsets.symmetric(vertical: 8, horizontal: 15),
+  Widget build(BuildContext context, WidgetRef ref) => Padding(
+        padding: REdgeInsets.symmetric(vertical: 8, horizontal: 15),
         child: DecoratedBox(
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(14.r),
@@ -35,11 +37,14 @@ class RestaurantCard extends StatelessWidget {
                     topLeft: Radius.circular(14.r),
                     topRight: Radius.circular(14.r),
                   ),
-                  child: Image.network(
-                    "https://t3.ftcdn.net/jpg/02/52/38/80/360_F_252388016_KjPnB9vglSCuUJAumCDNbmMzGdzPAucK.jpg",
-                    height: 150.h,
+                  child: CachedNetworkImage(
+                    imageUrl:
+                        "https://t3.ftcdn.net/jpg/02/52/38/80/360_F_252388016_KjPnB9vglSCuUJAumCDNbmMzGdzPAucK.jpg",
+                    height: 150,
                     width: double.infinity,
                     fit: BoxFit.cover,
+                    placeholder: (context, url) => const Center(child: CircularProgressIndicator()),
+                    errorWidget: (context, url, error) => const Center(child: Icon(Icons.error)),
                   ),
                 ),
                 Padding(
