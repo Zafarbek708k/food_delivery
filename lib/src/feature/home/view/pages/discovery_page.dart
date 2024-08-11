@@ -1,3 +1,4 @@
+import "package:flutter/cupertino.dart";
 import "package:flutter/material.dart";
 import "package:flutter_screenutil/flutter_screenutil.dart";
 import "package:food_delivery/src/core/constants/context_extension.dart";
@@ -6,7 +7,6 @@ import "package:food_delivery/src/feature/home/view/widgets/discovery_banner_ite
 import "package:smooth_page_indicator/smooth_page_indicator.dart";
 
 import "../../../widgets/custom_appbar_widget.dart";
-
 
 class DiscoveryPage extends StatefulWidget {
   const DiscoveryPage({super.key});
@@ -18,17 +18,19 @@ class DiscoveryPage extends StatefulWidget {
 class _DiscoveryPageState extends State<DiscoveryPage> {
   final PageController _bannerController = PageController();
   final List<String> _bannerImages = [
-   "https://insights.workwave.com/wp-content/uploads/2021/08/WorkWave-The-Carbon-Footprint-of-Food-Delivery-Services.jpg",
+    "https://insights.workwave.com/wp-content/uploads/2021/08/WorkWave-The-Carbon-Footprint-of-Food-Delivery-Services.jpg",
     "https://insights.workwave.com/wp-content/uploads/2021/08/WorkWave-The-Carbon-Footprint-of-Food-Delivery-Services.jpg",
     "https://insights.workwave.com/wp-content/uploads/2021/08/WorkWave-The-Carbon-Footprint-of-Food-Delivery-Services.jpg",
   ];
 
   @override
   Widget build(BuildContext context) => Scaffold(
-      appBar: const AppBarWidget(appBarText: 'Home, Ji ',bcgColor: Colors.white,textColor: Colors.black,),
-      body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 18.0),
+        appBar: const AppBarWidget(
+          appBarText: "Home, Ji ",
+          bcgColor: Colors.white,
+          textColor: Colors.black,
+        ),
+        body: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -41,8 +43,11 @@ class _DiscoveryPageState extends State<DiscoveryPage> {
                       controller: _bannerController,
                       itemCount: _bannerImages.length,
                       itemBuilder: (context, index) => Padding(
-                        padding:  REdgeInsets.all(8),
-                        child: DiscoveryBannerItemWidget(imageUrl: _bannerImages[index], bannerText: "Get your 30% daily \n discount now!"),
+                        padding: REdgeInsets.all(8),
+                        child: DiscoveryBannerItemWidget(
+                          imageUrl: _bannerImages[index],
+                          bannerText: "Get your 30% daily \n discount now!",
+                        ),
                       ),
                     ),
                     Positioned(
@@ -68,17 +73,28 @@ class _DiscoveryPageState extends State<DiscoveryPage> {
 
               // Fastest delivery section
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                padding: const EdgeInsets.symmetric(horizontal: 16),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                     Text(
+                    Text(
                       "Fastest delivery 🔥",
-                      style: context.theme.textTheme.bodyLarge?.copyWith(color: Colors.black, fontSize: 18, fontWeight: FontWeight.bold),
+                      style: context.theme.textTheme.bodyLarge
+                          ?.copyWith(color: Colors.black, fontSize: 18, fontWeight: FontWeight.bold),
                     ),
                     TextButton(
-                      onPressed: () {},
-                      child: const Text("See all"),
+                      style: TextButton.styleFrom(
+                        backgroundColor: Colors.orange.withOpacity(0.7),
+                      ),
+                      onPressed: () {
+                        // Navigator.push(context, MaterialPageRoute(builder: (BuildContext context)=> const RestaurantPageIn()));
+                      },
+                      child: const Text(
+                        "See all",
+                        style: TextStyle(
+                          color: Colors.deepOrange,
+                        ),
+                      ),
                     ),
                   ],
                 ),
@@ -87,20 +103,26 @@ class _DiscoveryPageState extends State<DiscoveryPage> {
                 height: 250.h,
                 child: ListView(
                   scrollDirection: Axis.horizontal,
-                  children: const [
+                  children: [
                     DeliveryCardWidget(
-                      imageUrl: "https://insights.workwave.com/wp-content/uploads/2021/08/WorkWave-The-Carbon-Footprint-of-Food-Delivery-Services.jpg",
+                      imageUrl:
+                          "https://insights.workwave.com/wp-content/uploads/2021/08/WorkWave-The-Carbon-Footprint-of-Food-Delivery-Services.jpg",
                       title: "Crazy taco",
                       price: "€3.00",
                       time: "40-50min",
                       rating: "9.5",
+                      onPressed: () {  },
+                      description: "description",
                     ),
                     DeliveryCardWidget(
-                      imageUrl: "https://insights.workwave.com/wp-content/uploads/2021/08/WorkWave-The-Carbon-Footprint-of-Food-Delivery-Services.jpg",
+                      imageUrl:
+                          "https://insights.workwave.com/wp-content/uploads/2021/08/WorkWave-The-Carbon-Footprint-of-Food-Delivery-Services.jpg",
                       title: "La Salsa",
                       price: "€2.00",
                       time: "30-40min",
                       rating: "8.5",
+                      onPressed: () {  },
+                      description: "description",
                     ),
                     // Add more cards as needed
                   ],
@@ -109,17 +131,28 @@ class _DiscoveryPageState extends State<DiscoveryPage> {
 
               // Popular items section
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+                padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                     Text(
+                    Text(
                       "Popular items 👏",
-                      style: context.theme.textTheme.bodyLarge?.copyWith(color: Colors.black, fontWeight: FontWeight.bold),
+                      style: context.theme.textTheme.bodyLarge
+                          ?.copyWith(color: Colors.black, fontWeight: FontWeight.bold),
                     ),
                     TextButton(
-                      onPressed: () {},
-                      child: const Text("See all"),
+                      style: TextButton.styleFrom(
+                        backgroundColor: Colors.orange.withOpacity(0.7),
+                      ),
+                      onPressed: () {
+                        // Navigator.push(context, MaterialPageRoute(builder: (BuildContext context)=> const RestaurantPageIn()));
+                      },
+                      child: const Text(
+                        "See all",
+                        style: TextStyle(
+                          color: Colors.deepOrange,
+                        ),
+                      ),
                     ),
                   ],
                 ),
@@ -128,32 +161,37 @@ class _DiscoveryPageState extends State<DiscoveryPage> {
                 height: 250.h,
                 child: ListView(
                   scrollDirection: Axis.horizontal,
-                  children: const [
+                  children: [
                     DeliveryCardWidget(
-                      imageUrl: "https://insights.workwave.com/wp-content/uploads/2021/08/WorkWave-The-Carbon-Footprint-of-Food-Delivery-Services.jpg",
-                      title: "Spagetti",
-                      price: "€5.00",
-                      time: "20-30 min",
+                      imageUrl:
+                          "https://insights.workwave.com/wp-content/uploads/2021/08/WorkWave-The-Carbon-Footprint-of-Food-Delivery-Services.jpg",
+                      title: "La Salsa",
+                      price: "€2.00",
+                      time: "30-40min",
                       rating: "8.5",
+                      onPressed: () {  },
+                      description: "description",
                     ),
-                    DeliveryCardWidget(
-                      imageUrl: "https://insights.workwave.com/wp-content/uploads/2021/08/WorkWave-The-Carbon-Footprint-of-Food-Delivery-Services.jpg",
+                     DeliveryCardWidget(
+                      imageUrl:
+                          "https://insights.workwave.com/wp-content/uploads/2021/08/WorkWave-The-Carbon-Footprint-of-Food-Delivery-Services.jpg",
                       title: "Burger",
                       price: "€2.00",
                       time: "25-35",
                       rating: "8.8",
-                    ),
+                      onPressed: () {  },
+                      description: "description",                      ),
                   ],
                 ),
               ),
 
-               SizedBox(height: 100.h),
+              const SizedBox(
+                height: 75,
+              ),
             ],
           ),
         ),
-      )
-    );
-
+      );
 }
 
 

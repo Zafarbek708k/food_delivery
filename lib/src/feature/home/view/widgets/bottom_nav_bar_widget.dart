@@ -11,18 +11,18 @@ class BottomNavBarWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => Padding(
-        padding: REdgeInsets.symmetric(horizontal: 10), // Adjust bottom padding
+        padding: REdgeInsets.symmetric(horizontal: 10),
         child: Container(
           margin: REdgeInsets.all(0.0001),
           decoration: BoxDecoration(
-            border: Border.all(color: Colors.black, width: 1.5),
-            borderRadius: BorderRadius.circular(20.r),
+            border: Border.all(color: Colors.black, width: 0.5),
+            borderRadius: BorderRadius.circular(5.r),
           ),
           child: BlurWidget(
-            radius: 20,
+            radius: 5.r,
             blur: 5,
             child: ClipRRect(
-              borderRadius: BorderRadius.circular(18),
+              borderRadius: BorderRadius.circular(5.r),
               child: BottomNavigationBar(
                 currentIndex: currentPage,
                 onTap: onTap,
@@ -36,7 +36,7 @@ class BottomNavBarWidget extends StatelessWidget {
                 selectedLabelStyle: const TextStyle(fontSize: 13, fontWeight: FontWeight.bold),
                 items: [
                   BottomNavigationBarItem(
-                    icon: Expanded(
+                    icon: Center(
                       child: NavBarIcon(
                         assetName: "assets/icons/discover_compass_icon.svg",
                         isSelected: currentPage == 0,
@@ -45,7 +45,7 @@ class BottomNavBarWidget extends StatelessWidget {
                     label: "Discovery",
                   ),
                   BottomNavigationBarItem(
-                    icon: Expanded(
+                    icon: Center(
                       child: NavBarIcon(
                         assetName: "assets/icons/home_restaurant_icon.svg",
                         isSelected: currentPage == 1,
@@ -54,7 +54,7 @@ class BottomNavBarWidget extends StatelessWidget {
                     label: "Restaurants",
                   ),
                   BottomNavigationBarItem(
-                    icon: Expanded(
+                    icon: Center(
                       child: NavBarIcon(
                         assetName: "assets/icons/search_icon.svg",
                         isSelected: currentPage == 2,
@@ -63,7 +63,7 @@ class BottomNavBarWidget extends StatelessWidget {
                     label: "Search",
                   ),
                   BottomNavigationBarItem(
-                    icon: Expanded(
+                    icon: Center(
                       child: NavBarIcon(
                         assetName: "assets/icons/favorite_icon.svg",
                         isSelected: currentPage == 3,
@@ -72,7 +72,7 @@ class BottomNavBarWidget extends StatelessWidget {
                     label: "Favorite",
                   ),
                   BottomNavigationBarItem(
-                    icon: Expanded(
+                    icon: Center(
                       child: NavBarIcon(
                         assetName: "assets/icons/profile_icon.svg",
                         isSelected: currentPage == 4,
