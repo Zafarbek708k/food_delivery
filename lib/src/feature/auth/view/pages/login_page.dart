@@ -40,12 +40,7 @@ class LoginPage extends StatelessWidget {
               const LoginTexfeildWidget(),
               Column(
                 children: [
-                  LoginButtonWidget(
-                    NameText: "Login",
-                    onPressed: () {
-                      context.go(AppRouteName.discoveryPage);
-                    },
-                  ),
+                  
                   SizedBox(
                     height: MediaQuery.of(context).size.height * 0.03,
                   ),

@@ -32,7 +32,7 @@ class RegisterPage extends StatelessWidget {
                   ),
                 ),
               ),
-              const RegisterTexfeildWidgets(),
+               RegisterTexfeildWidgets(),
               
               Column(
                 children: [
