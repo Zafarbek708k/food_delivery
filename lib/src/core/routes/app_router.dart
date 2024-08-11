@@ -43,7 +43,11 @@ final class AppRouter {
       state,
       const RestaurantDetail(),
     ),
-    routes: [foodDetailPage, orderPage],
+    routes: [
+      foodDetailPage,
+      orderPage,
+      mapDeliveryPage,
+    ],
   );
 
   static final GoRoute mapDeliveryPage = GoRoute(
