@@ -1,8 +1,9 @@
-import "dart:developer";
-
 import "package:flutter/cupertino.dart";
 import "package:flutter/material.dart";
 import "package:flutter_screenutil/flutter_screenutil.dart";
+import "package:go_router/go_router.dart";
+
+import "../../../../core/routes/app_route_name.dart";
 
 class HorizontalCategories extends StatelessWidget {
   const HorizontalCategories({super.key});
@@ -21,7 +22,7 @@ class HorizontalCategories extends StatelessWidget {
                   imageUrl:
                       "https://freshday.ru/image/cache/catalog/raznye-vidy-italyanskoy-pasty-1152x768.webp",
                   onTap: () {
-                    log("HorizontalCategories $index bosildi");
+                    context.go("${AppRouteName.restaurantPage}/${AppRouteName.restaurantDetailPage}");
                   },
                 ),
                 if (index < 4) SizedBox(width: 8.w),
