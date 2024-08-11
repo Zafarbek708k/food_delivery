@@ -5,15 +5,16 @@ import "package:flutter_screenutil/flutter_screenutil.dart";
 import "package:food_delivery/src/core/constants/context_extension.dart";
 
 class DeliveryCardWidget extends StatelessWidget {
-  const DeliveryCardWidget(
-      {required this.imageUrl,
-      required this.title,
-      required this.price,
-      required this.time,
-      required this.rating,
-      required this.description,
-      required this.onPressed,
-      super.key,});
+  const DeliveryCardWidget({
+    required this.imageUrl,
+    required this.title,
+    required this.price,
+    required this.time,
+    required this.rating,
+    required this.description,
+    required this.onPressed,
+    super.key,
+  });
 
   final String imageUrl;
   final String title;
@@ -60,8 +61,10 @@ class DeliveryCardWidget extends StatelessWidget {
                         ),
                       ),
                     ),
-                    placeholder: (context, url) => const Center(child: CircularProgressIndicator()),
-                    errorWidget: (context, url, error) => const Center(child: Icon(Icons.error)),
+                    placeholder: (context, url) =>
+                        const Center(child: CircularProgressIndicator()),
+                    errorWidget: (context, url, error) =>
+                        const Center(child: Icon(Icons.error)),
                   ),
                 ),
               ),
@@ -72,9 +75,16 @@ class DeliveryCardWidget extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(title, style: context.theme.textTheme.bodyLarge?.copyWith(color: Colors.black, fontWeight: FontWeight.bold)),
-                      Text(description, style: context.theme.textTheme.bodyLarge?.copyWith(color: Colors.black)),
-                      Text("$price  •  $time  • ⭐ $rating", style: context.theme.textTheme.bodyLarge?.copyWith(color: Colors.black)),
+                      Text(title,
+                          style: context.theme.textTheme.bodyLarge?.copyWith(
+                              color: Colors.black,
+                              fontWeight: FontWeight.bold)),
+                      Text(description,
+                          style: context.theme.textTheme.bodyLarge
+                              ?.copyWith(color: Colors.black)),
+                      Text("$price  •  $time  • ⭐ $rating",
+                          style: context.theme.textTheme.bodyLarge
+                              ?.copyWith(color: Colors.black)),
                     ],
                   ),
                 ),
