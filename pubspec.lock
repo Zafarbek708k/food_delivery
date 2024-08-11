@@ -89,14 +89,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.2.0"
-  change_notifier:
-    dependency: "direct main"
-    description:
-      name: change_notifier
-      sha256: "9a50ab5290b93a2f164d20a12998ef10571d57947b47f144296dc53cc24f4f5b"
-      url: "https://pub.dev"
-    source: hosted
-    version: "0.24.0"
   characters:
     dependency: transitive
     description:
@@ -201,14 +193,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "4.19.2"
-  dart_internal:
-    dependency: transitive
-    description:
-      name: dart_internal
-      sha256: "781e0d03812e5b52fdc3f71540b178245021be64d22cbc88da2aee6b45705183"
-      url: "https://pub.dev"
-    source: hosted
-    version: "0.2.13"
   dart_style:
     dependency: transitive
     description:
@@ -909,14 +893,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.1.4"
-  quiver:
-    dependency: transitive
-    description:
-      name: quiver
-      sha256: b1c1ac5ce6688d77f65f3375a9abb9319b3cb32486bdc7a1e0fdf004d7ba4e47
-      url: "https://pub.dev"
-    source: hosted
-    version: "3.2.1"
   riverpod:
     dependency: transitive
     description:
@@ -1211,5 +1187,5 @@ packages:
     source: hosted
     version: "3.4.0"
 sdks:
-  dart: ">=3.4.0 <3.7.0"
+  dart: ">=3.4.0 <4.0.0"
   flutter: ">=3.22.0"
