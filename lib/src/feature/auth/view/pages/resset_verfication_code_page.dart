@@ -12,6 +12,7 @@ class RessetVerficationCodePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => Scaffold(
+    resizeToAvoidBottomInset: false,
         body: Center(
           child: SafeArea(
             child: Column(
