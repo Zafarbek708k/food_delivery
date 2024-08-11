@@ -19,7 +19,7 @@ class AppStorage extends FlutterSecureStorage {
   static const FlutterSecureStorage _storage = FlutterSecureStorage();
 
   static Future<String?> $read({required StorageKey key}) async {
-    final String? value = await _storage.read(key: key.name);
+    final value = await _storage.read(key: key.name);
     return value;
   }
 

@@ -1,28 +1,27 @@
 import "package:flutter/material.dart";
 import "package:flutter_riverpod/flutter_riverpod.dart";
+import "package:flutter_screenutil/flutter_screenutil.dart";
 
-import "food_details_page.dart";
-import "../../view_model/restaurant_detail_vm.dart";
-import "../widgets/restaraunt_food_widget.dart";
+import "../../../../core/style/app_colors.dart";
 import "../../model/food_model.dart";
+import "../../view_model/restaurant_detail_vm.dart";
+import "../widgets/button_orange.dart";
+import "../widgets/restaraunt_food_widget.dart";
+import "food_details_page.dart";
 import "order_page.dart";
 
 class RestaurantDetail extends ConsumerWidget {
   const RestaurantDetail({super.key});
-
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final foods = ref.watch(foodsProvider);
     final cartNotifier = ref.watch(cartProvider);
-
-    double totalPrice = cartNotifier.calculateTotalPrice();
-    bool showButton = totalPrice > 0;
-
+    final isFavorite = cartNotifier.isFavorite;
+    final totalPrice = cartNotifier.calculateTotalPrice();
+    final showButton = totalPrice > 0;
     List<String> getCategories() =>
         foods.map((item) => item.category).toSet().toList();
-
     final categories = getCategories();
-
     return Scaffold(
       appBar: AppBar(
         title: const Text("La Pasta House"),
@@ -37,42 +36,51 @@ class RestaurantDetail extends ConsumerWidget {
         children: [
           SingleChildScrollView(
             child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 SizedBox(
-                  height: MediaQuery.of(context).size.height * 0.3,
-                  width: MediaQuery.of(context).size.width,
-                  child: Image.asset(
-                    "assets/images/discovery_fast_delivery.png",
-                    fit: BoxFit.cover, // Yoki BoxFit.contain
+                  height: MediaQuery.of(context).size.height * 0.3.h,
+                  width: MediaQuery.of(context).size.width.w,
+                  child: Image.network(
+                    "https://assets.bonappetit.com/photos/61ba70da510874520d257b78/16:9/w_1920,c_limit/LEDE_Oma's%20Hideaway,%20Credit%20Christine%20Dong.jpg",
+                    fit: BoxFit.cover,
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.all(16),
+                  padding: REdgeInsets.all(16),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          const Text(
+                          Text(
                             "La Pasta House",
                             style: TextStyle(
-                              fontSize: 24,
+                              fontSize: 24.sp,
                               fontWeight: FontWeight.bold,
                             ),
                           ),
                           IconButton(
-                            icon: const Icon(Icons.favorite_border),
-                            onPressed: () {},
+                            icon: Icon(
+                              isFavorite
+                                  ? Icons.favorite
+                                  : Icons.favorite_border,
+                              color: isFavorite ? Colors.red : null,
+                            ),
+                            onPressed: () {
+                              cartNotifier.toggleFavorite();
+                            },
+                            constraints: const BoxConstraints(),
                           ),
                         ],
                       ),
                       const Text("An authentic Italian touch and delicious!"),
                       const SizedBox(height: 8),
-                      const Row(
+                      Row(
                         children: [
                           Icon(Icons.star, color: Colors.orange),
-                          SizedBox(width: 4),
+                          SizedBox(width: 4.w),
                           Text("Excellent 9.5"),
                         ],
                       ),
@@ -83,34 +91,47 @@ class RestaurantDetail extends ConsumerWidget {
                             Icons.delivery_dining,
                             color: Colors.orange,
                           ),
-                          const SizedBox(width: 4),
-                          const Column(
+                          SizedBox(width: 4.w),
+                          Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              Text("Delivery in 40-50 min"),
+                              const Text("Delivery in 40-50 min"),
                               Text(
                                 "Home (g'uncha)",
-                                style:
-                                    TextStyle(color: Colors.grey, fontSize: 14),
+                                style: TextStyle(
+                                  color: Colors.grey,
+                                  fontSize: 14.sp,
+                                ),
                               ),
                             ],
                           ),
                           const Spacer(),
                           ElevatedButton(
                             onPressed: () {},
-                            child: const Text("Change"),
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: AppColors.lFED8CC,
+                            ),
+                            child: const Text(
+                              "Change",
+                              style: TextStyle(
+                                color: AppColors.lF96234,
+                              ),
+                            ),
                           ),
                         ],
                       ),
                       const SizedBox(height: 8),
-                      const Row(
+                      Row(
                         children: [
-                          Icon(Icons.access_time_filled, color: Colors.orange),
-                          SizedBox(width: 4),
-                          Text("10:00 - 22:00"),
+                          const Icon(
+                            Icons.access_time_filled,
+                            color: Colors.orange,
+                          ),
+                          SizedBox(width: 4.w),
+                          const Text("10:00 - 22:00"),
                         ],
                       ),
-                      const SizedBox(height: 16),
+                      const SizedBox(height: 20),
                       ...categories.map((category) {
                         final items = foods
                             .where((item) => item.category == category)
@@ -118,10 +139,12 @@ class RestaurantDetail extends ConsumerWidget {
                         return Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
+                            const SizedBox(height: 15),
+                            const Divider(),
                             Text(
                               category,
-                              style: const TextStyle(
-                                fontSize: 18,
+                              style: TextStyle(
+                                fontSize: 18.sp,
                                 fontWeight: FontWeight.bold,
                               ),
                             ),
@@ -134,28 +157,26 @@ class RestaurantDetail extends ConsumerWidget {
                                 crossAxisCount: 2,
                                 crossAxisSpacing: 8,
                                 mainAxisSpacing: 8,
-                                childAspectRatio: 0.75,
+                                childAspectRatio: 0.53,
                               ),
                               itemCount: items.length,
                               itemBuilder: (context, index) {
                                 final item = items[index];
+                                final cartItem =
+                                    cartNotifier.cartItems.firstWhere(
+                                  (cartItem) =>
+                                      cartItem.foodItem.name == item.name,
+                                  orElse: () => CartItem(
+                                    foodItem: item,
+                                    selectedAddOns: [],
+                                    quantity: 0,
+                                  ),
+                                );
+
                                 return FoodCard(
                                   item: item,
-                                  isAdded: cartNotifier.cartItems.any(
-                                    (cartItem) =>
-                                        cartItem.foodItem.name == item.name,
-                                  ),
-                                  quantity: cartNotifier.cartItems
-                                      .firstWhere(
-                                        (cartItem) =>
-                                            cartItem.foodItem.name == item.name,
-                                        orElse: () => CartItem(
-                                          foodItem: item,
-                                          selectedAddOns: [],
-                                          quantity: 0,
-                                        ),
-                                      )
-                                      .quantity,
+                                  isAdded: cartItem.quantity > 0,
+                                  quantity: cartItem.quantity,
                                   onAdd: () {
                                     cartNotifier.addItem(item);
                                   },
@@ -165,22 +186,31 @@ class RestaurantDetail extends ConsumerWidget {
                                   decrementQuantity: () {
                                     cartNotifier.updateQuantity(item, -1);
                                   },
-                                  navigateToDetails: () {
-                                    Navigator.push(
+                                  navigateToDetails: () async {
+                                    cartNotifier.setCurrentFoodItem(item);
+                                    final updatedQuantity =
+                                        await Navigator.push<int>(
                                       context,
                                       MaterialPageRoute(
                                         builder: (context) =>
-                                            FoodDetailsPage(foodItem: item),
+                                            const FoodDetailsPage(),
                                       ),
                                     );
+                                    if (updatedQuantity != null &&
+                                        updatedQuantity != cartItem.quantity) {
+                                      cartNotifier.updateQuantity(
+                                        item,
+                                        updatedQuantity - cartItem.quantity,
+                                      );
+                                    }
                                   },
                                 );
                               },
                             ),
-                            const SizedBox(height: 16),
                           ],
                         );
                       }),
+                      if (showButton) const SizedBox(height: 50),
                     ],
                   ),
                 ),
@@ -189,25 +219,30 @@ class RestaurantDetail extends ConsumerWidget {
           ),
           if (showButton)
             Positioned(
-              bottom: 16,
+              bottom: 10,
               left: 16,
               right: 16,
-              child: ElevatedButton(
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => const OrderPage(),
-                    ),
-                  );
+              child: OrangeButton(
+                onPressed: () async {
+                  final defaultFoodItem = foods.isNotEmpty ? foods.first : null;
+                  if (defaultFoodItem != null) {
+                    cartNotifier.setCurrentFoodItem(defaultFoodItem);
+                    final updatedQuantity = await Navigator.push<int>(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const OrderPage(),
+                      ),
+                    );
+                    if (updatedQuantity != null) {
+                      cartNotifier.updateQuantity(
+                        defaultFoodItem,
+                        updatedQuantity -
+                            cartNotifier.getQuantityForItem(defaultFoodItem),
+                      );
+                    }
+                  }
                 },
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    const Text("Place Order"),
-                    Text("€${totalPrice.toStringAsFixed(2)}"),
-                  ],
-                ),
+                text: "Place Order: €${totalPrice.toStringAsFixed(2)}",
               ),
             ),
         ],

@@ -42,7 +42,6 @@ dependencies:
   device_preview: ^1.2.0
   connectivity_plus: ^6.0.4
   percent_indicator: ^4.2.3
-  change_notifier: ^0.24.0
 
 dev_dependencies:
   flutter_test:

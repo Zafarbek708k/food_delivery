@@ -5,7 +5,7 @@ import "package:food_delivery/src/core/style/app_colors.dart";
 import "../../model/food_model.dart";
 import "button_orange.dart";
 
-class FoodCard extends StatelessWidget {
+class FoodCardMini extends StatelessWidget {
   final FoodItem item;
   final bool isAdded;
   final int quantity;
@@ -14,7 +14,7 @@ class FoodCard extends StatelessWidget {
   final VoidCallback decrementQuantity;
   final VoidCallback navigateToDetails;
 
-  const FoodCard({
+  const FoodCardMini({
     required this.item,
     required this.isAdded,
     required this.quantity,
@@ -53,7 +53,7 @@ class FoodCard extends StatelessWidget {
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 6),
+                padding: const EdgeInsets.symmetric(horizontal: 3),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -65,32 +65,36 @@ class FoodCard extends StatelessWidget {
                         color: AppColors.lF83B01,
                       ),
                     ),
-                    Text(
-                      item.name,
-                      style: TextStyle(
-                        fontSize: 16.sp,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                     SizedBox(height: 6.h),
                     SizedBox(
                       height: 30.h,
                       child: Text(
                         overflow: TextOverflow.ellipsis,
-                        maxLines: 2,
-                        item.description,
+                        maxLines: 1,
+                        item.name,
                         style: TextStyle(
-                          fontSize: 10.sp,
-                          fontWeight: FontWeight.w400,
+                          fontSize: 14.sp,
+                          fontWeight: FontWeight.bold,
                         ),
                       ),
                     ),
-                   SizedBox(height: 12.h),
+                    // SizedBox(
+                    //   height: 30,
+                    //   child: Text(
+                    //     overflow: TextOverflow.ellipsis,
+                    //     maxLines: 2,
+                    //     item.description,
+                    //     style: const TextStyle(
+                    //       fontSize: 10,
+                    //       fontWeight: FontWeight.w400,
+                    //     ),
+                    //   ),
+                    // ),
+                    // const SizedBox(height: 15),
                     if (isAdded)
                       Center(
                         child: Container(
                           height: 40.h,
-                          width: 140.w,
+                          width: 110.w,
                           decoration: BoxDecoration(
                             color: AppColors.lFED8CC,
                             borderRadius: BorderRadius.circular(25),
@@ -98,7 +102,6 @@ class FoodCard extends StatelessWidget {
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              // Decrement Button
                               IconButton(
                                 icon: const Icon(Icons.remove),
                                 onPressed: decrementQuantity,
@@ -106,7 +109,6 @@ class FoodCard extends StatelessWidget {
                                 padding: EdgeInsets.zero,
                                 constraints: const BoxConstraints(),
                               ),
-                              // Quantity Display
                               Text(
                                 quantity.toString(),
                                 style: TextStyle(
@@ -115,7 +117,6 @@ class FoodCard extends StatelessWidget {
                                   fontWeight: FontWeight.bold,
                                 ),
                               ),
-                              // Increment Button
                               IconButton(
                                 icon: const Icon(Icons.add),
                                 onPressed: incrementQuantity,
@@ -135,7 +136,6 @@ class FoodCard extends StatelessWidget {
                           child: OrangeButton(
                             onPressed: () {
                               onAdd();
-                              navigateToDetails();
                             },
                             text: "Add",
                           ),

@@ -1,25 +1,21 @@
 import "dart:developer";
 
 import "package:flutter/material.dart";
+import "package:flutter_riverpod/flutter_riverpod.dart";
 import "package:flutter_screenutil/flutter_screenutil.dart";
 import "package:food_delivery/src/core/constants/context_extension.dart";
 import "package:food_delivery/src/core/routes/app_route_name.dart";
-import "package:food_delivery/src/feature/restaurant/view/widgets/restaraunt_card_widget.dart";
-import "package:food_delivery/src/feature/restaurant/view/widgets/restaraunt_category_horizontal_widget.dart";
 import "package:go_router/go_router.dart";
-
 import "../../../widgets/custom_appbar_widget.dart";
 
-class RestaurantsPage extends StatefulWidget {
+import "../widgets/restaraunt_card_widget.dart";
+import "../widgets/restaraunt_category_horizontal_widget.dart";
+
+class RestaurantsPage extends ConsumerWidget {
   const RestaurantsPage({super.key});
 
   @override
-  RestaurantsPageState createState() => RestaurantsPageState();
-}
-
-class RestaurantsPageState extends State<RestaurantsPage> {
-  @override
-  Widget build(BuildContext context) => Scaffold(
+  Widget build(BuildContext context, WidgetRef ref) => Scaffold(
         appBar: AppBarWidget(
           bcgColor: Colors.white,
           appBarText: "Xurshid Umarov",
@@ -27,7 +23,11 @@ class RestaurantsPageState extends State<RestaurantsPage> {
           textColor: Colors.black,
           actions: [
             IconButton(
-              icon: Image.asset("assets/images/restaurant_map_icon1.png"),
+              icon: Image.asset(
+                "assets/images/restaurant_map_icon1.png",
+                height: 35,
+                width: 35,
+              ),
               onPressed: () {
                 context.go("${AppRouteName.restaurantPage}/${AppRouteName.mapDeliveryPage}");
                 log("message");
@@ -39,28 +39,29 @@ class RestaurantsPageState extends State<RestaurantsPage> {
           slivers: [
             SliverToBoxAdapter(
               child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 15),
+                padding: REdgeInsets.all(16),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    // Text(
-                    //   "Restaurants",
-                    //   style: context.theme.textTheme.bodyLarge?.copyWith(
-                    //     fontSize: 24.sp,
-                    //     fontWeight: FontWeight.bold,
-                    //     color: Colors.black,
-                    //   ),
-                    // ),
                     Text(
-                      "Categories",
+                      "Restaurants",
                       style: context.theme.textTheme.bodyLarge?.copyWith(
                         fontSize: 24.sp,
                         fontWeight: FontWeight.bold,
                         color: Colors.black,
                       ),
                     ),
-                    10.verticalSpace,
+                    Text(
+                      "Categories",
+                      style: context.theme.textTheme.bodyLarge?.copyWith(
+                        fontSize: 20.sp,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.black,
+                      ),
+                    ),
+                    20.horizontalSpace,
                     const HorizontalCategories(),
+                    20.horizontalSpace,
                     Text(
                       "All restaurants",
                       style: context.theme.textTheme.bodyLarge?.copyWith(
@@ -78,7 +79,6 @@ class RestaurantsPageState extends State<RestaurantsPage> {
                 (context, index) => RestaurantCard(
                   onTap: () {
                     context.go("${AppRouteName.restaurantPage}/${AppRouteName.restaurantDetailPage}");
-                    log("RestaurantCard : $index");
                   },
                 ),
                 childCount: 10,
