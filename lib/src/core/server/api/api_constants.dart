@@ -9,10 +9,9 @@ final class ApiConst {
   static const String version = "/api/v1";
 
   // static const String sendSms = "$version/cabinet/sms/send";
-  static const String apiSendCode = "$version/auth/check-phone";
-  static const String apiCheckCode = "$version/auth/check-code";
-  static const String apiGetCurrentUser = "$version/user/me";
-  static const String apiRefreshToken = "$version/auth/refresh-token";
+  static const String apiLogin = "$version/auth/login";
+  static const String apiRegister = "$version/auth/register";
+  static const String apiCheckEmail = "$version/auth/check/email";
 
   // get all projects list
   static const String apiGetAllProjects = "$version/mobile/project";

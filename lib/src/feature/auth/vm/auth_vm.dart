@@ -5,8 +5,7 @@ class AuthVm extends ChangeNotifier {
   bool loginEye = true;
   bool registerEye = true;
 
-    final fromKey = GlobalKey<FormState>();
-
+  final fromKey = GlobalKey<FormState>();
 
   TextEditingController loginEmailController = TextEditingController();
   TextEditingController loginPasswordController = TextEditingController();
@@ -18,9 +17,7 @@ class AuthVm extends ChangeNotifier {
   void singInBUtton() {
     if (fromKey.currentState!.validate()) {
       notifyListeners();
-    }else{
-      
-    }
+    } else {}
   }
 
   void singInEyeFunction() {
