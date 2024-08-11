@@ -90,7 +90,7 @@ class MyProfileEditPage extends ConsumerWidget {
       ),
 
       body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 18.0),
+        padding: const EdgeInsets.symmetric(horizontal: 18),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
@@ -135,20 +135,18 @@ class MyProfileEditPage extends ConsumerWidget {
   }
 }
 
-final nameProvider = StateNotifierProvider<NameNotifier, String>((ref) {
-  return NameNotifier(NameStorage());
-});
+final nameProvider = StateNotifierProvider<NameNotifier, String>((ref) => NameNotifier(NameStorage()));
 
 class NameStorage {
   static const String _keyName = "userName";
 
   Future<String> loadName() async {
-    var prefs = await SharedPreferences.getInstance();
+    final prefs = await SharedPreferences.getInstance();
     return prefs.getString(_keyName) ?? "Katty Berry";
   }
 
   Future<void> saveName(String name) async {
-    var prefs = await SharedPreferences.getInstance();
+    final prefs = await SharedPreferences.getInstance();
     await prefs.setString(_keyName, name);
   }
 }

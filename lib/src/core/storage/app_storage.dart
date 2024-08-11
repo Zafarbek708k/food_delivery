@@ -36,4 +36,3 @@ class AppStorage extends FlutterSecureStorage {
   }
 
 }
-

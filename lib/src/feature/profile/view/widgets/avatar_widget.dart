@@ -1,3 +1,4 @@
+import "dart:async";
 import "dart:io";
 import "package:flutter/material.dart";
 import "package:flutter_riverpod/flutter_riverpod.dart";
@@ -23,7 +24,7 @@ class AvatarNotifier extends Notifier<String?> {
 
     if (pickedFile != null) {
       state = pickedFile.path;
-      _saveAvatarPath(state!);
+      await _saveAvatarPath(state!);
     }
   }
 
@@ -33,7 +34,7 @@ class AvatarNotifier extends Notifier<String?> {
 
   Future<void> deleteAvatar() async {
     state = null;
-    _removeAvatarPath();
+    unawaited(_removeAvatarPath());
   }
 
   Future<void> _saveAvatarPath(String path) async {
@@ -43,7 +44,7 @@ class AvatarNotifier extends Notifier<String?> {
 
   Future<void> _removeAvatarPath() async {
     final prefs = await SharedPreferences.getInstance();
-    await prefs.remove('avatarPath');
+    await prefs.remove("avatarPath");
   }
 }
 
@@ -51,7 +52,7 @@ final avatarProvider =
 NotifierProvider<AvatarNotifier, String?>(() => AvatarNotifier());
 
 class AvatarWidget extends ConsumerWidget {
-  const AvatarWidget({Key? key}) : super(key: key);
+  const AvatarWidget({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {

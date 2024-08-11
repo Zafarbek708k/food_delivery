@@ -57,7 +57,7 @@ class _LoginTexfeildWidgetState extends State<LoginTexfeildWidget> {
                 decoration: InputDecoration(
                   errorBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(10.r),
-                    borderSide: BorderSide(
+                    borderSide: const BorderSide(
                       color: Colors.red,
                     ),
                   ),
