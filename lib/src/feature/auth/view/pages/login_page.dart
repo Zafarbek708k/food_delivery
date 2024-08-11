@@ -1,3 +1,4 @@
+import "package:flutter/cupertino.dart";
 import "package:flutter/material.dart";
 import "package:flutter_screenutil/flutter_screenutil.dart";
 import "package:flutter_svg/flutter_svg.dart";
@@ -19,17 +20,20 @@ class LoginPage extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              const SizedBox(
-                height: 150,
+               SizedBox(
+                height: 150.h,
               ),
               Padding(
-                padding:  EdgeInsets.only(right: 290.w),
-                child: Text(
-                  "Login",
-                  style: context.theme.textTheme.bodyLarge!.copyWith(
-                    fontSize: 30.sp,
-                    fontWeight: FontWeight.w600,
-                    color: AppColors.l111719,
+                padding:  EdgeInsets.symmetric(horizontal: 25.h),
+                child: Align(
+                  alignment: Alignment.bottomLeft,
+                  child: Text(
+                    "Login",
+                    style: context.theme.textTheme.bodyLarge!.copyWith(
+                      fontSize: 30.sp,
+                      fontWeight: FontWeight.w600,
+                      color: AppColors.l111719,
+                    ),
                   ),
                 ),
               ),
@@ -55,8 +59,9 @@ class LoginPage extends StatelessWidget {
                           fontWeight: FontWeight.w500,
                         ),
                       ),
-                      GestureDetector(
-                        onTap: () {
+                      CupertinoButton(
+                        padding: EdgeInsets.zero,
+                        onPressed: () {
                           context.go("${AppRouteName.signIn}/${AppRouteName.signUp}");
                         },
                         child: Text(
@@ -71,7 +76,7 @@ class LoginPage extends StatelessWidget {
                   ),
                   Padding(
                     padding: REdgeInsets.symmetric(
-                      horizontal: 60,
+                      horizontal: 25.h,
                     ),
                     child: Row(
                       children: [
@@ -109,7 +114,7 @@ class LoginPage extends StatelessWidget {
                   Column(
                     children: [
                       Padding(
-                        padding: REdgeInsets.symmetric(horizontal: 30.w),
+                        padding: REdgeInsets.symmetric(horizontal: 25.w),
                         child: MaterialButton(
                           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30.r), side: const BorderSide()),
                           height: 40.h,
@@ -141,7 +146,7 @@ class LoginPage extends StatelessWidget {
                         height: 10.h,
                       ),
                       Padding(
-                        padding: REdgeInsets.symmetric(horizontal: 30.w),
+                        padding: REdgeInsets.symmetric(horizontal: 25.w),
                         child: MaterialButton(
                           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30.r), side: const BorderSide()),
                           height: 40.h,
