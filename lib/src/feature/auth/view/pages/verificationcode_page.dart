@@ -13,15 +13,16 @@ class VerificationcodePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => Scaffold(
+        resizeToAvoidBottomInset: false,
         body: Center(
           child: SafeArea(
             child: Column(
               children: [
-                 SizedBox(
+                SizedBox(
                   height: 80.h,
                 ),
                 Padding(
-                  padding:  REdgeInsets.only(left: 25),
+                  padding: REdgeInsets.only(left: 25),
                   child: Align(
                     alignment: Alignment.centerLeft,
                     child: Text(
@@ -30,24 +31,24 @@ class VerificationcodePage extends StatelessWidget {
                     ),
                   ),
                 ),
-                 SizedBox(
+                SizedBox(
                   height: 50.h,
                 ),
                 Center(
                   child: Text(
                     "Please enter the verification code that has \nbeen sent to email@gmail.com ",
                     style: context.theme.textTheme.bodyLarge!.copyWith(
-                          color: Colors.black.withOpacity(0.6),
-                          fontSize: 16.sp,
-                          fontWeight: FontWeight.w500,
-                        ),
+                      color: Colors.black.withOpacity(0.6),
+                      fontSize: 16.sp,
+                      fontWeight: FontWeight.w500,
+                    ),
                   ),
                 ),
-                 SizedBox(
+                SizedBox(
                   height: 50.h,
                 ),
                 Padding(
-                  padding:  REdgeInsets.symmetric(horizontal: 50),
+                  padding: REdgeInsets.symmetric(horizontal: 50),
                   child: PinCodeTextField(
                     // controller: otp,
                     obscureText: false,
@@ -55,7 +56,7 @@ class VerificationcodePage extends StatelessWidget {
                     appContext: context,
                     length: 4,
                     cursorHeight: 30.h,
-                    textStyle:  TextStyle(
+                    textStyle: TextStyle(
                       fontSize: 20.sp,
                       fontWeight: FontWeight.normal,
                       color: Colors.black,
@@ -85,10 +86,15 @@ class VerificationcodePage extends StatelessWidget {
                     ),
                     GestureDetector(
                       onTap: () {},
-                      child:  Text(
+                      child: Text(
                         "Reset",
-                        style: TextStyle(color: Colors.orange, fontWeight: FontWeight.w500, fontSize: 16.sp,decoration: TextDecoration.underline,
-                    decorationColor: Colors.orange,),
+                        style: TextStyle(
+                          color: Colors.orange,
+                          fontWeight: FontWeight.w500,
+                          fontSize: 16.sp,
+                          decoration: TextDecoration.underline,
+                          decorationColor: Colors.orange,
+                        ),
                       ),
                     ),
                   ],

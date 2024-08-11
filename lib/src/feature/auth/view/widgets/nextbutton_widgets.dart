@@ -7,7 +7,7 @@ class NextbuttonWidgets extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => Padding(
-      padding:  REdgeInsets.symmetric(horizontal: 25),
+      padding:  REdgeInsets.symmetric(horizontal: 25.w),
       child: MaterialButton(
         onPressed: onPressed,
         shape: RoundedRectangleBorder(

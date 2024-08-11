@@ -8,7 +8,7 @@ class RessetEmailWidgets extends StatelessWidget {
    Widget build(BuildContext context) => Column(
       children: [
         Padding(
-          padding:  REdgeInsets.symmetric(horizontal: 20),
+          padding:  REdgeInsets.symmetric(horizontal: 25.w),
           child: Align(
             alignment: Alignment.bottomLeft,
             child: Text(
@@ -21,10 +21,10 @@ class RessetEmailWidgets extends StatelessWidget {
           ),
         ),
          SizedBox(
-          height: 5.h,
+                height: MediaQuery.of(context).size.height*0.01,
         ),
         Padding(
-          padding:  REdgeInsets.symmetric(horizontal: 25),
+          padding:  REdgeInsets.symmetric(horizontal: 25.w),
           child: TextField(
             keyboardType: TextInputType.emailAddress,
             style: const TextStyle(color: Colors.black),

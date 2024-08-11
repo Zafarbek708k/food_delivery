@@ -101,6 +101,7 @@ class _LoginTexfeildWidgetState extends State<LoginTexfeildWidget> {
                     color: Colors.black.withOpacity(0.1),
                   ),
                 ),
+                
                 suffixIcon:  IconButton(
                   onPressed: () {
                     isEye = !isEye;
@@ -108,7 +109,7 @@ class _LoginTexfeildWidgetState extends State<LoginTexfeildWidget> {
                       
                     });
                   },
-                  icon: isEye? Icon(
+                  icon: !isEye? Icon(
                     Icons.visibility_rounded,
                     color: Colors.black.withOpacity(0.4),
                   ): const Icon(Icons.visibility_off_rounded),

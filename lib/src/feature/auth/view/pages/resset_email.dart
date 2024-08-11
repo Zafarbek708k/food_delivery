@@ -16,11 +16,11 @@ class RessetEmail extends StatelessWidget {
           child: Column(
             children: [
                SizedBox(
-                height: 80.h,
+                height: MediaQuery.of(context).size.height*0.09,
               ),
               Center(
                 child: Padding(
-                  padding:  REdgeInsets.only(left: 25),
+                  padding:  REdgeInsets.symmetric(horizontal: 25.w),
                   child: Align(
                     alignment: Alignment.topLeft,
                     child: Text(
@@ -31,22 +31,26 @@ class RessetEmail extends StatelessWidget {
                 ),
               ),
                SizedBox(
-                height: 50.h,
+                height: MediaQuery.of(context).size.height*0.06,
               ),
-              Center(
-                child: Text(
-                  "Please enter the verification code that has \nbeen sent to email@gmail.com ",
-                  style: context.theme.textTheme.bodyLarge!.copyWith(
-                    color: Colors.black.withOpacity(0.6),
+              Padding(
+                padding:  REdgeInsets.symmetric(horizontal: 25.w),
+                child: Align(
+                  alignment: Alignment.bottomLeft,
+                  child: Text(
+                    "Please enter the verification code that has \nbeen sent to email@gmail.com ",
+                    style: context.theme.textTheme.bodyLarge!.copyWith(
+                      color: Colors.black.withOpacity(0.6),
+                    ),
                   ),
                 ),
               ),
                SizedBox(
-                height: 50.h,
+                height: MediaQuery.of(context).size.height*0.06,
               ),
               const RessetEmailWidgets(),
                SizedBox(
-                height: 80.h,
+                height: MediaQuery.of(context).size.height*0.09,
               ),
               NextbuttonWidgets(
                 onPressed: () {

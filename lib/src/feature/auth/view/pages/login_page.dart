@@ -20,9 +20,8 @@ class LoginPage extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
-               
               Padding(
-                padding:  EdgeInsets.symmetric(horizontal: 25.w),
+                padding: EdgeInsets.symmetric(horizontal: 25.w),
                 child: Align(
                   alignment: Alignment.bottomLeft,
                   child: Text(
@@ -44,9 +43,9 @@ class LoginPage extends StatelessWidget {
                       context.go(AppRouteName.discoveryPage);
                     },
                   ),
-                   SizedBox(
-            height: MediaQuery.of(context).size.height*0.03,
-          ),
+                  SizedBox(
+                    height: MediaQuery.of(context).size.height * 0.03,
+                  ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
@@ -64,14 +63,17 @@ class LoginPage extends StatelessWidget {
                         },
                         child: Text(
                           "Sing Up",
-                          style: TextStyle(fontSize: 16.sp, color: Colors.orange,),
+                          style: TextStyle(
+                            fontSize: 16.sp,
+                            color: Colors.orange,
+                          ),
                         ),
                       ),
                     ],
                   ),
-                   SizedBox(
-            height: MediaQuery.of(context).size.height*0.03,
-          ),
+                  SizedBox(
+                    height: MediaQuery.of(context).size.height * 0.03,
+                  ),
                   Padding(
                     padding: REdgeInsets.symmetric(
                       horizontal: 25.w,
@@ -85,7 +87,7 @@ class LoginPage extends StatelessWidget {
                           ),
                         ),
                         SizedBox(
-                          width: MediaQuery.of(context).size.width*0.02,
+                          width: MediaQuery.of(context).size.width * 0.02,
                         ),
                         Text(
                           "Sign in with",
@@ -95,7 +97,7 @@ class LoginPage extends StatelessWidget {
                           ),
                         ),
                         SizedBox(
-                          width: MediaQuery.of(context).size.width*0.02,
+                          width: MediaQuery.of(context).size.width * 0.02,
                         ),
                         const Expanded(
                           child: Divider(
@@ -107,14 +109,17 @@ class LoginPage extends StatelessWidget {
                     ),
                   ),
                   SizedBox(
-                    height: MediaQuery.of(context).size.height*0.03,
+                    height: MediaQuery.of(context).size.height * 0.03,
                   ),
                   Column(
                     children: [
                       Padding(
                         padding: REdgeInsets.symmetric(horizontal: 25.w),
                         child: MaterialButton(
-                          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30.r), side: const BorderSide()),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(30.r),
+                            side: const BorderSide(),
+                          ),
                           height: 40.h,
                           minWidth: double.infinity,
                           onPressed: () {},
@@ -123,10 +128,10 @@ class LoginPage extends StatelessWidget {
                             children: [
                               SvgPicture.asset(
                                 "assets/icons/facebook_icon.svg",
-                                width: MediaQuery.of(context).size.width*0.07,
+                                width: MediaQuery.of(context).size.width * 0.07,
                               ),
                               SizedBox(
-                                width: MediaQuery.of(context).size.width*0.07,
+                                width: MediaQuery.of(context).size.width * 0.07,
                               ),
                               Text(
                                 "Countine with Facebook",
@@ -141,12 +146,15 @@ class LoginPage extends StatelessWidget {
                         ),
                       ),
                       SizedBox(
-                                height: MediaQuery.of(context).size.height*0.01,
+                        height: MediaQuery.of(context).size.height * 0.01,
                       ),
                       Padding(
                         padding: REdgeInsets.symmetric(horizontal: 25.w),
                         child: MaterialButton(
-                          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30.r), side: const BorderSide()),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(30.r),
+                            side: const BorderSide(),
+                          ),
                           height: 40.h,
                           minWidth: double.infinity,
                           onPressed: () {},
@@ -155,10 +163,10 @@ class LoginPage extends StatelessWidget {
                             children: [
                               SvgPicture.asset(
                                 "assets/icons/google_icon.svg",
-                                width: MediaQuery.of(context).size.width*0.07,
+                                width: MediaQuery.of(context).size.width * 0.07,
                               ),
                               SizedBox(
-                                width: MediaQuery.of(context).size.width*0.07,
+                                width: MediaQuery.of(context).size.width * 0.07,
                               ),
                               Text(
                                 "Continue with Google",
@@ -171,6 +179,9 @@ class LoginPage extends StatelessWidget {
                             ],
                           ),
                         ),
+                      ),
+                      SizedBox(
+                        height: MediaQuery.of(context).size.height * 0.01,
                       ),
                     ],
                   ),
