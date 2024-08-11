@@ -106,7 +106,7 @@ class _DiscoveryPageState extends ConsumerState<DiscoveryPage> {
               ),
             ),
             SizedBox(
-              height: 250.h,
+              height: 260.h,
               child: ListView(
                 scrollDirection: Axis.horizontal,
                 children: [
@@ -191,8 +191,8 @@ class _DiscoveryPageState extends ConsumerState<DiscoveryPage> {
               ),
             ),
 
-            const SizedBox(
-              height: 75,
+            SizedBox(
+              height: 75.h,
             ),
           ],
         ),

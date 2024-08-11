@@ -4,8 +4,13 @@ import "package:food_delivery/src/core/constants/context_extension.dart";
 import "package:food_delivery/src/core/style/app_images.dart";
 
 class InfoWelcomePageWidgets extends StatelessWidget {
-  const InfoWelcomePageWidgets(
-      {required this.googleButton, required this.facebookButton, required this.emailButton, required this.signInButton, super.key,});
+  const InfoWelcomePageWidgets({
+    required this.googleButton,
+    required this.facebookButton,
+    required this.emailButton,
+    required this.signInButton,
+    super.key,
+  });
 
   final VoidCallback googleButton;
   final VoidCallback facebookButton;
@@ -25,7 +30,7 @@ class InfoWelcomePageWidgets extends StatelessWidget {
             Text(
               "Get your favourite meals delivered quickly right to your doorstep",
               textAlign: TextAlign.center,
-              style: context.theme.textTheme.bodyLarge,
+              style: context.theme.textTheme.bodyLarge?.copyWith(color: Colors.white),
             ),
             const Spacer(),
             MaterialButton(
@@ -36,7 +41,10 @@ class InfoWelcomePageWidgets extends StatelessWidget {
                 borderRadius: BorderRadius.circular(15),
               ),
               color: Colors.black,
-              child: Text("Start with email", style: context.theme.textTheme.bodyLarge),
+              child: Text(
+                "Start with email",
+                style: context.theme.textTheme.bodyLarge?.copyWith(color: Colors.white, fontWeight: FontWeight.w600),
+              ),
             ),
             SizedBox(height: 16.h),
             Row(
@@ -58,10 +66,10 @@ class InfoWelcomePageWidgets extends StatelessWidget {
                     onPressed: googleButton,
                     height: 55,
                     shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(15),
+                      borderRadius: BorderRadius.circular(15.r),
                     ),
                     color: context.theme.primaryColor,
-                    child: SizedBox(height: 45.h, width: 50.w, child: AppImages.iconGoogle),
+                    child: SizedBox(height: 40.h, width: 50.w, child: AppImages.iconGoogle),
                   ),
                 ),
                 const SizedBox(width: 65),
@@ -70,10 +78,10 @@ class InfoWelcomePageWidgets extends StatelessWidget {
                     onPressed: facebookButton,
                     height: 55,
                     shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(15),
+                      borderRadius: BorderRadius.circular(15.r),
                     ),
                     color: context.theme.primaryColor,
-                    child: SizedBox(height: 45, width: 50, child: AppImages.iconFacebook),
+                    child: SizedBox(height: 40.h, width: 50.w, child: AppImages.iconFacebook),
                   ),
                 ),
               ],
@@ -81,10 +89,16 @@ class InfoWelcomePageWidgets extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text("Already have an account?", style: context.theme.textTheme.bodyLarge?.copyWith(color: Colors.black, fontWeight: FontWeight.w600)),
+                Text(
+                  "Already have an account?",
+                  style: context.theme.textTheme.bodyLarge?.copyWith(color: Colors.black, fontWeight: FontWeight.w600),
+                ),
                 TextButton(
                   onPressed: signInButton,
-                  child: Text("Sign In", style: context.theme.textTheme.bodyLarge?.copyWith(color: Colors.white)),
+                  child: Text(
+                    "Sign In",
+                    style: context.theme.textTheme.bodyLarge?.copyWith(color: Colors.white),
+                  ),
                 ),
               ],
             ),
