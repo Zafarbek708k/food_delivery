@@ -9,13 +9,13 @@ class RegisterTexfeildWidgets extends StatefulWidget {
 }
 
 class _RegisterTexfeildWidgetsState extends State<RegisterTexfeildWidgets> {
-  bool isEye = false;
+  bool isEye = true;
 
   @override
   Widget build(BuildContext context) => Column(
         children: [
           Padding(
-            padding:  REdgeInsets.symmetric(horizontal: 20),
+            padding:  REdgeInsets.symmetric(horizontal: 25.w),
             child: Align(
               alignment: Alignment.bottomLeft,
               child: Text(
@@ -28,11 +28,13 @@ class _RegisterTexfeildWidgetsState extends State<RegisterTexfeildWidgets> {
             ),
           ),
            SizedBox(
-            height: 5.h,
+            height: MediaQuery.of(context).size.height*0.01,
           ),
           Padding(
-            padding:  REdgeInsets.symmetric(horizontal: 25),
+            padding:  REdgeInsets.symmetric(horizontal: 25.w),
             child: TextField(
+                            textInputAction: TextInputAction.next,
+
               style: const TextStyle(color: Colors.black),
               keyboardType: TextInputType.name,
               decoration: InputDecoration(
@@ -57,8 +59,11 @@ class _RegisterTexfeildWidgetsState extends State<RegisterTexfeildWidgets> {
               ),
             ),
           ),
+           SizedBox(
+            height: MediaQuery.of(context).size.height*0.01,
+          ),
           Padding(
-            padding:  REdgeInsets.symmetric(horizontal: 20),
+            padding:  REdgeInsets.symmetric(horizontal: 25.w),
             child: Align(
               alignment: Alignment.bottomLeft,
               child: Text(
@@ -71,11 +76,13 @@ class _RegisterTexfeildWidgetsState extends State<RegisterTexfeildWidgets> {
             ),
           ),
            SizedBox(
-            height: 5.h,
+            height: MediaQuery.of(context).size.height*0.01,
           ),
           Padding(
-            padding:  REdgeInsets.symmetric(horizontal: 25),
+            padding:  REdgeInsets.symmetric(horizontal: 25.w),
             child: TextField(
+                            textInputAction: TextInputAction.next,
+
               style: const TextStyle(color: Colors.black),
               keyboardType: TextInputType.emailAddress,
               decoration: InputDecoration(
@@ -101,10 +108,10 @@ class _RegisterTexfeildWidgetsState extends State<RegisterTexfeildWidgets> {
             ),
           ),
            SizedBox(
-            height: 15.sp,
+            height: MediaQuery.of(context).size.height*0.01,
           ),
           Padding(
-            padding:  REdgeInsets.symmetric(horizontal: 20),
+            padding:  REdgeInsets.symmetric(horizontal: 25.w),
             child: Align(
               alignment: Alignment.bottomLeft,
               child: Text(
@@ -117,11 +124,12 @@ class _RegisterTexfeildWidgetsState extends State<RegisterTexfeildWidgets> {
             ),
           ),
            SizedBox(
-            height: 5.r,
+            height: MediaQuery.of(context).size.height*0.01,
           ),
           Padding(
-            padding:  REdgeInsets.symmetric(horizontal: 25),
+            padding:  REdgeInsets.symmetric(horizontal: 25.w),
             child: TextField(
+              obscureText: isEye,
               style: const TextStyle(color: Colors.black),
               keyboardType: TextInputType.visiblePassword,
               decoration: InputDecoration(
@@ -143,7 +151,7 @@ class _RegisterTexfeildWidgetsState extends State<RegisterTexfeildWidgets> {
                     isEye = !isEye;
                     setState(() {});
                   },
-                  icon: isEye
+                  icon: !isEye
                       ? Icon(
                           Icons.visibility_rounded,
                           color: Colors.black.withOpacity(0.4),

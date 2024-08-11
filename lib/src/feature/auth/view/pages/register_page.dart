@@ -1,3 +1,4 @@
+import "package:flutter/cupertino.dart";
 import "package:flutter/material.dart";
 import "package:flutter_screenutil/flutter_screenutil.dart";
 import "package:flutter_svg/svg.dart";
@@ -15,11 +16,8 @@ class RegisterPage extends StatelessWidget {
         resizeToAvoidBottomInset: false,
         body: SafeArea(
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            mainAxisAlignment: MainAxisAlignment.end,
             children: [
-              SizedBox(
-                height: 80.h,
-              ),
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: 25.w),
                 child: Align(
@@ -35,6 +33,9 @@ class RegisterPage extends StatelessWidget {
                 ),
               ),
               const RegisterTexfeildWidgets(),
+              SizedBox(
+                height: MediaQuery.of(context).size.height * 0.03,
+              ),
               Column(
                 children: [
                   RegesterButtonWidget(
@@ -43,7 +44,7 @@ class RegisterPage extends StatelessWidget {
                     },
                   ),
                   SizedBox(
-                    height: 25.h,
+                    height: MediaQuery.of(context).size.height * 0.03,
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -54,10 +55,11 @@ class RegisterPage extends StatelessWidget {
                           fontWeight: FontWeight.w500,
                         ),
                       ),
-                      GestureDetector(
-                        onTap: () {
+                      CupertinoButton(
+                        onPressed: () {
                           context.pop();
                         },
+                        padding: EdgeInsets.zero,
                         child: Text(
                           "Login",
                           style: TextStyle(
@@ -70,11 +72,11 @@ class RegisterPage extends StatelessWidget {
                     ],
                   ),
                   SizedBox(
-                    height: 25.h,
+                    height: MediaQuery.of(context).size.height * 0.03,
                   ),
                   Padding(
                     padding: REdgeInsets.symmetric(
-                      horizontal: 60,
+                      horizontal: 25.w,
                     ),
                     child: Row(
                       children: [
@@ -85,17 +87,16 @@ class RegisterPage extends StatelessWidget {
                           ),
                         ),
                         SizedBox(
-                          width: 10.w,
+                          width: MediaQuery.of(context).size.width * 0.02,
                         ),
                         Text(
                           "Sign in with",
                           style: context.theme.textTheme.bodyLarge!.copyWith(
                             fontWeight: FontWeight.w600,
-                            
                           ),
                         ),
                         SizedBox(
-                          width: 10.w,
+                          width: MediaQuery.of(context).size.width * 0.02,
                         ),
                         const Expanded(
                           child: Divider(
@@ -107,14 +108,17 @@ class RegisterPage extends StatelessWidget {
                     ),
                   ),
                   SizedBox(
-                    height: 20.h,
+                    height: MediaQuery.of(context).size.height * 0.02,
                   ),
                   Column(
                     children: [
                       Padding(
-                        padding: REdgeInsets.symmetric(horizontal: 30),
+                        padding: REdgeInsets.symmetric(horizontal: 25.w),
                         child: MaterialButton(
-                          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30.r), side: const BorderSide()),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(30.r),
+                            side: const BorderSide(),
+                          ),
                           height: 40.h,
                           minWidth: double.infinity,
                           onPressed: () {},
@@ -123,10 +127,10 @@ class RegisterPage extends StatelessWidget {
                             children: [
                               SvgPicture.asset(
                                 "assets/icons/facebook_icon.svg",
-                                width: 25.w,
+                                width: MediaQuery.of(context).size.width * 0.07,
                               ),
                               SizedBox(
-                                width: 20.w,
+                                width: MediaQuery.of(context).size.width * 0.03,
                               ),
                               Text(
                                 "Countine with Facebook",
@@ -140,12 +144,15 @@ class RegisterPage extends StatelessWidget {
                         ),
                       ),
                       SizedBox(
-                        height: 10.h,
+                        height: MediaQuery.of(context).size.height * 0.01,
                       ),
                       Padding(
-                        padding: REdgeInsets.symmetric(horizontal: 30),
+                        padding: REdgeInsets.symmetric(horizontal: 25.w),
                         child: MaterialButton(
-                          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30.r), side: const BorderSide()),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(30.r),
+                            side: const BorderSide(),
+                          ),
                           height: 40.h,
                           minWidth: double.infinity,
                           onPressed: () {},
@@ -154,11 +161,12 @@ class RegisterPage extends StatelessWidget {
                             children: [
                               SvgPicture.asset(
                                 "assets/icons/google_icon.svg",
-                                width: 25.w,
+                    width: MediaQuery.of(context).size.width * 0.07,
+                  
                               ),
                               SizedBox(
-                                width: 20.w,
-                              ),
+                    width: MediaQuery.of(context).size.width * 0.03,
+                  ),
                               Text(
                                 "Countine with Google",
                                 style: context.theme.textTheme.bodyLarge!.copyWith(
@@ -170,6 +178,9 @@ class RegisterPage extends StatelessWidget {
                           ),
                         ),
                       ),
+                      SizedBox(
+                    height: MediaQuery.of(context).size.height * 0.02,
+                  ),
                     ],
                   ),
                 ],
