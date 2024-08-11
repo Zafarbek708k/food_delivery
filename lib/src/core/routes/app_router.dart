@@ -11,10 +11,6 @@ import "package:food_delivery/src/feature/home/view/pages/discovery_page.dart";
 import "package:food_delivery/src/feature/home/view/pages/home_page.dart";
 import "package:food_delivery/src/feature/home/view/pages/splash_page.dart";
 import "package:food_delivery/src/feature/home/view/pages/welcome_page.dart";
-import "package:food_delivery/src/feature/restaurant/page/delivery_map_page.dart";
-import "package:food_delivery/src/feature/restaurant/page/restaraunt_page.dart";
-import "package:food_delivery/src/feature/restaurant/page/restaurant_detail_page.dart";
-import "package:food_delivery/src/feature/profile/pages/profile_page.dart";
 import "package:food_delivery/src/feature/search/pages/search_page.dart";
 import "package:go_router/go_router.dart";
 
@@ -138,6 +134,7 @@ final class AppRouter {
             ),
             routes: [
               restaurantDetailPage,
+              mapDeliveryPage,
             ],
           ),
           GoRoute(

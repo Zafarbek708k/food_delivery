@@ -39,7 +39,7 @@ class _MapDeliveryPageState extends ConsumerState<MapDeliveryPage> {
             mapObjects: restaurantVmState.mapObjectList,
           ),
 
-          DeliveryBottomWidget(),
+          DeliveryBottomWidget(time: restaurantVmState.time,),
 
           Positioned(
             top: 50.h,
