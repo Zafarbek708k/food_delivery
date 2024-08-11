@@ -1,14 +1,15 @@
+import "package:cached_network_image/cached_network_image.dart";
 import "package:flutter/material.dart";
 import "package:flutter_riverpod/flutter_riverpod.dart";
 import "package:flutter_screenutil/flutter_screenutil.dart";
+import "package:go_router/go_router.dart";
 
+import "../../../../core/routes/app_route_name.dart";
 import "../../../../core/style/app_colors.dart";
 import "../../model/food_model.dart";
 import "../../view_model/restaurant_detail_vm.dart";
 import "../widgets/button_orange.dart";
 import "../widgets/restaraunt_food_widget.dart";
-import "food_details_page.dart";
-import "order_page.dart";
 
 class RestaurantDetail extends ConsumerWidget {
   const RestaurantDetail({super.key});
@@ -41,9 +42,16 @@ class RestaurantDetail extends ConsumerWidget {
                 SizedBox(
                   height: MediaQuery.of(context).size.height * 0.3.h,
                   width: MediaQuery.of(context).size.width.w,
-                  child: Image.network(
-                    "https://assets.bonappetit.com/photos/61ba70da510874520d257b78/16:9/w_1920,c_limit/LEDE_Oma's%20Hideaway,%20Credit%20Christine%20Dong.jpg",
+                  child: CachedNetworkImage(
+                    imageUrl:
+                        "https://assets.bonappetit.com/photos/61ba70da510874520d257b78/16:9/w_1920,c_limit/LEDE_Oma's%20Hideaway,%20Credit%20Christine%20Dong.jpg",
+                    height: 150.h,
+                    width: double.infinity.w,
                     fit: BoxFit.cover,
+                    placeholder: (context, url) =>
+                        const Center(child: CircularProgressIndicator()),
+                    errorWidget: (context, url, error) =>
+                        const Center(child: Icon(Icons.error)),
                   ),
                 ),
                 Padding(
@@ -79,9 +87,9 @@ class RestaurantDetail extends ConsumerWidget {
                       const SizedBox(height: 8),
                       Row(
                         children: [
-                          Icon(Icons.star, color: Colors.orange),
+                          const Icon(Icons.star, color: Colors.orange),
                           SizedBox(width: 4.w),
-                          Text("Excellent 9.5"),
+                          const Text("Excellent 9.5"),
                         ],
                       ),
                       const SizedBox(height: 8),
@@ -189,12 +197,8 @@ class RestaurantDetail extends ConsumerWidget {
                                   navigateToDetails: () async {
                                     cartNotifier.setCurrentFoodItem(item);
                                     final updatedQuantity =
-                                        await Navigator.push<int>(
-                                      context,
-                                      MaterialPageRoute(
-                                        builder: (context) =>
-                                            const FoodDetailsPage(),
-                                      ),
+                                        await context.push<int>(
+                                      "${AppRouteName.restaurantPage}/${AppRouteName.restaurantDetailPage}/${AppRouteName.foodDetailPage}",
                                     );
                                     if (updatedQuantity != null &&
                                         updatedQuantity != cartItem.quantity) {
@@ -227,11 +231,8 @@ class RestaurantDetail extends ConsumerWidget {
                   final defaultFoodItem = foods.isNotEmpty ? foods.first : null;
                   if (defaultFoodItem != null) {
                     cartNotifier.setCurrentFoodItem(defaultFoodItem);
-                    final updatedQuantity = await Navigator.push<int>(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => const OrderPage(),
-                      ),
+                    final updatedQuantity = await context.push<int>(
+                      "${AppRouteName.restaurantPage}/${AppRouteName.restaurantDetailPage}/${AppRouteName.orderPage}",
                     );
                     if (updatedQuantity != null) {
                       cartNotifier.updateQuantity(

@@ -1,13 +1,14 @@
+import "package:cached_network_image/cached_network_image.dart";
 import "package:flutter/material.dart";
 import "package:flutter_riverpod/flutter_riverpod.dart";
 import "package:flutter_screenutil/flutter_screenutil.dart";
+import "package:go_router/go_router.dart";
+import "../../../../core/routes/app_route_name.dart";
 import "../../../../core/style/app_colors.dart";
 import "../../model/food_model.dart";
 import "../../view_model/restaurant_detail_vm.dart";
 import "../widgets/button_orange.dart";
 import "../widgets/restaraunt_food_mini_widget.dart";
-import "food_details_page.dart";
-
 class OrderPage extends ConsumerWidget {
   const OrderPage({super.key});
   @override
@@ -69,12 +70,21 @@ class OrderPage extends ConsumerWidget {
                                     Expanded(
                                       flex: 3,
                                       child: ClipRRect(
-                                        borderRadius: BorderRadius.circular(8),
-                                        child: Image.network(
-                                          cartItem.foodItem.imageUrl,
+                                        borderRadius:
+                                            BorderRadius.circular(8.r),
+                                        child: CachedNetworkImage(
+                                          imageUrl: cartItem.foodItem.imageUrl,
                                           height: 100.h,
                                           width: 100.w,
                                           fit: BoxFit.cover,
+                                          placeholder: (context, url) =>
+                                              const Center(
+                                            child: CircularProgressIndicator(),
+                                          ),
+                                          errorWidget: (context, url, error) =>
+                                              const Center(
+                                            child: Icon(Icons.error),
+                                          ),
                                         ),
                                       ),
                                     ),
@@ -119,7 +129,7 @@ class OrderPage extends ConsumerWidget {
                                             decoration: BoxDecoration(
                                               color: AppColors.lFED8CC,
                                               borderRadius:
-                                                  BorderRadius.circular(20),
+                                                  BorderRadius.circular(20.r),
                                             ),
                                             child: Row(
                                               children: [
@@ -257,11 +267,8 @@ class OrderPage extends ConsumerWidget {
                           },
                           navigateToDetails: () async {
                             cartNotifier.setCurrentFoodItem(item);
-                            final updatedQuantity = await Navigator.push<int>(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => const FoodDetailsPage(),
-                              ),
+                            final updatedQuantity = await context.push<int>(
+                              "${AppRouteName.restaurantPage}/${AppRouteName.restaurantDetailPage}/${AppRouteName.orderPage}/${AppRouteName.foodDetailPage}",
                             );
                             if (updatedQuantity != null &&
                                 updatedQuantity != cartItem.quantity) {
@@ -280,7 +287,11 @@ class OrderPage extends ConsumerWidget {
               ),
             ),
             OrangeButton(
-              onPressed: () async {},
+              onPressed: () async {
+                context.go(
+                  "${AppRouteName.restaurantPage}/${AppRouteName.restaurantDetailPage}/${AppRouteName.orderPage}/${AppRouteName.mapDeliveryPage}",
+                );
+              },
               text:
                   "Go to checkout       Total: €${totalPrice.toStringAsFixed(0)}",
             ),

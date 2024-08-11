@@ -1,3 +1,4 @@
+import "package:cached_network_image/cached_network_image.dart";
 import "package:flutter/material.dart";
 import "package:flutter_riverpod/flutter_riverpod.dart";
 import "package:flutter_screenutil/flutter_screenutil.dart";
@@ -27,11 +28,15 @@ class FoodDetailsPage extends ConsumerWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Image.network(
-              foodItem.imageUrl,
+            CachedNetworkImage(
+              imageUrl: foodItem.imageUrl,
               height: 200.h,
               width: double.infinity.w,
               fit: BoxFit.cover,
+              placeholder: (context, url) =>
+                  const Center(child: CircularProgressIndicator()),
+              errorWidget: (context, url, error) =>
+                  const Center(child: Icon(Icons.error)),
             ),
             SizedBox(height: 16.h),
             Row(
@@ -63,7 +68,7 @@ class FoodDetailsPage extends ConsumerWidget {
             ),
             SizedBox(height: 16.h),
             Text(
-              "€ ${foodItem.price}",
+              "€ ${foodItem.price.toStringAsFixed(0)}",
               style: TextStyle(
                 color: AppColors.lF83B01,
                 fontSize: 20.sp,
@@ -81,7 +86,7 @@ class FoodDetailsPage extends ConsumerWidget {
                   .map(
                     (addOn) => CheckboxListTile(
                       title: Text(
-                        "${addOn.name} (+€${addOn.price.toStringAsFixed(2)})",
+                        "${addOn.name} (+€${addOn.price.toStringAsFixed(0)})",
                       ),
                       value: addOnsSelection[addOn],
                       onChanged: (bool? value) {
@@ -109,7 +114,7 @@ class FoodDetailsPage extends ConsumerWidget {
                   width: 110.w,
                   decoration: BoxDecoration(
                     color: AppColors.lFED8CC,
-                    borderRadius: BorderRadius.circular(20),
+                    borderRadius: BorderRadius.circular(20.r),
                   ),
                   child: Row(
                     children: [

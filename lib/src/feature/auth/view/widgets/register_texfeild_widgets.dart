@@ -1,18 +1,30 @@
 import "package:flutter/material.dart";
-import "package:flutter_riverpod/flutter_riverpod.dart";
 import "package:flutter_screenutil/flutter_screenutil.dart";
-import "package:food_delivery/riverpod.dart";
 import "package:food_delivery/src/feature/auth/view/widgets/regester_button_widget.dart";
 
-class RegisterTexfeildWidgets extends ConsumerWidget {
+class RegisterTexfeildWidgets extends StatefulWidget {
+  const RegisterTexfeildWidgets({super.key});
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) => Form(
-        key: ref.read(authVm).fromKey,
-        child: Column(
+  State<RegisterTexfeildWidgets> createState() => _RegisterTexfeildWidgetsState();
+}
+
+final _fromKey = GlobalKey<FormState>();
+
+ TextEditingController emailController = TextEditingController();
+  TextEditingController passwordController = TextEditingController();
+  TextEditingController nameController = TextEditingController();
+
+class _RegisterTexfeildWidgetsState extends State<RegisterTexfeildWidgets> {
+  bool isEye = true;
+
+  @override
+  Widget build(BuildContext context) => Form(
+key: _fromKey,
+    child: Column(
           children: [
             Padding(
-              padding: REdgeInsets.symmetric(horizontal: 25.w),
+              padding:  REdgeInsets.symmetric(horizontal: 25.w),
               child: Align(
                 alignment: Alignment.bottomLeft,
                 child: Text(
@@ -24,14 +36,15 @@ class RegisterTexfeildWidgets extends ConsumerWidget {
                 ),
               ),
             ),
-            SizedBox(
-              height: MediaQuery.of(context).size.height * 0.01,
+             SizedBox(
+              height: MediaQuery.of(context).size.height*0.01,
             ),
             Padding(
-              padding: REdgeInsets.symmetric(horizontal: 25.w),
+              padding:  REdgeInsets.symmetric(horizontal: 25.w),
               child: TextFormField(
-                controller: ref.read(authVm).registerNameController,
-                textInputAction: TextInputAction.next,
+                controller: nameController,
+                              textInputAction: TextInputAction.next,
+    
                 style: const TextStyle(color: Colors.black),
                 keyboardType: TextInputType.name,
                 decoration: InputDecoration(
@@ -68,14 +81,19 @@ class RegisterTexfeildWidgets extends ConsumerWidget {
                     fontSize: 16.sp,
                   ),
                 ),
-                validator: (value) => value != null && ref.read(authVm).registerNameController.text.isNotEmpty ? null : "please enter your username",
+                validator: (value) => value != null && nameController.text.isNotEmpty ? null : "please enter your username",
+                    onChanged: (value) {
+                      if (_fromKey.currentState!.validate()) {
+                        setState(() {});
+                      }
+                    },
               ),
             ),
-            SizedBox(
-              height: MediaQuery.of(context).size.height * 0.01,
+             SizedBox(
+              height: MediaQuery.of(context).size.height*0.01,
             ),
             Padding(
-              padding: REdgeInsets.symmetric(horizontal: 25.w),
+              padding:  REdgeInsets.symmetric(horizontal: 25.w),
               child: Align(
                 alignment: Alignment.bottomLeft,
                 child: Text(
@@ -87,14 +105,14 @@ class RegisterTexfeildWidgets extends ConsumerWidget {
                 ),
               ),
             ),
-            SizedBox(
-              height: MediaQuery.of(context).size.height * 0.01,
+             SizedBox(
+              height: MediaQuery.of(context).size.height*0.01,
             ),
             Padding(
-              padding: REdgeInsets.symmetric(horizontal: 25.w),
+              padding:  REdgeInsets.symmetric(horizontal: 25.w),
               child: TextFormField(
-                textInputAction: TextInputAction.next,
-                controller: ref.read(authVm).registerEmailController,
+                              textInputAction: TextInputAction.next,
+    controller: emailController,
                 style: const TextStyle(color: Colors.black),
                 keyboardType: TextInputType.emailAddress,
                 decoration: InputDecoration(
@@ -125,21 +143,22 @@ class RegisterTexfeildWidgets extends ConsumerWidget {
                       color: Colors.black.withOpacity(0.1),
                     ),
                   ),
+                  
                   hintText: "Your email",
                   hintStyle: TextStyle(
                     color: Colors.black.withOpacity(0.3),
                     fontSize: 16.sp,
                   ),
                 ),
-                validator: (value) =>
-                    value != null && value.contains("@gmail.com") ? null : 'please enter your email address Example => (example@gmail.com)',
+                                validator: (value) => value != null && value.contains("@gmail.com") ? null : "please enter your email address Example => (example@gmail.com)",
+
               ),
             ),
-            SizedBox(
-              height: MediaQuery.of(context).size.height * 0.01,
+             SizedBox(
+              height: MediaQuery.of(context).size.height*0.01,
             ),
             Padding(
-              padding: REdgeInsets.symmetric(horizontal: 25.w),
+              padding:  REdgeInsets.symmetric(horizontal: 25.w),
               child: Align(
                 alignment: Alignment.bottomLeft,
                 child: Text(
@@ -151,14 +170,14 @@ class RegisterTexfeildWidgets extends ConsumerWidget {
                 ),
               ),
             ),
-            SizedBox(
-              height: MediaQuery.of(context).size.height * 0.01,
+             SizedBox(
+              height: MediaQuery.of(context).size.height*0.01,
             ),
             Padding(
-              padding: REdgeInsets.symmetric(horizontal: 25.w),
+              padding:  REdgeInsets.symmetric(horizontal: 25.w),
               child: TextFormField(
-                controller: ref.read(authVm).registerPasswordController,
-                obscureText: ref.read(authVm).registerEye,
+                controller: passwordController,
+                obscureText: isEye,
                 style: const TextStyle(color: Colors.black),
                 keyboardType: TextInputType.visiblePassword,
                 decoration: InputDecoration(
@@ -190,8 +209,11 @@ class RegisterTexfeildWidgets extends ConsumerWidget {
                     ),
                   ),
                   suffixIcon: IconButton(
-                    onPressed: ref.watch(authVm).singInEyeFunction,
-                    icon: !ref.read(authVm).registerEye
+                    onPressed: () {
+                      isEye = !isEye;
+                      setState(() {});
+                    },
+                    icon: !isEye
                         ? Icon(
                             Icons.visibility_rounded,
                             color: Colors.black.withOpacity(0.4),
@@ -205,24 +227,24 @@ class RegisterTexfeildWidgets extends ConsumerWidget {
                   ),
                 ),
                 validator: (value) {
-                  final regex = RegExp(r"^(?=.*?[a-z])(?=.*?[0-9]).{8,}$");
-                  return value != null && value.contains(regex)
-                      ? null
-                      : "must be 8 or more characters  and contain at least 1 number or special character";
-                },
+                      final regex = RegExp(r"^(?=.*?[a-z])(?=.*?[0-9]).{8,}$");
+                      return value != null && value.contains(regex) ? null : "must be 8 or more characters  and contain at least 1 number or special character";
+                    },
                 // validator: (value) => value != null && value.contains("@gmail.com") ? null : 'please enter your email address Example => (example@gmail.com)',
               ),
             ),
             SizedBox(
-              height: MediaQuery.of(context).size.height * 0.03,
-            ),
-            RegesterButtonWidget(
-              onPressed: ref.watch(authVm).singInBUtton,
-
-                // context.go("${AppRouteName.signIn}/${AppRouteName.signUp}/${AppRouteName.verification}");
-
-                ),
+                height: MediaQuery.of(context).size.height * 0.03,
+              ),
+              RegesterButtonWidget(
+                    onPressed: () {
+                      if (_fromKey.currentState!.validate()) {
+                        setState(() {});
+                      }
+                      // context.go("${AppRouteName.signIn}/${AppRouteName.signUp}/${AppRouteName.verification}");
+                    },
+                  ),
           ],
         ),
-      );
+  );
 }

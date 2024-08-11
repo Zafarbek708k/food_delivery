@@ -29,7 +29,9 @@ class RestaurantsPage extends ConsumerWidget {
                 width: 35,
               ),
               onPressed: () {
-                context.go("${AppRouteName.restaurantPage}/${AppRouteName.mapDeliveryPage}");
+                context.go(
+                  "${AppRouteName.restaurantPage}/${AppRouteName.mapDeliveryPage}",
+                );
                 log("message");
               },
             ),
@@ -78,7 +80,9 @@ class RestaurantsPage extends ConsumerWidget {
               delegate: SliverChildBuilderDelegate(
                 (context, index) => RestaurantCard(
                   onTap: () {
-                    context.go("${AppRouteName.restaurantPage}/${AppRouteName.restaurantDetailPage}");
+                    context.go(
+                      "${AppRouteName.restaurantPage}/${AppRouteName.restaurantDetailPage}",
+                    );
                   },
                 ),
                 childCount: 10,
