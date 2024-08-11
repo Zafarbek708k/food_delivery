@@ -75,13 +75,13 @@ class FoodItemCard extends StatelessWidget {
   Widget build(BuildContext context) => Card(
     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
     elevation: 5,
-    child: Column(
+    child:  Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Stack(
           children: [
             ClipRRect(
-              borderRadius: BorderRadius.circular(15),
+              borderRadius: const BorderRadius.only(topLeft: Radius.circular(15), topRight: Radius.circular(15)),
               child: Image.network(
                 cardItem.imageUrl,
                 height: 180,
@@ -108,30 +108,30 @@ class FoodItemCard extends StatelessWidget {
         Column(
           children: [
             Padding(
-              padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 10),
+              padding: EdgeInsets.symmetric(vertical: 5, horizontal: 10),
               child: Text(
                 cardItem.title,
-                style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
               ),
             ),
             Text(
               cardItem.description,
-              style: const TextStyle(fontSize: 14, color: Colors.grey),
+              style: TextStyle(fontSize: 14, color: Colors.grey),
             ),
             SizedBox(height: 20.h,),
             Padding(
-              padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 10),
+              padding: EdgeInsets.symmetric(vertical: 5, horizontal: 10),
               child: Row(
                 children: [
-                  const Icon(Icons.star, size: 16, color: Colors.orange),
-                  const SizedBox(width: 5),
-                  Text(cardItem.rating, style: const TextStyle(fontSize: 14)),
-                  const Spacer(),
+                  Icon(Icons.star, size: 16, color: Colors.orange),
+                  SizedBox(width: 5),
+                  Text(cardItem.rating, style: TextStyle(fontSize: 14)),
+                  Spacer(),
                   Row(
                     children: [
-                      const Icon(Icons.timer, size: 16, color: Colors.orange),
-                      const SizedBox(width: 5),
-                      Text(cardItem.time, style: const TextStyle(fontSize: 14)),
+                      Icon(Icons.timer, size: 16, color: Colors.orange),
+                      SizedBox(width: 5),
+                      Text(cardItem.time, style: TextStyle(fontSize: 14)),
                     ],
                   ),
                 ],
