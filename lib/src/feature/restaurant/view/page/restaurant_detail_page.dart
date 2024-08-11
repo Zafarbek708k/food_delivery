@@ -10,6 +10,7 @@ import "../../model/food_model.dart";
 import "../../view_model/restaurant_detail_vm.dart";
 import "../widgets/button_orange.dart";
 import "../widgets/restaraunt_food_widget.dart";
+
 class RestaurantDetail extends ConsumerWidget {
   const RestaurantDetail({super.key});
   @override
