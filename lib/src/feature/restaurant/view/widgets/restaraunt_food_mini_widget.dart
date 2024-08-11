@@ -1,3 +1,4 @@
+import "package:cached_network_image/cached_network_image.dart";
 import "package:flutter/material.dart";
 import "package:flutter_screenutil/flutter_screenutil.dart";
 import "package:food_delivery/src/core/style/app_colors.dart";
@@ -28,26 +29,32 @@ class FoodCardMini extends StatelessWidget {
   @override
   Widget build(BuildContext context) => Card(
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(15),
+          borderRadius: BorderRadius.circular(15.r),
         ),
         child: InkWell(
-          borderRadius: BorderRadius.circular(15),
+          borderRadius: BorderRadius.circular(15.r),
           splashColor: Colors.orange.withOpacity(0.2),
           onTap: navigateToDetails,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               ClipRRect(
-                borderRadius: BorderRadius.circular(15),
+                borderRadius: BorderRadius.circular(15.r),
                 child: Padding(
                   padding: const EdgeInsets.all(8),
                   child: ClipRRect(
-                    borderRadius: BorderRadius.circular(15),
-                    child: Image.network(
-                      item.imageUrl,
-                      fit: BoxFit.fill,
+                    borderRadius: BorderRadius.circular(15.r),
+                    child: CachedNetworkImage(
+                      imageUrl: item.imageUrl,
+                      fit: BoxFit.cover,
                       width: double.infinity.w,
                       height: 138.h,
+                      placeholder: (context, url) => const Center(
+                        child: CircularProgressIndicator(),
+                      ),
+                      errorWidget: (context, url, error) => const Center(
+                        child: Icon(Icons.error),
+                      ),
                     ),
                   ),
                 ),
@@ -97,7 +104,7 @@ class FoodCardMini extends StatelessWidget {
                           width: 110.w,
                           decoration: BoxDecoration(
                             color: AppColors.lFED8CC,
-                            borderRadius: BorderRadius.circular(25),
+                            borderRadius: BorderRadius.circular(25.r),
                           ),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,

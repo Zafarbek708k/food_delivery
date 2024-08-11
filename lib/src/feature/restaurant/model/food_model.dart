@@ -111,8 +111,8 @@ List<FoodItem> foodsList = [
     description: "Classic beef lasagna",
     price: 18000,
     addOns: [
-      AddOn(name: "ketchup", price: 1.99),
-      AddOn(name: "Salad", price: 3.99),
+      AddOn(name: "ketchup", price: 1500),
+      AddOn(name: "Salad", price: 7500),
     ],
   ),
   FoodItem(

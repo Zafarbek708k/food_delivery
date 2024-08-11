@@ -150,7 +150,7 @@ key: _fromKey,
                     fontSize: 16.sp,
                   ),
                 ),
-                                validator: (value) => value != null && value.contains("@gmail.com") ? null : 'please enter your email address Example => (example@gmail.com)',
+                                validator: (value) => value != null && value.contains("@gmail.com") ? null : "please enter your email address Example => (example@gmail.com)",
 
               ),
             ),
