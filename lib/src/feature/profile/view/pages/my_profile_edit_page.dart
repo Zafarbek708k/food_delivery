@@ -6,17 +6,17 @@ import "../widgets/avatar_widget.dart";
 
 
 class MyProfileEditPage extends ConsumerWidget {
-  const MyProfileEditPage({Key? key}) : super(key: key);
+  const MyProfileEditPage({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final TextEditingController _namecontroller = TextEditingController();
+    final namecontroller = TextEditingController();
     final name = ref.watch(nameProvider);
 
     return Scaffold(
       floatingActionButton: MaterialButton(
         onPressed: () {
-          final newName = _namecontroller.text.trim();
+          final newName = namecontroller.text.trim();
           if (newName.isNotEmpty) {
             ref.read(nameProvider.notifier).updateName(newName);
           }
@@ -111,7 +111,7 @@ class MyProfileEditPage extends ConsumerWidget {
             ),
             TextField(
               cursorColor: Colors.white60,
-              controller: _namecontroller,
+              controller: namecontroller,
               decoration: const InputDecoration(
                 hintText: "Your name",
                 hintStyle:  TextStyle(
@@ -143,12 +143,12 @@ class NameStorage {
   static const String _keyName = "userName";
 
   Future<String> loadName() async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
+    var prefs = await SharedPreferences.getInstance();
     return prefs.getString(_keyName) ?? "Katty Berry";
   }
 
   Future<void> saveName(String name) async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
+    var prefs = await SharedPreferences.getInstance();
     await prefs.setString(_keyName, name);
   }
 }

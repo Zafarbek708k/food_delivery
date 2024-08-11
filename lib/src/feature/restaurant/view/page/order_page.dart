@@ -1,11 +1,13 @@
 import "package:flutter/material.dart";
 import "package:flutter_riverpod/flutter_riverpod.dart";
+import "package:flutter_screenutil/flutter_screenutil.dart";
 import "../../../../core/style/app_colors.dart";
 import "../../model/food_model.dart";
 import "../../view_model/restaurant_detail_vm.dart";
 import "../widgets/button_orange.dart";
 import "../widgets/restaraunt_food_mini_widget.dart";
 import "food_details_page.dart";
+
 class OrderPage extends ConsumerWidget {
   const OrderPage({super.key});
   @override
@@ -27,19 +29,19 @@ class OrderPage extends ConsumerWidget {
         elevation: 0,
       ),
       body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 15),
+        padding: REdgeInsets.symmetric(horizontal: 15),
         child: Column(
           children: [
             SizedBox(
-              height: MediaQuery.of(context).size.height * 0.84,
+              height: MediaQuery.of(context).size.height * 0.75.h,
               child: SingleChildScrollView(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const Text(
+                    Text(
                       "Order items",
                       style: TextStyle(
-                        fontSize: 18,
+                        fontSize: 18.sp,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
@@ -51,15 +53,15 @@ class OrderPage extends ConsumerWidget {
                       ListView.builder(
                         shrinkWrap: true,
                         physics: const NeverScrollableScrollPhysics(),
-                        padding: const EdgeInsets.all(16),
+                        padding: REdgeInsets.all(16),
                         itemCount: cartNotifier.cartItems.length,
                         itemBuilder: (context, index) {
                           final cartItem = cartNotifier.cartItems[index];
                           return Column(
                             children: [
                               SizedBox(
-                                height: 110,
-                                width: MediaQuery.of(context).size.width,
+                                height: 110.h,
+                                width: MediaQuery.of(context).size.width.w,
                                 child: Row(
                                   mainAxisAlignment:
                                       MainAxisAlignment.spaceBetween,
@@ -70,13 +72,13 @@ class OrderPage extends ConsumerWidget {
                                         borderRadius: BorderRadius.circular(8),
                                         child: Image.network(
                                           cartItem.foodItem.imageUrl,
-                                          height: 100,
-                                          width: 100,
+                                          height: 100.h,
+                                          width: 100.w,
                                           fit: BoxFit.cover,
                                         ),
                                       ),
                                     ),
-                                    const SizedBox(width: 5),
+                                    SizedBox(width: 5.w),
                                     Expanded(
                                       flex: 4,
                                       child: Column(
@@ -85,12 +87,12 @@ class OrderPage extends ConsumerWidget {
                                         children: [
                                           Text(
                                             cartItem.foodItem.name,
-                                            style: const TextStyle(
-                                              fontSize: 16,
+                                            style: TextStyle(
+                                              fontSize: 16.sp,
                                               fontWeight: FontWeight.bold,
                                             ),
                                           ),
-                                          const SizedBox(height: 4),
+                                          SizedBox(height: 4.h),
                                           Text(
                                             (cartItem.selectedAddOns.isNotEmpty
                                                 ? cartItem.selectedAddOns
@@ -100,8 +102,7 @@ class OrderPage extends ConsumerWidget {
                                                     .join("\n")
                                                 : cartItem
                                                     .foodItem.description),
-                                            style:
-                                                const TextStyle(fontSize: 14),
+                                            style: TextStyle(fontSize: 14.sp),
                                           ),
                                         ],
                                       ),
@@ -113,8 +114,8 @@ class OrderPage extends ConsumerWidget {
                                             MainAxisAlignment.spaceBetween,
                                         children: [
                                           Container(
-                                            height: 30,
-                                            width: 70,
+                                            height: 30.h,
+                                            width: 70.w,
                                             decoration: BoxDecoration(
                                               color: AppColors.lFED8CC,
                                               borderRadius:
@@ -143,9 +144,9 @@ class OrderPage extends ConsumerWidget {
                                                 ),
                                                 Text(
                                                   cartItem.quantity.toString(),
-                                                  style: const TextStyle(
+                                                  style: TextStyle(
                                                     color: AppColors.lF83B01,
-                                                    fontSize: 10,
+                                                    fontSize: 10.sp,
                                                     fontWeight: FontWeight.bold,
                                                   ),
                                                 ),
@@ -170,10 +171,10 @@ class OrderPage extends ConsumerWidget {
                                             ),
                                           ),
                                           Text(
-                                            "€${cartItem.calculateTotalPrice().toStringAsFixed(2)}",
-                                            style: const TextStyle(
+                                            "€${cartItem.calculateTotalPrice().toStringAsFixed(0)}",
+                                            style: TextStyle(
                                               color: AppColors.lF83B01,
-                                              fontSize: 15,
+                                              fontSize: 15.sp,
                                               fontWeight: FontWeight.w600,
                                             ),
                                           ),
@@ -191,32 +192,32 @@ class OrderPage extends ConsumerWidget {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        const Text(
+                        Text(
                           "Total:",
                           style: TextStyle(
-                            fontSize: 18,
+                            fontSize: 18.sp,
                             fontWeight: FontWeight.bold,
                           ),
                         ),
                         Text(
                           " €${totalPrice.toStringAsFixed(2)}",
-                          style: const TextStyle(
+                          style: TextStyle(
                             color: AppColors.lF83B01,
-                            fontSize: 18,
+                            fontSize: 18.sp,
                             fontWeight: FontWeight.bold,
                           ),
                         ),
                       ],
                     ),
-                    const Divider(
-                      height: 15,
+                    Divider(
+                      height: 15.h,
                       thickness: 3,
                       color: AppColors.lF96234,
                     ),
-                    const Text(
+                    Text(
                       "Any else",
                       style: TextStyle(
-                        fontSize: 18,
+                        fontSize: 18.sp,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
@@ -228,7 +229,7 @@ class OrderPage extends ConsumerWidget {
                         crossAxisCount: 3,
                         crossAxisSpacing: 2,
                         mainAxisSpacing: 2,
-                        childAspectRatio: 0.46,
+                        childAspectRatio: 0.41,
                       ),
                       itemCount: foods.length,
                       itemBuilder: (context, index) {
@@ -273,7 +274,7 @@ class OrderPage extends ConsumerWidget {
                         );
                       },
                     ),
-                    const SizedBox(height: 16),
+                    SizedBox(height: 16.h),
                   ],
                 ),
               ),
@@ -281,7 +282,7 @@ class OrderPage extends ConsumerWidget {
             OrangeButton(
               onPressed: () async {},
               text:
-                  "Go to checkout       Total: €${totalPrice.toStringAsFixed(2)}",
+                  "Go to checkout       Total: €${totalPrice.toStringAsFixed(0)}",
             ),
           ],
         ),

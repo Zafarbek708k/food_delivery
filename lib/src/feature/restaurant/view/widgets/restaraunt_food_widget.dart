@@ -1,4 +1,5 @@
 import "package:flutter/material.dart";
+import "package:flutter_screenutil/flutter_screenutil.dart";
 import "package:food_delivery/src/core/style/app_colors.dart";
 
 import "../../model/food_model.dart";
@@ -45,8 +46,8 @@ class FoodCard extends StatelessWidget {
                     child: Image.network(
                       item.imageUrl,
                       fit: BoxFit.fill,
-                      width: double.infinity,
-                      height: 138,
+                      width: double.infinity.w,
+                      height: 138.h,
                     ),
                   ),
                 ),
@@ -58,38 +59,38 @@ class FoodCard extends StatelessWidget {
                   children: [
                     Text(
                       "${item.price.toStringAsFixed(0)} €",
-                      style: const TextStyle(
-                        fontSize: 16,
+                      style: TextStyle(
+                        fontSize: 16.sp,
                         fontWeight: FontWeight.bold,
                         color: AppColors.lF83B01,
                       ),
                     ),
                     Text(
                       item.name,
-                      style: const TextStyle(
-                        fontSize: 16,
+                      style: TextStyle(
+                        fontSize: 16.sp,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
-                    const SizedBox(height: 6),
+                     SizedBox(height: 6.h),
                     SizedBox(
-                      height: 30,
+                      height: 30.h,
                       child: Text(
                         overflow: TextOverflow.ellipsis,
                         maxLines: 2,
                         item.description,
-                        style: const TextStyle(
-                          fontSize: 10,
+                        style: TextStyle(
+                          fontSize: 10.sp,
                           fontWeight: FontWeight.w400,
                         ),
                       ),
                     ),
-                    const SizedBox(height: 12),
+                   SizedBox(height: 12.h),
                     if (isAdded)
                       Center(
                         child: Container(
-                          height: 40,
-                          width: 140,
+                          height: 40.h,
+                          width: 140.w,
                           decoration: BoxDecoration(
                             color: AppColors.lFED8CC,
                             borderRadius: BorderRadius.circular(25),
@@ -108,9 +109,9 @@ class FoodCard extends StatelessWidget {
                               // Quantity Display
                               Text(
                                 quantity.toString(),
-                                style: const TextStyle(
+                                style: TextStyle(
                                   color: AppColors.lF83B01,
-                                  fontSize: 18,
+                                  fontSize: 18.sp,
                                   fontWeight: FontWeight.bold,
                                 ),
                               ),
@@ -129,8 +130,8 @@ class FoodCard extends StatelessWidget {
                     else
                       Center(
                         child: SizedBox(
-                          height: 40,
-                          width: 140,
+                          height: 40.h,
+                          width: 140.w,
                           child: OrangeButton(
                             onPressed: () {
                               onAdd();

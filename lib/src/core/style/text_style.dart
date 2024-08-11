@@ -120,8 +120,7 @@ class AppTextStyle extends TextTheme {
         fontFamily: "Rubik",
                         color: AppColors.l111719,
 
-      ); @override
-  TextStyle? get forProfile =>  TextStyle(
+      ); TextStyle? get forProfile =>  TextStyle(
         fontWeight: FontWeight.w400,
         fontSize: FontSize.size16,
         fontFamily: "Rubik",

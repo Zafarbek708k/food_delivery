@@ -6,7 +6,7 @@ class EmptyProfilePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) => Scaffold(
         appBar: AppBar(),
-        body: Center(
+        body: const Center(
           child: Text("Keyingi versiyada "),
         ),
       );

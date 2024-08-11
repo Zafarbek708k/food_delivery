@@ -1,4 +1,5 @@
 import "package:flutter/material.dart";
+import "package:flutter_screenutil/flutter_screenutil.dart";
 import "package:food_delivery/src/core/style/app_colors.dart";
 
 import "../../model/food_model.dart";
@@ -45,8 +46,8 @@ class FoodCardMini extends StatelessWidget {
                     child: Image.network(
                       item.imageUrl,
                       fit: BoxFit.fill,
-                      width: double.infinity,
-                      height: 138,
+                      width: double.infinity.w,
+                      height: 138.h,
                     ),
                   ),
                 ),
@@ -57,21 +58,21 @@ class FoodCardMini extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      "${item.price.toStringAsFixed(2)} €",
-                      style: const TextStyle(
-                        fontSize: 16,
+                      "${item.price.toStringAsFixed(0)} €",
+                      style: TextStyle(
+                        fontSize: 16.sp,
                         fontWeight: FontWeight.bold,
                         color: AppColors.lF83B01,
                       ),
                     ),
                     SizedBox(
-                      height: 30,
+                      height: 30.h,
                       child: Text(
                         overflow: TextOverflow.ellipsis,
                         maxLines: 1,
                         item.name,
-                        style: const TextStyle(
-                          fontSize: 14,
+                        style: TextStyle(
+                          fontSize: 14.sp,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
@@ -92,8 +93,8 @@ class FoodCardMini extends StatelessWidget {
                     if (isAdded)
                       Center(
                         child: Container(
-                          height: 40,
-                          width: 110,
+                          height: 40.h,
+                          width: 110.w,
                           decoration: BoxDecoration(
                             color: AppColors.lFED8CC,
                             borderRadius: BorderRadius.circular(25),
@@ -110,9 +111,9 @@ class FoodCardMini extends StatelessWidget {
                               ),
                               Text(
                                 quantity.toString(),
-                                style: const TextStyle(
+                                style: TextStyle(
                                   color: AppColors.lF83B01,
-                                  fontSize: 18,
+                                  fontSize: 18.sp,
                                   fontWeight: FontWeight.bold,
                                 ),
                               ),
@@ -130,8 +131,8 @@ class FoodCardMini extends StatelessWidget {
                     else
                       Center(
                         child: SizedBox(
-                          height: 40,
-                          width: 140,
+                          height: 40.h,
+                          width: 140.w,
                           child: OrangeButton(
                             onPressed: () {
                               onAdd();

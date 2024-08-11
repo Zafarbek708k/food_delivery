@@ -13,7 +13,7 @@ class DeliveryCardWidget extends StatelessWidget {
       required this.rating,
       required this.description,
       required this.onPressed,
-      super.key});
+      super.key,});
 
   final String imageUrl;
   final String title;

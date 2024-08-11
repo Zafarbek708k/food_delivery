@@ -19,7 +19,7 @@ class ApiService {
   const ApiService._();
 
   static Future<Dio> initDio() async {
-    final _dio = Dio(
+    final dio = Dio(
       BaseOptions(
         baseUrl: ApiConst.baseUrl,
         headers: await ApiService.getHeaders(),
@@ -30,23 +30,23 @@ class ApiService {
       ),
     );
 
-    _dio.interceptors.addAll(
+    dio.interceptors.addAll(
       [
         ConnectivityInterceptor(
           requestReceiver: Connection(
-            dio: _dio,
+            dio: dio,
             connectivity: Connectivity(),
           ),
         ),
       ],
     );
 
-    (_dio.httpClientAdapter as IOHttpClientAdapter).onHttpClientCreate = (HttpClient client) {
+    (dio.httpClientAdapter as IOHttpClientAdapter).onHttpClientCreate = (HttpClient client) {
       client.badCertificateCallback = (X509Certificate cert, String host, int port) => true;
       return client;
     };
 
-    return _dio;
+    return dio;
   }
 
   static Future<Map<String, String>> getHeaders({bool isUpload = false}) async {

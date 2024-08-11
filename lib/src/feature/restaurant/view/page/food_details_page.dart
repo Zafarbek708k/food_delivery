@@ -1,5 +1,6 @@
 import "package:flutter/material.dart";
 import "package:flutter_riverpod/flutter_riverpod.dart";
+import "package:flutter_screenutil/flutter_screenutil.dart";
 
 import "../../../../core/style/app_colors.dart";
 import "../../view_model/restaurant_detail_vm.dart";
@@ -22,24 +23,24 @@ class FoodDetailsPage extends ConsumerWidget {
         title: Text(foodItem.name),
       ),
       body: Padding(
-        padding: const EdgeInsets.all(16),
+        padding: REdgeInsets.all(16),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Image.network(
               foodItem.imageUrl,
-              height: 200,
-              width: double.infinity,
+              height: 200.h,
+              width: double.infinity.w,
               fit: BoxFit.cover,
             ),
-            const SizedBox(height: 16),
+            SizedBox(height: 16.h),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
                   foodItem.name,
-                  style: const TextStyle(
-                    fontSize: 24,
+                  style: TextStyle(
+                    fontSize: 24.sp,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
@@ -55,26 +56,26 @@ class FoodDetailsPage extends ConsumerWidget {
                 ),
               ],
             ),
-            const SizedBox(height: 8),
+            SizedBox(height: 8.h),
             Text(
               foodItem.description,
-              style: const TextStyle(fontSize: 16),
+              style: TextStyle(fontSize: 16.sp),
             ),
-            const SizedBox(height: 16),
+            SizedBox(height: 16.h),
             Text(
               "€ ${foodItem.price}",
-              style: const TextStyle(
+              style: TextStyle(
                 color: AppColors.lF83B01,
-                fontSize: 20,
+                fontSize: 20.sp,
                 fontWeight: FontWeight.bold,
               ),
             ),
             const Divider(),
-            const Text(
+            Text(
               "Add more:",
-              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+              style: TextStyle(fontSize: 18.sp, fontWeight: FontWeight.bold),
             ),
-            const SizedBox(height: 8),
+            SizedBox(height: 8.h),
             Column(
               children: addOnsSelection.keys
                   .map(
@@ -104,8 +105,8 @@ class FoodDetailsPage extends ConsumerWidget {
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 Container(
-                  height: 40,
-                  width: 110,
+                  height: 40.h,
+                  width: 110.w,
                   decoration: BoxDecoration(
                     color: AppColors.lFED8CC,
                     borderRadius: BorderRadius.circular(20),
@@ -131,9 +132,9 @@ class FoodDetailsPage extends ConsumerWidget {
                       ),
                       Text(
                         quantity.toString(),
-                        style: const TextStyle(
+                        style: TextStyle(
                           color: AppColors.lF83B01,
-                          fontSize: 20,
+                          fontSize: 20.sp,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
@@ -157,8 +158,8 @@ class FoodDetailsPage extends ConsumerWidget {
                   ),
                 ),
                 SizedBox(
-                  width: 200,
-                  height: 40,
+                  width: 200.w,
+                  height: 40.h,
                   child: OrangeButton(
                     onPressed: () {
                       Navigator.pop(context);

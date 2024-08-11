@@ -108,30 +108,30 @@ class FoodItemCard extends StatelessWidget {
         Column(
           children: [
             Padding(
-              padding: EdgeInsets.symmetric(vertical: 5, horizontal: 10),
+              padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 10),
               child: Text(
                 cardItem.title,
-                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
               ),
             ),
             Text(
               cardItem.description,
-              style: TextStyle(fontSize: 14, color: Colors.grey),
+              style: const TextStyle(fontSize: 14, color: Colors.grey),
             ),
             SizedBox(height: 20.h,),
             Padding(
-              padding: EdgeInsets.symmetric(vertical: 5, horizontal: 10),
+              padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 10),
               child: Row(
                 children: [
-                  Icon(Icons.star, size: 16, color: Colors.orange),
-                  SizedBox(width: 5),
-                  Text(cardItem.rating, style: TextStyle(fontSize: 14)),
-                  Spacer(),
+                  const Icon(Icons.star, size: 16, color: Colors.orange),
+                  const SizedBox(width: 5),
+                  Text(cardItem.rating, style: const TextStyle(fontSize: 14)),
+                  const Spacer(),
                   Row(
                     children: [
-                      Icon(Icons.timer, size: 16, color: Colors.orange),
-                      SizedBox(width: 5),
-                      Text(cardItem.time, style: TextStyle(fontSize: 14)),
+                      const Icon(Icons.timer, size: 16, color: Colors.orange),
+                      const SizedBox(width: 5),
+                      Text(cardItem.time, style: const TextStyle(fontSize: 14)),
                     ],
                   ),
                 ],

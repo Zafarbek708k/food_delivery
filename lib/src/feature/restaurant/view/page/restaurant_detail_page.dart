@@ -1,5 +1,6 @@
 import "package:flutter/material.dart";
 import "package:flutter_riverpod/flutter_riverpod.dart";
+import "package:flutter_screenutil/flutter_screenutil.dart";
 
 import "../../../../core/style/app_colors.dart";
 import "../../model/food_model.dart";
@@ -38,25 +39,25 @@ class RestaurantDetail extends ConsumerWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 SizedBox(
-                  height: MediaQuery.of(context).size.height * 0.3,
-                  width: MediaQuery.of(context).size.width,
+                  height: MediaQuery.of(context).size.height * 0.3.h,
+                  width: MediaQuery.of(context).size.width.w,
                   child: Image.network(
                     "https://assets.bonappetit.com/photos/61ba70da510874520d257b78/16:9/w_1920,c_limit/LEDE_Oma's%20Hideaway,%20Credit%20Christine%20Dong.jpg",
                     fit: BoxFit.cover,
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.all(16),
+                  padding: REdgeInsets.all(16),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          const Text(
+                          Text(
                             "La Pasta House",
                             style: TextStyle(
-                              fontSize: 24,
+                              fontSize: 24.sp,
                               fontWeight: FontWeight.bold,
                             ),
                           ),
@@ -76,10 +77,10 @@ class RestaurantDetail extends ConsumerWidget {
                       ),
                       const Text("An authentic Italian touch and delicious!"),
                       const SizedBox(height: 8),
-                      const Row(
+                      Row(
                         children: [
                           Icon(Icons.star, color: Colors.orange),
-                          SizedBox(width: 4),
+                          SizedBox(width: 4.w),
                           Text("Excellent 9.5"),
                         ],
                       ),
@@ -90,15 +91,17 @@ class RestaurantDetail extends ConsumerWidget {
                             Icons.delivery_dining,
                             color: Colors.orange,
                           ),
-                          const SizedBox(width: 4),
-                          const Column(
+                          SizedBox(width: 4.w),
+                          Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              Text("Delivery in 40-50 min"),
+                              const Text("Delivery in 40-50 min"),
                               Text(
                                 "Home (g'uncha)",
-                                style:
-                                    TextStyle(color: Colors.grey, fontSize: 14),
+                                style: TextStyle(
+                                  color: Colors.grey,
+                                  fontSize: 14.sp,
+                                ),
                               ),
                             ],
                           ),
@@ -118,11 +121,14 @@ class RestaurantDetail extends ConsumerWidget {
                         ],
                       ),
                       const SizedBox(height: 8),
-                      const Row(
+                      Row(
                         children: [
-                          Icon(Icons.access_time_filled, color: Colors.orange),
-                          SizedBox(width: 4),
-                          Text("10:00 - 22:00"),
+                          const Icon(
+                            Icons.access_time_filled,
+                            color: Colors.orange,
+                          ),
+                          SizedBox(width: 4.w),
+                          const Text("10:00 - 22:00"),
                         ],
                       ),
                       const SizedBox(height: 20),
@@ -137,8 +143,8 @@ class RestaurantDetail extends ConsumerWidget {
                             const Divider(),
                             Text(
                               category,
-                              style: const TextStyle(
-                                fontSize: 18,
+                              style: TextStyle(
+                                fontSize: 18.sp,
                                 fontWeight: FontWeight.bold,
                               ),
                             ),
@@ -151,7 +157,7 @@ class RestaurantDetail extends ConsumerWidget {
                                 crossAxisCount: 2,
                                 crossAxisSpacing: 8,
                                 mainAxisSpacing: 8,
-                                childAspectRatio: 0.6,
+                                childAspectRatio: 0.53,
                               ),
                               itemCount: items.length,
                               itemBuilder: (context, index) {

@@ -13,7 +13,7 @@ class AvatarNotifier extends Notifier<String?> {
   }
 
   Future<void> _loadAvatarPath() async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
+    final prefs = await SharedPreferences.getInstance();
     state = prefs.getString("avatarPath");
   }
 
@@ -37,12 +37,12 @@ class AvatarNotifier extends Notifier<String?> {
   }
 
   Future<void> _saveAvatarPath(String path) async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
+    final prefs = await SharedPreferences.getInstance();
     await prefs.setString("avatarPath", path);
   }
 
   Future<void> _removeAvatarPath() async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
+    final prefs = await SharedPreferences.getInstance();
     await prefs.remove('avatarPath');
   }
 }
