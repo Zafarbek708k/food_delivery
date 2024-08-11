@@ -86,7 +86,7 @@ class FoodItemCard extends StatelessWidget {
             Stack(
               children: [
                 ClipRRect(
-                  borderRadius: BorderRadius.circular(15),
+                  borderRadius: const BorderRadius.only(topLeft: Radius.circular(15), topRight: Radius.circular(15)),
                   child: Image.network(
                     cardItem.imageUrl,
                     height: 180,
