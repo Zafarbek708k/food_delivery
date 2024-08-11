@@ -10,7 +10,7 @@ import "empty_page.dart";
 import "my_profile_edit_page.dart";
 
 class ProfilePage extends ConsumerStatefulWidget {
-  const ProfilePage({super.key});
+  const ProfilePage({Key? key}) : super(key: key);
 
   @override
   ConsumerState<ProfilePage> createState() => _ProfilePageState();
@@ -105,7 +105,7 @@ class _ProfilePageState extends ConsumerState<ProfilePage> {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => const EmptyProfilePage(),
+                          builder: (context) => EmptyProfilePage(),
                         ),
                       );
                     },
@@ -120,7 +120,7 @@ class _ProfilePageState extends ConsumerState<ProfilePage> {
                           ),
                           Text(
                             "    Delivery Adress",
-                            style: const AppTextStyle().forProfile,
+                            style: AppTextStyle().forProfile,
                           ),
                         ],
                       ),
@@ -128,7 +128,7 @@ class _ProfilePageState extends ConsumerState<ProfilePage> {
                   ),
                   InkWell(
                     onTap: () {
-                      Navigator.push(context, MaterialPageRoute(builder: (context) => const EmptyProfilePage()));
+                      Navigator.push(context, MaterialPageRoute(builder: (context) => EmptyProfilePage()));
                     },
                     child: SizedBox(
                       height: MediaQuery.of(context).size.height * 0.056,
@@ -141,7 +141,7 @@ class _ProfilePageState extends ConsumerState<ProfilePage> {
                           ),
                           Text(
                             "    Payment Methods",
-                            style: const AppTextStyle().forProfile,
+                            style: AppTextStyle().forProfile,
                           ),
                         ],
                       ),
@@ -149,7 +149,7 @@ class _ProfilePageState extends ConsumerState<ProfilePage> {
                   ),
                   InkWell(
                     onTap: () {
-                      Navigator.push(context, MaterialPageRoute(builder: (context) => const EmptyProfilePage()));
+                      Navigator.push(context, MaterialPageRoute(builder: (context) => EmptyProfilePage()));
                     },
                     child: SizedBox(
                       height: MediaQuery.of(context).size.height * 0.056,
@@ -162,7 +162,7 @@ class _ProfilePageState extends ConsumerState<ProfilePage> {
                           ),
                           Text(
                             "    Contact Us",
-                            style: const AppTextStyle().forProfile,
+                            style: AppTextStyle().forProfile,
                           ),
                         ],
                       ),
@@ -170,7 +170,7 @@ class _ProfilePageState extends ConsumerState<ProfilePage> {
                   ),
                   InkWell(
                     onTap: () {
-                      Navigator.push(context, MaterialPageRoute(builder: (context) => const EmptyProfilePage()));
+                      Navigator.push(context, MaterialPageRoute(builder: (context) => EmptyProfilePage()));
                     },
                     child: SizedBox(
                       height: MediaQuery.of(context).size.height * 0.056,
@@ -191,7 +191,7 @@ class _ProfilePageState extends ConsumerState<ProfilePage> {
                   ),
                   InkWell(
                     onTap: () {
-                      Navigator.push(context, MaterialPageRoute(builder: (context) => const EmptyProfilePage()));
+                      Navigator.push(context, MaterialPageRoute(builder: (context) => EmptyProfilePage()));
                     },
                     child: SizedBox(
                       height: MediaQuery.of(context).size.height * 0.056,
@@ -222,7 +222,7 @@ class _ProfilePageState extends ConsumerState<ProfilePage> {
                         shape: const StadiumBorder(
                             side: BorderSide(
                           color: AppColors.lF96234,
-                        ),),
+                        )),
                         child: Row(
                           mainAxisSize: MainAxisSize.min,
                           mainAxisAlignment: MainAxisAlignment.start,

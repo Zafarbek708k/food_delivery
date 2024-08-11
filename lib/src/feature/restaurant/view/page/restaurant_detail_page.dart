@@ -115,7 +115,11 @@ class RestaurantDetail extends ConsumerWidget {
                           ),
                           const Spacer(),
                           ElevatedButton(
-                            onPressed: () {},
+                            onPressed: () {
+                              context.go(
+                                "${AppRouteName.restaurantPage}/${AppRouteName.restaurantDetailPage}/${AppRouteName.mapDeliveryPage}",
+                              );
+                            },
                             style: ElevatedButton.styleFrom(
                               backgroundColor: AppColors.lFED8CC,
                             ),
