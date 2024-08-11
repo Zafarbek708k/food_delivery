@@ -2,7 +2,7 @@ import "dart:developer";
 import "package:flutter/material.dart";
 import "package:flutter_riverpod/flutter_riverpod.dart";
 import "package:food_delivery/src/feature/search/view_model/search_vm.dart";
-import "package:food_delivery/src/feature/search/widgets/search_text_fild_custom.dart";
+import "package:food_delivery/src/feature/search/view/widgets/search_text_fild_custom.dart";
 
 class SearchPage extends ConsumerWidget {
   final List<String> tags = [

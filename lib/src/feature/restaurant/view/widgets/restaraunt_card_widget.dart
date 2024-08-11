@@ -1,3 +1,4 @@
+import "package:flutter/cupertino.dart";
 import "package:flutter/material.dart";
 import "package:flutter_screenutil/flutter_screenutil.dart";
 import "package:food_delivery/src/core/constants/context_extension.dart";
@@ -22,12 +23,10 @@ class RestaurantCard extends StatelessWidget {
               ),
             ],
           ),
-          child: MaterialButton(
+          child: CupertinoButton(
             onPressed: onTap,
             padding: EdgeInsets.zero,
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(14.r),
-            ),
+            borderRadius: BorderRadius.circular(14.r),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
