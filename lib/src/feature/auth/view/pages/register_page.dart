@@ -33,16 +33,10 @@ class RegisterPage extends StatelessWidget {
                 ),
               ),
               const RegisterTexfeildWidgets(),
-              SizedBox(
-                height: MediaQuery.of(context).size.height * 0.03,
-              ),
+              
               Column(
                 children: [
-                  RegesterButtonWidget(
-                    onPressed: () {
-                      context.go("${AppRouteName.signIn}/${AppRouteName.signUp}/${AppRouteName.verification}");
-                    },
-                  ),
+                  
                   SizedBox(
                     height: MediaQuery.of(context).size.height * 0.03,
                   ),
