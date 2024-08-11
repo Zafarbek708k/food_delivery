@@ -7,7 +7,6 @@ import "package:food_delivery/src/core/routes/app_route_name.dart";
 import "package:food_delivery/src/core/style/app_colors.dart";
 import "package:go_router/go_router.dart";
 
-import "../widgets/login_button_widget.dart";
 import "../widgets/login_texfeild_widget.dart";
 
 class LoginPage extends StatelessWidget {
@@ -40,12 +39,6 @@ class LoginPage extends StatelessWidget {
               const LoginTexfeildWidget(),
               Column(
                 children: [
-                  LoginButtonWidget(
-                    NameText: "Login",
-                    onPressed: () {
-                      context.go(AppRouteName.discoveryPage);
-                    },
-                  ),
                   SizedBox(
                     height: MediaQuery.of(context).size.height * 0.03,
                   ),
