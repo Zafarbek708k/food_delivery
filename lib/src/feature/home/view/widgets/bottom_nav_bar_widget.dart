@@ -11,18 +11,18 @@ class BottomNavBarWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => Padding(
-        padding: REdgeInsets.symmetric(horizontal: 10),
+        padding: REdgeInsets.symmetric(horizontal: 10, vertical: 10),
         child: Container(
           margin: REdgeInsets.all(0.0001),
           decoration: BoxDecoration(
             border: Border.all(color: Colors.black, width: 0.5),
-            borderRadius: BorderRadius.circular(5.r),
+            borderRadius: BorderRadius.circular(10.r),
           ),
           child: BlurWidget(
-            radius: 5.r,
-            blur: 5,
+            radius: 10.r,
+            blur: 4,
             child: ClipRRect(
-              borderRadius: BorderRadius.circular(5.r),
+              borderRadius: BorderRadius.circular(10.r),
               child: BottomNavigationBar(
                 currentIndex: currentPage,
                 onTap: onTap,
@@ -33,7 +33,7 @@ class BottomNavBarWidget extends StatelessWidget {
                 backgroundColor: Colors.white.withOpacity(0.5),
                 type: BottomNavigationBarType.fixed,
                 landscapeLayout: BottomNavigationBarLandscapeLayout.spread,
-                selectedLabelStyle: const TextStyle(fontSize: 13, fontWeight: FontWeight.bold),
+                selectedLabelStyle: const TextStyle(fontSize: 12, fontWeight: FontWeight.bold),
                 items: [
                   BottomNavigationBarItem(
                     icon: Center(

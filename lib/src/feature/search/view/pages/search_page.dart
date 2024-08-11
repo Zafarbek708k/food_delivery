@@ -40,17 +40,13 @@ class SearchPage extends ConsumerWidget {
                   const SizedBox(height: 16),
                   // Tags/Buttons
                   Wrap(
-                    alignment: WrapAlignment.center,
+                    alignment: WrapAlignment.spaceEvenly,
                     spacing: 5,
                     runSpacing: 5,
                     children: tags
                         .map(
                           (tag) => CupertinoButton(
                             padding: EdgeInsets.zero,
-                            // onTap: () {
-                            //   log("Tapped: $tag");
-                            //   ref.read(searchVM).searchController.text = tag;
-                            // },
                             onPressed: () {
                               ref.read(searchVM).searchController.text = tag;
                             },
