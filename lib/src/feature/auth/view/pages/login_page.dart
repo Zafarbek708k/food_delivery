@@ -18,13 +18,11 @@ class LoginPage extends StatelessWidget {
         resizeToAvoidBottomInset: false,
         body: SafeArea(
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            mainAxisAlignment: MainAxisAlignment.end,
             children: [
-               SizedBox(
-                height: 150.h,
-              ),
+               
               Padding(
-                padding:  EdgeInsets.symmetric(horizontal: 25.h),
+                padding:  EdgeInsets.symmetric(horizontal: 25.w),
                 child: Align(
                   alignment: Alignment.bottomLeft,
                   child: Text(
@@ -47,8 +45,8 @@ class LoginPage extends StatelessWidget {
                     },
                   ),
                    SizedBox(
-                    height: 25.h,
-                  ),
+            height: MediaQuery.of(context).size.height*0.03,
+          ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
@@ -72,11 +70,11 @@ class LoginPage extends StatelessWidget {
                     ],
                   ),
                    SizedBox(
-                    height: 25.h,
-                  ),
+            height: MediaQuery.of(context).size.height*0.03,
+          ),
                   Padding(
                     padding: REdgeInsets.symmetric(
-                      horizontal: 25.h,
+                      horizontal: 25.w,
                     ),
                     child: Row(
                       children: [
@@ -87,7 +85,7 @@ class LoginPage extends StatelessWidget {
                           ),
                         ),
                         SizedBox(
-                          width: 10.w,
+                          width: MediaQuery.of(context).size.width*0.02,
                         ),
                         Text(
                           "Sign in with",
@@ -97,7 +95,7 @@ class LoginPage extends StatelessWidget {
                           ),
                         ),
                         SizedBox(
-                          width: 10.w,
+                          width: MediaQuery.of(context).size.width*0.02,
                         ),
                         const Expanded(
                           child: Divider(
@@ -109,7 +107,7 @@ class LoginPage extends StatelessWidget {
                     ),
                   ),
                   SizedBox(
-                    height: 20.h,
+                    height: MediaQuery.of(context).size.height*0.03,
                   ),
                   Column(
                     children: [
@@ -125,10 +123,10 @@ class LoginPage extends StatelessWidget {
                             children: [
                               SvgPicture.asset(
                                 "assets/icons/facebook_icon.svg",
-                                width: 25.w,
+                                width: MediaQuery.of(context).size.width*0.07,
                               ),
                               SizedBox(
-                                width: 20.w,
+                                width: MediaQuery.of(context).size.width*0.07,
                               ),
                               Text(
                                 "Countine with Facebook",
@@ -143,7 +141,7 @@ class LoginPage extends StatelessWidget {
                         ),
                       ),
                       SizedBox(
-                        height: 10.h,
+                                height: MediaQuery.of(context).size.height*0.01,
                       ),
                       Padding(
                         padding: REdgeInsets.symmetric(horizontal: 25.w),
@@ -157,10 +155,10 @@ class LoginPage extends StatelessWidget {
                             children: [
                               SvgPicture.asset(
                                 "assets/icons/google_icon.svg",
-                                width: 25.w,
+                                width: MediaQuery.of(context).size.width*0.07,
                               ),
                               SizedBox(
-                                width: 20.w,
+                                width: MediaQuery.of(context).size.width*0.07,
                               ),
                               Text(
                                 "Continue with Google",

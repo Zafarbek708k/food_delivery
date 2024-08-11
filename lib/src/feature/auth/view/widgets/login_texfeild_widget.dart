@@ -12,13 +12,13 @@ class LoginTexfeildWidget extends StatefulWidget {
 }
 
 class _LoginTexfeildWidgetState extends State<LoginTexfeildWidget> {
-  bool isEye = false;
+  bool isEye = true;
 
   @override
   Widget build(BuildContext context) => Column(
         children: [
           Padding(
-            padding:  REdgeInsets.symmetric(horizontal: 25.h),
+            padding:  REdgeInsets.symmetric(horizontal: 25.w),
             child: Align(
               alignment: Alignment.bottomLeft,
               child: Text(
@@ -31,10 +31,10 @@ class _LoginTexfeildWidgetState extends State<LoginTexfeildWidget> {
             ),
           ),
            SizedBox(
-            height: 5.h,
+            height: MediaQuery.of(context).size.height*0.01,
           ),
           Padding(
-            padding:  REdgeInsets.symmetric(horizontal: 25.h),
+            padding:  REdgeInsets.symmetric(horizontal: 25.w),
             child: TextField(
               textInputAction: TextInputAction.next,
               keyboardType: TextInputType.emailAddress,
@@ -63,10 +63,10 @@ class _LoginTexfeildWidgetState extends State<LoginTexfeildWidget> {
             ),
           ),
            SizedBox(
-            height: 15.h,
+            height: MediaQuery.of(context).size.height*0.03,
           ),
           Padding(
-            padding:  REdgeInsets.symmetric(horizontal: 25.h),
+            padding:  REdgeInsets.symmetric(horizontal: 25.w),
             child: Align(
               alignment: Alignment.bottomLeft,
               child: Text(
@@ -79,10 +79,10 @@ class _LoginTexfeildWidgetState extends State<LoginTexfeildWidget> {
             ),
           ),
            SizedBox(
-            height: 5.h,
+            height: MediaQuery.of(context).size.height*0.01,
           ),
           Padding(
-            padding:  REdgeInsets.symmetric(horizontal: 25.h),
+            padding:  REdgeInsets.symmetric(horizontal: 25.w),
             child: TextField(
               obscureText: isEye,
               keyboardType: TextInputType.visiblePassword,

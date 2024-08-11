@@ -10,7 +10,7 @@ class LoginButtonWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => Padding(
-        padding: REdgeInsets.symmetric(horizontal: 25.h),
+        padding: REdgeInsets.symmetric(horizontal: 25.w),
         child: MaterialButton(
           onPressed: onPressed,
           shape: RoundedRectangleBorder(
