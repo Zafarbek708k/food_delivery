@@ -34,25 +34,29 @@ final class AppRouter {
   static final GoRoute restaurantDetailPage = GoRoute(
     parentNavigatorKey: parentNavigatorKey,
     path: AppRouteName.restaurantDetailPage,
-    pageBuilder: (BuildContext context, GoRouterState state) => _customEachTransitionAnimation(context, state, const RestaurantDetail()),
+    pageBuilder: (BuildContext context, GoRouterState state) =>
+        _customEachTransitionAnimation(context, state, const RestaurantDetail()),
   );
 
   static final GoRoute mapDeliveryPage = GoRoute(
     parentNavigatorKey: parentNavigatorKey,
     path: AppRouteName.mapDeliveryPage,
-    pageBuilder: (BuildContext context, GoRouterState state) => _customEachTransitionAnimation(context, state, const MapDeliveryPage()),
+    pageBuilder: (BuildContext context, GoRouterState state) =>
+        _customEachTransitionAnimation(context, state, const MapDeliveryPage()),
   );
 
   static final GoRoute profileEditPage = GoRoute(
     parentNavigatorKey: parentNavigatorKey,
     path: AppRouteName.profileEditPage,
-    pageBuilder: (BuildContext context, GoRouterState state) => _customEachTransitionAnimation(context, state, const MyProfileEditPage()),
+    pageBuilder: (BuildContext context, GoRouterState state) =>
+        _customEachTransitionAnimation(context, state, const MyProfileEditPage()),
   );
 
   static final GoRoute profileEmptyPage = GoRoute(
     parentNavigatorKey: parentNavigatorKey,
     path: AppRouteName.profileEditPage,
-    pageBuilder: (BuildContext context, GoRouterState state) => _customEachTransitionAnimation(context, state, const EmptyProfilePage()),
+    pageBuilder: (BuildContext context, GoRouterState state) =>
+        _customEachTransitionAnimation(context, state, const EmptyProfilePage()),
   );
 
   ///
@@ -123,7 +127,8 @@ final class AppRouter {
           GoRoute(
             name: "Discovery",
             path: AppRouteName.discoveryPage,
-            pageBuilder: (BuildContext context, GoRouterState state) => _customNavigatorTransitionAnimation(context, state, const DiscoveryPage()),
+            pageBuilder: (BuildContext context, GoRouterState state) =>
+                _customNavigatorTransitionAnimation(context, state, const DiscoveryPage()),
             routes: [
               restaurantDetailPage,
             ],
@@ -131,7 +136,8 @@ final class AppRouter {
           GoRoute(
             name: "Restaurant",
             path: AppRouteName.restaurantPage,
-            pageBuilder: (BuildContext context, GoRouterState state) => _customNavigatorTransitionAnimation(context, state, const RestaurantsPage()),
+            pageBuilder: (BuildContext context, GoRouterState state) =>
+                _customNavigatorTransitionAnimation(context, state, const RestaurantsPage()),
             routes: [
               restaurantDetailPage,
               mapDeliveryPage,
@@ -140,16 +146,16 @@ final class AppRouter {
           GoRoute(
             name: "Search",
             path: AppRouteName.searchPage,
-            pageBuilder: (BuildContext context, GoRouterState state) => _customNavigatorTransitionAnimation(context, state, SearchPage()),
+            pageBuilder: (BuildContext context, GoRouterState state) =>
+                _customNavigatorTransitionAnimation(context, state, SearchPage()),
           ),
-
           GoRoute(
             name: "Favorite",
             path: AppRouteName.favoritePage,
             pageBuilder: (BuildContext context, GoRouterState state) =>
                 _customNavigatorTransitionAnimation(context, state, FavouritePage()),
+            routes: [restaurantDetailPage],
           ),
-
           GoRoute(
             name: "Profile",
             path: AppRouteName.profilePage,
