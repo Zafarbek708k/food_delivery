@@ -21,13 +21,16 @@ class RegisterPage extends StatelessWidget {
                 height: 80.h,
               ),
               Padding(
-                padding: REdgeInsets.only(right: 250),
-                child: Text(
-                  "Sing Up",
-                  style: TextStyle(
-                    color: Colors.black,
-                    fontWeight: FontWeight.w500,
-                    fontSize: 30.sp,
+                padding: EdgeInsets.symmetric(horizontal: 25.w),
+                child: Align(
+                  alignment: Alignment.bottomLeft,
+                  child: Text(
+                    "Sing Up",
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontWeight: FontWeight.w500,
+                      fontSize: 30.sp,
+                    ),
                   ),
                 ),
               ),

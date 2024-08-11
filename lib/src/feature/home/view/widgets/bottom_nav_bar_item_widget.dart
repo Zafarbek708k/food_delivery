@@ -11,8 +11,8 @@ class NavBarIcon extends StatelessWidget {
   @override
   Widget build(BuildContext context) => SvgPicture.asset(
         assetName,
-        height: 35.h,
-        width: 35.h,
+        height: 30.h,
+        width: 30.h,
         colorFilter: ColorFilter.mode(
           isSelected ? Colors.orange : Colors.black,
           BlendMode.srcIn,

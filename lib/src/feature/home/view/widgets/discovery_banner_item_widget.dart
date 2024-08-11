@@ -1,14 +1,14 @@
-import 'package:flutter/material.dart';
+import "package:flutter/material.dart";
 
 class DiscoveryBannerItemWidget extends StatelessWidget {
-  const DiscoveryBannerItemWidget({super.key, required this.imageUrl, required this.bannerText});
+  const DiscoveryBannerItemWidget({required this.imageUrl, required this.bannerText, super.key});
 
   final String imageUrl;
   final String bannerText;
 
   @override
   Widget build(BuildContext context) => Container(
-        margin: const EdgeInsets.symmetric(vertical: 16),
+        margin: const EdgeInsets.symmetric(vertical: 16, horizontal: 10),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(12),
           image: DecorationImage(

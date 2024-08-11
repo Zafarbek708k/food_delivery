@@ -6,46 +6,61 @@ import "package:food_delivery/src/feature/auth/view/pages/resset_email.dart";
 import "package:food_delivery/src/feature/auth/view/pages/resset_password_page.dart";
 import "package:food_delivery/src/feature/auth/view/pages/resset_verfication_code_page.dart";
 import "package:food_delivery/src/feature/auth/view/pages/verificationcode_page.dart";
-import "package:food_delivery/src/feature/favourite/pages/favourite_page.dart";
 import "package:food_delivery/src/feature/home/view/pages/discovery_page.dart";
 import "package:food_delivery/src/feature/home/view/pages/home_page.dart";
 import "package:food_delivery/src/feature/home/view/pages/splash_page.dart";
 import "package:food_delivery/src/feature/home/view/pages/welcome_page.dart";
-import "package:food_delivery/src/feature/search/pages/search_page.dart";
 import "package:go_router/go_router.dart";
+
+import "../../feature/favourite/view/pages/favourite_page.dart";
+import "../../feature/profile/view/pages/empty_page.dart";
+import "../../feature/profile/view/pages/my_profile_edit_page.dart";
 import "../../feature/profile/view/pages/profile_page.dart";
 import "../../feature/restaurant/view/page/delivery_map_page.dart";
 import "../../feature/restaurant/view/page/restaraunt_page.dart";
 import "../../feature/restaurant/view/page/restaurant_detail_page.dart";
+import "../../feature/search/view/pages/search_page.dart";
 
-GlobalKey<NavigatorState> parentNavigatorKey = GlobalKey<NavigatorState>();
+GlobalKey<NavigatorState> parentNavigatorkey = GlobalKey<NavigatorState>();
 
 @immutable
 final class AppRouter {
   const AppRouter._();
 
+  ///
   ///bottom navigation bar siz chiqadigan pagelar
   ///
 
   static final GoRoute restaurantDetailPage = GoRoute(
-    parentNavigatorKey: parentNavigatorKey,
-    path: AppRouteName.restaurantDetailPage,
     name: "RestaurantDetailPage",
-    pageBuilder: (BuildContext context, GoRouterState state) => _customEachTransitionAnimation(context, state, const RestaurantDetail()),
-  );
-
-  static final GoRoute searchPage = GoRoute(
-    name: "SearchPage",
-    parentNavigatorKey: parentNavigatorKey,
-    path: AppRouteName.searchPage,
-    pageBuilder: (BuildContext context, GoRouterState state) => _customEachTransitionAnimation(context, state, SearchPage()),
+    parentNavigatorKey: parentNavigatorkey,
+    path: AppRouteName.restaurantDetailPage,
+    pageBuilder: (BuildContext context, GoRouterState state) =>
+        _customEachTransitionAnimation(context, state, const RestaurantDetail()),
   );
 
   static final GoRoute mapDeliveryPage = GoRoute(
     name: "MapDeliveryPage",
-    parentNavigatorKey: parentNavigatorKey,
+    parentNavigatorKey: parentNavigatorkey,
     path: AppRouteName.mapDeliveryPage,
-    pageBuilder: (BuildContext context, GoRouterState state) => _customEachTransitionAnimation(context, state, const MapDeliveryPage()),
+    pageBuilder: (BuildContext context, GoRouterState state) =>
+        _customEachTransitionAnimation(context, state, const MapDeliveryPage()),
+  );
+
+  static final GoRoute profileEditPage = GoRoute(
+    name: "ProfileEditPage",
+    parentNavigatorKey: parentNavigatorkey,
+    path: AppRouteName.profileEditPage,
+    pageBuilder: (BuildContext context, GoRouterState state) =>
+        _customEachTransitionAnimation(context, state, const MyProfileEditPage()),
+  );
+
+  static final GoRoute profileEmptyPage = GoRoute(
+    name: "ProfileEmptyPage",
+    parentNavigatorKey: parentNavigatorkey,
+    path: AppRouteName.profileEditPage,
+    pageBuilder: (BuildContext context, GoRouterState state) =>
+        _customEachTransitionAnimation(context, state, const EmptyProfilePage()),
   );
 
   ///
@@ -54,7 +69,7 @@ final class AppRouter {
 
   static GoRouter routes = GoRouter(
     initialLocation: AppRouteName.splash,
-    navigatorKey: parentNavigatorKey,
+    navigatorKey: parentNavigatorkey,
     debugLogDiagnostics: true,
     routes: <RouteBase>[
       GoRoute(
@@ -132,27 +147,30 @@ final class AppRouter {
             ),
             routes: [
               restaurantDetailPage,
+              mapDeliveryPage,
             ],
           ),
           GoRoute(
             name: "Search",
             path: AppRouteName.searchPage,
-            pageBuilder: (BuildContext context, GoRouterState state) => _customNavigatorTransitionAnimation(context, state, SearchPage()),
-            // builder: (BuildContext context, GoRouterState state) => SearchPage(),
+            pageBuilder: (BuildContext context, GoRouterState state) =>
+                _customNavigatorTransitionAnimation(context, state, SearchPage()),
           ),
           GoRoute(
             name: "Favorite",
             path: AppRouteName.favoritePage,
             pageBuilder: (BuildContext context, GoRouterState state) =>
                 _customNavigatorTransitionAnimation(context, state, FavouritePage()),
-            // builder: (BuildContext context, GoRouterState state) => FavouritePage(),
           ),
           GoRoute(
             name: "Profile",
             path: AppRouteName.profilePage,
             pageBuilder: (BuildContext context, GoRouterState state) =>
                 _customNavigatorTransitionAnimation(context, state, const ProfilePage()),
-            // builder: (BuildContext context, GoRouterState state) => const ProfilePage(),
+            routes: [
+              profileEditPage,
+              profileEmptyPage,
+            ],
           ),
         ],
       ),

@@ -39,7 +39,7 @@ class RestaurantsPageState extends State<RestaurantsPage> {
           slivers: [
             SliverToBoxAdapter(
               child: Padding(
-                padding: REdgeInsets.symmetric(horizontal: 10),
+                padding: const EdgeInsets.symmetric(horizontal: 15),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [

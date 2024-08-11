@@ -1,8 +1,9 @@
-import "dart:developer";
+import "package:flutter/cupertino.dart";
 import "package:flutter/material.dart";
 import "package:flutter_riverpod/flutter_riverpod.dart";
 import "package:food_delivery/src/feature/search/view_model/search_vm.dart";
-import "package:food_delivery/src/feature/search/widgets/search_text_fild_custom.dart";
+
+import "../widgets/search_text_fild_custom.dart";
 
 class SearchPage extends ConsumerWidget {
   final List<String> tags = [
@@ -39,14 +40,14 @@ class SearchPage extends ConsumerWidget {
                   const SizedBox(height: 16),
                   // Tags/Buttons
                   Wrap(
-                    alignment: WrapAlignment.center,
+                    alignment: WrapAlignment.spaceEvenly,
                     spacing: 5,
                     runSpacing: 5,
                     children: tags
                         .map(
-                          (tag) => GestureDetector(
-                            onTap: () {
-                              log("Tapped: $tag");
+                          (tag) => CupertinoButton(
+                            padding: EdgeInsets.zero,
+                            onPressed: () {
                               ref.read(searchVM).searchController.text = tag;
                             },
                             child: Chip(

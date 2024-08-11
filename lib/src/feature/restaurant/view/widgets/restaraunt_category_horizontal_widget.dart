@@ -1,5 +1,6 @@
 import "dart:developer";
 
+import "package:flutter/cupertino.dart";
 import "package:flutter/material.dart";
 import "package:flutter_screenutil/flutter_screenutil.dart";
 
@@ -60,12 +61,10 @@ class CategoryCard extends StatelessWidget {
               ),
             ],
           ),
-          child: MaterialButton(
+          child: CupertinoButton(
             onPressed: onTap,
             padding: EdgeInsets.zero,
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(12.r),
-            ),
+            borderRadius: BorderRadius.circular(12.r),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [

@@ -31,7 +31,7 @@ class _MapDeliveryPageState extends ConsumerState<MapDeliveryPage> {
           ? Stack(
         children: [
           YandexMap(
-            nightModeEnabled: true,
+            nightModeEnabled: false,
             mode2DEnabled: false,
             onMapCreated: (controller) {
               ref.read(restaurantVm.notifier).onMapCreated(controller);
@@ -39,7 +39,7 @@ class _MapDeliveryPageState extends ConsumerState<MapDeliveryPage> {
             mapObjects: restaurantVmState.mapObjectList,
           ),
 
-          DeliveryBottomWidget(),
+          DeliveryBottomWidget(time: restaurantVmState.time,),
 
           Positioned(
             top: 50.h,
