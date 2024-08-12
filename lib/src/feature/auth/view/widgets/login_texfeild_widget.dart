@@ -73,7 +73,7 @@ class LoginTexfeildWidget extends ConsumerWidget {
                     fontSize: 16.sp,
                   ),
                 ),
-                validator: (value) => value != "asadbek@gmail.com" && value!.isNotEmpty ? null : "Your email is incorrect",
+                validator: (value) => value == "asadbek@gmail.com" ? null : "Your email is incorrect",
               ),
             ),
             SizedBox(
@@ -145,7 +145,7 @@ class LoginTexfeildWidget extends ConsumerWidget {
                     fontSize: 16.sp,
                   ),
                 ),
-                validator: (value) => value != "asd11111" && value!.isNotEmpty ? null : "Your password is incorrect",
+                validator: (value) => value == "asd11111"? null : "Your password is incorrect",
               ),
             ),
             Padding(
