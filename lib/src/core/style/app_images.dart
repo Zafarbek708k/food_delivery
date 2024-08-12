@@ -1,7 +1,7 @@
 import "package:flutter/material.dart";
 import "package:flutter_screenutil/flutter_screenutil.dart";
 import "package:flutter_svg/svg.dart";
-
+import "package:lottie/lottie.dart";
 import "../../../generated/assets.dart";
 
 final class AppImages{
@@ -96,4 +96,10 @@ final class AppImages{
     height: 216.w,
     width: 216.w,
   );
+
+
+  /// lottie
+
+
+  static final LottieBuilder splashLottie = Lottie.asset("assets/lotties/fastfood_delivery.json");
 }
