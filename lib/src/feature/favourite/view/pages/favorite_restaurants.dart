@@ -1,3 +1,4 @@
+import "package:cached_network_image/cached_network_image.dart";
 import "package:flutter/cupertino.dart";
 import "package:flutter/material.dart";
 import "package:flutter_screenutil/flutter_screenutil.dart";
@@ -82,11 +83,15 @@ class FoodItemCard extends StatelessWidget {
           children: [
             ClipRRect(
               borderRadius: const BorderRadius.only(topLeft: Radius.circular(15), topRight: Radius.circular(15)),
-              child: Image.network(
-                cardItem.imageUrl,
-                height: 180,
-                width: double.infinity,
+              child: CachedNetworkImage(
+                imageUrl: cardItem.imageUrl,
+                height: 200.h,
+                width: double.infinity.w,
                 fit: BoxFit.cover,
+                placeholder: (context, url) =>
+                const Center(child: CircularProgressIndicator()),
+                errorWidget: (context, url, error) =>
+                const Center(child: Icon(Icons.error)),
               ),
             ),
             Positioned(
