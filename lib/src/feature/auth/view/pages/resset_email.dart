@@ -49,14 +49,7 @@ class RessetEmail extends StatelessWidget {
                 height: MediaQuery.of(context).size.height*0.06,
               ),
               const RessetEmailWidgets(),
-               SizedBox(
-                height: MediaQuery.of(context).size.height*0.09,
-              ),
-              NextbuttonWidgets(
-                onPressed: () {
-                  context.go("${AppRouteName.signIn}/${AppRouteName.reSetEmail}/${AppRouteName.reSetVerification}");
-                },
-              ),
+              
             ],
           ),
         ),
