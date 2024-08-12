@@ -3,6 +3,8 @@ import "package:flutter/cupertino.dart";
 import "package:flutter/material.dart";
 import "package:flutter_screenutil/flutter_screenutil.dart";
 
+import "../../models/card_item_model.dart";
+
 class FoodItemsPage extends StatefulWidget {
   @override
   _FoodItemsPageState createState() => _FoodItemsPageState();
@@ -159,26 +161,4 @@ class FoodItemCard extends StatelessWidget {
           ],
         ),
       );
-}
-
-class CardItem {
-  bool isFavorited;
-  final String imageUrl;
-  final String title;
-  final String description;
-  final String restaurant;
-  final String price;
-  final String time;
-  final String rating;
-
-  CardItem({
-    required this.isFavorited,
-    required this.imageUrl,
-    required this.title,
-    required this.description,
-    required this.restaurant,
-    required this.price,
-    required this.time,
-    required this.rating,
-  });
 }

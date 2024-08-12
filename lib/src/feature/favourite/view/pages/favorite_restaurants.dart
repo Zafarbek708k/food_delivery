@@ -2,6 +2,7 @@ import "package:cached_network_image/cached_network_image.dart";
 import "package:flutter/cupertino.dart";
 import "package:flutter/material.dart";
 import "package:flutter_screenutil/flutter_screenutil.dart";
+import "package:food_delivery/src/feature/favourite/models/restaurant_card_model.dart";
 
 class FavoriteRestaurantsPage extends StatefulWidget {
   @override
@@ -9,8 +10,8 @@ class FavoriteRestaurantsPage extends StatefulWidget {
 }
 
 class _FavoriteRestaurantsPageState extends State<FavoriteRestaurantsPage> {
-  List<CardItem> items = [
-    CardItem(
+  List<RestaurantItem> items = [
+    RestaurantItem(
       isFavorited: true,
       imageUrl: "https://www.grozny-inform.ru/LoadedImages/2022/05/11/840px-McDonalds-exterior_2_w900_h600.jpg",
       title: "McDonald's",
@@ -18,7 +19,7 @@ class _FavoriteRestaurantsPageState extends State<FavoriteRestaurantsPage> {
       time: "20-50min",
       rating: "7.7",
     ),
-    CardItem(
+    RestaurantItem(
       isFavorited: true,
       imageUrl: "https://media.wired.com/photos/65e71a8e4f6303aec3b5018d/1:1/w_2667,h_2667,c_limit/gettyimages-921740490.jpg",
       title: "KFC",
@@ -60,7 +61,7 @@ class _FavoriteRestaurantsPageState extends State<FavoriteRestaurantsPage> {
 }
 
 class FoodItemCard extends StatelessWidget {
-  final CardItem cardItem;
+  final RestaurantItem cardItem;
   final ValueChanged<bool> onFavoriteToggle;
 
   const FoodItemCard({
@@ -149,20 +150,3 @@ class FoodItemCard extends StatelessWidget {
   );
 }
 
-class CardItem {
-  bool isFavorited;
-  final String imageUrl;
-  final String title;
-  final String description;
-  final String time;
-  final String rating;
-
-  CardItem({
-    required this.isFavorited,
-    required this.imageUrl,
-    required this.title,
-    required this.description,
-    required this.time,
-    required this.rating,
-  });
-}
