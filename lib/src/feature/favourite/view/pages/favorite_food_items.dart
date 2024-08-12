@@ -2,7 +2,8 @@ import "package:cached_network_image/cached_network_image.dart";
 import "package:flutter/cupertino.dart";
 import "package:flutter/material.dart";
 import "package:flutter_screenutil/flutter_screenutil.dart";
-
+import "package:go_router/go_router.dart";
+import "../../../../core/routes/app_route_name.dart";
 import "../../models/card_item_model.dart";
 
 class FoodItemsPage extends StatefulWidget {
@@ -53,7 +54,9 @@ class _FoodItemsPageState extends State<FoodItemsPage> {
             itemBuilder: (context, index) => Padding(
               padding: const EdgeInsets.only(bottom: 16),
               child: CupertinoButton(
-                onPressed: () {},
+                onPressed: () {
+                  // context.go("${AppRouteName.favoritePage}/${AppRouteName.foodDetailPage}");
+                },
                 padding: EdgeInsets.zero,
                 child: FoodItemCard(
                   cardItem: items[index],

@@ -57,7 +57,6 @@ class _FavouritePageState extends State<FavouritePage> with SingleTickerProvider
                     indicatorSize: TabBarIndicatorSize.tab,  // Keeps the indicator size equal to the tab size
                     labelColor: Colors.white,
                     unselectedLabelColor: Colors.black,
-
                     tabs: const [
                       Tab(text: "  Food Items  ",
                       height: 20,),

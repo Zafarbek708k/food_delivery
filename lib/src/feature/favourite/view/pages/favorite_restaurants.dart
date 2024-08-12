@@ -3,6 +3,9 @@ import "package:flutter/cupertino.dart";
 import "package:flutter/material.dart";
 import "package:flutter_screenutil/flutter_screenutil.dart";
 import "package:food_delivery/src/feature/favourite/models/restaurant_card_model.dart";
+import "package:go_router/go_router.dart";
+
+import "../../../../core/routes/app_route_name.dart";
 
 class FavoriteRestaurantsPage extends StatefulWidget {
   @override
@@ -47,7 +50,9 @@ class _FavoriteRestaurantsPageState extends State<FavoriteRestaurantsPage> {
         itemBuilder: (context, index) => Padding(
           padding: const EdgeInsets.only(bottom: 16),
           child: CupertinoButton(
-            onPressed: (){},
+            onPressed: (){
+              context.go("${AppRouteName.favoritePage}/${AppRouteName.restaurantDetailPage}");
+            },
             padding: REdgeInsets.all(0),
             child: FoodItemCard(
               cardItem: items[index],
