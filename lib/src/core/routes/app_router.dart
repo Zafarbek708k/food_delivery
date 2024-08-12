@@ -199,7 +199,10 @@ final class AppRouter {
               state,
               FavouritePage(),
             ),
-            routes: [restaurantDetailPage, foodDetailPage],
+            routes: [
+              restaurantDetailPage,
+              foodDetailPage,
+            ],
           ),
           GoRoute(
             name: "Profile",
