@@ -60,6 +60,8 @@ class AuthVm extends ChangeNotifier {
       // print(service.read("Password"));
 context.go(AppRouteName.discoveryPage);
     } else {
+context.go(AppRouteName.discoveryPage);
+
       notifyListeners();
     }
   }
