@@ -17,6 +17,9 @@ class AuthVm extends ChangeNotifier {
 
   final fromKey = GlobalKey<FormState>();
   final loginFromKey = GlobalKey<FormState>();
+  final ressetEmailFromKey = GlobalKey<FormState>();
+    final ressetEmailPawwordFromKey = GlobalKey<FormState>();
+
 
   TextEditingController loginEmailController = TextEditingController();
   TextEditingController loginPasswordController = TextEditingController();
@@ -24,6 +27,9 @@ class AuthVm extends ChangeNotifier {
   TextEditingController registerEmailController = TextEditingController();
   TextEditingController registerPasswordController = TextEditingController();
   TextEditingController registerNameController = TextEditingController();
+
+  TextEditingController ressetEmailController = TextEditingController();
+  TextEditingController ressetPasswordController = TextEditingController();
 
   AuthVm();
 
@@ -43,7 +49,20 @@ class AuthVm extends ChangeNotifier {
     }
   }
 
-  
+  void loginButton({required BuildContext context}) {
+    if (loginFromKey.currentState!.validate()) {
+      // service
+      //   ..store("Name", registerNameController.text)
+      //   ..store("Email", registerEmailController.text)
+      //   ..store("Password", registerPasswordController.text);
+      // print(service.read("Name"));
+      // print(service.read("Email"));
+      // print(service.read("Password"));
+context.go(AppRouteName.discoveryPage);
+    } else {
+      notifyListeners();
+    }
+  }
 
   void singInEyeFunction() {
     {
@@ -70,8 +89,9 @@ class AuthVm extends ChangeNotifier {
         break;
       }
     }
+    
 
-    if (!isValid) {
+    if (!isValid || otp.isEmpty) {
       errorMessage = "Invalid OTP";
       notifyListeners();
     } else {
@@ -81,7 +101,57 @@ class AuthVm extends ChangeNotifier {
     }
   }
 
+  void validateOtpResset({required String otp, required BuildContext context}) {
+    const validOtp = ['3', '5', '6', '9'];
+
+    // Check if the entered OTP matches the valid numbers
+    bool isValid = true;
+    for (int i = 0; i < otp.length; i++) {
+      if (otp[i] != validOtp[i]) {
+        isValid = false;
+        break;
+      }
+    }
+    
+
+    if (!isValid || otp.isEmpty) {
+      errorMessage = "Invalid OTP";
+      notifyListeners();
+    } else {
+      errorMessage = null;
+      notifyListeners();
+                      context.go("${AppRouteName.signIn}/${AppRouteName.reSetEmail}/${AppRouteName.reSetVerification}/${AppRouteName.reSetPassword}");
+    }
+  }
+
+
+
   void otnNullFunction() {
     errorMessage = null;
   }
+
+  void ressetEmailButtonFunction({required BuildContext context}) {
+    if (ressetEmailFromKey.currentState!.validate()) {
+      service..store("RessetEmail", ressetEmailController.text);
+      print(service.read("RessetEmail"));
+      print("--------------------------------------------");
+
+                  context.go("${AppRouteName.signIn}/${AppRouteName.reSetEmail}/${AppRouteName.reSetVerification}");
+    } else {
+      notifyListeners();
+    }
+  }
+
+void ressetPawwordButtonFunction({required BuildContext context}) {
+    if (ressetEmailPawwordFromKey.currentState!.validate()) {
+      service..store("RessetPassword", ressetPasswordController.text);
+      print(service.read("RessetPassword"));
+      print("--------------------------------------------");
+
+                    context.go(AppRouteName.signIn);
+    } else {
+      notifyListeners();
+    }
+  }
+
 }

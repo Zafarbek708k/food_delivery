@@ -44,6 +44,14 @@ class LoginTexfeildWidget extends ConsumerWidget {
                     borderRadius: BorderRadius.circular(10.r),
                     borderSide: const BorderSide(
                       color: Colors.red,
+                      width: 2,
+                    ),
+                  ),
+                  focusedErrorBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(10.r),
+                    borderSide: const BorderSide(
+                      color: Colors.red,
+                      width: 2,
                     ),
                   ),
                   focusedBorder: OutlineInputBorder(
@@ -65,6 +73,7 @@ class LoginTexfeildWidget extends ConsumerWidget {
                     fontSize: 16.sp,
                   ),
                 ),
+                validator: (value) => value != "asadbek@gmail.com" && value!.isNotEmpty ? null : "Your email is incorrect",
               ),
             ),
             SizedBox(
@@ -89,6 +98,7 @@ class LoginTexfeildWidget extends ConsumerWidget {
             Padding(
               padding: REdgeInsets.symmetric(horizontal: 25.w),
               child: TextFormField(
+                controller: ref.read(authVm).loginPasswordController,
                 obscureText: ref.read(authVm).loginEye,
                 keyboardType: TextInputType.visiblePassword,
                 style: const TextStyle(color: Colors.black),
@@ -135,7 +145,7 @@ class LoginTexfeildWidget extends ConsumerWidget {
                     fontSize: 16.sp,
                   ),
                 ),
-                validator: (value) => value != null ? null : "",
+                validator: (value) => value != "asd11111" && value!.isNotEmpty ? null : "Your password is incorrect",
               ),
             ),
             Padding(
@@ -159,9 +169,7 @@ class LoginTexfeildWidget extends ConsumerWidget {
             ),
             LoginButtonWidget(
               NameText: "Login",
-              onPressed: () {
-                context.go(AppRouteName.discoveryPage);
-              },
+              onPressed: () => ref.watch(authVm).loginButton(context: context),
             ),
           ],
         ),

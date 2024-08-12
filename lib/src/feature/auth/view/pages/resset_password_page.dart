@@ -1,4 +1,5 @@
 import "package:flutter/material.dart";
+import "package:flutter_screenutil/flutter_screenutil.dart";
 import "package:food_delivery/src/core/constants/context_extension.dart";
 import "package:food_delivery/src/core/routes/app_route_name.dart";
 import "package:food_delivery/src/core/style/app_colors.dart";
@@ -20,18 +21,18 @@ class _RessetPasswordPageState extends State<RessetPasswordPage> {
         body: SafeArea(
           child: Column(
             children: [
-             const SizedBox(
-                height: 80,
+              SizedBox(
+                height: 80.h,
               ),
               Center(
                 child: Padding(
-                  padding: const EdgeInsets.only(left: 25),
+                  padding:  REdgeInsets.only(left: 25),
                   child: Align(
                     alignment: Alignment.topLeft,
                     child: Text(
                       "Reset password",
                       style: context.theme.textTheme.bodyLarge!.copyWith(
-                        fontSize: 32,
+                        fontSize: 32.sp,
                         color: AppColors.l111719,
                         fontWeight: FontWeight.w600,
                       ),
@@ -39,8 +40,8 @@ class _RessetPasswordPageState extends State<RessetPasswordPage> {
                   ),
                 ),
               ),
-            const  SizedBox(
-                height: 50,
+              SizedBox(
+                height: 50.h,
               ),
               Center(
                 child: Text(
@@ -50,19 +51,11 @@ class _RessetPasswordPageState extends State<RessetPasswordPage> {
                   ),
                 ),
               ),
-             const SizedBox(
-                height: 50,
+              SizedBox(
+                height: 50.h,
               ),
               const RessetPasswordTextfieldWidgets(),
-             const SizedBox(
-                height: 80,
-              ),
-              LoginButtonWidget(
-                NameText: "Login",
-                onPressed: () {
-                  context.go(AppRouteName.signIn);
-                },
-              ),
+            
             ],
           ),
         ),
