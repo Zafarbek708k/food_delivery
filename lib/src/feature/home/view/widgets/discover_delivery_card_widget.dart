@@ -61,10 +61,8 @@ class DeliveryCardWidget extends StatelessWidget {
                         ),
                       ),
                     ),
-                    placeholder: (context, url) =>
-                        const Center(child: CircularProgressIndicator()),
-                    errorWidget: (context, url, error) =>
-                        const Center(child: Icon(Icons.error)),
+                    placeholder: (context, url) => const Center(child: CircularProgressIndicator()),
+                    errorWidget: (context, url, error) => const Center(child: Icon(Icons.error)),
                   ),
                 ),
               ),
@@ -75,16 +73,21 @@ class DeliveryCardWidget extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(title,
-                          style: context.theme.textTheme.bodyLarge?.copyWith(
-                              color: Colors.black,
-                              fontWeight: FontWeight.bold)),
-                      Text(description,
-                          style: context.theme.textTheme.bodyLarge
-                              ?.copyWith(color: Colors.black)),
-                      Text("$price  •  $time  • ⭐ $rating",
-                          style: context.theme.textTheme.bodyLarge
-                              ?.copyWith(color: Colors.black)),
+                      Text(
+                        title,
+                        style: context.theme.textTheme.bodyLarge?.copyWith(
+                          color: Colors.black,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      Text(
+                        description,
+                        style: context.theme.textTheme.bodyLarge?.copyWith(color: Colors.black),
+                      ),
+                      Text(
+                        "$price  •  $time  • ⭐ $rating",
+                        style: context.theme.textTheme.bodyLarge?.copyWith(color: Colors.black),
+                      ),
                     ],
                   ),
                 ),

@@ -12,6 +12,7 @@ class MyHomePage extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final currentPage = ref.watch(myHomePageVm).currentIndex;
     return Scaffold(
+      resizeToAvoidBottomInset: false, // Bu yerda o'zgartirish kiritildi
       body: child,
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: Padding(

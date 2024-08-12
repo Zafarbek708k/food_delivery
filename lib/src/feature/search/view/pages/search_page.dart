@@ -2,10 +2,9 @@ import "package:flutter/cupertino.dart";
 import "package:flutter/material.dart";
 import "package:flutter_riverpod/flutter_riverpod.dart";
 import "package:food_delivery/src/feature/search/view_model/search_vm.dart";
-
 import "../widgets/search_text_fild_custom.dart";
 
-class SearchPage extends ConsumerWidget {
+class SearchPage extends ConsumerStatefulWidget {
   final List<String> tags = [
     "burger",
     "vegetarian",
@@ -26,7 +25,28 @@ class SearchPage extends ConsumerWidget {
   SearchPage({super.key});
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) => Scaffold(
+  _SearchPageState createState() => _SearchPageState();
+}
+
+class _SearchPageState extends ConsumerState<SearchPage> {
+  final FocusNode _focusNode = FocusNode();
+
+  @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      _focusNode.requestFocus(); // Sahifa ochilganda TextField ga fokusni beradi
+    });
+  }
+
+  @override
+  void dispose() {
+    _focusNode.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) => Scaffold(
         resizeToAvoidBottomInset: true,
         body: SafeArea(
           child: Padding(
@@ -36,14 +56,17 @@ class SearchPage extends ConsumerWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   // Search bar
-                  SearchTextfildCustom(controller: ref.read(searchVM).searchController),
+                  SearchTextfildCustom(
+                    controller: ref.read(searchVM).searchController,
+                    focusNode: _focusNode, // FocusNode ni berish
+                  ),
                   const SizedBox(height: 16),
                   // Tags/Buttons
                   Wrap(
                     alignment: WrapAlignment.spaceEvenly,
                     spacing: 5,
                     runSpacing: 5,
-                    children: tags
+                    children: widget.tags
                         .map(
                           (tag) => CupertinoButton(
                             padding: EdgeInsets.zero,
