@@ -2,8 +2,6 @@ import "package:cached_network_image/cached_network_image.dart";
 import "package:flutter/cupertino.dart";
 import "package:flutter/material.dart";
 import "package:flutter_screenutil/flutter_screenutil.dart";
-import "package:go_router/go_router.dart";
-import "../../../../core/routes/app_route_name.dart";
 import "../../models/card_item_model.dart";
 
 class FoodItemsPage extends StatefulWidget {
@@ -15,7 +13,8 @@ class _FoodItemsPageState extends State<FoodItemsPage> {
   List<CardItem> items = [
     CardItem(
       isFavorited: true,
-      imageUrl: "https://ecommercephotographyindia.com/assets/img/gallery/burger-photography.jpg",
+      imageUrl:
+          "https://ecommercephotographyindia.com/assets/img/gallery/burger-photography.jpg",
       title: "Cheeseburger",
       description: "Classic cheeseburger",
       restaurant: "Burger King",
@@ -60,7 +59,8 @@ class _FoodItemsPageState extends State<FoodItemsPage> {
                 padding: EdgeInsets.zero,
                 child: FoodItemCard(
                   cardItem: items[index],
-                  onFavoriteToggle: (isFavorited) => _updateFavoriteStatus(index, isFavorited),
+                  onFavoriteToggle: (isFavorited) =>
+                      _updateFavoriteStatus(index, isFavorited),
                 ),
               ),
             ),
@@ -92,16 +92,19 @@ class FoodItemCard extends StatelessWidget {
             Stack(
               children: [
                 ClipRRect(
-                  borderRadius: const BorderRadius.only(topLeft: Radius.circular(15), topRight: Radius.circular(15)),
+                  borderRadius: const BorderRadius.only(
+                    topLeft: Radius.circular(15),
+                    topRight: Radius.circular(15),
+                  ),
                   child: CachedNetworkImage(
                     imageUrl: cardItem.imageUrl,
                     height: 200.h,
                     width: double.infinity.w,
                     fit: BoxFit.cover,
                     placeholder: (context, url) =>
-                    const Center(child: CircularProgressIndicator()),
+                        const Center(child: CircularProgressIndicator()),
                     errorWidget: (context, url, error) =>
-                    const Center(child: Icon(Icons.error)),
+                        const Center(child: Icon(Icons.error)),
                   ),
                 ),
                 Positioned(
@@ -124,29 +127,41 @@ class FoodItemCard extends StatelessWidget {
               padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 5),
               child: Column(
                 children: [
-                  SizedBox(height: 10.h,),
+                  SizedBox(
+                    height: 10.h,
+                  ),
                   Text(
                     cardItem.title,
-                    style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                    style: const TextStyle(
+                        fontSize: 18, fontWeight: FontWeight.bold,),
                   ),
-                  SizedBox(height: 5.h,),
+                  SizedBox(
+                    height: 5.h,
+                  ),
                   Text(
                     cardItem.description,
                     style: const TextStyle(fontSize: 14, color: Colors.grey),
                   ),
-                  SizedBox(height: 10.h,),
+                  SizedBox(
+                    height: 10.h,
+                  ),
                   Row(
                     children: [
-                      const Icon(Icons.restaurant, size: 16, color: Colors.orange),
+                      const Icon(Icons.restaurant,
+                          size: 16, color: Colors.orange,),
                       const SizedBox(width: 5),
-                      Text(cardItem.restaurant, style: const TextStyle(fontSize: 14)),
+                      Text(cardItem.restaurant,
+                          style: const TextStyle(fontSize: 14),),
                       const Spacer(),
                       const Icon(Icons.euro, size: 16, color: Colors.orange),
                       const SizedBox(width: 5),
-                      Text(cardItem.price, style: const TextStyle(fontSize: 14)),
+                      Text(cardItem.price,
+                          style: const TextStyle(fontSize: 14),),
                     ],
                   ),
-                  SizedBox(height: 10.h,),
+                  SizedBox(
+                    height: 10.h,
+                  ),
                   Row(
                     children: [
                       const Icon(Icons.timer, size: 16, color: Colors.orange),
@@ -155,7 +170,8 @@ class FoodItemCard extends StatelessWidget {
                       const Spacer(),
                       const Icon(Icons.star, size: 16, color: Colors.orange),
                       const SizedBox(width: 5),
-                      Text(cardItem.rating, style: const TextStyle(fontSize: 14)),
+                      Text(cardItem.rating,
+                          style: const TextStyle(fontSize: 14),),
                     ],
                   ),
                 ],
