@@ -4,11 +4,17 @@ import "package:food_delivery/src/core/style/app_colors.dart";
 
 class SearchTextfildCustom extends StatelessWidget {
   final TextEditingController controller;
+  final FocusNode focusNode; // Bu yerda FocusNode e'lon qilingan
 
-  const SearchTextfildCustom({required this.controller, super.key});
+  const SearchTextfildCustom({
+    required this.controller,
+    required this.focusNode, // FocusNode ni qabul qilish uchun required qilib belgilash
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) => TextField(
+        focusNode: focusNode, // Bu yerda focusNode ni TextField ga biriktirish
         controller: controller,
         onChanged: (value) {
           log("Search value: $value");
