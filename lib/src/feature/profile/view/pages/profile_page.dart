@@ -5,9 +5,10 @@ import "package:food_delivery/src/core/style/app_colors.dart";
 import "package:go_router/go_router.dart";
 import "../../../../core/routes/app_route_name.dart";
 import "../../../../core/style/text_style.dart";
+import "../../view_model/profile_vm.dart";
 import "../widgets/avatar_widget.dart";
+import "../widgets/language_scrolling_dialog.dart";
 import "empty_page.dart";
-import "my_profile_edit_page.dart";
 
 class ProfilePage extends ConsumerStatefulWidget {
   const ProfilePage({super.key});
@@ -176,10 +177,9 @@ class _ProfilePageState extends ConsumerState<ProfilePage> {
                   ),
                   InkWell(
                     onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => const EmptyProfilePage()),
-                      );
+
+                      LanguageSelectorDialog();
+
                     },
                     child: SizedBox(
                       height: MediaQuery.of(context).size.height * 0.056,
@@ -191,7 +191,7 @@ class _ProfilePageState extends ConsumerState<ProfilePage> {
                             width: MediaQuery.of(context).size.width * 0.040,
                           ),
                           Text(
-                            "    Settings",
+                            "    Languages",
                             style: const AppTextStyle().forProfile,
                           ),
                         ],
