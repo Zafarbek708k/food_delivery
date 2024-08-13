@@ -103,12 +103,8 @@ class _ProfilePageState extends ConsumerState<ProfilePage> {
                   ),
                   InkWell(
                     onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => const EmptyProfilePage(),
-                        ),
-                      );
+
+                      context.go("mapDeliveryPage");
                     },
                     child: SizedBox(
                       height: MediaQuery.of(context).size.height * 0.056,
