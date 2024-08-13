@@ -1,52 +1,59 @@
+import "package:cached_network_image/cached_network_image.dart";
 import "package:flutter/material.dart";
+import "package:flutter_screenutil/flutter_screenutil.dart";
 
 class DiscoveryBannerItemWidget extends StatelessWidget {
-  const DiscoveryBannerItemWidget({required this.imageUrl, required this.bannerText, super.key});
+  const DiscoveryBannerItemWidget({
+    required this.imageUrl,
+    required this.bannerText,
+    super.key,
+  });
 
   final String imageUrl;
   final String bannerText;
 
   @override
   Widget build(BuildContext context) => Container(
-        margin: const EdgeInsets.symmetric(vertical: 16, horizontal: 10),
+        margin:  REdgeInsets.symmetric(vertical: 16, horizontal: 10),
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(12),
-          image: DecorationImage(
-            image: NetworkImage(imageUrl),
-            fit: BoxFit.cover,
-          ),
+          borderRadius: BorderRadius.circular(12.r),
         ),
-        child: Padding(
-          padding: const EdgeInsets.all(8),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              Padding(
-                padding: const EdgeInsets.only(top: 8),
-                child: Text(
-                  bannerText,
-                  style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 18, color: Colors.black),
+        child: Stack(
+          children: [
+            ClipRRect(
+              borderRadius: BorderRadius.circular(12.r),
+              child: CachedNetworkImage(
+                imageUrl: imageUrl,
+                width: double.infinity,
+                height: 200.h,
+                fit: BoxFit.cover,
+                placeholder: (context, url) => Container(
+                  width: double.infinity,
+                  height: 150.h,
+                  color: Colors.grey[300],
+                  child: const Center(child: CircularProgressIndicator()),
+                ),
+                errorWidget: (context, url, error) => Container(
+                  width: double.infinity,
+                  height: 170.h,
+                  color: Colors.grey[300],
+                  child: Center(child: Icon(Icons.error, color: Colors.red[400])),
                 ),
               ),
-              const SizedBox(
-                height: 25,
-              ),
-              ElevatedButton(
-                style: ElevatedButton.styleFrom(backgroundColor: Colors.black),
-                onPressed: () {
-                  // Handle order now action
-                },
-                child: const Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 8),
-                  child: Text(
-                    "Order Now",
-                    style: TextStyle(color: Colors.white),
-                  ),
+            ),
+            // Banner text and button
+            Padding(
+              padding: REdgeInsets.all(8),
+              child: Text(
+                bannerText,
+                style: const TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 18,
+                  color: Colors.black,
                 ),
               ),
-            ],
-          ),
+            ),
+          ],
         ),
       );
 }

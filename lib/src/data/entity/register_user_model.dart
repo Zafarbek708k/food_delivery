@@ -1,4 +1,4 @@
-import 'dart:convert';
+import "dart:convert";
 
 RegisterUserModel registerUserModelFromJson(String str) => RegisterUserModel.fromJson(json.decode(str));
 

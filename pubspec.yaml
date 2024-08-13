@@ -21,6 +21,7 @@ dependencies:
   persistent_bottom_nav_bar: ^6.2.1
   image_picker: ^0.8.4+1
   cached_network_image: ^3.3.1
+  lottie: ^3.1.2
 
   # State management
   flutter_riverpod: ^2.5.1
@@ -42,6 +43,10 @@ dependencies:
   device_preview: ^1.2.0
   connectivity_plus: ^6.0.4
   percent_indicator: ^4.2.3
+  shimmer: ^3.0.0
+  flutter_localizations:
+    sdk: flutter
+  intl: any
 
 dev_dependencies:
   flutter_test:
@@ -64,6 +69,7 @@ flutter:
   assets:
     - assets/icons/
     - assets/images/
+    - assets/lotties/
 
   # fonts:
   #   - family: Schyler

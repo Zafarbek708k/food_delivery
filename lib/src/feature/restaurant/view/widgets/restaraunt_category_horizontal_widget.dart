@@ -4,6 +4,8 @@ import "package:flutter/material.dart";
 import "package:flutter_riverpod/flutter_riverpod.dart";
 import "package:flutter_screenutil/flutter_screenutil.dart";
 import "package:go_router/go_router.dart";
+import "package:lottie/lottie.dart";
+import "package:shimmer/shimmer.dart";
 
 import "../../../../core/routes/app_route_name.dart";
 
@@ -81,8 +83,18 @@ class CategoryCard extends StatelessWidget {
                     width: 135.6.w,
                     height: 182.h,
                     fit: BoxFit.cover,
-                    placeholder: (context, url) => const Center(child: CircularProgressIndicator()),
-                    errorWidget: (context, url, error) => const Center(child: Icon(Icons.error)),
+                    placeholder: (context, url) => Shimmer.fromColors(
+                      baseColor: Colors.grey[300]!,
+                      highlightColor: Colors.grey[100]!,
+                      child: Container(
+                        width: 135.6.w,
+                        height: 182.h,
+                        color: Colors.white,
+                      ),
+                    ),
+                    errorWidget: (context, url, error) => Center(
+                      child: Lottie.asset("assets/lotties/no_network.json"),
+                    ),
                   ),
                 ),
                 SizedBox(

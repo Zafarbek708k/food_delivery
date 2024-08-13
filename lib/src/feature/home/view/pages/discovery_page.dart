@@ -34,14 +34,14 @@ class _DiscoveryPageState extends ConsumerState<DiscoveryPage> {
           children: [
             // Banner section
             SizedBox(
-              height: 250.h,
+              height: 200.h,
               child: Stack(
                 children: [
                   PageView.builder(
                     controller: controller.bannerController,
                     itemCount: controller.bannerImages.length,
                     itemBuilder: (context, index) => Padding(
-                      padding: REdgeInsets.all(8),
+                      padding: REdgeInsets.symmetric(horizontal: 8),
                       child: DiscoveryBannerItemWidget(
                         imageUrl: controller.bannerImages[index],
                         bannerText: "Get your 30% daily \n discount now!",

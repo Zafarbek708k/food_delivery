@@ -23,8 +23,7 @@ import "../../feature/restaurant/view/page/restaraunt_page.dart";
 import "../../feature/restaurant/view/page/restaurant_detail_page.dart";
 import "../../feature/search/view/pages/search_page.dart";
 
-GlobalKey<NavigatorState> parentNavigatorKey =
-    GlobalKey<NavigatorState>(debugLabel: "root");
+GlobalKey<NavigatorState> parentNavigatorKey = GlobalKey<NavigatorState>(debugLabel: "root");
 
 @immutable
 final class AppRouter {
@@ -37,8 +36,7 @@ final class AppRouter {
   static final GoRoute restaurantDetailPage = GoRoute(
     parentNavigatorKey: parentNavigatorKey,
     path: AppRouteName.restaurantDetailPage,
-    pageBuilder: (BuildContext context, GoRouterState state) =>
-        _customEachTransitionAnimation(
+    pageBuilder: (BuildContext context, GoRouterState state) => _customEachTransitionAnimation(
       context,
       state,
       const RestaurantDetail(),
@@ -60,8 +58,7 @@ final class AppRouter {
   static final GoRoute profileEditPage = GoRoute(
     parentNavigatorKey: parentNavigatorKey,
     path: AppRouteName.profileEditPage,
-    pageBuilder: (BuildContext context, GoRouterState state) =>
-        _customEachTransitionAnimation(
+    pageBuilder: (BuildContext context, GoRouterState state) => _customEachTransitionAnimation(
       context,
       state,
       const MyProfileEditPage(),
@@ -71,8 +68,7 @@ final class AppRouter {
   static final GoRoute profileEmptyPage = GoRoute(
     parentNavigatorKey: parentNavigatorKey,
     path: AppRouteName.profileEditPage,
-    pageBuilder: (BuildContext context, GoRouterState state) =>
-        _customEachTransitionAnimation(
+    pageBuilder: (BuildContext context, GoRouterState state) => _customEachTransitionAnimation(
       context,
       state,
       const EmptyProfilePage(),
@@ -104,55 +100,47 @@ final class AppRouter {
       GoRoute(
         name: "SplashPage",
         path: AppRouteName.splash,
-        builder: (BuildContext context, GoRouterState state) =>
-            const SplashPage(),
+        builder: (BuildContext context, GoRouterState state) => const SplashPage(),
       ),
 
       GoRoute(
         name: "Welcome",
         path: AppRouteName.welcomePage,
-        builder: (BuildContext context, GoRouterState state) =>
-            const WelcomePage(),
+        builder: (BuildContext context, GoRouterState state) => const WelcomePage(),
       ),
 
       /// Auth
       GoRoute(
         name: "SignIn",
         path: AppRouteName.signIn,
-        builder: (BuildContext context, GoRouterState state) =>
-            const LoginPage(),
+        builder: (BuildContext context, GoRouterState state) => const LoginPage(),
         routes: [
           GoRoute(
             name: "SignUp",
             path: AppRouteName.signUp,
-            builder: (BuildContext context, GoRouterState state) =>
-                const RegisterPage(),
+            builder: (BuildContext context, GoRouterState state) => const RegisterPage(),
             routes: [
               GoRoute(
                 name: "Verification",
                 path: AppRouteName.verification,
-                builder: (BuildContext context, GoRouterState state) =>
-                    const VerificationcodePage(),
+                builder: (BuildContext context, GoRouterState state) => const VerificationcodePage(),
               ),
             ],
           ),
           GoRoute(
             name: "ResetEmail",
             path: AppRouteName.reSetEmail,
-            builder: (BuildContext context, GoRouterState state) =>
-                const RessetEmail(),
+            builder: (BuildContext context, GoRouterState state) => const RessetEmail(),
             routes: [
               GoRoute(
                 name: "ResetVerification",
                 path: AppRouteName.reSetVerification,
-                builder: (BuildContext context, GoRouterState state) =>
-                    const RessetVerficationCodePage(),
+                builder: (BuildContext context, GoRouterState state) => const RessetVerficationCodePage(),
                 routes: [
                   GoRoute(
                     name: "ResetPassword",
                     path: AppRouteName.reSetPassword,
-                    builder: (BuildContext context, GoRouterState state) =>
-                        const RessetPasswordPage(),
+                    builder: (BuildContext context, GoRouterState state) => const RessetPasswordPage(),
                   ),
                 ],
               ),
@@ -168,8 +156,7 @@ final class AppRouter {
           GoRoute(
             name: "Discovery",
             path: AppRouteName.discoveryPage,
-            pageBuilder: (BuildContext context, GoRouterState state) =>
-                _customNavigatorTransitionAnimation(
+            pageBuilder: (BuildContext context, GoRouterState state) => _customNavigatorTransitionAnimation(
               context,
               state,
               const DiscoveryPage(),
@@ -181,8 +168,7 @@ final class AppRouter {
           GoRoute(
             name: "Restaurant",
             path: AppRouteName.restaurantPage,
-            pageBuilder: (BuildContext context, GoRouterState state) =>
-                _customNavigatorTransitionAnimation(
+            pageBuilder: (BuildContext context, GoRouterState state) => _customNavigatorTransitionAnimation(
               context,
               state,
               const RestaurantsPage(),
@@ -195,29 +181,33 @@ final class AppRouter {
           GoRoute(
             name: "Search",
             path: AppRouteName.searchPage,
-            pageBuilder: (BuildContext context, GoRouterState state) =>
-                _customNavigatorTransitionAnimation(
+            pageBuilder: (BuildContext context, GoRouterState state) => _customNavigatorTransitionAnimation(
               context,
               state,
               SearchPage(),
             ),
+            routes: [
+              restaurantDetailPage,
+              foodDetailPage,
+            ],
           ),
           GoRoute(
             name: "Favorite",
             path: AppRouteName.favoritePage,
-            pageBuilder: (BuildContext context, GoRouterState state) =>
-                _customNavigatorTransitionAnimation(
+            pageBuilder: (BuildContext context, GoRouterState state) => _customNavigatorTransitionAnimation(
               context,
               state,
               FavouritePage(),
             ),
-            routes: [restaurantDetailPage],
+            routes: [
+              restaurantDetailPage,
+              foodDetailPage,
+            ],
           ),
           GoRoute(
             name: "Profile",
             path: AppRouteName.profilePage,
-            pageBuilder: (BuildContext context, GoRouterState state) =>
-                _customNavigatorTransitionAnimation(
+            pageBuilder: (BuildContext context, GoRouterState state) => _customNavigatorTransitionAnimation(
               context,
               state,
               const ProfilePage(),

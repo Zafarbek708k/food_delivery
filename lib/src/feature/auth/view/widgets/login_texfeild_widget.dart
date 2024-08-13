@@ -1,35 +1,19 @@
 // ignore: file_names
 import "package:flutter/material.dart";
+import "package:flutter_riverpod/flutter_riverpod.dart";
 import "package:flutter_screenutil/flutter_screenutil.dart";
+import "package:food_delivery/riverpod.dart";
 import "package:food_delivery/src/core/routes/app_route_name.dart";
+import "package:food_delivery/src/feature/auth/view/widgets/login_button_widget.dart";
 import "package:go_router/go_router.dart";
 
-class LoginTexfeildWidget extends StatefulWidget {
+class LoginTexfeildWidget extends ConsumerWidget {
   const LoginTexfeildWidget({super.key});
 
   @override
-  State<LoginTexfeildWidget> createState() => _LoginTexfeildWidgetState();
-}
-
-final _fromKey = GlobalKey<FormState>();
-
-class _LoginTexfeildWidgetState extends State<LoginTexfeildWidget> {
-  bool isEye = true;
-
-  TextEditingController emailController = TextEditingController();
-  TextEditingController passwordController = TextEditingController();
-
-  String? emailValedator(String email){
-    if (email.isEmpty) {
-      return "Email qatorini to'ldiring";
-    }
-    return null;
-  }
-
-  @override
-  Widget build(BuildContext context) => Form(
-    key: _fromKey,
-    child: Column(
+  Widget build(BuildContext context, WidgetRef ref) => Form(
+        key: ref.read(authVm).loginFromKey,
+        child: Column(
           children: [
             Padding(
               padding: REdgeInsets.symmetric(horizontal: 25.w),
@@ -50,6 +34,7 @@ class _LoginTexfeildWidgetState extends State<LoginTexfeildWidget> {
             Padding(
               padding: REdgeInsets.symmetric(horizontal: 25.w),
               child: TextFormField(
+                controller: ref.read(authVm).loginEmailController,
                 textInputAction: TextInputAction.next,
                 keyboardType: TextInputType.emailAddress,
                 keyboardAppearance: Brightness.dark,
@@ -59,6 +44,14 @@ class _LoginTexfeildWidgetState extends State<LoginTexfeildWidget> {
                     borderRadius: BorderRadius.circular(10.r),
                     borderSide: const BorderSide(
                       color: Colors.red,
+                      width: 2,
+                    ),
+                  ),
+                  focusedErrorBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(10.r),
+                    borderSide: const BorderSide(
+                      color: Colors.red,
+                      width: 2,
                     ),
                   ),
                   focusedBorder: OutlineInputBorder(
@@ -80,7 +73,7 @@ class _LoginTexfeildWidgetState extends State<LoginTexfeildWidget> {
                     fontSize: 16.sp,
                   ),
                 ),
-                
+                validator: (value) => value == "asadbek@gmail.com" ? null : "Your email is incorrect",
               ),
             ),
             SizedBox(
@@ -104,11 +97,26 @@ class _LoginTexfeildWidgetState extends State<LoginTexfeildWidget> {
             ),
             Padding(
               padding: REdgeInsets.symmetric(horizontal: 25.w),
-              child: TextField(
-                obscureText: isEye,
+              child: TextFormField(
+                controller: ref.read(authVm).loginPasswordController,
+                obscureText: ref.read(authVm).loginEye,
                 keyboardType: TextInputType.visiblePassword,
                 style: const TextStyle(color: Colors.black),
                 decoration: InputDecoration(
+                  errorBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(10.r),
+                    borderSide: const BorderSide(
+                      color: Colors.red,
+                      width: 2,
+                    ),
+                  ),
+                  focusedErrorBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(10.r),
+                    borderSide: const BorderSide(
+                      color: Colors.red,
+                      width: 2,
+                    ),
+                  ),
                   focusedBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(10.r),
                     borderSide: const BorderSide(
@@ -123,11 +131,8 @@ class _LoginTexfeildWidgetState extends State<LoginTexfeildWidget> {
                     ),
                   ),
                   suffixIcon: IconButton(
-                    onPressed: () {
-                      isEye = !isEye;
-                      setState(() {});
-                    },
-                    icon: !isEye
+                    onPressed: ref.watch(authVm).loginEyeFunction,
+                    icon: !ref.read(authVm).loginEye
                         ? Icon(
                             Icons.visibility_rounded,
                             color: Colors.black.withOpacity(0.4),
@@ -140,6 +145,7 @@ class _LoginTexfeildWidgetState extends State<LoginTexfeildWidget> {
                     fontSize: 16.sp,
                   ),
                 ),
+                validator: (value) => value == "asd11111"? null : "Your password is incorrect",
               ),
             ),
             Padding(
@@ -161,7 +167,11 @@ class _LoginTexfeildWidgetState extends State<LoginTexfeildWidget> {
                 ),
               ),
             ),
+            LoginButtonWidget(
+              NameText: "Login",
+              onPressed: () => ref.watch(authVm).loginButton(context: context),
+            ),
           ],
         ),
-  );
+      );
 }

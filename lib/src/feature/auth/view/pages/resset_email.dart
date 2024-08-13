@@ -1,10 +1,7 @@
 import "package:flutter/material.dart";
 import "package:flutter_screenutil/flutter_screenutil.dart";
 import "package:food_delivery/src/core/constants/context_extension.dart";
-import "package:food_delivery/src/core/routes/app_route_name.dart";
-import "package:food_delivery/src/feature/auth/view/widgets/nextbutton_widgets.dart";
 import "package:food_delivery/src/feature/auth/view/widgets/resset_email_widgets.dart";
-import "package:go_router/go_router.dart";
 
 class RessetEmail extends StatelessWidget {
   const RessetEmail({super.key});
@@ -49,14 +46,7 @@ class RessetEmail extends StatelessWidget {
                 height: MediaQuery.of(context).size.height*0.06,
               ),
               const RessetEmailWidgets(),
-               SizedBox(
-                height: MediaQuery.of(context).size.height*0.09,
-              ),
-              NextbuttonWidgets(
-                onPressed: () {
-                  context.go("${AppRouteName.signIn}/${AppRouteName.reSetEmail}/${AppRouteName.reSetVerification}");
-                },
-              ),
+              
             ],
           ),
         ),

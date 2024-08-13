@@ -2,7 +2,7 @@
 //
 //     final checkOtpModel = checkOtpModelFromJson(jsonString);
 
-import 'dart:convert';
+import "dart:convert";
 
 CheckOtpModel checkOtpModelFromJson(String str) => CheckOtpModel.fromJson(json.decode(str));
 
