@@ -1,11 +1,8 @@
 import "package:flutter/material.dart";
 import "package:flutter_screenutil/flutter_screenutil.dart";
 import "package:food_delivery/src/core/constants/context_extension.dart";
-import "package:food_delivery/src/core/routes/app_route_name.dart";
 import "package:food_delivery/src/core/style/app_colors.dart";
-import "package:food_delivery/src/feature/auth/view/widgets/login_button_widget.dart";
 import "package:food_delivery/src/feature/auth/view/widgets/resset_password_textfield_widgets.dart";
-import "package:go_router/go_router.dart";
 
 class RessetPasswordPage extends StatefulWidget {
   const RessetPasswordPage({super.key});
@@ -26,7 +23,7 @@ class _RessetPasswordPageState extends State<RessetPasswordPage> {
               ),
               Center(
                 child: Padding(
-                  padding:  REdgeInsets.only(left: 25),
+                  padding: REdgeInsets.only(left: 25),
                   child: Align(
                     alignment: Alignment.topLeft,
                     child: Text(
@@ -55,7 +52,6 @@ class _RessetPasswordPageState extends State<RessetPasswordPage> {
                 height: 50.h,
               ),
               const RessetPasswordTextfieldWidgets(),
-            
             ],
           ),
         ),

@@ -1,10 +1,8 @@
 import "package:flutter/cupertino.dart";
-import "package:flutter/foundation.dart";
 import "package:flutter/material.dart";
 import "package:flutter/widgets.dart";
 import "package:food_delivery/setup.dart";
 import "package:food_delivery/src/core/routes/app_route_name.dart";
-import "package:food_delivery/src/core/storage/app_storage.dart";
 import "package:go_router/go_router.dart";
 
 class AuthVm extends ChangeNotifier {
@@ -18,8 +16,7 @@ class AuthVm extends ChangeNotifier {
   final fromKey = GlobalKey<FormState>();
   final loginFromKey = GlobalKey<FormState>();
   final ressetEmailFromKey = GlobalKey<FormState>();
-    final ressetEmailPawwordFromKey = GlobalKey<FormState>();
-
+  final ressetEmailPawwordFromKey = GlobalKey<FormState>();
 
   TextEditingController loginEmailController = TextEditingController();
   TextEditingController loginPasswordController = TextEditingController();
@@ -39,9 +36,6 @@ class AuthVm extends ChangeNotifier {
         ..store("Name", registerNameController.text)
         ..store("Email", registerEmailController.text)
         ..store("Password", registerPasswordController.text);
-      print(service.read("Name"));
-      print(service.read("Email"));
-      print(service.read("Password"));
 
       context.go("${AppRouteName.signIn}/${AppRouteName.signUp}/${AppRouteName.verification}");
     } else {
@@ -58,9 +52,9 @@ class AuthVm extends ChangeNotifier {
       // print(service.read("Name"));
       // print(service.read("Email"));
       // print(service.read("Password"));
-context.go(AppRouteName.discoveryPage);
+      context.go(AppRouteName.discoveryPage);
     } else {
-context.go(AppRouteName.discoveryPage);
+      context.go(AppRouteName.discoveryPage);
 
       notifyListeners();
     }
@@ -81,17 +75,16 @@ context.go(AppRouteName.discoveryPage);
   }
 
   void validateOtp({required String otp, required BuildContext context}) {
-    const validOtp = ['3', '5', '6', '9'];
+    const validOtp = ["3", "5", "6", "9"];
 
     // Check if the entered OTP matches the valid numbers
-    bool isValid = true;
-    for (int i = 0; i < otp.length; i++) {
+    var isValid = true;
+    for (var i = 0; i < otp.length; i++) {
       if (otp[i] != validOtp[i]) {
         isValid = false;
         break;
       }
     }
-    
 
     if (!isValid || otp.isEmpty) {
       errorMessage = "Invalid OTP";
@@ -104,17 +97,16 @@ context.go(AppRouteName.discoveryPage);
   }
 
   void validateOtpResset({required String otp, required BuildContext context}) {
-    const validOtp = ['3', '5', '6', '9'];
+    const validOtp = ["3", "5", "6", "9"];
 
     // Check if the entered OTP matches the valid numbers
-    bool isValid = true;
-    for (int i = 0; i < otp.length; i++) {
+    var isValid = true;
+    for (var i = 0; i < otp.length; i++) {
       if (otp[i] != validOtp[i]) {
         isValid = false;
         break;
       }
     }
-    
 
     if (!isValid || otp.isEmpty) {
       errorMessage = "Invalid OTP";
@@ -122,11 +114,11 @@ context.go(AppRouteName.discoveryPage);
     } else {
       errorMessage = null;
       notifyListeners();
-                      context.go("${AppRouteName.signIn}/${AppRouteName.reSetEmail}/${AppRouteName.reSetVerification}/${AppRouteName.reSetPassword}");
+      context.go(
+        "${AppRouteName.signIn}/${AppRouteName.reSetEmail}/${AppRouteName.reSetVerification}/${AppRouteName.reSetPassword}",
+      );
     }
   }
-
-
 
   void otnNullFunction() {
     errorMessage = null;
@@ -134,26 +126,21 @@ context.go(AppRouteName.discoveryPage);
 
   void ressetEmailButtonFunction({required BuildContext context}) {
     if (ressetEmailFromKey.currentState!.validate()) {
-      service..store("RessetEmail", ressetEmailController.text);
-      print(service.read("RessetEmail"));
-      print("--------------------------------------------");
+      service.store("RessetEmail", ressetEmailController.text);
 
-                  context.go("${AppRouteName.signIn}/${AppRouteName.reSetEmail}/${AppRouteName.reSetVerification}");
+      context.go("${AppRouteName.signIn}/${AppRouteName.reSetEmail}/${AppRouteName.reSetVerification}");
     } else {
       notifyListeners();
     }
   }
 
-void ressetPawwordButtonFunction({required BuildContext context}) {
+  void ressetPawwordButtonFunction({required BuildContext context}) {
     if (ressetEmailPawwordFromKey.currentState!.validate()) {
-      service..store("RessetPassword", ressetPasswordController.text);
-      print(service.read("RessetPassword"));
-      print("--------------------------------------------");
+      service.store("RessetPassword", ressetPasswordController.text);
 
-                    context.go(AppRouteName.signIn);
+      context.go(AppRouteName.signIn);
     } else {
       notifyListeners();
     }
   }
-
 }

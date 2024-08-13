@@ -4,17 +4,15 @@ import "package:flutter_riverpod/flutter_riverpod.dart";
 import "package:flutter_screenutil/flutter_screenutil.dart";
 import "package:food_delivery/riverpod.dart";
 import "package:food_delivery/src/core/constants/context_extension.dart";
-import "package:food_delivery/src/core/routes/app_route_name.dart";
 import "package:food_delivery/src/core/style/app_colors.dart";
 import "package:food_delivery/src/feature/auth/view/widgets/nextbutton_widgets.dart";
-import "package:go_router/go_router.dart";
 import "package:pin_code_fields/pin_code_fields.dart";
 
 class RessetVerficationCodePage extends ConsumerWidget {
   const RessetVerficationCodePage({super.key});
 
   @override
-  Widget build(BuildContext context,WidgetRef ref) => Scaffold(
+  Widget build(BuildContext context, WidgetRef ref) => Scaffold(
         resizeToAvoidBottomInset: false,
         body: Center(
           child: SafeArea(
@@ -111,7 +109,8 @@ class RessetVerficationCodePage extends ConsumerWidget {
                 ),
                 SizedBox(height: 30.h),
                 NextbuttonWidgets(
-                  onPressed: () => ref.watch(authVm).validateOtpResset(context: context, otp: ref.read(authVm).otp.text),
+                  onPressed: () =>
+                      ref.watch(authVm).validateOtpResset(context: context, otp: ref.read(authVm).otp.text),
                 ),
               ],
             ),

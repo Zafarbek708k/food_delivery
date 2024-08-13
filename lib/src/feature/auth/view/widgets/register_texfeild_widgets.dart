@@ -131,7 +131,7 @@ class RegisterTexfeildWidgets extends ConsumerWidget {
                   ),
                 ),
                 validator: (value) =>
-                    value != null && value.contains("@gmail.com") ? null : 'please enter your email address Example => (example@gmail.com)',
+                    value != null && value.contains("@gmail.com") ? null : "please enter your email address Example => (example@gmail.com)",
               ),
             ),
             SizedBox(

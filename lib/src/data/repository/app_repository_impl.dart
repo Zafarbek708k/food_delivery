@@ -56,5 +56,6 @@ class AppRepositoryImpl implements AppRepository {
     } catch (e) {
       log("problem from check otp: $e \n\n\n\n\n\n");
     }
+    return null;
   }
 }

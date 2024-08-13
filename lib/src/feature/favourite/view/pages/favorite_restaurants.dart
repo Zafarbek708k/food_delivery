@@ -9,8 +9,7 @@ import "../../../../core/routes/app_route_name.dart";
 
 class FavoriteRestaurantsPage extends StatefulWidget {
   @override
-  _FavoriteRestaurantsPageState createState() =>
-      _FavoriteRestaurantsPageState();
+  _FavoriteRestaurantsPageState createState() => _FavoriteRestaurantsPageState();
 }
 
 class _FavoriteRestaurantsPageState extends State<FavoriteRestaurantsPage> {
@@ -55,13 +54,13 @@ class _FavoriteRestaurantsPageState extends State<FavoriteRestaurantsPage> {
               child: CupertinoButton(
                 onPressed: () {
                   context.go(
-                      "${AppRouteName.favoritePage}/${AppRouteName.restaurantDetailPage}");
+                    "${AppRouteName.favoritePage}/${AppRouteName.restaurantDetailPage}",
+                  );
                 },
                 padding: REdgeInsets.all(0),
                 child: FoodItemCard(
                   cardItem: items[index],
-                  onFavoriteToggle: (isFavorited) =>
-                      _updateFavoriteStatus(index, isFavorited),
+                  onFavoriteToggle: (isFavorited) => _updateFavoriteStatus(index, isFavorited),
                 ),
               ),
             ),
@@ -94,17 +93,16 @@ class FoodItemCard extends StatelessWidget {
               children: [
                 ClipRRect(
                   borderRadius: const BorderRadius.only(
-                      topLeft: Radius.circular(15),
-                      topRight: Radius.circular(15)),
+                    topLeft: Radius.circular(15),
+                    topRight: Radius.circular(15),
+                  ),
                   child: CachedNetworkImage(
                     imageUrl: cardItem.imageUrl,
                     height: 200.h,
                     width: double.infinity.w,
                     fit: BoxFit.cover,
-                    placeholder: (context, url) =>
-                        const Center(child: CircularProgressIndicator()),
-                    errorWidget: (context, url, error) =>
-                        const Center(child: Icon(Icons.error)),
+                    placeholder: (context, url) => const Center(child: CircularProgressIndicator()),
+                    errorWidget: (context, url, error) => const Center(child: Icon(Icons.error)),
                   ),
                 ),
                 Positioned(
@@ -126,12 +124,13 @@ class FoodItemCard extends StatelessWidget {
             Column(
               children: [
                 Padding(
-                  padding:
-                      const EdgeInsets.symmetric(vertical: 5, horizontal: 10),
+                  padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 10),
                   child: Text(
                     cardItem.title,
                     style: const TextStyle(
-                        fontSize: 18, fontWeight: FontWeight.bold),
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
                 ),
                 Text(
@@ -142,22 +141,28 @@ class FoodItemCard extends StatelessWidget {
                   height: 20.h,
                 ),
                 Padding(
-                  padding:
-                      const EdgeInsets.symmetric(vertical: 5, horizontal: 10),
+                  padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 10),
                   child: Row(
                     children: [
                       const Icon(Icons.star, size: 16, color: Colors.orange),
                       const SizedBox(width: 5),
-                      Text(cardItem.rating,
-                          style: const TextStyle(fontSize: 14)),
+                      Text(
+                        cardItem.rating,
+                        style: const TextStyle(fontSize: 14),
+                      ),
                       const Spacer(),
                       Row(
                         children: [
-                          const Icon(Icons.timer,
-                              size: 16, color: Colors.orange),
+                          const Icon(
+                            Icons.timer,
+                            size: 16,
+                            color: Colors.orange,
+                          ),
                           const SizedBox(width: 5),
-                          Text(cardItem.time,
-                              style: const TextStyle(fontSize: 14)),
+                          Text(
+                            cardItem.time,
+                            style: const TextStyle(fontSize: 14),
+                          ),
                         ],
                       ),
                     ],
