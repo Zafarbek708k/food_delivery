@@ -177,7 +177,6 @@ class _ProfilePageState extends ConsumerState<ProfilePage> {
                   ),
                   InkWell(
                     onTap: () {
-
                       LanguageSelectorDialog();
 
                     },
