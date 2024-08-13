@@ -1,15 +1,16 @@
-import 'package:flutter/material.dart';
+
+import "package:flutter/material.dart";
 
 class LanguageSelectorDialog extends StatelessWidget {
   final ScrollController _scrollController = FixedExtentScrollController();
   final double _itemHeight = 60.0;
 
   final List<Map<String, String>> languages = [
-    {'name': 'Русский', 'flag': 'assets/flags/russia.png'},
-    {'name': 'English', 'flag': 'assets/flags/uk.png'},
-    {'name': 'O\'zbek', 'flag': 'assets/flags/uzbekistan.png'},
-    {'name': 'العربية', 'flag': 'assets/flags/arab.png'},
-    {'name': '日本語', 'flag': 'assets/flags/japan.png'},
+    {'name': 'Русский', 'flag': '🇷🇺'},
+    {'name': 'English', 'flag': '🇬🇧'},
+    {'name': 'O\'zbek', 'flag': '🇺🇿'},
+    {'name': 'العربية', 'flag': '🇸🇦'},
+    {'name': '日本語', 'flag': '🇯🇵'},
   ];
 
   @override
@@ -36,7 +37,7 @@ class LanguageSelectorDialog extends StatelessWidget {
                   perspective: 0.002,
                   onSelectedItemChanged: (index) {
                     print("Selected language index: $index");
-                    // Implement language change logic here based on index
+                            // O'ZGARGANDA YOZILADI LOGIKA'
                   },
                   children: languages.map((language) {
                     return GestureDetector(
