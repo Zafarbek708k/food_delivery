@@ -105,7 +105,7 @@ class _ProfilePageState extends ConsumerState<ProfilePage> {
                   InkWell(
                     onTap: () {
 
-                      context.go("${AppRouteName.restaurantPage}/${AppRouteName.mapDeliveryPage}");
+                      context.go("${AppRouteName.profilePage}/${AppRouteName.mapDeliveryPage}");
                     },
                     child: SizedBox(
                       height: MediaQuery.of(context).size.height * 0.056,
@@ -126,7 +126,7 @@ class _ProfilePageState extends ConsumerState<ProfilePage> {
                   ),
                   InkWell(
                     onTap: () {
-                      context.go("${AppRouteName.restaurantPage}/${AppRouteName.profileEmptyPage}");
+                      context.go("${AppRouteName.profilePage}/${AppRouteName.profileEmptyPage}");
                     },
                     child: SizedBox(
                       height: MediaQuery.of(context).size.height * 0.056,

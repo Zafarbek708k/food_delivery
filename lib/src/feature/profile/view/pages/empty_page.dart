@@ -10,7 +10,7 @@ class EmptyProfilePage extends StatelessWidget {
       backgroundColor: AppColors.lEDEDEF,
     ),
     body: const Center(
-      child: Text("Keying adversity"),
+      child: Text("Keyingi versiyada"),
     ),
   );
 }

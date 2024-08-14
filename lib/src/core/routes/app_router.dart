@@ -67,7 +67,7 @@ final class AppRouter {
 
   static final GoRoute profileEmptyPage = GoRoute(
     parentNavigatorKey: parentNavigatorKey,
-    path: AppRouteName.profileEditPage,
+    path: AppRouteName.profileEmptyPage,
     pageBuilder: (BuildContext context, GoRouterState state) => _customEachTransitionAnimation(
       context,
       state,
@@ -215,6 +215,7 @@ final class AppRouter {
             routes: [
               profileEditPage,
               profileEmptyPage,
+              mapDeliveryPage,
             ],
           ),
         ],

@@ -1,16 +1,17 @@
-import "package:flutter/material.dart";
-import "package:flutter_riverpod/flutter_riverpod.dart";
+import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import "../../view_model/profile_vm.dart";
-import "../widgets/avatar_widget.dart";
+import '../../view_model/profile_vm.dart';
+import '../widgets/avatar_widget.dart';
 
 class MyProfileEditPage extends ConsumerWidget {
   const MyProfileEditPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final TextEditingController nameController = TextEditingController();
     final String name = ref.watch(nameProvider);
+    final TextEditingController nameController = TextEditingController(text: name);
+    final FocusNode focusNode = FocusNode();  // FocusNode yaratamiz
 
     return Scaffold(
       floatingActionButton: MaterialButton(
@@ -18,7 +19,7 @@ class MyProfileEditPage extends ConsumerWidget {
           final newName = nameController.text.trim();
           if (newName.isNotEmpty) {
             ref.read(nameProvider.notifier).updateName(newName);
-            // nameController.clear();
+            focusNode.unfocus(); // Klaviaturani yopish uchun focusni yo'q qilamiz
           }
         },
         shape: RoundedRectangleBorder(
@@ -89,46 +90,58 @@ class MyProfileEditPage extends ConsumerWidget {
           ),
         ],
       ),
-      body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 18),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            const AvatarWidget(),
-            SizedBox(
-              height: MediaQuery.of(context).size.height * 0.04,
-            ),
-            Text(
-              name,
-              style: const TextStyle(
-                fontWeight: FontWeight.w600,
-                fontSize: 20,
-                fontFamily: "Rubik",
+      body: GestureDetector(  // GestureDetector qo'shamiz
+        onTap: () {
+          FocusScope.of(context).unfocus();  // Ekranning boshqa qismini bosganda keyboard yopiladi
+        },
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 18),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              const AvatarWidget(),
+              SizedBox(
+                height: MediaQuery.of(context).size.height * 0.04,
               ),
-            ),
-            SizedBox(
-              height: MediaQuery.of(context).size.height * 0.07,
-            ),
-            TextField(
-              cursorColor: Colors.white60,
-              controller: nameController,
-              decoration: const InputDecoration(
-                hintText: "Your name",
-                hintStyle: TextStyle(
-                  color: Colors.white60,
+              Text(
+                name,
+                style: const TextStyle(
+                  fontWeight: FontWeight.w600,
+                  fontSize: 20,
+                  fontFamily: "Rubik",
                 ),
-                filled: true,
-                fillColor: Colors.greenAccent,
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.all(
-                    Radius.circular(10),
+              ),
+              SizedBox(
+                height: MediaQuery.of(context).size.height * 0.07,
+              ),
+              TextField(
+                focusNode: focusNode,  // FocusNode ni TextField ga qo'shamiz
+                cursorColor: Colors.white60,
+                controller: nameController,
+                decoration: const InputDecoration(
+                  hintText: "Your name",
+                  hintStyle: TextStyle(
+                    color: Colors.white60,
                   ),
-                  borderSide: BorderSide.none,
+                  filled: true,
+                  fillColor: Colors.greenAccent,
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.all(
+                      Radius.circular(10),
+                    ),
+                    borderSide: BorderSide.none,
+                  ),
                 ),
+                onSubmitted: (newName) {
+                  if (newName.trim().isNotEmpty) {
+                    ref.read(nameProvider.notifier).updateName(newName.trim());
+                    focusNode.unfocus(disposition: UnfocusDisposition.previouslyFocusedChild); // Klaviaturani yopish uchun focusni yo'q qilamiz
+                  }
+                },
               ),
-            ),
-            const Spacer(),
-          ],
+              const Spacer(),
+            ],
+          ),
         ),
       ),
     );
