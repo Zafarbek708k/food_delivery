@@ -8,7 +8,6 @@ import "../../../../core/style/text_style.dart";
 import "../../view_model/profile_vm.dart";
 import "../widgets/avatar_widget.dart";
 import "../widgets/language_scrolling_dialog.dart";
-import "empty_page.dart";
 
 class ProfilePage extends ConsumerStatefulWidget {
   const ProfilePage({super.key});
@@ -83,7 +82,9 @@ class _ProfilePageState extends ConsumerState<ProfilePage> {
                     ),
                   ),
                   InkWell(
-                    onTap: () {},
+                    onTap: () {
+                      context.go("${AppRouteName.profilePage}/${AppRouteName.profileEmptyPage}");
+                    },
                     child: SizedBox(
                       height: MediaQuery.of(context).size.height * 0.056,
                       child: Row(
@@ -104,7 +105,7 @@ class _ProfilePageState extends ConsumerState<ProfilePage> {
                   InkWell(
                     onTap: () {
 
-                      context.go("mapDeliveryPage");
+                      context.go("${AppRouteName.restaurantPage}/${AppRouteName.mapDeliveryPage}");
                     },
                     child: SizedBox(
                       height: MediaQuery.of(context).size.height * 0.056,
@@ -125,10 +126,7 @@ class _ProfilePageState extends ConsumerState<ProfilePage> {
                   ),
                   InkWell(
                     onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => const EmptyProfilePage()),
-                      );
+                      context.go("${AppRouteName.restaurantPage}/${AppRouteName.profileEmptyPage}");
                     },
                     child: SizedBox(
                       height: MediaQuery.of(context).size.height * 0.056,
@@ -149,10 +147,7 @@ class _ProfilePageState extends ConsumerState<ProfilePage> {
                   ),
                   InkWell(
                     onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => const EmptyProfilePage()),
-                      );
+                      context.go("${AppRouteName.profilePage}/${AppRouteName.profileEmptyPage}");
                     },
                     child: SizedBox(
                       height: MediaQuery.of(context).size.height * 0.056,
@@ -173,8 +168,10 @@ class _ProfilePageState extends ConsumerState<ProfilePage> {
                   ),
                   InkWell(
                     onTap: () {
-                      LanguageSelectorDialog();
-
+                      showDialog(
+                        context: context,
+                        builder: (BuildContext context) => LanguageSelectorDialog(),
+                      );
                     },
                     child: SizedBox(
                       height: MediaQuery.of(context).size.height * 0.056,
@@ -195,10 +192,7 @@ class _ProfilePageState extends ConsumerState<ProfilePage> {
                   ),
                   InkWell(
                     onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => const EmptyProfilePage()),
-                      );
+                      context.go("${AppRouteName.profilePage}/${AppRouteName.profileEmptyPage}");
                     },
                     child: SizedBox(
                       height: MediaQuery.of(context).size.height * 0.056,
@@ -248,7 +242,7 @@ class _ProfilePageState extends ConsumerState<ProfilePage> {
                           ],
                         ),
                         onPressed: () {
-                          // Log out yozish kerak
+                                                // Log out yozish kerak
                         },
                       ),
                     ],

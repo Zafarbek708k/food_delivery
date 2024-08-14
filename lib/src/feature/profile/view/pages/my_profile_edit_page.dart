@@ -1,7 +1,8 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
-import '../../view_model/profile_vm.dart';
-import '../widgets/avatar_widget.dart';
+import "package:flutter/material.dart";
+import "package:flutter_riverpod/flutter_riverpod.dart";
+
+import "../../view_model/profile_vm.dart";
+import "../widgets/avatar_widget.dart";
 
 class MyProfileEditPage extends ConsumerWidget {
   const MyProfileEditPage({Key? key}) : super(key: key);
@@ -17,7 +18,7 @@ class MyProfileEditPage extends ConsumerWidget {
           final newName = nameController.text.trim();
           if (newName.isNotEmpty) {
             ref.read(nameProvider.notifier).updateName(newName);
-            nameController.clear();
+            // nameController.clear();
           }
         },
         shape: RoundedRectangleBorder(
@@ -89,7 +90,7 @@ class MyProfileEditPage extends ConsumerWidget {
         ],
       ),
       body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 18.0),
+        padding: const EdgeInsets.symmetric(horizontal: 18),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [

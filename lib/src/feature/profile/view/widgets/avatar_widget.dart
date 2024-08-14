@@ -12,12 +12,12 @@ class AvatarWidget extends ConsumerWidget {
 
     return avatar != null
         ? CircleAvatar(
-      radius: 40,
+      radius: 60,
       backgroundImage: FileImage(File(avatar)),
     )
         : const CircleAvatar(
-      radius: 40,
-      backgroundImage: AssetImage("assets/avatar_placeholder.png"),
+      radius: 60,
+      backgroundImage: AssetImage("assets/images/woman.png"),
     );
   }
 }
