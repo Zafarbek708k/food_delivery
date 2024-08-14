@@ -5,12 +5,12 @@ import "../../view_model/profile_vm.dart";
 import "../widgets/avatar_widget.dart";
 
 class MyProfileEditPage extends ConsumerWidget {
-  const MyProfileEditPage({Key? key}) : super(key: key);
+  const MyProfileEditPage({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final TextEditingController nameController = TextEditingController();
-    final String name = ref.watch(nameProvider);
+    final nameController = TextEditingController();
+    final name = ref.watch(nameProvider);
 
     return Scaffold(
       floatingActionButton: MaterialButton(

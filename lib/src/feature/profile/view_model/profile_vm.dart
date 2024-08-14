@@ -36,10 +36,6 @@ class AvatarNotifier extends StateNotifier<String?> {
 }
 
 
-final nameProvider = StateNotifierProvider<NameNotifier, String>((ref) {
-  return NameNotifier();
-});
+final nameProvider = StateNotifierProvider<NameNotifier, String>((ref) => NameNotifier());
 
-final avatarProvider = StateNotifierProvider<AvatarNotifier, String?>((ref) {
-  return AvatarNotifier();
-});
+final avatarProvider = StateNotifierProvider<AvatarNotifier, String?>((ref) => AvatarNotifier());

@@ -1,10 +1,10 @@
-import 'dart:io';
-import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
-import '../../view_model/profile_vm.dart';
+import "dart:io";
+import "package:flutter/material.dart";
+import "package:flutter_riverpod/flutter_riverpod.dart";
+import "../../view_model/profile_vm.dart";
 
 class AvatarWidget extends ConsumerWidget {
-  const AvatarWidget({Key? key}) : super(key: key);
+  const AvatarWidget({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -12,12 +12,12 @@ class AvatarWidget extends ConsumerWidget {
 
     return avatar != null
         ? CircleAvatar(
-      radius: 60,
-      backgroundImage: FileImage(File(avatar)),
-    )
+            radius: 60,
+            backgroundImage: FileImage(File(avatar)),
+          )
         : const CircleAvatar(
-      radius: 60,
-      backgroundImage: AssetImage("assets/images/woman.png"),
-    );
+            radius: 60,
+            backgroundImage: AssetImage("assets/images/woman.png"),
+          );
   }
 }
