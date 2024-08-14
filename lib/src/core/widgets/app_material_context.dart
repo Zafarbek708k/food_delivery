@@ -1,10 +1,11 @@
 import "package:flutter/material.dart";
+import "package:flutter_gen/gen_l10n/app_localizations.dart";
 import "package:food_delivery/src/core/routes/app_router.dart";
+
 import "../../feature/settings/inherited_locale_notifier.dart";
 import "../../feature/settings/inherited_theme_notifier.dart";
 import "../../feature/settings/locale_controller.dart";
 import "../../feature/settings/theme_controller.dart";
-import "package:flutter_gen/gen_l10n/app_localizations.dart";
 
 final ThemeController themeController = ThemeController();
 final LocalController localController = LocalController();
