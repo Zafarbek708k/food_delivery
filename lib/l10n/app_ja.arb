@@ -1,8 +1,8 @@
 {
-    "helloWorld": "こんにちは世界！",
-    "@helloWorld": {
-      "description": "初心者プログラマーの一般的な挨拶"
-    },
-    "hi": "やっほー"
-  }
-  
+  "@@locale": "ja",
+  "helloWorld": "こんにちは世界！",
+  "@helloWorld": {
+    "description": "初心者プログラマーの一般的な挨拶"
+  },
+  "hi": "やっほー"
+}

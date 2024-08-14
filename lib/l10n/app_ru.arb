@@ -1,8 +1,8 @@
 {
+  "@@locale": "ru",
   "helloWorld": "Привет, мир!",
   "@helloWorld": {
     "description": "Обычное приветствие новорожденного программиста"
   },
-  "hi":"hiiiii"
-
+  "hi": "hiiiii"
 }
