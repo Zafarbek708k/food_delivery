@@ -7,16 +7,15 @@ import "../widgets/search_text_fild_custom.dart";
 class SearchPage extends ConsumerStatefulWidget {
   final List<String> tags = [
     "burger",
+    "lavash",
     "vegetarian",
     "healthy",
-    "wrap",
     "fast food",
     "salad",
     "snack",
     "sandwich",
     "sushi",
     "desserts",
-    "thai",
     "lunch",
     "pizza",
     "kebab",
@@ -35,7 +34,7 @@ class _SearchPageState extends ConsumerState<SearchPage> {
   void initState() {
     super.initState();
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      _focusNode.requestFocus(); // Sahifa ochilganda TextField ga fokusni beradi
+      _focusNode.requestFocus();
     });
   }
 
@@ -55,13 +54,11 @@ class _SearchPageState extends ConsumerState<SearchPage> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  // Search bar
                   SearchTextfildCustom(
                     controller: ref.read(searchVM).searchController,
                     focusNode: _focusNode, // FocusNode ni berish
                   ),
                   const SizedBox(height: 16),
-                  // Tags/Buttons
                   Wrap(
                     alignment: WrapAlignment.spaceEvenly,
                     spacing: 5,

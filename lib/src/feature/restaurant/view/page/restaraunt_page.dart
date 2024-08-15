@@ -46,7 +46,7 @@ class RestaurantsPage extends ConsumerWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      "Restaurants",
+                      context.localized.restaurants,
                       style: context.theme.textTheme.bodyLarge?.copyWith(
                         fontSize: 24.sp,
                         fontWeight: FontWeight.bold,
@@ -54,7 +54,7 @@ class RestaurantsPage extends ConsumerWidget {
                       ),
                     ),
                     Text(
-                      "Categories",
+                      context.localized.categories,
                       style: context.theme.textTheme.bodyLarge?.copyWith(
                         fontSize: 20.sp,
                         fontWeight: FontWeight.bold,
@@ -65,7 +65,7 @@ class RestaurantsPage extends ConsumerWidget {
                     const HorizontalCategories(),
                     20.horizontalSpace,
                     Text(
-                      "All restaurants",
+                      context.localized.allRestaurants,
                       style: context.theme.textTheme.bodyLarge?.copyWith(
                         fontSize: 24.sp,
                         fontWeight: FontWeight.bold,

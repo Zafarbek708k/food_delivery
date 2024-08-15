@@ -23,11 +23,12 @@
   "paymentMethods": "Payment Methods",
   "contactUs": "Contact Us",
   "languages": "Languages",
-  "helpFAQ":"Help & FAQ",
+  "helpFAQ": "Help & FAQ",
   "logOut": "Log Out",
   "yourName": "Your name",
   "save": "Save",
-  "editAvatar" : "Edit Avatar",
-  "deleteAvatar":  "Delete Avatar",
-  "keyingiVersiyada": "in the next Version"
+  "editAvatar": "Edit Avatar",
+  "deleteAvatar": "Delete Avatar",
+  "keyingiVersiyada": "in the next Version",
+  "search": "Search"
 }
