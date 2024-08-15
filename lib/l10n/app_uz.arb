@@ -4,5 +4,19 @@
   "@helloWorld": {
     "description": "An'anaviy yangi tug'ilgan dasturchi tabriklash"
   },
-  "hi": "hiiiii"
+  "hi": "hiiiii",
+"profile": "Profil",
+  "myProfile": "Mening profilim",
+  "myOrders": "Mening Buyurtmalarim",
+  "deliveryAddress": "Yetkazib berish manzili",
+  "paymentMethods": "To'lov usullari",
+  "contactUs": "Biz bilan bog'lanish",
+  "languages": "Tillar",
+  "help&FAQ":"Yordam va tez-tez so'raladigan savollar",
+  "logOut": "Chiqish",
+  "yourName": "Ismingiz",
+  "save": "Saqlash",
+  "editAvatar" : "Rasmni tahrirlash",
+  "deleteAvatar":  "Rasmni o'chirish",
+  "keyingiVersiyada": "keyingi versiyada"
 }

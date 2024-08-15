@@ -4,5 +4,19 @@
   "@helloWorld": {
     "description": "初心者プログラマーの一般的な挨拶"
   },
-  "hi": "やっほー"
+      "hi": "やっほー",
+    "profile": "プロフィール",
+    "myProfile": "マイプロフィール",
+    "myOrders": "私の注文",
+    "deliveryAddress": "配送先住所",
+    "paymentMethods": "お支払い方法",
+    "contactUs": "お問い合わせ",
+    "languages": "言語",
+    "helpFAQ":"ヘルプとよくある質問",
+    "logOut": "ログアウト",
+    "yourName": "あなたの名前",
+    "save": "保存",
+    "editAvatar" : "アバターを編集",
+    "deleteAvatar":  "アバターを削除",
+    "keyingiVersiyada": "次のバージョンでは"
 }

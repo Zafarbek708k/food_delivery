@@ -177,10 +177,9 @@ class _ProfilePageState extends ConsumerState<ProfilePage> {
                       height: MediaQuery.of(context).size.height * 0.056,
                       child: Row(
                         children: [
-                          SvgPicture.asset(
-                            "assets/icons/setting_icon.svg",
-                            height: MediaQuery.of(context).size.height * 0.040,
-                            width: MediaQuery.of(context).size.width * 0.040,
+                         Icon(Icons.language_outlined,size: MediaQuery.of(context).size.height * 0.040,
+                           color: AppColors.profil,
+
                           ),
                           Text(
                             "    Languages",

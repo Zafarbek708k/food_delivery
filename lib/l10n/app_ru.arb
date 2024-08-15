@@ -4,5 +4,19 @@
   "@helloWorld": {
     "description": "Обычное приветствие новорожденного программиста"
   },
-  "hi": "hiiiii"
+  "hi": "hiiiii",
+    "profile": "Профиль",
+    "myProfile": "Мой профиль",
+    "myOrders": "Мои заказы",
+    "deliveryAddress": "Адрес доставки",
+    "paymentMethods": "Способы оплаты",
+    "contactUs": "Связаться с нами",
+    "languages": "Языки",
+    "helpFAQ":"Помощь и часто задаваемые вопросы",
+    "logOut": "Выйти",
+    "yourName": "Ваше имя",
+    "save": "Сохранять",
+    "editAvatar" : "Изменить аватар",
+    "deleteAvatar":  "Удалить аватар",
+    "keyingiVersiyada": "в следующей версии"
 }

@@ -15,5 +15,19 @@
   "fastestDelivery": "Fastest delivery 🔥",
   "popularItems": "Popular items 👏",
   "banner": "Get your 30% daily \n discount now!",
-  "seeAll": "  See all   "
+  "seeAll": "  See all   ",
+  "profile": "Profile",
+  "myProfile": "My Profile",
+  "myOrders": "My Orders",
+  "deliveryAddress": "Delivery Address",
+  "paymentMethods": "Payment Methods",
+  "contactUs": "Contact Us",
+  "languages": "Languages",
+  "helpFAQ":"Help & FAQ",
+  "logOut": "Log Out",
+  "yourName": "Your name",
+  "save": "Save",
+  "editAvatar" : "Edit Avatar",
+  "deleteAvatar":  "Delete Avatar",
+  "keyingiVersiyada": "in the next Version"
 }

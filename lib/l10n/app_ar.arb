@@ -4,5 +4,20 @@
   "@helloWorld": {
     "description": "التحية التقليدية للمبرمج المبتدئ"
   },
-  "hi": "مرحبااا"
+  "hi": "مرحبااا",
+
+    "profile": "حساب تعريفي",
+    "myProfile": "الملف الشخصي الخاص بي",
+    "myOrders": "طلبياتي",
+    "deliveryAddress": "عنوان التسليم",
+    "paymentMethods": "طرق الدفع",
+    "contactUs": "اتصل بنا",
+    "languages": "اللغات",
+    "helpFAQ":"المساعدة والأسئلة الشائعة",
+    "logOut": "تسجيل الخروج",
+    "yourName": "اسمك",
+    "save": "يحفظ",
+    "editAvatar" : "تعديل الصورة الرمزية",
+    "deleteAvatar":  "حذف الصورة الرمزية",
+    "keyingiVersiyada": "في النسخة القادمة"
 }
