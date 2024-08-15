@@ -1,5 +1,7 @@
 import "package:flutter/material.dart";
+import "package:flutter_gen/gen_l10n/app_localizations.dart";
 import "package:food_delivery/src/core/routes/app_router.dart";
+
 import "../../feature/settings/inherited_locale_notifier.dart";
 import "../../feature/settings/inherited_theme_notifier.dart";
 import "../../feature/settings/locale_controller.dart";
@@ -18,6 +20,8 @@ class AppMaterialContext extends StatelessWidget {
           localController: localController,
           child: Builder(
             builder: (context) => MaterialApp.router(
+              supportedLocales: AppLocalizations.supportedLocales,
+              localizationsDelegates: AppLocalizations.localizationsDelegates,
               debugShowCheckedModeBanner: false,
               theme: InheritedThemeNotifier.maybeOf(context)?.theme,
               locale: InheritedLocalNotifier.maybeOf(context)?.appLocal,

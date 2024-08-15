@@ -1,6 +1,19 @@
 {
+  "@@locale": "en",
   "helloWorld": "Hello World!",
-  "@helloWorld": {
-    "description": "The conventional newborn programmer greeting"
-  }
+  "hi": "hiiiii",
+  "restaurants": "Restaurants",
+  "categories": "Categories",
+  "allRestaurants": "All restaurants",
+  "welcome": "Welcome to",
+  "fastFood": "Fast Food",
+  "welcomeLastText": "Get your favourite meals delivered quickly right to your doorstep",
+  "startWithEmail": "Start with email",
+  "signInWith": "Sign In With",
+  "signIn": "Sign In",
+  "alreadyHaveAnAccount": "Already have an account?",
+  "fastestDelivery": "Fastest delivery 🔥",
+  "popularItems": "Popular items 👏",
+  "banner": "Get your 30% daily \n discount now!",
+  "seeAll": "  See all   "
 }

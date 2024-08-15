@@ -18,7 +18,7 @@ class RestaurantsPage extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) => Scaffold(
         appBar: AppBarWidget(
           bcgColor: Colors.white,
-          appBarText: "Xurshid Umarov",
+          appBarText: context.localized.helloWorld,
           fontWeight: FontWeight.w600,
           textColor: Colors.black,
           actions: [
