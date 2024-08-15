@@ -236,7 +236,7 @@ class _ProfilePageState extends ConsumerState<ProfilePage> {
                             SizedBox(width: MediaQuery.of(context).size.width * 0.02),
                             const Text(
                               "Log Out",
-                              style: TextStyle(color: Colors.deepOrange),
+                              style: TextStyle(color: AppColors.lF83B01),
                             ),
                           ],
                         ),

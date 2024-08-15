@@ -17,7 +17,7 @@ class AvatarWidget extends ConsumerWidget {
           )
         : const CircleAvatar(
             radius: 60,
-            backgroundImage: AssetImage("assets/images/woman.png"),
+            backgroundImage: AssetImage("assets/images/profiile.png"),
           );
   }
 }
