@@ -34,7 +34,7 @@ class _DiscoveryPageState extends ConsumerState<DiscoveryPage> {
           children: [
             // Banner section
             SizedBox(
-              height: 200.h,
+              height: 250.h,
               child: Stack(
                 children: [
                   PageView.builder(
@@ -49,7 +49,7 @@ class _DiscoveryPageState extends ConsumerState<DiscoveryPage> {
                     ),
                   ),
                   Positioned(
-                    bottom: 0,
+                    bottom: 60,
                     left: 0,
                     right: 0,
                     child: Center(
@@ -76,7 +76,7 @@ class _DiscoveryPageState extends ConsumerState<DiscoveryPage> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
-                    "Fastest delivery 🔥",
+                    context.localized.fastestDelivery,
                     style: context.theme.textTheme.bodyLarge?.copyWith(color: Colors.black, fontSize: 18, fontWeight: FontWeight.bold),
                   ),
                   TextButton(
@@ -86,10 +86,11 @@ class _DiscoveryPageState extends ConsumerState<DiscoveryPage> {
                     onPressed: () {
                       controller.seeAll(context: context);
                     },
-                    child: const Text(
-                      "    See all    ",
+                    child:  Text(
+                      context.localized.seeAll,
                       style: TextStyle(
                         color: Colors.deepOrange,
+                        fontSize: context.localized.seeAll.length > 5 ? 10: 16,
                       ),
                     ),
                   ),
@@ -136,7 +137,7 @@ class _DiscoveryPageState extends ConsumerState<DiscoveryPage> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
-                    "Popular items 👏",
+                    context.localized.popularItems,
                     style: context.theme.textTheme.bodyLarge?.copyWith(color: Colors.black, fontWeight: FontWeight.bold),
                   ),
                   TextButton(
@@ -146,10 +147,11 @@ class _DiscoveryPageState extends ConsumerState<DiscoveryPage> {
                     onPressed: () {
                       controller.seeAll(context: context);
                     },
-                    child: const Text(
-                      "    See all    ",
+                    child:  Text(
+                      context.localized.seeAll,
                       style: TextStyle(
                         color: Colors.deepOrange,
+                        fontSize: context.localized.seeAll.length > 5 ? 10: 16,
                       ),
                     ),
                   ),

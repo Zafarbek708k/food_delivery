@@ -74,6 +74,7 @@ final class AppRouter {
       const EmptyProfilePage(),
     ),
   );
+
   static final GoRoute foodDetailPage = GoRoute(
     parentNavigatorKey: parentNavigatorKey,
     path: AppRouteName.foodDetailPage,

@@ -24,11 +24,11 @@ class InfoWelcomePageWidgets extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             SizedBox(height: 16.h),
-            Text("Welcome to", style: context.theme.textTheme.bodyLarge?.copyWith(fontWeight: FontWeight.bold, fontSize: 24)),
-            Text("Fast Food", style: context.theme.textTheme.bodyLarge?.copyWith(fontWeight: FontWeight.w600, color: Colors.deepOrange)),
+            Text(context.localized.welcome, style: context.theme.textTheme.bodyLarge?.copyWith(fontWeight: FontWeight.bold, fontSize: 24)),
+            Text(context.localized.fastFood, style: context.theme.textTheme.bodyLarge?.copyWith(fontWeight: FontWeight.w600, color: Colors.deepOrange)),
             SizedBox(height: 16.h),
             Text(
-              "Get your favourite meals delivered quickly right to your doorstep",
+              context.localized.welcomeLastText,
               textAlign: TextAlign.center,
               style: context.theme.textTheme.bodyLarge?.copyWith(color: Colors.white),
             ),
@@ -42,7 +42,7 @@ class InfoWelcomePageWidgets extends StatelessWidget {
               ),
               color: Colors.black,
               child: Text(
-                "Start with email",
+                context.localized.startWithEmail,
                 style: context.theme.textTheme.bodyLarge?.copyWith(color: Colors.white, fontWeight: FontWeight.w600),
               ),
             ),
@@ -52,7 +52,7 @@ class InfoWelcomePageWidgets extends StatelessWidget {
                 const Expanded(child: Divider(color: Colors.white)),
                 Padding(
                   padding: REdgeInsets.symmetric(horizontal: 18),
-                  child: Text("Sign In With", style: context.theme.textTheme.bodyLarge?.copyWith(color: Colors.white)),
+                  child: Text(context.localized.signInWith, style: context.theme.textTheme.bodyLarge?.copyWith(color: Colors.white)),
                 ),
                 const Expanded(child: Divider(color: Colors.white)),
               ],
@@ -90,13 +90,13 @@ class InfoWelcomePageWidgets extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
-                  "Already have an account?",
+                  context.localized.alreadyHaveAnAccount,
                   style: context.theme.textTheme.bodyLarge?.copyWith(color: Colors.black, fontWeight: FontWeight.w600),
                 ),
                 TextButton(
                   onPressed: signInButton,
                   child: Text(
-                    "Sign In",
+                    context.localized.signIn,
                     style: context.theme.textTheme.bodyLarge?.copyWith(color: Colors.white),
                   ),
                 ),
