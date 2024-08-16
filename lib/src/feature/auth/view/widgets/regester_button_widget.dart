@@ -1,5 +1,6 @@
 import "package:flutter/material.dart";
 import "package:flutter_screenutil/flutter_screenutil.dart";
+import "package:food_delivery/src/core/constants/context_extension.dart";
 
 class RegesterButtonWidget extends StatelessWidget {
   const RegesterButtonWidget({required this.onPressed, super.key});
@@ -18,7 +19,7 @@ class RegesterButtonWidget extends StatelessWidget {
         minWidth: double.infinity,
         height: 60.h,
         child:  Text(
-          "Sing Up",
+          context.localized.singup,
           style: TextStyle(
             color: Colors.white,
             fontSize: 18.sp,

@@ -21,7 +21,7 @@ class RessetEmail extends StatelessWidget {
                   child: Align(
                     alignment: Alignment.topLeft,
                     child: Text(
-                      "Resset Email",
+                      context.localized.ressetEmail,
                       style: context.theme.textTheme.bodyLarge!.copyWith(fontSize: 32.sp,fontWeight: FontWeight.w600),
                     ),
                   ),
@@ -35,7 +35,7 @@ class RessetEmail extends StatelessWidget {
                 child: Align(
                   alignment: Alignment.bottomLeft,
                   child: Text(
-                    "Please enter the verification code that has \nbeen sent to email@gmail.com ",
+                    context.localized.sentemail,
                     style: context.theme.textTheme.bodyLarge!.copyWith(
                       color: Colors.black.withOpacity(0.6),
                     ),

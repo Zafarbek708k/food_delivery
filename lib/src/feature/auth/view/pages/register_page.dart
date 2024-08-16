@@ -21,7 +21,7 @@ class RegisterPage extends StatelessWidget {
                 child: Align(
                   alignment: Alignment.bottomLeft,
                   child: Text(
-                    "Sing Up",
+                    context.localized.singup,
                     style: TextStyle(
                       color: Colors.black,
                       fontWeight: FontWeight.w500,
@@ -42,7 +42,7 @@ class RegisterPage extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text(
-                        "Already have an accaunt? ",
+                        context.localized.alreadyhaveanaccaunt,
                         style: context.theme.textTheme.bodyLarge!.copyWith(
                           fontWeight: FontWeight.w500,
                         ),
@@ -53,7 +53,7 @@ class RegisterPage extends StatelessWidget {
                         },
                         padding: EdgeInsets.zero,
                         child: Text(
-                          "Login",
+                          context.localized.login,
                           style: TextStyle(
                             fontSize: 16.sp,
                             color: Colors.orange,
@@ -82,7 +82,7 @@ class RegisterPage extends StatelessWidget {
                           width: MediaQuery.of(context).size.width * 0.02,
                         ),
                         Text(
-                          "Sign in with",
+                          context.localized.signInWith,
                           style: context.theme.textTheme.bodyLarge!.copyWith(
                             fontWeight: FontWeight.w600,
                           ),
@@ -125,7 +125,7 @@ class RegisterPage extends StatelessWidget {
                                 width: MediaQuery.of(context).size.width * 0.03,
                               ),
                               Text(
-                                "Countine with Facebook",
+                                context.localized.countinewithfacebook,
                                 style: context.theme.textTheme.bodyLarge!.copyWith(
                                   fontSize: 18.sp,
                                   fontWeight: FontWeight.w600,
@@ -160,7 +160,7 @@ class RegisterPage extends StatelessWidget {
                     width: MediaQuery.of(context).size.width * 0.03,
                   ),
                               Text(
-                                "Countine with Google",
+                                context.localized.continuewithgoogle,
                                 style: context.theme.textTheme.bodyLarge!.copyWith(
                                   fontSize: 18.sp,
                                   fontWeight: FontWeight.w600,

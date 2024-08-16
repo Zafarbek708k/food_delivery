@@ -144,7 +144,7 @@ class VerificationcodePage extends ConsumerWidget {
                   child: Align(
                     alignment: Alignment.centerLeft,
                     child: Text(
-                      "Verification Code",
+                      context.localized.verificationcode,
                       style: context.theme.textTheme.bodyLarge!.copyWith(
                         fontSize: 32.sp,
                         fontWeight: FontWeight.w600,
@@ -156,7 +156,7 @@ class VerificationcodePage extends ConsumerWidget {
                 SizedBox(height: 50.h),
                 Center(
                   child: Text(
-                    "Please enter the verification code that has \nbeen sent to email@gmail.com",
+                    context.localized.sentemail,
                     style: context.theme.textTheme.bodyLarge!.copyWith(
                       color: Colors.black.withOpacity(0.6),
                       fontSize: 16.sp,
@@ -205,28 +205,28 @@ class VerificationcodePage extends ConsumerWidget {
                   ),
                 ],
                 SizedBox(height: 20.h),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      "Haven't received a code? ",
-                      style: TextStyle(fontWeight: FontWeight.w500, fontSize: 16.sp),
-                    ),
-                    GestureDetector(
-                      onTap: () {},
-                      child: Text(
-                        "Reset",
-                        style: TextStyle(
-                          color: Colors.orange,
-                          fontWeight: FontWeight.w500,
-                          fontSize: 16.sp,
-                          decoration: TextDecoration.underline,
-                          decorationColor: Colors.orange,
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
+                // Row(
+                //   mainAxisAlignment: MainAxisAlignment.center,
+                //   children: [
+                //     Text(
+                //       "Haven't received a code? ",
+                //       style: TextStyle(fontWeight: FontWeight.w500, fontSize: 16.sp),
+                //     ),
+                //     GestureDetector(
+                //       onTap: () {},
+                //       child: Text(
+                //         "Reset",
+                //         style: TextStyle(
+                //           color: Colors.orange,
+                //           fontWeight: FontWeight.w500,
+                //           fontSize: 16.sp,
+                //           decoration: TextDecoration.underline,
+                //           decorationColor: Colors.orange,
+                //         ),
+                //       ),
+                //     ),
+                //   ],
+                // ),
                 SizedBox(height: 30.h),
                 NextbuttonWidgets(
                   onPressed: () =>

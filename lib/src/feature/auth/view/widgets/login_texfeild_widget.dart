@@ -3,6 +3,7 @@ import "package:flutter/material.dart";
 import "package:flutter_riverpod/flutter_riverpod.dart";
 import "package:flutter_screenutil/flutter_screenutil.dart";
 import "package:food_delivery/riverpod.dart";
+import "package:food_delivery/src/core/constants/context_extension.dart";
 import "package:food_delivery/src/core/routes/app_route_name.dart";
 import "package:food_delivery/src/feature/auth/view/widgets/login_button_widget.dart";
 import "package:go_router/go_router.dart";
@@ -20,7 +21,7 @@ class LoginTexfeildWidget extends ConsumerWidget {
               child: Align(
                 alignment: Alignment.bottomLeft,
                 child: Text(
-                  "Email",
+                  context.localized.email,
                   style: TextStyle(
                     color: Colors.black.withOpacity(0.6),
                     fontWeight: FontWeight.w500,
@@ -67,13 +68,13 @@ class LoginTexfeildWidget extends ConsumerWidget {
                       color: Colors.black.withOpacity(0.1),
                     ),
                   ),
-                  hintText: "Your email",
+                  hintText: context.localized.youremail,
                   hintStyle: TextStyle(
                     color: Colors.black.withOpacity(0.3),
                     fontSize: 16.sp,
                   ),
                 ),
-                validator: (value) => value == "asadbek@gmail.com" ? null : "Your email is incorrect",
+                validator: (value) => value == "asadbek@gmail.com" ? null : context.localized.youremailisincorrect,
               ),
             ),
             SizedBox(
@@ -84,7 +85,7 @@ class LoginTexfeildWidget extends ConsumerWidget {
               child: Align(
                 alignment: Alignment.bottomLeft,
                 child: Text(
-                  "Password",
+                  context.localized.password,
                   style: TextStyle(
                     color: Colors.black.withOpacity(0.6),
                     fontWeight: FontWeight.w500,
@@ -139,13 +140,13 @@ class LoginTexfeildWidget extends ConsumerWidget {
                           )
                         : const Icon(Icons.visibility_off_rounded),
                   ),
-                  hintText: "Password",
+                  hintText: context.localized.password,
                   hintStyle: TextStyle(
                     color: Colors.black.withOpacity(0.3),
                     fontSize: 16.sp,
                   ),
                 ),
-                validator: (value) => value == "asd11111"? null : "Your password is incorrect",
+                validator: (value) => value == "asd11111"? null : context.localized.yourpasswordisincorrect,
               ),
             ),
             Padding(
@@ -156,9 +157,9 @@ class LoginTexfeildWidget extends ConsumerWidget {
                   onPressed: () {
                     context.go("${AppRouteName.signIn}/${AppRouteName.reSetEmail}");
                   },
-                  child: const Text(
-                    "Forgot password?",
-                    style: TextStyle(
+                  child:  Text(
+                    context.localized.forgotpassword,
+                    style: const TextStyle(
                       decoration: TextDecoration.underline,
                       decorationColor: Colors.orange,
                       color: Colors.orange,
@@ -168,7 +169,7 @@ class LoginTexfeildWidget extends ConsumerWidget {
               ),
             ),
             LoginButtonWidget(
-              NameText: "Login",
+              NameText: context.localized.login,
               onPressed: () => ref.watch(authVm).loginButton(context: context),
             ),
           ],

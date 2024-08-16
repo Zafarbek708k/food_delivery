@@ -27,7 +27,7 @@ class LoginPage extends StatelessWidget {
                 child: Align(
                   alignment: Alignment.bottomLeft,
                   child: Text(
-                    "Login",
+                    context.localized.login,
                     style: context.theme.textTheme.bodyLarge!.copyWith(
                       fontSize: 30.sp,
                       fontWeight: FontWeight.w600,
@@ -46,7 +46,7 @@ class LoginPage extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text(
-                        "Don't have an accaunt? ",
+                        context.localized.donthaveanaccaunt,
                         style: context.theme.textTheme.bodyLarge!.copyWith(
                           color: AppColors.l111719,
                           fontWeight: FontWeight.w500,
@@ -58,7 +58,7 @@ class LoginPage extends StatelessWidget {
                           context.go("${AppRouteName.signIn}/${AppRouteName.signUp}");
                         },
                         child: Text(
-                          "Sing Up",
+                          context.localized.singup,
                           style: TextStyle(
                             fontSize: 16.sp,
                             color: Colors.orange,
@@ -86,7 +86,7 @@ class LoginPage extends StatelessWidget {
                           width: MediaQuery.of(context).size.width * 0.02,
                         ),
                         Text(
-                          "Sign in with",
+                         context.localized.signInWith,
                           style: context.theme.textTheme.bodyMedium!.copyWith(
                             fontWeight: FontWeight.w600,
                             color: AppColors.l111719,
@@ -127,14 +127,13 @@ class LoginPage extends StatelessWidget {
                                 width: MediaQuery.of(context).size.width * 0.07,
                               ),
                               SizedBox(
-                                width: MediaQuery.of(context).size.width * 0.07,
+                                width: MediaQuery.of(context).size.width * 0.03,
                               ),
                               Text(
-                                "Countine with Facebook",
+                                context.localized.countinewithfacebook,
                                 style: context.theme.textTheme.bodyLarge!.copyWith(
-                                  color: AppColors.l111719,
-                                  fontWeight: FontWeight.w600,
                                   fontSize: 18.sp,
+                                  fontWeight: FontWeight.w600,
                                 ),
                               ),
                             ],
@@ -159,17 +158,17 @@ class LoginPage extends StatelessWidget {
                             children: [
                               SvgPicture.asset(
                                 "assets/icons/google_icon.svg",
-                                width: MediaQuery.of(context).size.width * 0.07,
+                    width: MediaQuery.of(context).size.width * 0.07,
+                  
                               ),
                               SizedBox(
-                                width: MediaQuery.of(context).size.width * 0.07,
-                              ),
+                    width: MediaQuery.of(context).size.width * 0.03,
+                  ),
                               Text(
-                                "Continue with Google",
+                                context.localized.continuewithgoogle,
                                 style: context.theme.textTheme.bodyLarge!.copyWith(
-                                  fontWeight: FontWeight.w600,
-                                  color: AppColors.l111719,
                                   fontSize: 18.sp,
+                                  fontWeight: FontWeight.w600,
                                 ),
                               ),
                             ],
@@ -177,8 +176,8 @@ class LoginPage extends StatelessWidget {
                         ),
                       ),
                       SizedBox(
-                        height: MediaQuery.of(context).size.height * 0.01,
-                      ),
+                    height: MediaQuery.of(context).size.height * 0.02,
+                  ),
                     ],
                   ),
                 ],

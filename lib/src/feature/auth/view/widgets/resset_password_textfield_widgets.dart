@@ -2,6 +2,7 @@ import "package:flutter/material.dart";
 import "package:flutter_riverpod/flutter_riverpod.dart";
 import "package:flutter_screenutil/flutter_screenutil.dart";
 import "package:food_delivery/riverpod.dart";
+import "package:food_delivery/src/core/constants/context_extension.dart";
 
 import "login_button_widget.dart";
 
@@ -21,7 +22,7 @@ key: ref.read(authVm).ressetEmailPawwordFromKey,
               child: Align(
                 alignment: Alignment.bottomLeft,
                 child: Text(
-                  "Password",
+                  context.localized.password,
                   style: TextStyle(
                     color: Colors.black.withOpacity(0.6),
                     fontWeight: FontWeight.w500,
@@ -75,7 +76,7 @@ key: ref.read(authVm).ressetEmailPawwordFromKey,
                           )
                         : const Icon(Icons.visibility_off_rounded),
                   ),
-                  hintText: "Password",
+                  hintText: context.localized.password,
                   hintStyle: TextStyle(
                     color: Colors.black.withOpacity(0.3),
                     fontSize: 16.sp,
@@ -85,7 +86,7 @@ key: ref.read(authVm).ressetEmailPawwordFromKey,
                     final regex = RegExp(r"^(?=.*?[a-z])(?=.*?[0-9]).{8,}$");
                     return value != null && value.contains(regex)
                         ? null
-                        : "must be 8 or more characters  and contain at least 1 number or special character";
+                        : context.localized.mustbe;
                   },
               ),
             ),
@@ -93,7 +94,7 @@ key: ref.read(authVm).ressetEmailPawwordFromKey,
                   height: 80.h,
                 ),
                 LoginButtonWidget(
-                  NameText: "Login",
+                  NameText: context.localized.login,
                   onPressed: () => ref.watch(authVm).ressetPawwordButtonFunction(context: context),
                 ),
           ],

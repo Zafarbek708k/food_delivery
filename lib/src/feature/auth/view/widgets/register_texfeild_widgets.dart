@@ -2,6 +2,7 @@ import "package:flutter/material.dart";
 import "package:flutter_riverpod/flutter_riverpod.dart";
 import "package:flutter_screenutil/flutter_screenutil.dart";
 import "package:food_delivery/riverpod.dart";
+import "package:food_delivery/src/core/constants/context_extension.dart";
 import "package:food_delivery/src/feature/auth/view/widgets/regester_button_widget.dart";
 
 class RegisterTexfeildWidgets extends ConsumerWidget {
@@ -15,7 +16,7 @@ class RegisterTexfeildWidgets extends ConsumerWidget {
               child: Align(
                 alignment: Alignment.bottomLeft,
                 child: Text(
-                  "Name",
+                  context.localized.name,
                   style: TextStyle(
                     color: Colors.black.withOpacity(0.6),
                     fontWeight: FontWeight.w500,
@@ -61,13 +62,13 @@ class RegisterTexfeildWidgets extends ConsumerWidget {
                       width: 2,
                     ),
                   ),
-                  hintText: "Your name",
+                  hintText: context.localized.yourName,
                   hintStyle: TextStyle(
                     color: Colors.black.withOpacity(0.3),
                     fontSize: 16.sp,
                   ),
                 ),
-                validator: (value) => value != null && ref.read(authVm).registerNameController.text.isNotEmpty ? null : "please enter your username",
+                validator: (value) => value != null && ref.read(authVm).registerNameController.text.isNotEmpty ? null : context.localized.pleaseenteryourusername,
               ),
             ),
             SizedBox(
@@ -78,7 +79,7 @@ class RegisterTexfeildWidgets extends ConsumerWidget {
               child: Align(
                 alignment: Alignment.bottomLeft,
                 child: Text(
-                  "Email",
+                  context.localized.email,
                   style: TextStyle(
                     color: Colors.black.withOpacity(0.6),
                     fontWeight: FontWeight.w500,
@@ -124,14 +125,14 @@ class RegisterTexfeildWidgets extends ConsumerWidget {
                       color: Colors.black.withOpacity(0.1),
                     ),
                   ),
-                  hintText: "Your email",
+                  hintText: context.localized.youremail,
                   hintStyle: TextStyle(
                     color: Colors.black.withOpacity(0.3),
                     fontSize: 16.sp,
                   ),
                 ),
                 validator: (value) =>
-                    value != null && value.contains("@gmail.com") ? null : "please enter your email address Example => (example@gmail.com)",
+                    value != null && value.contains("@gmail.com") ? null : context.localized.pleaseenteryouremailaddress,
               ),
             ),
             SizedBox(
@@ -142,7 +143,7 @@ class RegisterTexfeildWidgets extends ConsumerWidget {
               child: Align(
                 alignment: Alignment.bottomLeft,
                 child: Text(
-                  "Password",
+                  context.localized.password,
                   style: TextStyle(
                     color: Colors.black.withOpacity(0.6),
                     fontWeight: FontWeight.w500,
@@ -207,7 +208,7 @@ class RegisterTexfeildWidgets extends ConsumerWidget {
                   final regex = RegExp(r"^(?=.*?[a-z])(?=.*?[0-9]).{8,}$");
                   return value != null && value.contains(regex)
                       ? null
-                      : "must be 8 or more characters  and contain at least 1 number or special character";
+                      : context.localized.mustbe;
                 },
                 // validator: (value) => value != null && value.contains("@gmail.com") ? null : 'please enter your email address Example => (example@gmail.com)',
               ),

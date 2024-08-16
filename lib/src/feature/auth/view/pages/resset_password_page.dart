@@ -27,7 +27,7 @@ class _RessetPasswordPageState extends State<RessetPasswordPage> {
                   child: Align(
                     alignment: Alignment.topLeft,
                     child: Text(
-                      "Reset password",
+                      context.localized.resetpassword,
                       style: context.theme.textTheme.bodyLarge!.copyWith(
                         fontSize: 32.sp,
                         color: AppColors.l111719,
@@ -42,7 +42,7 @@ class _RessetPasswordPageState extends State<RessetPasswordPage> {
               ),
               Center(
                 child: Text(
-                  "Please enter the verification code that has \nbeen sent to email@gmail.com ",
+                  context.localized.sentemail,
                   style: context.theme.textTheme.bodyLarge!.copyWith(
                     color: Colors.black.withOpacity(0.6),
                   ),

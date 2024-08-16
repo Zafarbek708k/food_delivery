@@ -1,5 +1,6 @@
 import "package:flutter/material.dart";
 import "package:flutter_screenutil/flutter_screenutil.dart";
+import "package:food_delivery/src/core/constants/context_extension.dart";
 
 class NextbuttonWidgets extends StatelessWidget {
   const NextbuttonWidgets({required this.onPressed, super.key});
@@ -17,7 +18,7 @@ class NextbuttonWidgets extends StatelessWidget {
         minWidth: double.infinity,
         height: 60.h,
         child:  Text(
-          "Next",
+          context.localized.next,
           style: TextStyle(
             color: Colors.white,
             fontSize: 18.sp,
