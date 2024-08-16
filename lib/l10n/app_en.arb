@@ -65,5 +65,6 @@
   "pleaseenteryourusername": "Please enter your username",
   "pleaseenteryouremailaddress": "Please enter your email address",
   "mustbe": "Must be 8 or more characters and contain at least 1 number or special character",
-  "ressetEmail": "Reset Email"
+  "ressetEmail": "Reset Email",
+  "foodItems":"  Food Items  "
 }

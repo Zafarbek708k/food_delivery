@@ -65,6 +65,7 @@
   "pleaseenteryourusername": "Iltimos, foydalanuvchi nomingizni kiriting",
   "pleaseenteryouremailaddress": "Iltimos, email manzilingizni kiriting",
   "mustbe": "Kamida 8 ta belgi va kamida 1 raqam yoki maxsus belgi bo'lishi kerak",
-  "ressetEmail": "Emailni tiklash"
+  "ressetEmail": "Emailni tiklash",
+  "foodItems":"  Ovqatlar  "
 
 }

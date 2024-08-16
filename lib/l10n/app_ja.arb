@@ -65,6 +65,7 @@
   "pleaseenteryourusername": "ユーザー名を入力してください",
   "pleaseenteryouremailaddress": "メールアドレスを入力してください",
   "mustbe": "8文字以上で、少なくとも1つの数字または特殊文字を含む必要があります",
-  "ressetEmail": "リセットメール"
+  "ressetEmail": "リセットメール",
+  "foodItems":"  食品アイテム  "
 
 }

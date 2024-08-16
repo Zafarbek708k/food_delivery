@@ -1,5 +1,6 @@
 import "package:flutter/material.dart";
 import "package:flutter_screenutil/flutter_screenutil.dart";
+import "package:food_delivery/src/core/constants/context_extension.dart";
 
 import "favorite_food_items.dart";
 import "favorite_restaurants.dart";
@@ -59,13 +60,13 @@ class _FavouritePageState extends State<FavouritePage>
                           .tab, // Keeps the indicator size equal to the tab size
                       labelColor: Colors.white,
                       unselectedLabelColor: Colors.black,
-                      tabs: const [
+                      tabs:  [
                         Tab(
-                          text: "  Food Items  ",
+                          text: context.localized.foodItems,
                           height: 20,
                         ),
                         Tab(
-                          text: "  Restaurants  ",
+                          text: context.localized.restaurants,
                           height: 20,
                         ),
                       ],
