@@ -2,6 +2,7 @@ import "package:cached_network_image/cached_network_image.dart";
 import "package:flutter/material.dart";
 import "package:flutter_riverpod/flutter_riverpod.dart";
 import "package:flutter_screenutil/flutter_screenutil.dart";
+import "package:food_delivery/src/core/constants/context_extension.dart";
 
 import "../../../../core/style/app_colors.dart";
 import "../../view_model/restaurant_detail_vm.dart";
@@ -24,7 +25,7 @@ class FoodDetailsPage extends ConsumerWidget {
         title: Text(foodItem.name),
       ),
       body: Padding(
-        padding: REdgeInsets.all(16),
+        padding: REdgeInsets.symmetric(horizontal: 16),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -38,7 +39,6 @@ class FoodDetailsPage extends ConsumerWidget {
               errorWidget: (context, url, error) =>
                   const Center(child: Icon(Icons.error)),
             ),
-            SizedBox(height: 16.h),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -61,12 +61,10 @@ class FoodDetailsPage extends ConsumerWidget {
                 ),
               ],
             ),
-            SizedBox(height: 8.h),
             Text(
               foodItem.description,
               style: TextStyle(fontSize: 16.sp),
             ),
-            SizedBox(height: 16.h),
             Text(
               "€ ${foodItem.price.toStringAsFixed(0)}",
               style: TextStyle(
@@ -77,32 +75,37 @@ class FoodDetailsPage extends ConsumerWidget {
             ),
             const Divider(),
             Text(
-              "Add more:",
+             context.localized.addMore,
               style: TextStyle(fontSize: 18.sp, fontWeight: FontWeight.bold),
             ),
             SizedBox(height: 8.h),
-            Column(
-              children: addOnsSelection.keys
-                  .map(
-                    (addOn) => CheckboxListTile(
-                      title: Text(
-                        "${addOn.name} (+€${addOn.price.toStringAsFixed(0)})",
-                      ),
-                      value: addOnsSelection[addOn],
-                      onChanged: (bool? value) {
-                        final updatedSelection = {
-                          ...addOnsSelection,
-                          addOn: value ?? false,
-                        };
-                        final selectedAddOns = updatedSelection.entries
-                            .where((entry) => entry.value)
-                            .map((entry) => entry.key)
-                            .toList();
-                        cartNotifier.updateAddOns(foodItem, selectedAddOns);
-                      },
-                    ),
-                  )
-                  .toList(),
+            SizedBox(
+              height: MediaQuery.of(context).size.height.h * 0.15,
+              child: SingleChildScrollView(
+                child: Column(
+                  children: addOnsSelection.keys
+                      .map(
+                        (addOn) => CheckboxListTile(
+                          title: Text(
+                            "${addOn.name} (+€${addOn.price.toStringAsFixed(0)})",
+                          ),
+                          value: addOnsSelection[addOn],
+                          onChanged: (bool? value) {
+                            final updatedSelection = {
+                              ...addOnsSelection,
+                              addOn: value ?? false,
+                            };
+                            final selectedAddOns = updatedSelection.entries
+                                .where((entry) => entry.value)
+                                .map((entry) => entry.key)
+                                .toList();
+                            cartNotifier.updateAddOns(foodItem, selectedAddOns);
+                          },
+                        ),
+                      )
+                      .toList(),
+                ),
+              ),
             ),
             const Divider(),
             const Spacer(),
@@ -163,7 +166,7 @@ class FoodDetailsPage extends ConsumerWidget {
                   ),
                 ),
                 SizedBox(
-                  width: 200.w,
+                  width: 180.w,
                   height: 40.h,
                   child: OrangeButton(
                     onPressed: () {
@@ -172,7 +175,7 @@ class FoodDetailsPage extends ConsumerWidget {
                         cartNotifier.addItem(foodItem);
                       }
                     },
-                    text: "Add to order",
+                    text: context.localized.addToOrder,
                   ),
                 ),
               ],

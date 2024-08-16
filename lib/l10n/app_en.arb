@@ -30,5 +30,18 @@
   "editAvatar": "Edit Avatar",
   "deleteAvatar": "Delete Avatar",
   "keyingiVersiyada": "in the next Version",
-  "search": "Search"
+  "search": "Search",
+  "addMore": "Add more:",
+  "addToOrder":"Add to order",
+  "yourOrder":"Your order",
+  "orderItems":"Order items",
+  "yourCartIsEmpty":"Your cart is empty",
+  "total":"Total:",
+  "anyElse":"Any else",
+  "goToCheckout":"Go to checkout",
+  "deliveryIn":"Delivery in:",
+  "home":"Home",
+"change":"Change",
+"placeOrder":"Place order",
+"add":"Add"
 }

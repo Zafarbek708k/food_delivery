@@ -2,6 +2,7 @@ import "package:cached_network_image/cached_network_image.dart";
 import "package:flutter/material.dart";
 import "package:flutter_riverpod/flutter_riverpod.dart";
 import "package:flutter_screenutil/flutter_screenutil.dart";
+import "package:food_delivery/src/core/constants/context_extension.dart";
 import "package:go_router/go_router.dart";
 import "../../../../core/routes/app_route_name.dart";
 import "../../../../core/style/app_colors.dart";
@@ -25,31 +26,31 @@ class OrderPage extends ConsumerWidget {
             Navigator.pop(context);
           },
         ),
-        title: const Text("Your order"),
+        title: Text(context.localized.yourOrder),
         backgroundColor: Colors.white,
         foregroundColor: Colors.black,
         elevation: 0,
       ),
       body: Padding(
-        padding: REdgeInsets.symmetric(horizontal: 15),
+        padding: REdgeInsets.symmetric(horizontal: 2),
         child: Column(
           children: [
             SizedBox(
-              height: MediaQuery.of(context).size.height * 0.75.h,
+              height: MediaQuery.of(context).size.height * 0.7.h,
               child: SingleChildScrollView(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      "Order items",
+                      context.localized.orderItems,
                       style: TextStyle(
                         fontSize: 18.sp,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
                     if (cartNotifier.cartItems.isEmpty)
-                      const Center(
-                        child: Text("Your cart is empty"),
+                      Center(
+                        child: Text(context.localized.yourCartIsEmpty),
                       )
                     else
                       ListView.builder(
@@ -204,7 +205,7 @@ class OrderPage extends ConsumerWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
-                          "Total:",
+                          context.localized.total,
                           style: TextStyle(
                             fontSize: 18.sp,
                             fontWeight: FontWeight.bold,
@@ -226,7 +227,7 @@ class OrderPage extends ConsumerWidget {
                       color: AppColors.lF96234,
                     ),
                     Text(
-                      "Any else",
+                      context.localized.anyElse,
                       style: TextStyle(
                         fontSize: 18.sp,
                         fontWeight: FontWeight.bold,
@@ -239,8 +240,8 @@ class OrderPage extends ConsumerWidget {
                           const SliverGridDelegateWithFixedCrossAxisCount(
                         crossAxisCount: 3,
                         crossAxisSpacing: 2,
-                        mainAxisSpacing: 2,
-                        childAspectRatio: 0.41,
+                        mainAxisSpacing: 15,
+                        childAspectRatio: 0.37,
                       ),
                       itemCount: foods.length,
                       itemBuilder: (context, index) {
@@ -282,7 +283,6 @@ class OrderPage extends ConsumerWidget {
                         );
                       },
                     ),
-                    SizedBox(height: 16.h),
                   ],
                 ),
               ),
@@ -293,8 +293,33 @@ class OrderPage extends ConsumerWidget {
                   "${AppRouteName.restaurantPage}/${AppRouteName.restaurantDetailPage}/${AppRouteName.orderPage}/${AppRouteName.mapDeliveryPage}",
                 );
               },
-              text:
-                  "Go to checkout       Total: €${totalPrice.toStringAsFixed(0)}",
+              richText: TextSpan(
+                children: [
+                  TextSpan(
+                    text: context.localized.goToCheckout,
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 18.sp,
+                    ),
+                  ),
+                  TextSpan(
+                    text: context.localized.total,
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 18.sp,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  TextSpan(
+                    text: totalPrice.toStringAsFixed(0),
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 18.sp,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ],
+              ),
             ),
           ],
         ),

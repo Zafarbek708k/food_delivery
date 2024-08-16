@@ -2,6 +2,7 @@ import "package:cached_network_image/cached_network_image.dart";
 import "package:flutter/material.dart";
 import "package:flutter_riverpod/flutter_riverpod.dart";
 import "package:flutter_screenutil/flutter_screenutil.dart";
+import "package:food_delivery/src/core/constants/context_extension.dart";
 import "package:go_router/go_router.dart";
 
 import "../../../../core/routes/app_route_name.dart";
@@ -103,12 +104,42 @@ class RestaurantDetail extends ConsumerWidget {
                           Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              const Text("Delivery in 40-50 min"),
-                              Text(
-                                "Home (g'uncha)",
-                                style: TextStyle(
-                                  color: Colors.grey,
-                                  fontSize: 14.sp,
+                              RichText(
+                                text: TextSpan(
+                                  children: [
+                                    TextSpan(
+                                      text: context.localized.deliveryIn,
+                                      style: TextStyle(
+                                        fontSize: 14.sp,
+                                      ),
+                                    ),
+                                    TextSpan(
+                                      text: "40-50 min",
+                                      style: TextStyle(
+                                        fontSize: 14.sp,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              RichText(
+                                text: TextSpan(
+                                  children: [
+                                    TextSpan(
+                                      text: context.localized.home,
+                                      style: TextStyle(
+                                        color: Colors.grey,
+                                        fontSize: 14.sp,
+                                      ),
+                                    ),
+                                    TextSpan(
+                                      text: "(g'uncha)",
+                                      style: TextStyle(
+                                        color: Colors.orange,
+                                        fontSize: 14.sp,
+                                      ),
+                                    ),
+                                  ],
                                 ),
                               ),
                             ],
@@ -123,9 +154,9 @@ class RestaurantDetail extends ConsumerWidget {
                             style: ElevatedButton.styleFrom(
                               backgroundColor: AppColors.lFED8CC,
                             ),
-                            child: const Text(
-                              "Change",
-                              style: TextStyle(
+                            child: Text(
+                              context.localized.change,
+                              style: const TextStyle(
                                 color: AppColors.lF96234,
                               ),
                             ),
@@ -169,7 +200,7 @@ class RestaurantDetail extends ConsumerWidget {
                                 crossAxisCount: 2,
                                 crossAxisSpacing: 8,
                                 mainAxisSpacing: 8,
-                                childAspectRatio: 0.53,
+                                childAspectRatio: 0.48,
                               ),
                               itemCount: items.length,
                               itemBuilder: (context, index) {
@@ -247,7 +278,40 @@ class RestaurantDetail extends ConsumerWidget {
                     }
                   }
                 },
-                text: "Place Order: €${totalPrice.toStringAsFixed(2)}",
+                richText: TextSpan(
+                  children: [
+                    TextSpan(
+                      text: context.localized.placeOrder,
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 18.sp,
+                      ),
+                    ),
+                    TextSpan(
+                      text: "    ",
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 18.sp,
+                      ),
+                    ),
+                    TextSpan(
+                      text: context.localized.total,
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 18.sp,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    TextSpan(
+                      text: totalPrice.toStringAsFixed(0),
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 18.sp,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ),
         ],
