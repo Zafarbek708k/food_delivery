@@ -1,6 +1,8 @@
 import "package:flutter/material.dart";
 import "package:flutter_riverpod/flutter_riverpod.dart";
+import "package:flutter_screenutil/flutter_screenutil.dart";
 import "package:flutter_svg/svg.dart";
+import "package:food_delivery/src/core/constants/context_extension.dart";
 import "package:food_delivery/src/core/style/app_colors.dart";
 import "package:go_router/go_router.dart";
 import "../../../../core/routes/app_route_name.dart";
@@ -23,7 +25,7 @@ class _ProfilePageState extends ConsumerState<ProfilePage> {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 10),
+        padding: REdgeInsets.symmetric(horizontal: 10),
         child: Column(
           children: [
             Column(
@@ -36,18 +38,18 @@ class _ProfilePageState extends ConsumerState<ProfilePage> {
                 ),
                 Text(
                   name,
-                  style: const TextStyle(
+                  style: TextStyle(
                     fontWeight: FontWeight.w600,
-                    fontSize: 20,
+                    fontSize: 20.sp,
                     fontFamily: "Rubik",
                     color: Colors.black,
                   ),
                 ),
-                const Text(
+                Text(
                   "yourEmail@.gmail.com",
                   style: TextStyle(
                     fontWeight: FontWeight.w400,
-                    fontSize: 14,
+                    fontSize: 14.sp,
                     fontFamily: "Rubik",
                   ),
                 ),
@@ -57,7 +59,7 @@ class _ProfilePageState extends ConsumerState<ProfilePage> {
               height: MediaQuery.of(context).size.height * 0.035,
             ),
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 10),
+              padding: REdgeInsets.symmetric(horizontal: 10),
               child: Column(
                 children: [
                   InkWell(
@@ -74,7 +76,7 @@ class _ProfilePageState extends ConsumerState<ProfilePage> {
                             width: MediaQuery.of(context).size.width * 0.040,
                           ),
                           Text(
-                            "    My Profile",
+                            context.localized.myProfile,
                             style: const AppTextStyle().forProfile,
                           ),
                         ],
@@ -95,7 +97,7 @@ class _ProfilePageState extends ConsumerState<ProfilePage> {
                             width: MediaQuery.of(context).size.width * 0.038,
                           ),
                           Text(
-                            "    My Orders",
+                            context.localized.myOrders,
                             style: const AppTextStyle().forProfile,
                           ),
                         ],
@@ -104,7 +106,6 @@ class _ProfilePageState extends ConsumerState<ProfilePage> {
                   ),
                   InkWell(
                     onTap: () {
-
                       context.go("${AppRouteName.profilePage}/${AppRouteName.mapDeliveryPage}");
                     },
                     child: SizedBox(
@@ -117,7 +118,7 @@ class _ProfilePageState extends ConsumerState<ProfilePage> {
                             width: MediaQuery.of(context).size.width * 0.040,
                           ),
                           Text(
-                            "    Delivery Adress",
+                            context.localized.deliveryAddress,
                             style: const AppTextStyle().forProfile,
                           ),
                         ],
@@ -138,7 +139,7 @@ class _ProfilePageState extends ConsumerState<ProfilePage> {
                             width: MediaQuery.of(context).size.width * 0.040,
                           ),
                           Text(
-                            "    Payment Methods",
+                            context.localized.paymentMethods,
                             style: const AppTextStyle().forProfile,
                           ),
                         ],
@@ -159,7 +160,7 @@ class _ProfilePageState extends ConsumerState<ProfilePage> {
                             width: MediaQuery.of(context).size.width * 0.040,
                           ),
                           Text(
-                            "    Contact Us",
+                            context.localized.contactUs,
                             style: const AppTextStyle().forProfile,
                           ),
                         ],
@@ -177,12 +178,13 @@ class _ProfilePageState extends ConsumerState<ProfilePage> {
                       height: MediaQuery.of(context).size.height * 0.056,
                       child: Row(
                         children: [
-                         Icon(Icons.language_outlined,size: MediaQuery.of(context).size.height * 0.040,
-                           color: AppColors.profil,
-
+                          Icon(
+                            Icons.language_outlined,
+                            size: MediaQuery.of(context).size.height * 0.040,
+                            color: AppColors.profil,
                           ),
                           Text(
-                            "    Languages",
+                            context.localized.languages,
                             style: const AppTextStyle().forProfile,
                           ),
                         ],
@@ -203,7 +205,7 @@ class _ProfilePageState extends ConsumerState<ProfilePage> {
                             width: MediaQuery.of(context).size.width * 0.040,
                           ),
                           Text(
-                            "    Help & FAQ",
+                            context.localized.helpFAQ,
                             style: const AppTextStyle().forProfile,
                           ),
                         ],
@@ -217,8 +219,8 @@ class _ProfilePageState extends ConsumerState<ProfilePage> {
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
                       MaterialButton(
-                        height: 50,
-                        minWidth: 120,
+                        height: 50.h,
+                        minWidth: 120.w,
                         shape: const StadiumBorder(
                           side: BorderSide(
                             color: AppColors.lF96234,
@@ -230,18 +232,18 @@ class _ProfilePageState extends ConsumerState<ProfilePage> {
                           children: [
                             SvgPicture.asset(
                               "assets/icons/log_out_icon.svg",
-                              height: 30,
-                              width: 60,
+                              height: 30.h,
+                              width: 60.w,
                             ),
                             SizedBox(width: MediaQuery.of(context).size.width * 0.02),
-                            const Text(
-                              "Log Out",
-                              style: TextStyle(color: AppColors.lF83B01),
+                            Text(
+                              context.localized.logOut,
+                              style: const TextStyle(color: AppColors.lF83B01),
                             ),
                           ],
                         ),
                         onPressed: () {
-                                                // Log out yozish kerak
+                          // Log out yozish kerak
                         },
                       ),
                     ],

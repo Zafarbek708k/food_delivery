@@ -29,6 +29,7 @@
   "save": "Save",
   "editAvatar": "Edit Avatar",
   "deleteAvatar": "Delete Avatar",
+  "avatarUpdated": "Avatar update",
   "keyingiVersiyada": "in the next Version",
   "search": "Search",
   "addMore": "Add more:",
@@ -66,5 +67,8 @@
   "pleaseenteryouremailaddress": "Please enter your email address",
   "mustbe": "Must be 8 or more characters and contain at least 1 number or special character",
   "ressetEmail": "Reset Email",
-  "foodItems":"  Food Items  "
+  "foodItems":"  Food Items  ",
+  "selectLanguage":"Select Language",
+  "cancel":"Cancel",
+  "ok":"OK"
 }

@@ -29,6 +29,7 @@
   "save": "Saqlash",
   "editAvatar": "Avatarni tahrirlash",
   "deleteAvatar": "Avatarni o'chirish",
+  "avatarUpdated": "Avatar yangilash",
   "keyingiVersiyada": "Keyingi versiyada",
   "search": "Qidiruv",
   "addMore": "Yana qo'shish:",
@@ -66,6 +67,5 @@
   "pleaseenteryouremailaddress": "Iltimos, email manzilingizni kiriting",
   "mustbe": "Kamida 8 ta belgi va kamida 1 raqam yoki maxsus belgi bo'lishi kerak",
   "ressetEmail": "Emailni tiklash",
-  "foodItems":"  Ovqatlar  "
-
+  "foodItems": "  Ovqatlar  "
 }

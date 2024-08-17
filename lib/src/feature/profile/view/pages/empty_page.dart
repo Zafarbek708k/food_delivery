@@ -1,4 +1,5 @@
 import "package:flutter/material.dart";
+import "package:food_delivery/src/core/constants/context_extension.dart";
 import "package:food_delivery/src/core/style/app_colors.dart";
 
 class EmptyProfilePage extends StatelessWidget {
@@ -9,8 +10,8 @@ class EmptyProfilePage extends StatelessWidget {
     appBar: AppBar(
       backgroundColor: AppColors.lEDEDEF,
     ),
-    body: const Center(
-      child: Text("Keyingi versiyada"),
+    body:  Center(
+      child: Text(context.localized.keyingiVersiyada),
     ),
   );
 }

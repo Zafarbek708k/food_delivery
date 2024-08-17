@@ -1,4 +1,6 @@
 import "package:flutter/material.dart";
+import "package:flutter_screenutil/flutter_screenutil.dart";
+import "package:food_delivery/src/core/constants/context_extension.dart";
 import "package:food_delivery/src/core/style/app_colors.dart";
 import "package:food_delivery/src/core/style/text_style.dart";
 
@@ -18,21 +20,23 @@ class LanguageSelectorDialog extends StatelessWidget {
   Widget build(BuildContext context) => Dialog(
         backgroundColor: Colors.transparent,
         child: Container(
-          height: 300,
-          width: 200,
+          height: 300.h,
+          width: 200.w,
           decoration: BoxDecoration(
             color: AppColors.lFFE7CC,
-            borderRadius: BorderRadius.circular(15),
+            borderRadius: BorderRadius.circular(15.r),
           ),
           child: Column(
             children: [
               SizedBox(
-                height: 50,
-                child: Text("Select Language",
-                  style: const AppTextStyle().headlineSmall,),
+                height: 50.h,
+                child: Text(
+                  context.localized.selectLanguage, //sel lan
+                  style: const AppTextStyle().headlineSmall,
+                ),
               ),
-
-              Expanded( // Expanded bilan ListWheelScrollViewni moslashtiramiz
+              Expanded(
+                // Expanded bilan ListWheelScrollViewni moslashtiramiz
                 child: ListWheelScrollView(
                   controller: _scrollController,
                   itemExtent: _itemHeight,
@@ -45,18 +49,18 @@ class LanguageSelectorDialog extends StatelessWidget {
                   children: languages
                       .map(
                         (language) => GestureDetector(
-                      onTap: () {
-                        // Bu erda tilni o'zgartirish logikasi
-                      },
-                      child: ListTile(
-                        leading: Text(
-                          language["flag"]!,
-                          style: const TextStyle(fontSize: 24),
+                          onTap: () {
+                            // Bu erda tilni o'zgartirish logikasi
+                          },
+                          child: ListTile(
+                            leading: Text(
+                              language["flag"]!,
+                              style: const TextStyle(fontSize: 24),
+                            ),
+                            title: Text(language["name"]!),
+                          ),
                         ),
-                        title: Text(language["name"]!),
-                      ),
-                    ),
-                  )
+                      )
                       .toList(),
                 ),
               ),
@@ -64,18 +68,22 @@ class LanguageSelectorDialog extends StatelessWidget {
                 children: [
                   const Spacer(),
                   TextButton(
-                    child:  Text("Cancel",
-                    style: const AppTextStyle().bodyLarge,),
+                    child: Text(
+                      context.localized.cancel,
+                      style: const AppTextStyle().bodyLarge,
+                    ),
                     onPressed: () {
                       Navigator.of(context).pop(); // Dialogni yopish
                     },
                   ),
                   const Spacer(),
                   TextButton(
-                    child:  Text("OK",
-                      style: const AppTextStyle().bodyLarge,),
+                    child: Text(
+                      context.localized.ok,
+                      style: const AppTextStyle().bodyLarge,
+                    ),
                     onPressed: () {
-                                     // Bu erda OK tugmasi logikasi
+                      // Bu erda OK tugmasi logikasi
                       Navigator.of(context).pop();
                     },
                   ),
