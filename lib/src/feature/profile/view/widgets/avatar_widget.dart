@@ -1,6 +1,7 @@
 import "dart:io";
 import "package:flutter/material.dart";
 import "package:flutter_riverpod/flutter_riverpod.dart";
+import "package:flutter_screenutil/flutter_screenutil.dart";
 import "../../view_model/profile_vm.dart";
 
 class AvatarWidget extends ConsumerWidget {
@@ -15,9 +16,9 @@ class AvatarWidget extends ConsumerWidget {
             radius: 60,
             backgroundImage: FileImage(File(avatar)),
           )
-        : const CircleAvatar(
-            radius: 60,
-            backgroundImage: AssetImage("assets/images/profiile.png"),
+        : CircleAvatar(
+            radius: 80.r,
+            backgroundImage: const AssetImage("assets/images/profiile.png"),
           );
   }
 }
