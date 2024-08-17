@@ -3,17 +3,23 @@ import "package:flutter_screenutil/flutter_screenutil.dart";
 import "package:food_delivery/src/core/constants/context_extension.dart";
 import "package:food_delivery/src/core/style/app_colors.dart";
 import "package:food_delivery/src/core/style/text_style.dart";
+import "package:food_delivery/src/feature/settings/inherited_locale_notifier.dart";
 
+import "../../../settings/locale_controller.dart";
+
+@immutable
+// ignore: must_be_immutable
 class LanguageSelectorDialog extends StatelessWidget {
   final ScrollController _scrollController = FixedExtentScrollController();
   final double _itemHeight = 60;
+  int selectedLanguageIndex = 0;
 
-  final List<Map<String, String>> languages = [
-    {"name": "Русский", "flag": "🇷🇺"},
-    {"name": "English", "flag": "🇬🇧"},
-    {"name": "O'zbek", "flag": "🇺🇿"},
-    {"name": "العربية", "flag": "🇸🇦"},
-    {"name": "日本語", "flag": "🇯🇵"},
+  final List<Map<String, dynamic>> languages = [
+    {"name": "Русский", "flag": "🇷🇺", "code": LangCodes.ru},
+    {"name": "English", "flag": "🇬🇧", "code": LangCodes.en},
+    {"name": "O'zbek", "flag": "🇺🇿", "code": LangCodes.uz},
+    {"name": "العربية", "flag": "🇸🇦", "code": LangCodes.ar},
+    {"name": "日本語", "flag": "🇯🇵", "code": LangCodes.ja},
   ];
 
   @override
@@ -44,6 +50,9 @@ class LanguageSelectorDialog extends StatelessWidget {
                   overAndUnderCenterOpacity: 0.5,
                   perspective: 0.002,
                   onSelectedItemChanged: (index) {
+                    selectedLanguageIndex = index;
+                    InheritedLocalNotifier.maybeOf(context)
+                        ?.changeLocal(languages[selectedLanguageIndex]["code"]);
                     // O'ZGARGANDA YOZILADI LOGIKA
                   },
                   children: languages
@@ -84,6 +93,8 @@ class LanguageSelectorDialog extends StatelessWidget {
                     ),
                     onPressed: () {
                       // Bu erda OK tugmasi logikasi
+                      // InheritedLocalNotifier.maybeOf(context)
+                      //     ?.changeLocal(languages[selectedLanguageIndex]["code"]);
                       Navigator.of(context).pop();
                     },
                   ),
