@@ -25,16 +25,16 @@ class MyProfileEditPage extends ConsumerWidget {
           }
         },
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(300),
+          borderRadius: BorderRadius.circular(300.r),
         ),
         color: Colors.greenAccent,
         minWidth: MediaQuery.of(context).size.width * 0.9,
-        height: 60,
+        height: 60.h,
         child: Text(
           context.localized.save,
-          style: const TextStyle(
-            color: Colors.white60,
-            fontSize: 18,
+          style: TextStyle(
+            color: Colors.black,
+            fontSize: 18.sp,
           ),
         ),
       ),
@@ -98,7 +98,7 @@ class MyProfileEditPage extends ConsumerWidget {
           FocusScope.of(context).unfocus(); // Ekranning boshqa qismini bosganda keyboard yopiladi
         },
         child: Padding(
-          padding:  REdgeInsets.symmetric(horizontal: 18),
+          padding: REdgeInsets.symmetric(horizontal: 18),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -121,14 +121,14 @@ class MyProfileEditPage extends ConsumerWidget {
                 focusNode: focusNode, // FocusNode ni TextField ga qo'shamiz
                 cursorColor: Colors.white60,
                 controller: nameController,
-                decoration:  InputDecoration(
+                decoration: InputDecoration(
                   hintText: context.localized.yourName,
                   hintStyle: const TextStyle(
                     color: Colors.white60,
                   ),
                   filled: true,
                   fillColor: Colors.greenAccent,
-                  border:  OutlineInputBorder(
+                  border: OutlineInputBorder(
                     borderRadius: BorderRadius.all(
                       Radius.circular(10.r),
                     ),

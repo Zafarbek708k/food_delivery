@@ -13,8 +13,8 @@ import "package:food_delivery/src/feature/home/view/pages/welcome_page.dart";
 import "package:go_router/go_router.dart";
 
 import "../../feature/favourite/view/pages/favourite_page.dart";
-import "../../feature/profile/view/pages/empty_page.dart";
-import "../../feature/profile/view/pages/my_profile_edit_page.dart";
+import "../../feature/profile/view/pages/profile_edit_page.dart";
+import "../../feature/profile/view/pages/profile_empty_page.dart";
 import "../../feature/profile/view/pages/profile_page.dart";
 import "../../feature/restaurant/view/page/delivery_map_page.dart";
 import "../../feature/restaurant/view/page/food_details_page.dart";
