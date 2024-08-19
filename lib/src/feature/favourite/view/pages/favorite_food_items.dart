@@ -27,7 +27,10 @@ class _FoodItemsPageState extends ConsumerState<FoodItemsPage> {
   }
 
   void _updateFavoriteStatus(
-      List<CardItem> items, int index, bool isFavorited) {
+    List<CardItem> items,
+    int index,
+    bool isFavorited,
+  ) {
     setState(() {
       items[index].isFavorited = isFavorited;
       if (!isFavorited) {
@@ -45,10 +48,9 @@ class _FoodItemsPageState extends ConsumerState<FoodItemsPage> {
             if (snapshot.connectionState == ConnectionState.waiting) {
               return const Center(child: CircularProgressIndicator());
             } else if (snapshot.hasError) {
-              String errorMessage =
-                  "An error occurred while fetching food items.";
+              var errorMessage = "An error occurred while fetching food items.";
               if (snapshot.error is DioException) {
-                errorMessage = 'Error: ${snapshot.error}';
+                errorMessage = "Error: ${snapshot.error}";
               }
               return Center(
                 child: Column(
@@ -80,13 +82,13 @@ class _FoodItemsPageState extends ConsumerState<FoodItemsPage> {
                     child: CupertinoButton(
                       onPressed: () {
                         context.go(
-                            "${AppRouteName.favoritePage}/${AppRouteName.foodDetailPage}");
+                          "${AppRouteName.favoritePage}/${AppRouteName.foodDetailPage}",
+                        );
                       },
                       padding: EdgeInsets.zero,
                       child: FoodItemCard(
                         cardItem: items[index],
-                        onFavoriteToggle: (isFavorited) =>
-                            _updateFavoriteStatus(items, index, isFavorited),
+                        onFavoriteToggle: (isFavorited) => _updateFavoriteStatus(items, index, isFavorited),
                       ),
                     ),
                   ),
