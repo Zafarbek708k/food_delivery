@@ -5,7 +5,7 @@ import "package:percent_indicator/circular_percent_indicator.dart";
 
 import "../../../../core/style/app_colors.dart";
 import "../../../../core/style/text_style.dart";
-import "../../view_model/restaurant_vm.dart";
+import "../../view_model/map_vm.dart";
 
 class DeliveryBottomWidget extends ConsumerWidget {
   DeliveryBottomWidget({required this.time, super.key});
