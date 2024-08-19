@@ -23,7 +23,7 @@ class AppRepositoryImpl implements AppRepository {
       );
       final model = loginUserModelFromJson(result!);
       return model;
-    } catch (e) {
+    } on Exception catch (e) {
       log("problem from login user: $e \n\n\n\n\n\n");
     }
     return null;
@@ -38,7 +38,7 @@ class AppRepositoryImpl implements AppRepository {
       );
       final model = registerUserModelFromJson(result!);
       return model;
-    } catch (e) {
+    } on Exception catch (e) {
       log("problem from register user: $e \n\n\n\n\n\n");
     }
     return null;
@@ -53,7 +53,7 @@ class AppRepositoryImpl implements AppRepository {
       );
       final model = checkOtpModelFromJson(result!);
       return model;
-    } catch (e) {
+    } on Exception catch (e) {
       log("problem from check otp: $e \n\n\n\n\n\n");
     }
     return null;

@@ -13,21 +13,15 @@ final class ApiConst {
   static const String apiRegister = "$version/auth/register";
   static const String apiCheckEmail = "$version/auth/check/email";
 
-  // get all projects list
-  static const String apiGetAllProjects = "$version/mobile/project";
-
-  // additional
-  static const String apiFAQ = "$version/mobile/faq";
-  static const String apiGetHelpCredentials = "$version/mobile/company-info";
-  static const String apiGetPrivacyPolicy = "$version/mobile/doc";
-  static const String apiVerifyUser = "$version/mobile/identification/verificate";
-  static const String apiUserMe = "$version/user/me";
+  /// restaurant
+  static const String apiRestaurant = "$version/product/save";
 }
 
 final class ApiParams {
   const ApiParams._();
 
-  static Map<String, dynamic> cabinetSmsCheckParams({required String phone, required String code}) => <String, dynamic>{
+  static Map<String, dynamic> cabinetSmsCheckParams({required String phone, required String code}) =>
+      <String, dynamic>{
         "phone": phone,
         "code": code,
       };

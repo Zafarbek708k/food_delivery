@@ -12,7 +12,7 @@ class FoodItemService {
       } else {
         throw Exception("Failed to delete item");
       }
-    } catch (e) {
+    }on Exception catch (e) {
       throw Exception("Failed to delete item: $e");
     }
   }
@@ -28,8 +28,8 @@ class FoodItemService {
       } else {
         throw Exception("Failed to load food items");
       }
-    } catch (e) {
-      throw Exception('Error fetching food items: $e');
+    }on Exception catch (e) {
+      throw Exception("Error fetching food items: $e");
     }
   }
 }

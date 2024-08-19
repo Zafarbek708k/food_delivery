@@ -5,6 +5,7 @@ import "package:flutter_riverpod/flutter_riverpod.dart";
 import "package:flutter_screenutil/flutter_screenutil.dart";
 import "package:food_delivery/src/core/constants/context_extension.dart";
 import "package:lottie/lottie.dart";
+import "package:shimmer/shimmer.dart";
 
 class RestaurantCard extends ConsumerWidget {
   const RestaurantCard({required this.onTap, super.key});
@@ -44,8 +45,17 @@ class RestaurantCard extends ConsumerWidget {
                     height: 150,
                     width: double.infinity,
                     fit: BoxFit.cover,
-                    placeholder: (context, url) => const Center(child: CircularProgressIndicator()),
-                    errorWidget: (context, url, error) =>  Center(child:  Lottie.asset("assets/lotties/no_data.json"),),
+                    placeholder: (context, url) => Shimmer.fromColors(
+                      baseColor: Colors.grey[300]!,
+                      highlightColor: Colors.grey[100]!,
+                      child: Container(
+                        width: 150.w,
+                        color: Colors.white,
+                      ),
+                    ),
+                    errorWidget: (context, url, error) => Center(
+                      child: Lottie.asset("assets/lotties/no_data.json"),
+                    ),
                   ),
                 ),
                 Padding(
