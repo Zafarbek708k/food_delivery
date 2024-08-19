@@ -17,32 +17,17 @@ class FavoriteRestaurantsPage extends ConsumerStatefulWidget {
 class _FavoriteRestaurantsPageState
     extends ConsumerState<FavoriteRestaurantsPage> {
   final RestaurantService _restaurantService = RestaurantService();
-  List<CardItem> items = [];
-  bool isLoading = true;
 
-  @override
-  void initState() {
-    super.initState();
-    _fetchFavoriteRestaurants();
-  }
-
-  Future<void> _fetchFavoriteRestaurants() async {
+  Future<List<CardItem>> _fetchFavoriteRestaurants() async {
     try {
-      List<CardItem> fetchedItems =
-          await _restaurantService.fetchFavoriteRestaurants();
-      setState(() {
-        items = fetchedItems;
-        isLoading = false;
-      });
+      return await _restaurantService.fetchFavoriteRestaurants();
     } catch (e) {
-      // Handle error here
-      setState(() {
-        isLoading = false;
-      });
+      // Handle error if necessary
+      return [];
     }
   }
 
-  void _updateFavoriteStatus(int index, bool isFavorited) {
+  void _updateFavoriteStatus(List<CardItem> items, int index, bool isFavorited) {
     setState(() {
       items[index].isFavorited = isFavorited;
       if (!isFavorited) {
@@ -54,31 +39,41 @@ class _FavoriteRestaurantsPageState
 
   @override
   Widget build(BuildContext context) => Scaffold(
-        body: isLoading
-            ? const Center(child: CircularProgressIndicator())
-            : items.isEmpty
-                ? const Center(child: Text("No favorite restaurants found."))
-                : Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 16),
-                    child: ListView.builder(
-                      itemCount: items.length,
-                      itemBuilder: (context, index) => Padding(
-                        padding: const EdgeInsets.only(bottom: 16),
-                        child: CupertinoButton(
-                          onPressed: () {
-                            context.go(
-                              "${AppRouteName.favoritePage}/${AppRouteName.restaurantDetailPage}",
-                            );
-                          },
-                          padding: REdgeInsets.all(0),
-                          child: FoodItemCard(
-                            cardItem: items[index],
-                            onFavoriteToggle: (isFavorited) =>
-                                _updateFavoriteStatus(index, isFavorited),
-                          ),
-                        ),
-                      ),
-                    ),
+    body: FutureBuilder<List<CardItem>>(
+      future: _fetchFavoriteRestaurants(),
+      builder: (context, snapshot) {
+        if (snapshot.connectionState == ConnectionState.waiting) {
+          return const Center(child: CircularProgressIndicator());
+        } else if (snapshot.hasError) {
+          return const Center(child: Text("An error occurred."));
+        } else if (!snapshot.hasData || snapshot.data!.isEmpty) {
+          return const Center(child: Text("No favorite restaurants found."));
+        } else {
+          List<CardItem> items = snapshot.data!;
+          return Padding(
+            padding: const EdgeInsets.symmetric(vertical: 16),
+            child: ListView.builder(
+              itemCount: items.length,
+              itemBuilder: (context, index) => Padding(
+                padding: const EdgeInsets.only(bottom: 16),
+                child: CupertinoButton(
+                  onPressed: () {
+                    context.go(
+                      "${AppRouteName.favoritePage}/${AppRouteName.restaurantDetailPage}",
+                    );
+                  },
+                  padding: REdgeInsets.all(0),
+                  child: FoodItemCard(
+                    cardItem: items[index],
+                    onFavoriteToggle: (isFavorited) =>
+                        _updateFavoriteStatus(items, index, isFavorited),
                   ),
-      );
+                ),
+              ),
+            ),
+          );
+        }
+      },
+    ),
+  );
 }
