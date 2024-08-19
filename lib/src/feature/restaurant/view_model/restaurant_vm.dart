@@ -12,7 +12,7 @@ final deliveryTimeProvider = StateNotifierProvider<DeliveryTimeNotifier, Deliver
       (ref) => DeliveryTimeNotifier(),
 );
 
-class RestaurantVm extends ChangeNotifier {
+class MapVm extends ChangeNotifier {
   late Position myPosition;
   late YandexMapController yandexMapController;
   List<MapObject> mapObjectList = [];

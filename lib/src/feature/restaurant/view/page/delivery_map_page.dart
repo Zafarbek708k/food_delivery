@@ -18,48 +18,48 @@ class _MapDeliveryPageState extends ConsumerState<MapDeliveryPage> {
   void initState() {
     super.initState();
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      ref.read(restaurantVm.notifier).determinePosition();
+      ref.read(mapVM.notifier).determinePosition();
     });
   }
 
   @override
   Widget build(BuildContext context) {
-    final restaurantVmState = ref.watch(restaurantVm);
+    final restaurantVmState = ref.watch(mapVM);
 
     return Scaffold(
       body: restaurantVmState.isLoading
           ? Stack(
-        children: [
-          YandexMap(
-            nightModeEnabled: false,
-            mode2DEnabled: false,
-            onMapCreated: (controller) {
-              ref.read(restaurantVm.notifier).onMapCreated(controller);
-            },
-            mapObjects: restaurantVmState.mapObjectList,
-          ),
-
-          DeliveryBottomWidget(time: restaurantVmState.time,),
-
-          Positioned(
-            top: 50.h,
-            left: 135.w,
-            child: MaterialButton(
-              onPressed: () {
-                ref.read(restaurantVm.notifier).goLive();
-              },
-              minWidth: 100.w,
-              height: 40.h,
-              shape: const StadiumBorder(),
-              color: AppColors.lF83B01,
-              child: const Text(
-                "Go Live",
-                style: TextStyle(color: Colors.white),
-              ),
-            ),
-          ),
-        ],
-      )
+              children: [
+                YandexMap(
+                  nightModeEnabled: false,
+                  mode2DEnabled: false,
+                  onMapCreated: (controller) {
+                    ref.read(mapVM.notifier).onMapCreated(controller);
+                  },
+                  mapObjects: restaurantVmState.mapObjectList,
+                ),
+                DeliveryBottomWidget(
+                  time: restaurantVmState.time,
+                ),
+                Positioned(
+                  top: 50.h,
+                  left: 135.w,
+                  child: MaterialButton(
+                    onPressed: () {
+                      ref.read(mapVM.notifier).goLive();
+                    },
+                    minWidth: 100.w,
+                    height: 40.h,
+                    shape: const StadiumBorder(),
+                    color: AppColors.lF83B01,
+                    child: const Text(
+                      "Go Live",
+                      style: TextStyle(color: Colors.white),
+                    ),
+                  ),
+                ),
+              ],
+            )
           : const Center(child: CircularProgressIndicator()),
     );
   }
