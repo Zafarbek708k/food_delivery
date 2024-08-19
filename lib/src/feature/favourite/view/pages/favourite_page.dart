@@ -1,16 +1,16 @@
 import "package:flutter/material.dart";
+import "package:flutter_riverpod/flutter_riverpod.dart";
 import "package:flutter_screenutil/flutter_screenutil.dart";
 import "package:food_delivery/src/core/constants/context_extension.dart";
-
 import "favorite_food_items.dart";
 import "favorite_restaurants.dart";
 
-class FavouritePage extends StatefulWidget {
+class FavouritePage extends ConsumerStatefulWidget {
   @override
   _FavouritePageState createState() => _FavouritePageState();
 }
 
-class _FavouritePageState extends State<FavouritePage>
+class _FavouritePageState extends ConsumerState<FavouritePage>
     with SingleTickerProviderStateMixin {
   late TabController _tabController;
 
@@ -56,11 +56,10 @@ class _FavouritePageState extends State<FavouritePage>
                         borderRadius: BorderRadius.circular(50),
                       ),
                       dividerHeight: 0,
-                      indicatorSize: TabBarIndicatorSize
-                          .tab, // Keeps the indicator size equal to the tab size
+                      indicatorSize: TabBarIndicatorSize.tab,
                       labelColor: Colors.white,
                       unselectedLabelColor: Colors.black,
-                      tabs:  [
+                      tabs: [
                         Tab(
                           text: context.localized.foodItems,
                           height: 20,
