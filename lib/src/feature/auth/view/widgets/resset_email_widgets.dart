@@ -10,7 +10,7 @@ class RessetEmailWidgets extends ConsumerWidget {
 
   @override
    Widget build(BuildContext context,WidgetRef ref) => Form(
-    key: ref.read(authVm).ressetEmailFromKey,
+    key: ref.read(authVm).resetEmailFromKey,
      child: Column(
         children: [
           Padding(
@@ -77,7 +77,7 @@ class RessetEmailWidgets extends ConsumerWidget {
                 height: MediaQuery.of(context).size.height*0.09,
               ),
               NextbuttonWidgets(
-                onPressed: () => ref.watch(authVm).ressetEmailButtonFunction(context: context),
+                onPressed: () => ref.watch(authVm).resetEmailButtonFunction(context: context),
               ),
         ],
       ),

@@ -74,7 +74,9 @@ class LoginTexfeildWidget extends ConsumerWidget {
                     fontSize: 16.sp,
                   ),
                 ),
-                validator: (value) => value == "asadbek@gmail.com" ? null : context.localized.youremailisincorrect,
+                validator: (value) => true == value?.endsWith("@gmail.com")
+                    ? null
+                    : context.localized.youremailisincorrect,
               ),
             ),
             SizedBox(
@@ -146,7 +148,9 @@ class LoginTexfeildWidget extends ConsumerWidget {
                     fontSize: 16.sp,
                   ),
                 ),
-                validator: (value) => value == "asd11111"? null : context.localized.yourpasswordisincorrect,
+                validator: (value) => value != null && value.length > 2
+                    ? null
+                    : context.localized.yourpasswordisincorrect,
               ),
             ),
             Padding(
@@ -155,9 +159,10 @@ class LoginTexfeildWidget extends ConsumerWidget {
                 alignment: Alignment.centerRight,
                 child: MaterialButton(
                   onPressed: () {
-                    context.go("${AppRouteName.signIn}/${AppRouteName.reSetEmail}");
+                    context.go(
+                        "${AppRouteName.signIn}/${AppRouteName.reSetEmail}");
                   },
-                  child:  Text(
+                  child: Text(
                     context.localized.forgotpassword,
                     style: const TextStyle(
                       decoration: TextDecoration.underline,
@@ -170,7 +175,12 @@ class LoginTexfeildWidget extends ConsumerWidget {
             ),
             LoginButtonWidget(
               NameText: context.localized.login,
-              onPressed: () => ref.watch(authVm).loginButton(context: context),
+              onPressed: () async {
+                final res = await ref.watch(authVm).loginButton();
+                if (context.mounted && res) {
+                  context.go(AppRouteName.discoveryPage);
+                }
+              },
             ),
           ],
         ),

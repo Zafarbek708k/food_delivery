@@ -14,7 +14,7 @@ class RessetPasswordTextfieldWidgets extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) => Form(
-key: ref.read(authVm).ressetEmailPawwordFromKey,
+key: ref.read(authVm).resetEmailPasswordFromKey,
     child: Column(
           children: [
             Padding(
@@ -95,7 +95,7 @@ key: ref.read(authVm).ressetEmailPawwordFromKey,
                 ),
                 LoginButtonWidget(
                   NameText: context.localized.login,
-                  onPressed: () => ref.watch(authVm).ressetPawwordButtonFunction(context: context),
+                  onPressed: () => ref.watch(authVm).resetPasswordButtonFunction(context: context),
                 ),
           ],
         ),

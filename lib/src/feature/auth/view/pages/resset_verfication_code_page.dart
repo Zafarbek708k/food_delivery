@@ -110,7 +110,7 @@ class RessetVerficationCodePage extends ConsumerWidget {
                 SizedBox(height: 30.h),
                 NextbuttonWidgets(
                   onPressed: () =>
-                      ref.watch(authVm).validateOtpResset(context: context, otp: ref.read(authVm).otp.text),
+                      ref.watch(authVm).validateOtpReset(context: context, otp: ref.read(authVm).otp.text),
                 ),
               ],
             ),

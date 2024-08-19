@@ -1,5 +1,6 @@
 import "dart:async";
 import "dart:convert";
+import "dart:developer";
 import "dart:io";
 
 import "package:connectivity_plus/connectivity_plus.dart";
@@ -56,7 +57,7 @@ class ApiService {
       "Accept": isUpload ? "multipart/form-data" : "application/json; charset=UTF-8",
     };
 
-    final token = await AppStorage.$read(key: StorageKey.accessToken) ?? "";
+    final token = await AppStorage.$read(key: StorageKey.token) ?? "";
 
     if (token.isNotEmpty) {
       headers.putIfAbsent("Authorization", () => "Bearer $token");
@@ -88,6 +89,8 @@ class ApiService {
   ]) async {
     try {
       final response = await (await initDio()).post<dynamic>(api, data: data, queryParameters: params);
+      log("status code ${response.statusCode}");
+      log("status code ${response.data}");
       return jsonEncode(response.data);
     } on TimeoutException catch (_) {
       l.e("The connection has timed out, Please try again!");

@@ -217,7 +217,7 @@ class RegisterTexfeildWidgets extends ConsumerWidget {
               height: MediaQuery.of(context).size.height * 0.03,
             ),
             RegesterButtonWidget(
-              onPressed: () => ref.watch(authVm).singInBUtton(context: context),
+              onPressed: () => ref.watch(authVm).singUpButton(context: context),
 
               // context.go("${AppRouteName.signIn}/${AppRouteName.signUp}/${AppRouteName.verification}");
             ),
