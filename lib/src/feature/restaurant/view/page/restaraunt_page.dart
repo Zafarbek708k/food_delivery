@@ -9,7 +9,7 @@ import "package:go_router/go_router.dart";
 import "../../../widgets/custom_appbar_widget.dart";
 
 import "../widgets/restaraunt_card_widget.dart";
-import "../widgets/restaraunt_category_horizontal_widget.dart";
+import "../widgets/restaraunt_category_widget.dart";
 
 class RestaurantsPage extends ConsumerWidget {
   const RestaurantsPage({super.key});
@@ -62,7 +62,7 @@ class RestaurantsPage extends ConsumerWidget {
                       ),
                     ),
                     20.horizontalSpace,
-                    const HorizontalCategories(),
+                     HorizontalCategories(onTap: () {  },),
                     20.horizontalSpace,
                     Text(
                       context.localized.allRestaurants,
