@@ -10,7 +10,8 @@ import "package:shimmer/shimmer.dart";
 import "../../../../core/routes/app_route_name.dart";
 
 class HorizontalCategories extends ConsumerWidget {
-  const HorizontalCategories({super.key});
+  const HorizontalCategories({required this.onTap, super.key});
+  final VoidCallback onTap;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) => SingleChildScrollView(
