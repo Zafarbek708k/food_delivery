@@ -1,7 +1,6 @@
 import "package:flutter/cupertino.dart";
 import "package:flutter/material.dart";
 import "package:flutter_riverpod/flutter_riverpod.dart";
-import "package:flutter_screenutil/flutter_screenutil.dart";
 import "package:go_router/go_router.dart";
 import "../../../../core/routes/app_route_name.dart";
 import "../../models/card_item_model.dart";
@@ -14,15 +13,21 @@ class FavoriteRestaurantsPage extends ConsumerStatefulWidget {
       _FavoriteRestaurantsPageState();
 }
 
-class _FavoriteRestaurantsPageState
-    extends ConsumerState<FavoriteRestaurantsPage> {
+class _FavoriteRestaurantsPageState extends ConsumerState<FavoriteRestaurantsPage> {
   final RestaurantService _restaurantService = RestaurantService();
+  Future<List<CardItem>>? _favoriteRestaurantsFuture;
+
+  @override
+  void initState() {
+    super.initState();
+    _favoriteRestaurantsFuture = _fetchFavoriteRestaurants();
+  }
 
   Future<List<CardItem>> _fetchFavoriteRestaurants() async {
     try {
       return await _restaurantService.fetchFavoriteRestaurants();
     } catch (e) {
-      // Handle error if necessary
+      // Handle the error by logging it or returning an empty list
       return [];
     }
   }
@@ -32,15 +37,22 @@ class _FavoriteRestaurantsPageState
       items[index].isFavorited = isFavorited;
       if (!isFavorited) {
         items.removeAt(index);
-        RestaurantService().deleteItem();
+        _restaurantService.deleteItem(); // Assuming this method deletes the item on the backend.
       }
     });
   }
 
   @override
+  void dispose() {
+    // Perform any cleanup if necessary here.
+    // For instance, you could cancel any pending requests or timers.
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) => Scaffold(
     body: FutureBuilder<List<CardItem>>(
-      future: _fetchFavoriteRestaurants(),
+      future: _favoriteRestaurantsFuture,
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.waiting) {
           return const Center(child: CircularProgressIndicator());
@@ -62,7 +74,7 @@ class _FavoriteRestaurantsPageState
                       "${AppRouteName.favoritePage}/${AppRouteName.restaurantDetailPage}",
                     );
                   },
-                  padding: REdgeInsets.all(0),
+                  padding: EdgeInsets.zero,
                   child: FoodItemCard(
                     cardItem: items[index],
                     onFavoriteToggle: (isFavorited) =>

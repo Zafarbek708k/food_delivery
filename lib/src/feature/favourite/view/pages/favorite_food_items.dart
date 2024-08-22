@@ -18,6 +18,13 @@ class FoodItemsPage extends ConsumerStatefulWidget {
 
 class _FoodItemsPageState extends ConsumerState<FoodItemsPage> {
   final FoodItemService _foodItemService = FoodItemService();
+  Future<List<CardItem>>? _foodItemsFuture;
+
+  @override
+  void initState() {
+    super.initState();
+    _foodItemsFuture = _fetchFoodItems();
+  }
 
   Future<List<CardItem>> _fetchFoodItems() async {
     try {
@@ -32,21 +39,28 @@ class _FoodItemsPageState extends ConsumerState<FoodItemsPage> {
       items[index].isFavorited = isFavorited;
       if (!isFavorited) {
         items.removeAt(index);
-        FoodItemService().deleteItem();
+        _foodItemService.deleteItem(); // Assuming this method removes it on the backend.
       }
     });
   }
 
   @override
+  void dispose() {
+    // Cancel any ongoing requests or clean up if necessary
+    // Since FutureBuilder handles futures, you typically won't need to manually cancel the future itself,
+    // but if you have any streams or other disposables, clean them up here.
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) => Scaffold(
     body: FutureBuilder<List<CardItem>>(
-      future: _fetchFoodItems(),
+      future: _foodItemsFuture,
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.waiting) {
           return const Center(child: CircularProgressIndicator());
         } else if (snapshot.hasError) {
-          var errorMessage =
-              "An error occurred while fetching food items.";
+          var errorMessage = "An error occurred while fetching food items.";
           if (snapshot.error is DioException) {
             errorMessage = "Error: ${snapshot.error}";
           }
@@ -58,7 +72,9 @@ class _FoodItemsPageState extends ConsumerState<FoodItemsPage> {
                 SizedBox(height: 10.h),
                 ElevatedButton(
                   onPressed: () {
-                    setState(() {});
+                    setState(() {
+                      _foodItemsFuture = _fetchFoodItems();
+                    });
                   },
                   child: const Text("Retry"),
                 ),
