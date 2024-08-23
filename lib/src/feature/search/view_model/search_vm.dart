@@ -5,4 +5,10 @@ final searchVM = ChangeNotifierProvider((ref) => SearchVm());
 
 class SearchVm with ChangeNotifier {
   TextEditingController searchController = TextEditingController();
+
+  @override
+  void dispose() {
+    searchController.dispose();
+    super.dispose();
+  }
 }

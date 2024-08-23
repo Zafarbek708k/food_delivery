@@ -41,6 +41,7 @@ class _SearchPageState extends ConsumerState<SearchPage> {
   @override
   void dispose() {
     _focusNode.dispose();
+
     super.dispose();
   }
 
@@ -56,7 +57,7 @@ class _SearchPageState extends ConsumerState<SearchPage> {
                 children: [
                   SearchTextfildCustom(
                     controller: ref.read(searchVM).searchController,
-                    focusNode: _focusNode, // FocusNode ni berish
+                    focusNode: _focusNode,
                   ),
                   const SizedBox(height: 16),
                   Wrap(
