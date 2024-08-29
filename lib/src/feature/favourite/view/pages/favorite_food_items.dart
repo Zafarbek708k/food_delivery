@@ -29,8 +29,8 @@ class _FoodItemsPageState extends ConsumerState<FoodItemsPage> {
   Future<List<CardItem>> _fetchFoodItems() async {
     try {
       return await _foodItemService.fetchFoodItems();
-    } catch (e) {
-      throw e;
+    } on Exception {
+      rethrow;
     }
   }
 
@@ -54,60 +54,58 @@ class _FoodItemsPageState extends ConsumerState<FoodItemsPage> {
 
   @override
   Widget build(BuildContext context) => Scaffold(
-    body: FutureBuilder<List<CardItem>>(
-      future: _foodItemsFuture,
-      builder: (context, snapshot) {
-        if (snapshot.connectionState == ConnectionState.waiting) {
-          return const Center(child: CircularProgressIndicator());
-        } else if (snapshot.hasError) {
-          var errorMessage = "An error occurred while fetching food items.";
-          if (snapshot.error is DioException) {
-            errorMessage = "Error: ${snapshot.error}";
-          }
-          return Center(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(errorMessage),
-                SizedBox(height: 10.h),
-                ElevatedButton(
-                  onPressed: () {
-                    setState(() {
-                      _foodItemsFuture = _fetchFoodItems();
-                    });
-                  },
-                  child: const Text("Retry"),
+        body: FutureBuilder<List<CardItem>>(
+          future: _foodItemsFuture,
+          builder: (context, snapshot) {
+            if (snapshot.connectionState == ConnectionState.waiting) {
+              return const Center(child: CircularProgressIndicator());
+            } else if (snapshot.hasError) {
+              var errorMessage = "An error occurred while fetching food items.";
+              if (snapshot.error is DioException) {
+                errorMessage = "Error: ${snapshot.error}";
+              }
+              return Center(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(errorMessage),
+                    SizedBox(height: 10.h),
+                    ElevatedButton(
+                      onPressed: () {
+                        setState(() {
+                          _foodItemsFuture = _fetchFoodItems();
+                        });
+                      },
+                      child: const Text("Retry"),
+                    ),
+                  ],
                 ),
-              ],
-            ),
-          );
-        } else if (!snapshot.hasData || snapshot.data!.isEmpty) {
-          return Center(child: Text(context.localized.addToOrder));
-        } else {
-          final items = snapshot.data!;
-          return Padding(
-            padding: const EdgeInsets.symmetric(vertical: 16),
-            child: ListView.builder(
-              itemCount: items.length,
-              itemBuilder: (context, index) => Padding(
-                padding: const EdgeInsets.only(bottom: 16),
-                child: CupertinoButton(
-                  onPressed: () {
-                    context.go(
-                        "${AppRouteName.favoritePage}/${AppRouteName.foodDetailPage}");
-                  },
-                  padding: EdgeInsets.zero,
-                  child: FoodItemCard(
-                    cardItem: items[index],
-                    onFavoriteToggle: (isFavorited) =>
-                        _updateFavoriteStatus(items, index, isFavorited),
+              );
+            } else if (!snapshot.hasData || snapshot.data!.isEmpty) {
+              return Center(child: Text(context.localized.addToOrder));
+            } else {
+              final items = snapshot.data!;
+              return Padding(
+                padding: const EdgeInsets.symmetric(vertical: 16),
+                child: ListView.builder(
+                  itemCount: items.length,
+                  itemBuilder: (context, index) => Padding(
+                    padding: const EdgeInsets.only(bottom: 16),
+                    child: CupertinoButton(
+                      onPressed: () {
+                        context.go("${AppRouteName.favoritePage}/${AppRouteName.foodDetailPage}");
+                      },
+                      padding: EdgeInsets.zero,
+                      child: FoodItemCard(
+                        cardItem: items[index],
+                        onFavoriteToggle: (isFavorited) => _updateFavoriteStatus(items, index, isFavorited),
+                      ),
+                    ),
                   ),
                 ),
-              ),
-            ),
-          );
-        }
-      },
-    ),
-  );
+              );
+            }
+          },
+        ),
+      );
 }

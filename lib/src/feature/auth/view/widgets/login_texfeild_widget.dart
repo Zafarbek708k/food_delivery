@@ -74,9 +74,8 @@ class LoginTexfeildWidget extends ConsumerWidget {
                     fontSize: 16.sp,
                   ),
                 ),
-                validator: (value) => true == value?.endsWith("@gmail.com")
-                    ? null
-                    : context.localized.youremailisincorrect,
+                validator: (value) =>
+                    true == value?.endsWith("@gmail.com") ? null : context.localized.youremailisincorrect,
               ),
             ),
             SizedBox(
@@ -148,9 +147,8 @@ class LoginTexfeildWidget extends ConsumerWidget {
                     fontSize: 16.sp,
                   ),
                 ),
-                validator: (value) => value != null && value.length > 2
-                    ? null
-                    : context.localized.yourpasswordisincorrect,
+                validator: (value) =>
+                    value != null && value.length > 2 ? null : context.localized.yourpasswordisincorrect,
               ),
             ),
             Padding(
@@ -160,7 +158,8 @@ class LoginTexfeildWidget extends ConsumerWidget {
                 child: MaterialButton(
                   onPressed: () {
                     context.go(
-                        "${AppRouteName.signIn}/${AppRouteName.reSetEmail}");
+                      "${AppRouteName.signIn}/${AppRouteName.reSetEmail}",
+                    );
                   },
                   child: Text(
                     context.localized.forgotpassword,
