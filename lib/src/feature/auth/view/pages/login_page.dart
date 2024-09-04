@@ -2,13 +2,14 @@ import "package:flutter/cupertino.dart";
 import "package:flutter/material.dart";
 import "package:flutter_riverpod/flutter_riverpod.dart";
 import "package:flutter_screenutil/flutter_screenutil.dart";
-import "package:flutter_svg/flutter_svg.dart";
 import "package:food_delivery/riverpod.dart";
 import "package:food_delivery/src/core/constants/context_extension.dart";
 import "package:food_delivery/src/core/routes/app_route_name.dart";
 import "package:food_delivery/src/core/style/app_colors.dart";
 import "package:go_router/go_router.dart";
 
+import "../../../../../generated/assets.dart";
+import "../widgets/auth_social_button_widget.dart";
 import "../widgets/login_texfeild_widget.dart";
 
 class LoginPage extends ConsumerWidget {
@@ -17,6 +18,7 @@ class LoginPage extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final controller = ref.watch(authVm);
+
     return Scaffold(
       resizeToAvoidBottomInset: false,
       body: SafeArea(
@@ -123,39 +125,10 @@ class LoginPage extends ConsumerWidget {
                       children: [
                         Padding(
                           padding: REdgeInsets.symmetric(horizontal: 25.w),
-                          child: Stack(
-                            alignment: Alignment.center,
-                            children: [
-                              MaterialButton(
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(30.r),
-                                  side: const BorderSide(),
-                                ),
-                                height: 40.h,
-                                minWidth: double.infinity,
-                                onPressed: () {},
-                                child: Row(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    SvgPicture.asset(
-                                      "assets/icons/facebook_icon.svg",
-                                      width: MediaQuery.of(context).size.width * 0.07,
-                                    ),
-                                    SizedBox(
-                                      width: MediaQuery.of(context).size.width * 0.03,
-                                    ),
-                                    Text(
-                                      context.localized.countinewithfacebook,
-                                      style: context.theme.textTheme.bodyLarge!.copyWith(
-                                        fontSize: 18.sp,
-                                        fontWeight: FontWeight.w600,
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                              if (controller.isLoading) const CircularProgressIndicator.adaptive(),
-                            ],
+                          child: SocialButton(
+                            iconPath: Assets.iconsFacebookIcon,
+                            text: context.localized.countinewithfacebook,
+                            onPressed: () {},
                           ),
                         ),
                         SizedBox(
@@ -163,39 +136,10 @@ class LoginPage extends ConsumerWidget {
                         ),
                         Padding(
                           padding: REdgeInsets.symmetric(horizontal: 25.w),
-                          child: Stack(
-                            alignment: Alignment.center,
-                            children: [
-                              MaterialButton(
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(30.r),
-                                  side: const BorderSide(),
-                                ),
-                                height: 40.h,
-                                minWidth: double.infinity,
-                                onPressed: () {},
-                                child: Row(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    SvgPicture.asset(
-                                      "assets/icons/google_icon.svg",
-                                      width: MediaQuery.of(context).size.width * 0.07,
-                                    ),
-                                    SizedBox(
-                                      width: MediaQuery.of(context).size.width * 0.03,
-                                    ),
-                                    Text(
-                                      context.localized.continuewithgoogle,
-                                      style: context.theme.textTheme.bodyLarge!.copyWith(
-                                        fontSize: 18.sp,
-                                        fontWeight: FontWeight.w600,
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                              if (controller.isLoading) const CircularProgressIndicator.adaptive(),
-                            ],
+                          child: SocialButton(
+                            iconPath: Assets.iconsGoogleIcon,
+                            text: context.localized.continuewithgoogle,
+                            onPressed: () {},
                           ),
                         ),
                         SizedBox(
