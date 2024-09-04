@@ -1,4 +1,3 @@
-// ignore: file_names
 import "package:flutter/material.dart";
 import "package:flutter_riverpod/flutter_riverpod.dart";
 import "package:flutter_screenutil/flutter_screenutil.dart";
@@ -9,7 +8,12 @@ import "package:food_delivery/src/feature/auth/view/widgets/login_button_widget.
 import "package:go_router/go_router.dart";
 
 class LoginTexfeildWidget extends ConsumerWidget {
-  const LoginTexfeildWidget({super.key});
+  const LoginTexfeildWidget({
+    required this.onLoginPressed,
+    super.key,
+  });
+
+  final VoidCallback onLoginPressed;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) => Form(
@@ -174,12 +178,7 @@ class LoginTexfeildWidget extends ConsumerWidget {
             ),
             LoginButtonWidget(
               NameText: context.localized.login,
-              onPressed: () async {
-                final res = await ref.watch(authVm).loginButton();
-                if (context.mounted && res) {
-                  context.go(AppRouteName.discoveryPage);
-                }
-              },
+              onPressed: onLoginPressed,
             ),
           ],
         ),
