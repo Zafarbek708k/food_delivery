@@ -24,9 +24,8 @@ class AuthVm extends ChangeNotifier {
   final resetEmailFromKey = GlobalKey<FormState>();
   final resetEmailPasswordFromKey = GlobalKey<FormState>();
 
-  TextEditingController loginEmailController =
-      TextEditingController(text: "islomjonov.abdulazim.27@gmail.com");
-  TextEditingController loginPasswordController = TextEditingController();
+  TextEditingController loginEmailController = TextEditingController(text: "thebestxurshidjon@gmail.com");
+  TextEditingController loginPasswordController = TextEditingController(text: "string1234");
 
   TextEditingController registerEmailController = TextEditingController();
   TextEditingController registerPasswordController = TextEditingController();

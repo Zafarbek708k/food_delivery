@@ -12,7 +12,7 @@ String? token;
 Future<void> setup() async {
   WidgetsFlutterBinding.ensureInitialized();
   // await getStorageValues();
-  // await AppStorage.clearAllData();
+  await AppStorage.clearAllData();
   db = await StorageService.init;
   token = await AppStorage.$read(key: StorageKey.token);
   log("token: $token\n\n\n");
