@@ -43,9 +43,7 @@ final class AppThemes {
       case ThemeMode.dark:
         return darkTheme;
       case ThemeMode.system:
-        return PlatformDispatcher.instance.platformBrightness == Brightness.dark
-            ? darkTheme
-            : lightTheme;
+        return PlatformDispatcher.instance.platformBrightness == Brightness.dark ? darkTheme : lightTheme;
     }
   }
 }
