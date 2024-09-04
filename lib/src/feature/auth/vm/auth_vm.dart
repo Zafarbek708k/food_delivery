@@ -7,6 +7,7 @@ import "package:food_delivery/setup.dart";
 import "package:food_delivery/src/core/routes/app_route_name.dart";
 import "package:food_delivery/src/core/storage/app_storage.dart";
 import "package:food_delivery/src/data/entity/login_user_body_model.dart";
+import "package:food_delivery/src/data/entity/register_model.dart";
 import "package:food_delivery/src/data/repository/app_repository_impl.dart";
 import "package:go_router/go_router.dart";
 
@@ -27,14 +28,12 @@ class AuthVm extends ChangeNotifier {
   TextEditingController loginEmailController = TextEditingController(text: "thebestxurshidjon@gmail.com");
   TextEditingController loginPasswordController = TextEditingController(text: "string1234");
 
-  TextEditingController registerEmailController = TextEditingController();
-  TextEditingController registerPasswordController = TextEditingController();
-  TextEditingController registerNameController = TextEditingController();
+  TextEditingController registerEmailController = TextEditingController(text: "thebestxurshidjon@gmail.com");
+  TextEditingController registerPasswordController = TextEditingController(text: "string1234");
+  TextEditingController registerNameController = TextEditingController(text: "Xurshidjon");
 
   TextEditingController resetEmailController = TextEditingController();
   TextEditingController resetPasswordController = TextEditingController();
-
-  AuthVm();
 
   void singUpButton({required BuildContext context}) {
     if (fromKey.currentState!.validate()) {
@@ -43,23 +42,39 @@ class AuthVm extends ChangeNotifier {
         ..store("Email", registerEmailController.text)
         ..store("Password", registerPasswordController.text);
 
-      context.go(
-        "${AppRouteName.signIn}/${AppRouteName.signUp}/${AppRouteName.verification}",
-      );
+      // context.go(
+      //   "${AppRouteName.signIn}/${AppRouteName.signUp}/${AppRouteName.verification}",
+      // );
     } else {
       notifyListeners();
     }
   }
 
+  Future<bool> registerButton({required BuildContext context}) async {
+    if (fromKey.currentState!.validate()) {
+      isLoading = true;
+      notifyListeners();
+      final user = RegisterModel(
+        email: registerEmailController.text.trim(),
+        password: registerPasswordController.text.trim(),
+      );
+      final res = await AppRepositoryImpl().registerUser(user);
+      if (res != null) {
+        log("sdcsdsdsdcsdcs");
+        context.go(
+          "${AppRouteName.signIn}/${AppRouteName.signUp}/${AppRouteName.verification}",
+        );
+        return true;
+      }
+      log(res.toString());
+      isLoading = false;
+      notifyListeners();
+    }
+    return false;
+  }
+
   Future<bool> loginButton() async {
-    log("kirdi");
-    log("kirdi");
-    log("kirdi");
     if (loginFromKey.currentState!.validate()) {
-      log("otdiiiiiiiiiii");
-      log("otdiiiiiiiiiii");
-      log("otdiiiiiiiiiii");
-      log("otdiiiiiiiiiii");
       isLoading = true;
       notifyListeners();
       final user = UserBodyModel(
@@ -173,11 +188,3 @@ class AuthVm extends ChangeNotifier {
     }
   }
 }
-
-// service
-//   ..store("Name", registerNameController.text)
-//   ..store("Email", registerEmailController.text)
-//   ..store("Password", registerPasswordController.text);
-// print(service.read("Name"));
-// print(service.read("Email"));
-// print(service.read("Password"));
