@@ -61,9 +61,11 @@ class AuthVm extends ChangeNotifier {
       final res = await AppRepositoryImpl().registerUser(user);
       if (res != null) {
         log("sdcsdsdsdcsdcs");
-        context.go(
-          "${AppRouteName.signIn}/${AppRouteName.signUp}/${AppRouteName.verification}",
-        );
+        if (context.mounted) {
+          context.go(
+            "${AppRouteName.signIn}/${AppRouteName.signUp}/${AppRouteName.verification}",
+          );
+        }
         return true;
       }
       log(res.toString());

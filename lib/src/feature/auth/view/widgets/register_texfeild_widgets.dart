@@ -6,6 +6,9 @@ import "package:food_delivery/src/core/constants/context_extension.dart";
 import "package:food_delivery/src/feature/auth/view/widgets/regester_button_widget.dart";
 
 class RegisterTexfeildWidgets extends ConsumerWidget {
+  final VoidCallback onPressedRegiter;
+
+  const RegisterTexfeildWidgets({required this.onPressedRegiter});
   @override
   Widget build(BuildContext context, WidgetRef ref) => Form(
         key: ref.read(authVm).fromKey,
@@ -68,7 +71,9 @@ class RegisterTexfeildWidgets extends ConsumerWidget {
                     fontSize: 16.sp,
                   ),
                 ),
-                validator: (value) => value != null && ref.read(authVm).registerNameController.text.isNotEmpty ? null : context.localized.pleaseenteryourusername,
+                validator: (value) => value != null && ref.read(authVm).registerNameController.text.isNotEmpty
+                    ? null
+                    : context.localized.pleaseenteryourusername,
               ),
             ),
             SizedBox(
@@ -131,8 +136,9 @@ class RegisterTexfeildWidgets extends ConsumerWidget {
                     fontSize: 16.sp,
                   ),
                 ),
-                validator: (value) =>
-                    value != null && value.contains("@gmail.com") ? null : context.localized.pleaseenteryouremailaddress,
+                validator: (value) => value != null && value.contains("@gmail.com")
+                    ? null
+                    : context.localized.pleaseenteryouremailaddress,
               ),
             ),
             SizedBox(
@@ -196,7 +202,9 @@ class RegisterTexfeildWidgets extends ConsumerWidget {
                             Icons.visibility_off_rounded,
                             color: Colors.black.withOpacity(0.4),
                           )
-                        : const Icon(Icons.visibility_rounded,),
+                        : const Icon(
+                            Icons.visibility_rounded,
+                          ),
                   ),
                   hintText: "Password",
                   hintStyle: TextStyle(
@@ -206,9 +214,7 @@ class RegisterTexfeildWidgets extends ConsumerWidget {
                 ),
                 validator: (value) {
                   final regex = RegExp(r"^(?=.*?[a-z])(?=.*?[0-9]).{8,}$");
-                  return value != null && value.contains(regex)
-                      ? null
-                      : context.localized.mustbe;
+                  return value != null && value.contains(regex) ? null : context.localized.mustbe;
                 },
                 // validator: (value) => value != null && value.contains("@gmail.com") ? null : 'please enter your email address Example => (example@gmail.com)',
               ),
@@ -217,9 +223,7 @@ class RegisterTexfeildWidgets extends ConsumerWidget {
               height: MediaQuery.of(context).size.height * 0.03,
             ),
             RegesterButtonWidget(
-              onPressed: () => ref.watch(authVm).singUpButton(context: context),
-
-              // context.go("${AppRouteName.signIn}/${AppRouteName.signUp}/${AppRouteName.verification}");
+              onPressed: onPressedRegiter,
             ),
           ],
         ),

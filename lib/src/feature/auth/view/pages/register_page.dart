@@ -1,18 +1,23 @@
+import "dart:developer";
+
 import "package:flutter/cupertino.dart";
 import "package:flutter/material.dart";
+import "package:flutter_riverpod/flutter_riverpod.dart";
 import "package:flutter_screenutil/flutter_screenutil.dart";
 import "package:food_delivery/generated/assets.dart";
+import "package:food_delivery/riverpod.dart";
 import "package:food_delivery/src/core/constants/context_extension.dart";
 import "package:food_delivery/src/feature/auth/view/widgets/register_texfeild_widgets.dart";
 import "package:go_router/go_router.dart";
 
+import "../../../../core/routes/app_route_name.dart";
 import "../widgets/auth_social_button_widget.dart";
 
-class RegisterPage extends StatelessWidget {
+class RegisterPage extends ConsumerWidget {
   const RegisterPage({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     final screenWidth = MediaQuery.of(context).size.width;
     final screenHeight = MediaQuery.of(context).size.height;
 
@@ -36,7 +41,18 @@ class RegisterPage extends StatelessWidget {
                 ),
               ),
             ),
-            RegisterTexfeildWidgets(),
+            RegisterTexfeildWidgets(
+              onPressedRegiter: () async {
+                log("dcsdsd");
+                final res = await ref.watch(authVm).registerButton(context: context);
+                log("scsdcsdcaaaaaaaaaaaaaaaaaaa");
+                if (context.mounted && res) {
+                  context.go(
+                    "${AppRouteName.signIn}/${AppRouteName.signUp}/${AppRouteName.verification}",
+                  );
+                }
+              },
+            ),
             SizedBox(height: screenHeight * 0.03),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
