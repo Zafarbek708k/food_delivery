@@ -38,7 +38,6 @@ class AppRepositoryImpl implements AppRepository {
         ApiConst.apiRegister,
         user.toJson(),
       );
-      log("sdsds");
       final model = registerModelFromJson(result!);
       return model;
     } on Exception catch (e) {
@@ -57,7 +56,7 @@ class AppRepositoryImpl implements AppRepository {
       final model = cheakEmailModelFromJson(result!);
       return model;
     } on Exception catch (e) {
-      log("problem from check otp: $e \n\n\n\n\n\n");
+      log("problem from check otp --: \n $e \n\n");
     }
     return null;
   }

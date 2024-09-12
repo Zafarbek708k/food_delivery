@@ -5,7 +5,7 @@ import "package:food_delivery/src/data/entity/register_model.dart";
 import "../entity/reset_password_model.dart";
 
 abstract class AppRepository {
-  ///auth: Abduazim
+  
   Future<LoginUserModel?> loginUser(UserBodyModel body);
 
   Future<RegisterModel?> registerUser(RegisterModel user);

@@ -28,7 +28,8 @@ class AuthVm extends ChangeNotifier {
   TextEditingController loginEmailController = TextEditingController(text: "thebestxurshidjon@gmail.com");
   TextEditingController loginPasswordController = TextEditingController(text: "string1234");
 
-  TextEditingController registerEmailController = TextEditingController(text: "thebestxurshidjon@gmail.com");
+  TextEditingController registerEmailController =
+      TextEditingController(text: "thebestxurshidjon69@gmail.com");
   TextEditingController registerPasswordController = TextEditingController(text: "string1234");
   TextEditingController registerNameController = TextEditingController(text: "Xurshidjon");
 
@@ -54,14 +55,31 @@ class AuthVm extends ChangeNotifier {
     if (fromKey.currentState!.validate()) {
       isLoading = true;
       notifyListeners();
-      final user = CheakEmailModel();
+
+      // OTP kodini TextEditingController orqali olamiz va int tipiga o'tkazamiz
+      final otpCode = int.tryParse(otp.text.trim());
+
+      // Agar qiymatni int ga aylantirib bo'lmasa, xabar beramiz
+      if (otpCode == null) {
+        errorMessage = "Iltimos, to'g'ri raqamlarni kiriting";
+        notifyListeners();
+        return false;
+      }
+
+      // CheakEmailModel uchun foydalanuvchi ma'lumotlari
+      final user = CheakEmailModel(
+        email: registerEmailController.text.trim(),
+        code: otpCode,
+      );
+
       final res = await AppRepositoryImpl().checkEmail(user);
+      log("starus--- $res");
       if (res != null) {
         log("cheakemail");
-        if (context.mounted) {
-          context.go("");
-          log("goo context");
-        }
+        // if (context.mounted) {
+        //   context.go("");
+        //   log("goo context");
+        // }
         return true;
       }
       isLoading = false;
