@@ -1,4 +1,4 @@
-import "package:food_delivery/src/data/entity/check_otp_model.dart";
+import "package:food_delivery/src/data/entity/cheak_email_model.dart";
 import "package:food_delivery/src/data/entity/login_user_body_model.dart";
 import "package:food_delivery/src/data/entity/login_user_model.dart";
 import "package:food_delivery/src/data/entity/register_model.dart";
@@ -10,7 +10,7 @@ abstract class AppRepository {
 
   Future<RegisterModel?> registerUser(RegisterModel user);
 
-  Future<CheckOtpModel?> checkEmail();
+  Future<CheakEmailModel?> checkEmail(CheakEmailModel user);
 
   Future<bool> resetPassword(ResetPasswordModel model);
 

@@ -118,6 +118,8 @@
 //       );
 // }
 
+import "dart:developer";
+
 import "package:flutter/material.dart";
 import "package:flutter/services.dart";
 import "package:flutter_riverpod/flutter_riverpod.dart";
@@ -126,6 +128,7 @@ import "package:food_delivery/riverpod.dart";
 import "package:food_delivery/src/core/constants/context_extension.dart";
 import "package:food_delivery/src/core/style/app_colors.dart";
 import "package:food_delivery/src/feature/auth/view/widgets/nextbutton_widgets.dart";
+import "package:go_router/go_router.dart";
 import "package:pin_code_fields/pin_code_fields.dart";
 
 class VerificationcodePage extends ConsumerWidget {
@@ -204,33 +207,16 @@ class VerificationcodePage extends ConsumerWidget {
                     style: TextStyle(color: Colors.red, fontSize: 14.sp),
                   ),
                 ],
-                SizedBox(height: 20.h),
-                // Row(
-                //   mainAxisAlignment: MainAxisAlignment.center,
-                //   children: [
-                //     Text(
-                //       "Haven't received a code? ",
-                //       style: TextStyle(fontWeight: FontWeight.w500, fontSize: 16.sp),
-                //     ),
-                //     GestureDetector(
-                //       onTap: () {},
-                //       child: Text(
-                //         "Reset",
-                //         style: TextStyle(
-                //           color: Colors.orange,
-                //           fontWeight: FontWeight.w500,
-                //           fontSize: 16.sp,
-                //           decoration: TextDecoration.underline,
-                //           decorationColor: Colors.orange,
-                //         ),
-                //       ),
-                //     ),
-                //   ],
-                // ),
                 SizedBox(height: 30.h),
                 NextbuttonWidgets(
-                  onPressed: () =>
-                      ref.watch(authVm).validateOtp(context: context, otp: ref.read(authVm).otp.text),
+                  onPressed: () async {
+                    final res = await ref.watch(authVm).checkEmailButton(context: context);
+                    if (context.mounted && res) {
+                      context.go("");
+                      log("message otdi");
+                    }
+                  },
+                  // ref.watch(authVm).validateOtp(context: context, otp: ref.read(authVm).otp.text),
                 ),
               ],
             ),

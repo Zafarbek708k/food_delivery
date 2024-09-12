@@ -2,7 +2,7 @@ import "dart:developer";
 
 import "package:food_delivery/src/core/server/api/api.dart";
 import "package:food_delivery/src/core/server/api/api_constants.dart";
-import "package:food_delivery/src/data/entity/check_otp_model.dart";
+import "package:food_delivery/src/data/entity/cheak_email_model.dart";
 import "package:food_delivery/src/data/entity/login_user_body_model.dart";
 import "package:food_delivery/src/data/entity/login_user_model.dart";
 import "package:food_delivery/src/data/entity/register_model.dart";
@@ -48,13 +48,13 @@ class AppRepositoryImpl implements AppRepository {
   }
 
   @override
-  Future<CheckOtpModel?> checkEmail() async {
+  Future<CheakEmailModel?> checkEmail(CheakEmailModel user) async {
     try {
       final result = await ApiService.post(
         ApiConst.apiCheckEmail,
         ApiParams.emptyParams(),
       );
-      final model = checkOtpModelFromJson(result!);
+      final model = cheakEmailModelFromJson(result!);
       return model;
     } on Exception catch (e) {
       log("problem from check otp: $e \n\n\n\n\n\n");

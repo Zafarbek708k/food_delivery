@@ -1,5 +1,3 @@
-import "dart:developer";
-
 import "package:flutter/cupertino.dart";
 import "package:flutter/material.dart";
 import "package:flutter_riverpod/flutter_riverpod.dart";
@@ -43,9 +41,7 @@ class RegisterPage extends ConsumerWidget {
             ),
             RegisterTexfeildWidgets(
               onPressedRegiter: () async {
-                log("dcsdsd");
                 final res = await ref.watch(authVm).registerButton(context: context);
-                log("scsdcsdcaaaaaaaaaaaaaaaaaaa");
                 if (context.mounted && res) {
                   context.go(
                     "${AppRouteName.signIn}/${AppRouteName.signUp}/${AppRouteName.verification}",

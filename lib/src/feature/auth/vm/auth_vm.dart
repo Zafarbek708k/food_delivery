@@ -1,11 +1,11 @@
 import "dart:developer";
-
 import "package:flutter/cupertino.dart";
 import "package:flutter/material.dart";
 import "package:flutter/widgets.dart";
 import "package:food_delivery/setup.dart";
 import "package:food_delivery/src/core/routes/app_route_name.dart";
 import "package:food_delivery/src/core/storage/app_storage.dart";
+import "package:food_delivery/src/data/entity/cheak_email_model.dart";
 import "package:food_delivery/src/data/entity/login_user_body_model.dart";
 import "package:food_delivery/src/data/entity/register_model.dart";
 import "package:food_delivery/src/data/repository/app_repository_impl.dart";
@@ -50,6 +50,26 @@ class AuthVm extends ChangeNotifier {
     }
   }
 
+  Future<bool> checkEmailButton({required BuildContext context}) async {
+    if (fromKey.currentState!.validate()) {
+      isLoading = true;
+      notifyListeners();
+      final user = CheakEmailModel();
+      final res = await AppRepositoryImpl().checkEmail(user);
+      if (res != null) {
+        log("cheakemail");
+        if (context.mounted) {
+          context.go("");
+          log("goo context");
+        }
+        return true;
+      }
+      isLoading = false;
+      notifyListeners();
+    }
+    return false;
+  }
+
   Future<bool> registerButton({required BuildContext context}) async {
     if (fromKey.currentState!.validate()) {
       isLoading = true;
@@ -60,7 +80,6 @@ class AuthVm extends ChangeNotifier {
       );
       final res = await AppRepositoryImpl().registerUser(user);
       if (res != null) {
-        log("sdcsdsdsdcsdcs");
         if (context.mounted) {
           context.go(
             "${AppRouteName.signIn}/${AppRouteName.signUp}/${AppRouteName.verification}",
