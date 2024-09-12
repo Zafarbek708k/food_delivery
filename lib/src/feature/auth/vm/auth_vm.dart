@@ -28,10 +28,9 @@ class AuthVm extends ChangeNotifier {
   TextEditingController loginEmailController = TextEditingController(text: "thebestxurshidjon@gmail.com");
   TextEditingController loginPasswordController = TextEditingController(text: "string1234");
 
-  TextEditingController registerEmailController =
-      TextEditingController(text: "thebestxurshidjon69@gmail.com");
-  TextEditingController registerPasswordController = TextEditingController(text: "string1234");
-  TextEditingController registerNameController = TextEditingController(text: "Xurshidjon");
+  TextEditingController registerEmailController = TextEditingController();
+  TextEditingController registerPasswordController = TextEditingController();
+  TextEditingController registerNameController = TextEditingController();
 
   TextEditingController resetEmailController = TextEditingController();
   TextEditingController resetPasswordController = TextEditingController();
@@ -73,13 +72,7 @@ class AuthVm extends ChangeNotifier {
       );
 
       final res = await AppRepositoryImpl().checkEmail(user);
-      log("starus--- $res");
       if (res != null) {
-        log("cheakemail");
-        // if (context.mounted) {
-        //   context.go("");
-        //   log("goo context");
-        // }
         return true;
       }
       isLoading = false;

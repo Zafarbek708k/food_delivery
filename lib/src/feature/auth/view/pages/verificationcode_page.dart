@@ -93,7 +93,7 @@ class VerificationcodePage extends ConsumerWidget {
                     final res = await ref.watch(authVm).checkEmailButton(context: context);
                     log("aaaaa");
                     if (context.mounted && res) {
-                      context.go(AppRouteName.discoveryPage);
+                      context.go(AppRouteName.signIn);
                       log("message otdi");
                     }
                   },
