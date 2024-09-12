@@ -51,7 +51,7 @@ class AppRepositoryImpl implements AppRepository {
     try {
       final result = await ApiService.post(
         ApiConst.apiCheckEmail,
-        ApiParams.emptyParams(),
+        user.toJson(),
       );
       final model = cheakEmailModelFromJson(result!);
       return model;
