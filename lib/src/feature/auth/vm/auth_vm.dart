@@ -35,21 +35,6 @@ class AuthVm extends ChangeNotifier {
   TextEditingController resetEmailController = TextEditingController();
   TextEditingController resetPasswordController = TextEditingController();
 
-  void singUpButton({required BuildContext context}) {
-    if (fromKey.currentState!.validate()) {
-      service
-        ..store("Name", registerNameController.text)
-        ..store("Email", registerEmailController.text)
-        ..store("Password", registerPasswordController.text);
-
-      // context.go(
-      //   "${AppRouteName.signIn}/${AppRouteName.signUp}/${AppRouteName.verification}",
-      // );
-    } else {
-      notifyListeners();
-    }
-  }
-
   Future<bool> checkEmailButton({required BuildContext context}) async {
     if (fromKey.currentState!.validate()) {
       isLoading = true;
@@ -78,6 +63,27 @@ class AuthVm extends ChangeNotifier {
       isLoading = false;
       notifyListeners();
     }
+    return false;
+  }
+
+  Future<bool> forgotPasswordButton({required BuildContext context}) async {
+    isLoading = true;
+    notifyListeners();
+    log("dscsdcs01010101010101010101");
+    final res = await AppRepositoryImpl().forgotPassword(registerEmailController.text.trim());
+    // ignore: unnecessary_null_comparison
+    if (res != null) {
+      if (context.mounted) {
+        context.go(
+          "${AppRouteName.signIn}/${AppRouteName.signUp}/${AppRouteName.verification}",
+        );
+      }
+      isLoading = false;
+      notifyListeners();
+      return true;
+    }
+    isLoading = false;
+    notifyListeners();
     return false;
   }
 
