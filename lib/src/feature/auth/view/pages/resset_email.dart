@@ -12,26 +12,27 @@ class RessetEmail extends StatelessWidget {
         body: SafeArea(
           child: Column(
             children: [
-               SizedBox(
-                height: MediaQuery.of(context).size.height*0.09,
+              SizedBox(
+                height: MediaQuery.of(context).size.height * 0.09,
               ),
               Center(
                 child: Padding(
-                  padding:  REdgeInsets.symmetric(horizontal: 25.w),
+                  padding: REdgeInsets.symmetric(horizontal: 25.w),
                   child: Align(
                     alignment: Alignment.topLeft,
                     child: Text(
                       context.localized.ressetEmail,
-                      style: context.theme.textTheme.bodyLarge!.copyWith(fontSize: 32.sp,fontWeight: FontWeight.w600),
+                      style: context.theme.textTheme.bodyLarge!
+                          .copyWith(fontSize: 32.sp, fontWeight: FontWeight.w600),
                     ),
                   ),
                 ),
               ),
-               SizedBox(
-                height: MediaQuery.of(context).size.height*0.06,
+              SizedBox(
+                height: MediaQuery.of(context).size.height * 0.06,
               ),
               Padding(
-                padding:  REdgeInsets.symmetric(horizontal: 25.w),
+                padding: REdgeInsets.symmetric(horizontal: 25.w),
                 child: Align(
                   alignment: Alignment.bottomLeft,
                   child: Text(
@@ -42,11 +43,8 @@ class RessetEmail extends StatelessWidget {
                   ),
                 ),
               ),
-               SizedBox(
-                height: MediaQuery.of(context).size.height*0.06,
-              ),
+              SizedBox(height: MediaQuery.of(context).size.height * 0.06),
               const RessetEmailWidgets(),
-              
             ],
           ),
         ),

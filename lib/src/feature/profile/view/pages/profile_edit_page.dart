@@ -20,7 +20,7 @@ class MyProfileEditPage extends ConsumerWidget {
         onPressed: () {
           final newName = nameController.text.trim();
           if (newName.isNotEmpty) {
-            ref.read(nameProvider.notifier).updateName(newName);
+            ref.read(nameProvider.notifier).name = newName;
             // nameController.clear();
           }
         },
@@ -137,7 +137,7 @@ class MyProfileEditPage extends ConsumerWidget {
                 ),
                 onSubmitted: (newName) {
                   if (newName.trim().isNotEmpty) {
-                    ref.read(nameProvider.notifier).updateName(newName.trim());
+                    ref.read(nameProvider.notifier).name = newName.trim();
                     focusNode.unfocus(
                       disposition: UnfocusDisposition.previouslyFocusedChild,
                     ); // Klaviaturani yopish uchun focusni yo'q qilamiz

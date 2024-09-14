@@ -4,16 +4,14 @@ import "package:image_picker/image_picker.dart";
 
 class NameNotifier extends StateNotifier<String> {
   NameNotifier() : super("John Doe");
-
-  void updateName(String newName) {
+  String get name => state;
+  set name(String newName) {
     state = newName;
   }
 }
 
-
 class AvatarNotifier extends StateNotifier<String?> {
   AvatarNotifier() : super(null);
-
 
   Future<void> updateAvatar() async {
     final picker = ImagePicker();
@@ -22,7 +20,6 @@ class AvatarNotifier extends StateNotifier<String?> {
       state = pickedFile.path;
     }
   }
-
 
   Future<void> deleteAvatar() async {
     if (state != null) {
@@ -34,7 +31,6 @@ class AvatarNotifier extends StateNotifier<String?> {
     }
   }
 }
-
 
 final nameProvider = StateNotifierProvider<NameNotifier, String>((ref) => NameNotifier());
 
