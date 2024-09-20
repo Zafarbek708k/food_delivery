@@ -81,12 +81,11 @@ class RessetEmailWidgets extends ConsumerWidget {
             ),
             NextbuttonWidgets(
               onPressed: () async {
-                ref.watch(authVm).resetEmailButtonFunction(context: context);
-                log("forget password");
-
+                // ref.watch(authVm).resetEmailButtonFunction(context: context);
+                log("forget password ");
                 final res = await ref.watch(authVm).forgotPasswordButton(context: context);
                 if (res && context.mounted) {
-                  log("message from forget password");
+                  log("message from forget password0000000000000");
                   context.go("");
                 }
               },

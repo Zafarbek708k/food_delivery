@@ -33,7 +33,7 @@ class AuthVm extends ChangeNotifier {
   TextEditingController registerNameController = TextEditingController();
 
   TextEditingController resetEmailController = TextEditingController();
-  TextEditingController resetPasswordController = TextEditingController();
+  TextEditingController resetPasswordController = TextEditingController(text: "thebestxurshidjon@gmail.com");
 
   Future<bool> checkEmailButton({required BuildContext context}) async {
     if (fromKey.currentState!.validate()) {
@@ -70,14 +70,9 @@ class AuthVm extends ChangeNotifier {
     isLoading = true;
     notifyListeners();
     log("dscsdcs01010101010101010101");
-    final res = await AppRepositoryImpl().forgotPassword(registerEmailController.text.trim());
+    final res = await AppRepositoryImpl().forgotPassword(resetPasswordController.text.trim());
     // ignore: unnecessary_null_comparison
     if (res != null) {
-      if (context.mounted) {
-        context.go(
-          "${AppRouteName.signIn}/${AppRouteName.signUp}/${AppRouteName.verification}",
-        );
-      }
       isLoading = false;
       notifyListeners();
       return true;
@@ -97,11 +92,6 @@ class AuthVm extends ChangeNotifier {
       );
       final res = await AppRepositoryImpl().registerUser(user);
       if (res != null) {
-        if (context.mounted) {
-          context.go(
-            "${AppRouteName.signIn}/${AppRouteName.signUp}/${AppRouteName.verification}",
-          );
-        }
         return true;
       }
       log(res.toString());
@@ -207,7 +197,6 @@ class AuthVm extends ChangeNotifier {
   void resetEmailButtonFunction({required BuildContext context}) {
     if (resetEmailFromKey.currentState!.validate()) {
       service.store("ResetEmail", resetEmailController.text);
-
       context.go(
         "${AppRouteName.signIn}/${AppRouteName.reSetEmail}/${AppRouteName.reSetVerification}",
       );
@@ -219,7 +208,6 @@ class AuthVm extends ChangeNotifier {
   void resetPasswordButtonFunction({required BuildContext context}) {
     if (resetEmailPasswordFromKey.currentState!.validate()) {
       service.store("ResetPassword", resetPasswordController.text);
-
       context.go(AppRouteName.signIn);
     } else {
       notifyListeners();
