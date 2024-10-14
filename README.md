@@ -82,8 +82,21 @@ ARB files are used to manage translations efficiently, allowing easy expansion t
 
 ## Screenshots
 
-![screenshot/screenshot.png](screenshot/screenshot.png)
-![screenshot/img_1.png](screenshot/img_1.png)
-![screenshot/img_2.png](screenshot/img_2.png)
-![screenshot/img_3.png](screenshot/img_3.png)
+![screenshot.png](screenshot%2Fscreenshot.png)
+![img_1.png](screenshot%2Fimg_1.png)
+![img_2.png](screenshot%2Fimg_2.png)
+![img_3.png](screenshot%2Fimg_3.png)
+![img_4.png](screenshot%2Fimg_4.png)
+![img_5.png](screenshot%2Fimg_5.png)
+![img_6.png](screenshot%2Fimg_6.png)
+![img_7.png](screenshot%2Fimg_7.png)
+![img_8.png](screenshot%2Fimg_8.png)
+![img_9.png](screenshot%2Fimg_9.png)
+![img_10.png](screenshot%2Fimg_10.png)
+![img_11.png](screenshot%2Fimg_11.png)
+![img_12.png](screenshot%2Fimg_12.png)
+![img_13.png](screenshot%2Fimg_13.png)
+![img_14.png](screenshot%2Fimg_14.png)
+![img_15.png](screenshot%2Fimg_15.png)
+![img_16.png](screenshot%2Fimg_16.png)
 
