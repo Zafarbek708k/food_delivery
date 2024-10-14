@@ -82,3 +82,8 @@ ARB files are used to manage translations efficiently, allowing easy expansion t
 
 ## Screenshots
 
+![screenshot/screenshot.png](screenshot/screenshot.png)
+![screenshot/img_1.png](screenshot/img_1.png)
+![screenshot/img_2.png](screenshot/img_2.png)
+![screenshot/img_3.png](screenshot/img_3.png)
+
